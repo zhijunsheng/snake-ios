@@ -14,7 +14,19 @@
 		07FDE4182016091500A674FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07FDE4162016091500A674FE /* LaunchScreen.storyboard */; };
 		BBBB994E201C0885008FF835 /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBBB994D201C0885008FF835 /* Point.swift */; };
 		BBBB9950201C08FB008FF835 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBBB994F201C08FB008FF835 /* Board.swift */; };
+		BBBB9961201C0B06008FF835 /* PointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBBB9960201C0B06008FF835 /* PointTests.swift */; };
+		BBBB9963201C0B36008FF835 /* BoardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBBB9962201C0B36008FF835 /* BoardTests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BBBB995B201C0ABB008FF835 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 07FDE4022016091500A674FE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 07FDE4092016091500A674FE;
+			remoteInfo = snake;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		07FDE40A2016091500A674FE /* snake.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = snake.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -26,10 +38,21 @@
 		07FDE4192016091500A674FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BBBB994D201C0885008FF835 /* Point.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Point.swift; sourceTree = "<group>"; };
 		BBBB994F201C08FB008FF835 /* Board.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
+		BBBB9956201C0ABA008FF835 /* snakeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = snakeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BBBB995A201C0ABB008FF835 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BBBB9960201C0B06008FF835 /* PointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointTests.swift; sourceTree = "<group>"; };
+		BBBB9962201C0B36008FF835 /* BoardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		07FDE4072016091500A674FE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BBBB9953201C0ABA008FF835 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -43,6 +66,7 @@
 			isa = PBXGroup;
 			children = (
 				07FDE40C2016091500A674FE /* snake */,
+				BBBB9957201C0ABA008FF835 /* snakeTests */,
 				07FDE40B2016091500A674FE /* Products */,
 			);
 			sourceTree = "<group>";
@@ -51,6 +75,7 @@
 			isa = PBXGroup;
 			children = (
 				07FDE40A2016091500A674FE /* snake.app */,
+				BBBB9956201C0ABA008FF835 /* snakeTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -78,6 +103,16 @@
 			path = model;
 			sourceTree = "<group>";
 		};
+		BBBB9957201C0ABA008FF835 /* snakeTests */ = {
+			isa = PBXGroup;
+			children = (
+				BBBB9960201C0B06008FF835 /* PointTests.swift */,
+				BBBB9962201C0B36008FF835 /* BoardTests.swift */,
+				BBBB995A201C0ABB008FF835 /* Info.plist */,
+			);
+			path = snakeTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -98,6 +133,24 @@
 			productReference = 07FDE40A2016091500A674FE /* snake.app */;
 			productType = "com.apple.product-type.application";
 		};
+		BBBB9955201C0ABA008FF835 /* snakeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BBBB995D201C0ABB008FF835 /* Build configuration list for PBXNativeTarget "snakeTests" */;
+			buildPhases = (
+				BBBB9952201C0ABA008FF835 /* Sources */,
+				BBBB9953201C0ABA008FF835 /* Frameworks */,
+				BBBB9954201C0ABA008FF835 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BBBB995C201C0ABB008FF835 /* PBXTargetDependency */,
+			);
+			name = snakeTests;
+			productName = snakeTests;
+			productReference = BBBB9956201C0ABA008FF835 /* snakeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -111,6 +164,11 @@
 					07FDE4092016091500A674FE = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+					};
+					BBBB9955201C0ABA008FF835 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 07FDE4092016091500A674FE;
 					};
 				};
 			};
@@ -128,6 +186,7 @@
 			projectRoot = "";
 			targets = (
 				07FDE4092016091500A674FE /* snake */,
+				BBBB9955201C0ABA008FF835 /* snakeTests */,
 			);
 		};
 /* End PBXProject section */
@@ -140,6 +199,13 @@
 				07FDE4182016091500A674FE /* LaunchScreen.storyboard in Resources */,
 				07FDE4152016091500A674FE /* Assets.xcassets in Resources */,
 				07FDE4132016091500A674FE /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BBBB9954201C0ABA008FF835 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -157,7 +223,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		BBBB9952201C0ABA008FF835 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BBBB9963201C0B36008FF835 /* BoardTests.swift in Sources */,
+				BBBB9961201C0B06008FF835 /* PointTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BBBB995C201C0ABB008FF835 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 07FDE4092016091500A674FE /* snake */;
+			targetProxy = BBBB995B201C0ABB008FF835 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		07FDE4112016091500A674FE /* Main.storyboard */ = {
@@ -316,6 +399,38 @@
 			};
 			name = Release;
 		};
+		BBBB995E201C0ABB008FF835 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = J8B74FCZCC;
+				INFOPLIST_FILE = snakeTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = NICOLE.co.snakeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/snake.app/snake";
+			};
+			name = Debug;
+		};
+		BBBB995F201C0ABB008FF835 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = J8B74FCZCC;
+				INFOPLIST_FILE = snakeTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = NICOLE.co.snakeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/snake.app/snake";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -333,6 +448,15 @@
 			buildConfigurations = (
 				07FDE41D2016091500A674FE /* Debug */,
 				07FDE41E2016091500A674FE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BBBB995D201C0ABB008FF835 /* Build configuration list for PBXNativeTarget "snakeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BBBB995E201C0ABB008FF835 /* Debug */,
+				BBBB995F201C0ABB008FF835 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
