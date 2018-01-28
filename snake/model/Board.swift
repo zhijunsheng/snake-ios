@@ -19,8 +19,8 @@ struct Board: CustomStringConvertible {
         
         var dots = ""
         
-        for _ in 1...numRows {
-
+        for i in (1...numRows).reversed() {
+            dots += "\(i)"
             for _ in 1...numCols {
                 dots += " ."
                 

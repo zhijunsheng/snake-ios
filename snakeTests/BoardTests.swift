@@ -29,7 +29,7 @@ class BoardTests: XCTestCase {
         
 //        let board = Board(description: <#String#>, numRows: 6, numCols: 8)
         
-        let board = Board(numRows: 6, numCols: 3)
+        let board = Board(numRows: 6, numCols: 8)
         
         print("\(board)")
         
