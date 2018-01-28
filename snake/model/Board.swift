@@ -12,6 +12,12 @@ struct Board: CustomStringConvertible {
     
     var numRows : Int
     var numCols: Int
+    var snake: [Point]
+    
+    func isOnBoard(point: Point) -> Bool {
+        return 1 <= point.row && point.row <= numRows &&
+                1 <= point.col && point.col <= numCols
+    }
     
     var description: String {
         
@@ -31,12 +37,9 @@ struct Board: CustomStringConvertible {
         
         let x = numCols * 2 + 1
         
-        print("x is \(x)")
-        
         let bottomCharsArray = Array(bottomChars)
         let subString = bottomCharsArray[0...x]
-        print("subString is \(subString)")
-        
+
         dots += subString
         
         return ("\(dots)")
