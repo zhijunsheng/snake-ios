@@ -40,7 +40,7 @@ class BoardTests: XCTestCase {
             ]
         
         let food = [
-            Point(row: 6, col: 2),
+            Point(row: 1, col: 1),
             Point(row: 2, col: 3),
             Point(row: 5, col: 8),
         ]
