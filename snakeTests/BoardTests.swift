@@ -12,7 +12,7 @@ import XCTest
 class BoardTests: XCTestCase {
     
     func testIsOnBoardForSinglePoint() {
-        let board = Board(numRows: 6, numCols: 8, snake: [])
+        let board = Board(numRows: 6, numCols: 8, snake: [], food: [])
         
         XCTAssertTrue(board.isOnBoard(point: Point(row: 1, col: 1)))
         XCTAssertTrue(board.isOnBoard(point: Point(row: 6, col: 6)))
@@ -22,11 +22,11 @@ class BoardTests: XCTestCase {
     func testIsOnBoardForSnake() {
         
         /*
-         6 . . . . . . . .
-         5 . . . . . . . .
+         6 . x . . . . . .
+         5 . . . . . . . x
          4 . . . o o . . .
          3 . . . . o o o .
-         2 . . . . . . . .
+         2 . . x . . . . .
          1 . . . . . . . .
          + A B C D E F G H
          */
@@ -39,7 +39,13 @@ class BoardTests: XCTestCase {
             Point(row: 3, col: 7),
             ]
         
-        let board = Board(numRows: 6, numCols: 8, snake: snake)
+        let food = [
+            Point(row: 6, col: 2),
+            Point(row: 2, col: 3),
+            Point(row: 5, col: 8),
+        ]
+        
+        let board = Board(numRows: 6, numCols: 8, snake: snake, food: food)
         
         print("\(board)")
         
