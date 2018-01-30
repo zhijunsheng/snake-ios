@@ -20,7 +20,7 @@ struct Board: CustomStringConvertible {
     
     func isOnBoard(point: Point) -> Bool {
         return 1 <= point.row && point.row <= numRows &&
-                1 <= point.col && point.col <= numCols
+            1 <= point.col && point.col <= numCols
     }
     
     func isFoodOrSnakePoint(row: Int, col: Int, points: [Point]) -> Bool {
@@ -32,7 +32,7 @@ struct Board: CustomStringConvertible {
         }
         return false
     }
-
+    
     var description: String {
         
         for point in snake {
@@ -62,12 +62,10 @@ struct Board: CustomStringConvertible {
         
         let bottomCharsArray = Array(bottomChars)
         let subString = bottomCharsArray[0...x]
-
+        
         dots += subString
         
         return ("\(dots)")
         
     }
-    
-
 }
