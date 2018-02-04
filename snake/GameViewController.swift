@@ -13,6 +13,11 @@ class GameViewController: UIViewController {
     let numRows = 6
     let numCols = 8
     
+    var gridTopLeft = CGPoint(x: 0.0, y: 0.0)
+    var gridWidth = 0
+    var gridHeight = 0
+    var cellSide: CGFloat = 20.0
+    
     @IBOutlet var boardView: BoardView!
     var board = Board(numRows: 0, numCols: 0, snake: [], food: [])
     

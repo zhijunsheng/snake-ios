@@ -22,9 +22,22 @@ class BoardView: UIView {
     }
 
     func drawBoard() {
-        print("inside drawBoard")
+
+        
+       drawLine(withColor: .gray, fromX: 1, fromY: 1, toX: 1, toY: 1000)
+        
+        
         
         // use numberOfRows and numberOfCols to draw the board on screen
+    }
+    
+    func drawLine(withColor color: UIColor, fromX: CGFloat, fromY: CGFloat, toX: CGFloat, toY: CGFloat) {
+        let path = UIBezierPath()
+        path.lineWidth = 0.5
+        path.move(to: CGPoint(x: fromX, y: fromY))
+        path.addLine(to: CGPoint(x: toX, y: toY))
+        color.setStroke()
+        path.stroke()
     }
  
     func drawSnake() {
