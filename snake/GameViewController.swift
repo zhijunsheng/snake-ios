@@ -10,13 +10,9 @@ import UIKit
 
 class GameViewController: UIViewController {
     
-    let numRows = 6
-    let numCols = 8
+    let numRows = 21
+    let numCols = 12
     
-    var gridTopLeft = CGPoint(x: 0.0, y: 0.0)
-    var gridWidth = 0
-    var gridHeight = 0
-    var cellSide: CGFloat = 20.0
     
     @IBOutlet var boardView: BoardView!
     var board = Board(numRows: 0, numCols: 0, snake: [], food: [])
@@ -35,6 +31,8 @@ class GameViewController: UIViewController {
             Point(row: 6, col: 5)
         ]
         board = Board(numRows: numRows, numCols: numCols, snake: snake, food: food)
+        
+        updateViewFromModel()
     }
     
     @IBAction func buttonTapped(_ sender: Any) {
@@ -57,9 +55,12 @@ class GameViewController: UIViewController {
     
     
     func updateViewFromModel() {
+        print("inside updateViewFromModel()")
         
-        boardView.numberOfRows = board.numRows
-        boardView.numberOfCols = board.numCols
+        boardView.gridHeight = board.numRows
+        boardView.gridWidth = board.numCols
+        boardView.cellSide = 20
+        boardView.gridTopLeft = CGPoint(x: 20.0, y: 20.0)
         
         // based on our model, i.e. board
         // we can draw on boardView with all the info in board

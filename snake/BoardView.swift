@@ -9,12 +9,13 @@
 import UIKit
 
 class BoardView: UIView {
-    
-    var numberOfRows = 0
-    var numberOfCols = 0
 
+    var gridTopLeft = CGPoint(x: 0.0, y: 0.0)
+    var gridWidth = 0
+    var gridHeight = 0
+    var cellSide: CGFloat = 0.0
+    
     override func draw(_ rect: CGRect) {
-        print("drawn")
         
         drawBoard()
         drawSnake()
@@ -23,12 +24,23 @@ class BoardView: UIView {
 
     func drawBoard() {
 
+        for i in 0...gridHeight {
+            drawLine(withColor: .gray,
+                     fromX: gridTopLeft.x,
+                     fromY: gridTopLeft.y + CGFloat(i) * cellSide,
+                     toX: gridTopLeft.x + CGFloat(gridWidth) * cellSide,
+                     toY: gridTopLeft.y + CGFloat(i) * cellSide)
+            
+        }
         
-       drawLine(withColor: .gray, fromX: 1, fromY: 1, toX: 1, toY: 1000)
-        
-        
-        
-        // use numberOfRows and numberOfCols to draw the board on screen
+        for i in 0...gridWidth {
+            drawLine(withColor: .gray,
+                     fromX: gridTopLeft.x + CGFloat(i) * cellSide,
+                     fromY: gridTopLeft.y,
+                     toX: gridTopLeft.x + CGFloat(i) * cellSide,
+                     toY: gridTopLeft.y + CGFloat(gridHeight) * cellSide)
+        }
+             // use numberOfRows and numberOfCols to draw the board on screen
     }
     
     func drawLine(withColor color: UIColor, fromX: CGFloat, fromY: CGFloat, toX: CGFloat, toY: CGFloat) {
