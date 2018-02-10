@@ -14,6 +14,7 @@ class BoardView: UIView {
     var gridWidth = 0
     var gridHeight = 0
     var cellSide: CGFloat = 0.0
+    var snake = [CGPoint]()
     
     override func draw(_ rect: CGRect) {
         
@@ -30,7 +31,6 @@ class BoardView: UIView {
                      fromY: gridTopLeft.y + CGFloat(i) * cellSide,
                      toX: gridTopLeft.x + CGFloat(gridWidth) * cellSide,
                      toY: gridTopLeft.y + CGFloat(i) * cellSide)
-            
         }
         
         for i in 0...gridWidth {
@@ -40,7 +40,6 @@ class BoardView: UIView {
                      toX: gridTopLeft.x + CGFloat(i) * cellSide,
                      toY: gridTopLeft.y + CGFloat(gridHeight) * cellSide)
         }
-             // use numberOfRows and numberOfCols to draw the board on screen
     }
     
     func drawLine(withColor color: UIColor, fromX: CGFloat, fromY: CGFloat, toX: CGFloat, toY: CGFloat) {
@@ -53,10 +52,23 @@ class BoardView: UIView {
     }
  
     func drawSnake() {
-        print("inside drawSnake")
+//        drawSquare(withColor: .red, x: 10.0, y: 10.0)
+        
+        
+        // since we already have an array of CGPoint, i.e.  snake
+        // we can draw them with a loop
     }
     
     func drawFood() {
         print("inside drawFood")
+    }
+    
+    func drawSquare(withColor color: UIColor, x: CGFloat, y: CGFloat) {
+        let cellRect = CGRect(x: x, y: y, width: cellSide, height: cellSide)
+        let path = UIBezierPath(rect: cellRect)
+        color.setStroke()
+        color.setFill()
+        path.stroke()
+        path.fill()
     }
 }

@@ -13,21 +13,18 @@ class GameViewController: UIViewController {
     let numRows = 21
     let numCols = 12
     
-    
     @IBOutlet var boardView: BoardView!
     var board = Board(numRows: 0, numCols: 0, snake: [], food: [])
-    
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var snake = [
+        let snake = [
             Point(row: 2, col: 2),
             Point(row: 2, col: 3)
         ]
         
-        var food = [
+        let food = [
             Point(row: 6, col: 5)
         ]
         board = Board(numRows: numRows, numCols: numCols, snake: snake, food: food)
@@ -52,7 +49,11 @@ class GameViewController: UIViewController {
         updateViewFromModel()
     }
     
-    
+    private func location(of point: Point, inBoardView boardView: BoardView) -> CGPoint {
+        let centerX = boardView.gridTopLeft.x + CGFloat(point.col - 1) * boardView.cellSide
+        let centerY = boardView.gridTopLeft.y + CGFloat(boardView.gridHeight - point.row) * boardView.cellSide
+        return CGPoint(x: centerX, y: centerY)
+    }
     
     func updateViewFromModel() {
         print("inside updateViewFromModel()")
@@ -64,14 +65,15 @@ class GameViewController: UIViewController {
         
         // based on our model, i.e. board
         // we can draw on boardView with all the info in board
-        
-//        board.food
-//        board.numCols
-//        board.snake
-        
+
+        var snakePointsInBoardView = [CGPoint]()
+        for point in board.snake {
+            let snakePointLocation = location(of: point, inBoardView: boardView)
+            snakePointsInBoardView.append(snakePointLocation)
+        }
+        boardView.snake = snakePointsInBoardView
         
         boardView.setNeedsDisplay()
     }
-    
 }
 
