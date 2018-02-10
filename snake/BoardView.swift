@@ -15,6 +15,7 @@ class BoardView: UIView {
     var gridHeight = 0
     var cellSide: CGFloat = 0.0
     var snake = [CGPoint]()
+    var food = [CGPoint]()
     
     override func draw(_ rect: CGRect) {
         
@@ -60,7 +61,9 @@ class BoardView: UIView {
     }
     
     func drawFood() {
-        print("inside drawFood")
+        for i in food {
+            drawCircle(x: i.x, y: i.y)
+        }
     }
     
     func drawSquare(withColor color: UIColor, x: CGFloat, y: CGFloat) {
@@ -70,5 +73,15 @@ class BoardView: UIView {
         color.setFill()
         path.stroke()
         path.fill()
+    }
+    
+    func drawCircle(x: CGFloat, y: CGFloat) {
+        let circleRadius = cellSide * 0.4
+        let path = UIBezierPath(arcCenter: CGPoint(x: x, y: y), radius: circleRadius, startAngle: 0, endAngle: CGFloat.pi * 2, clockwise: true)
+        let color = UIColor.red
+        color.setFill()
+        color.setStroke()
+        path.fill()
+        path.stroke()
     }
 }

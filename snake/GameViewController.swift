@@ -25,7 +25,8 @@ class GameViewController: UIViewController {
         ]
         
         let food = [
-            Point(row: 6, col: 5)
+            Point(row: 6, col: 5),
+            Point(row: 6, col: 6),
         ]
         board = Board(numRows: numRows, numCols: numCols, snake: snake, food: food)
         
@@ -56,8 +57,6 @@ class GameViewController: UIViewController {
     }
     
     func updateViewFromModel() {
-        print("inside updateViewFromModel()")
-        
         boardView.gridHeight = board.numRows
         boardView.gridWidth = board.numCols
         boardView.cellSide = 20
@@ -73,7 +72,24 @@ class GameViewController: UIViewController {
         }
         boardView.snake = snakePointsInBoardView
         
+        //food
+        for i in board.food {
+            boardView.food.append(convertFrom(point: i))
+        }
+        
+        
+        
+        //snake
+        
+        
         boardView.setNeedsDisplay()
+    }
+    
+    func convertFrom(point: Point) -> CGPoint {
+        let x = boardView.gridTopLeft.x + boardView.cellSide * CGFloat(point.col)
+        let y = boardView.gridTopLeft.y + boardView.cellSide * CGFloat(point.row)
+        
+        return CGPoint(x: x, y: y)
     }
 }
 
