@@ -8,15 +8,12 @@
 
 import Foundation
 
-
-
 struct Board: CustomStringConvertible {
     
     var numRows : Int
     var numCols: Int
     var snake: [Point]
     var food: [Point]
-    
     
     func isOnBoard(point: Point) -> Bool {
         return 1 <= point.row && point.row <= numRows &&
@@ -35,16 +32,17 @@ struct Board: CustomStringConvertible {
     
     var description: String {
         
-        for point in snake {
-            print("\(point.row) , \(point.col)")
-        }
-        
-        let bottomChars = "+ A B C D E F G H J K L M N O P Q R S T"
+        let bottomChars = " + A B C D E F G H J K L M N O P Q R S T"
         
         var dots = ""
         
         for i in (1...numRows).reversed() {
+            if i <= 9 {
+            dots += " \(i)"
+            }
+            if i > 9 {
             dots += "\(i)"
+            }
             for j in 1...numCols {
                 
                 if isFoodOrSnakePoint(row: i, col: j, points: food) == true {
@@ -66,6 +64,5 @@ struct Board: CustomStringConvertible {
         dots += subString
         
         return ("\(dots)")
-        
     }
 }
