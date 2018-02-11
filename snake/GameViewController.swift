@@ -77,6 +77,10 @@ class GameViewController: UIViewController {
             boardView.food.append(convertFrom(point: i))
         }
         
+        for i in board.snake {
+            boardView.snake.append(convertFrom(point: i))
+        }
+        
         
         
         //snake
@@ -87,7 +91,7 @@ class GameViewController: UIViewController {
     
     func convertFrom(point: Point) -> CGPoint {
         let x = boardView.gridTopLeft.x + boardView.cellSide * CGFloat(point.col)
-        let y = boardView.gridTopLeft.y + boardView.cellSide * CGFloat(point.row)
+        let y = boardView.gridTopLeft.y + boardView.cellSide * CGFloat(boardView.gridHeight - point.row)
         
         return CGPoint(x: x, y: y)
     }

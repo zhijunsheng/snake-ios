@@ -53,11 +53,9 @@ class BoardView: UIView {
     }
  
     func drawSnake() {
-//        drawSquare(withColor: .red, x: 10.0, y: 10.0)
-        
-        
-        // since we already have an array of CGPoint, i.e.  snake
-        // we can draw them with a loop
+        for i in snake {
+            drawSquare(withColor: .blue, x: i.x, y: i.y)
+        }
     }
     
     func drawFood() {
@@ -74,6 +72,7 @@ class BoardView: UIView {
         path.stroke()
         path.fill()
     }
+    
     
     func drawCircle(x: CGFloat, y: CGFloat) {
         let circleRadius = cellSide * 0.4
