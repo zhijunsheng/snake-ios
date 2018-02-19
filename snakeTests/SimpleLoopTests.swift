@@ -8,8 +8,6 @@
 
 import XCTest
 
-
-
 class SimpleLoopTests: XCTestCase {
     
     /*

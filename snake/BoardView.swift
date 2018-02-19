@@ -53,26 +53,29 @@ class BoardView: UIView {
     }
  
     func drawSnake() {
-        for i in snake {
-            drawSquare(withColor: .blue, x: i.x, y: i.y)
+        for (index, point) in snake.enumerated() {
+           if index == 0 {
+                drawRoundSquare(withColor: .orange, x: point.x, y: point.y)
+           } else {
+                drawRoundSquare(withColor: .blue, x: point.x, y: point.y)
+            }
         }
     }
     
     func drawFood() {
-        for i in food {
-            drawCircle(x: i.x, y: i.y)
+        for point in food {
+            drawCircle(x: point.x, y: point.y)
         }
     }
     
-    func drawSquare(withColor color: UIColor, x: CGFloat, y: CGFloat) {
+    func drawRoundSquare(withColor color: UIColor, x: CGFloat, y: CGFloat) {
         let cellRect = CGRect(x: x, y: y, width: cellSide, height: cellSide)
-        let path = UIBezierPath(rect: cellRect)
+        let path = UIBezierPath(roundedRect: cellRect, cornerRadius: cellSide * 0.3)
         color.setStroke()
         color.setFill()
         path.stroke()
         path.fill()
-    }
-    
+    }    
     
     func drawCircle(x: CGFloat, y: CGFloat) {
         let circleRadius = cellSide * 0.4
