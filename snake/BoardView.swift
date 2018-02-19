@@ -64,7 +64,7 @@ class BoardView: UIView {
     
     func drawFood() {
         for point in food {
-            drawCircle(x: point.x, y: point.y)
+            drawCircle(x: point.x - cellSide * 0.5, y: point.y + cellSide * 0.5)
         }
     }
     

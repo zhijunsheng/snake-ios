@@ -25,11 +25,10 @@ class GameViewController: UIViewController {
         ]
         
         let food = [
-            Point(row: 6, col: 5),
-            Point(row: 6, col: 6),
+            Point(row: 1, col: 1),
+            Point(row: 2, col: 1),
         ]
         board = Board(numRows: numRows, numCols: numCols, snake: snake, food: food)
-        
         updateViewFromModel()
     }
     
