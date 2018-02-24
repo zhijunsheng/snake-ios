@@ -10,6 +10,22 @@ import XCTest
 
 class SimpleLoopTests: XCTestCase {
     
+    
+    
+    func testMovingElementsOfAnArr() {
+        var anArr = [10, 12, 5, 7]
+        let first = anArr[0]
+        for (i, num) in anArr.enumerated() {
+            print("i is \(i), num is \(num)")
+            if i < anArr.count - 1 {
+                anArr[i] = anArr[i + 1]
+            } else {
+                anArr[i] = first
+            }
+        }
+        print(anArr)
+    }
+    
     /*
  Homework:
      print:

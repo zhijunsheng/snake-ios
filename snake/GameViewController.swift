@@ -25,29 +25,36 @@ class GameViewController: UIViewController {
         ]
         
         let food = [
-            Point(row: 1, col: 1),
-            Point(row: 2, col: 1),
+            Point(row: 10, col: 4),
+            Point(row: 8, col: 10),
         ]
         board = Board(numRows: numRows, numCols: numCols, snake: snake, food: food)
         updateViewFromModel()
     }
     
-    @IBAction func buttonTapped(_ sender: Any) {
-        print("button was tapped")
-        
-        // modify our model, e.g change the food, or snake
-        let newSnake = [
-            Point(row: 2, col: 2),
-            Point(row: 2, col: 3),
-            Point(row: 2, col: 4)
-        ]
-        
-        board = Board(numRows: numRows, numCols: numCols, snake: newSnake, food: board.food)
-        
-        print(board)
+    @IBAction func leftButton(_ sender: Any) {
+//        moveSnakeToLeft()
         
         updateViewFromModel()
     }
+    
+    
+//    @IBAction func buttonTapped(_ sender: Any) {
+//        print("button was tapped")
+//
+//        // modify our model, e.g change the food, or snake
+//        let newSnake = [
+//            Point(row: 2, col: 2),
+//            Point(row: 2, col: 3),
+//            Point(row: 2, col: 4)
+//        ]
+//
+//        board = Board(numRows: numRows, numCols: numCols, snake: newSnake, food: board.food)
+//
+//        print(board)
+//
+//        updateViewFromModel()
+//    }
     
     private func location(of point: Point, inBoardView boardView: BoardView) -> CGPoint {
         let centerX = boardView.gridTopLeft.x + CGFloat(point.col - 1) * boardView.cellSide
@@ -80,11 +87,6 @@ class GameViewController: UIViewController {
             boardView.snake.append(convertFrom(point: i))
         }
         
-        
-        
-        //snake
-        
-        
         boardView.setNeedsDisplay()
     }
     
@@ -94,5 +96,6 @@ class GameViewController: UIViewController {
         
         return CGPoint(x: x, y: y)
     }
+    
 }
 

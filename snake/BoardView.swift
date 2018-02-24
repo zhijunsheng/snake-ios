@@ -75,7 +75,7 @@ class BoardView: UIView {
         color.setFill()
         path.stroke()
         path.fill()
-    }    
+    }
     
     func drawCircle(x: CGFloat, y: CGFloat) {
         let circleRadius = cellSide * 0.4
