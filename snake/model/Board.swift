@@ -39,10 +39,9 @@ struct Board: CustomStringConvertible {
         
         for i in (1...numRows).reversed() {
             if i <= 9 {
-            dots += " \(i)"
-            }
-            if i > 9 {
-            dots += "\(i)"
+                dots += " \(i)"
+            } else {
+                dots += "\(i)"
             }
             for j in 1...numCols {
                 
