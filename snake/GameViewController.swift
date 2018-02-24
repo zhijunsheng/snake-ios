@@ -19,8 +19,8 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let snake = [
-            Point(row: 2, col: 2),
+        let snake: [Point] = [
+//            Point(row: 2, col: 2),
             Point(row: 2, col: 3)
         ]
         
@@ -34,6 +34,7 @@ class GameViewController: UIViewController {
     
     @IBAction func leftButton(_ sender: Any) {
 //        moveSnakeToLeft()
+        board.moveSnakeLeft()
         
         updateViewFromModel()
     }
@@ -41,15 +42,15 @@ class GameViewController: UIViewController {
     
     @IBAction func buttonTapped(_ sender: Any) {
         // modify our model, e.g change the food, or snake
-        let newSnake = [
-            Point(row: 2, col: 2),
-            Point(row: 2, col: 3),
-            Point(row: 2, col: 4)
-        ]
-
-        board = Board(numRows: numRows, numCols: numCols, snake: newSnake, food: board.food)
-
-        print(board)
+//        let newSnake = [
+//            Point(row: 2, col: 2),
+//            Point(row: 2, col: 3),
+//            Point(row: 2, col: 4)
+//        ]
+//
+//        board = Board(numRows: numRows, numCols: numCols, snake: newSnake, food: board.food)
+//
+//        print(board)
 
         updateViewFromModel()
     }
@@ -82,6 +83,7 @@ class GameViewController: UIViewController {
         }
         
         for i in board.snake {
+            print(i)
             boardView.snake.append(convertFrom(point: i))
         }
         
