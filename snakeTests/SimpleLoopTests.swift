@@ -10,8 +10,6 @@ import XCTest
 
 class SimpleLoopTests: XCTestCase {
     
-    
-    
     func testMovingElementsOfAnArr() {
         var anArr = [10, 12, 5, 7]
         let first = anArr[0]
@@ -26,39 +24,19 @@ class SimpleLoopTests: XCTestCase {
         print(anArr)
     }
     
-    /*
- Homework:
-     print:
-     1234567
-     234567
-     34567
-     4567
-     567
-     67
-     7
-     functions{
-     count multiples of 7 in [0...99]
-     
-     calculation of 1 + 4 + 9 + 16 + 25 ... n ^ 2
-     }
- */
-    
     func testPrint() {
-        var startingNumber = 1
-            for j in startingNumber...7 {
+        for i in 1...7 {
+            for j in i...7 {
                 print(j, terminator: "")
-                if j == 7 {
-                    startingNumber += 1
-                }
             }
             print()
+        }
+            print()
     }
-    
     
     func testSumOfSquares() {
         XCTAssertEqual(5, calculationOfSumOfSquares(lastInt: 2))
         XCTAssertEqual(0, calculationOfSumOfSquares(lastInt: 0))
-
     }
     
     func calculationOfSumOfSquares(lastInt: Int) -> Int {
@@ -85,7 +63,7 @@ class SimpleLoopTests: XCTestCase {
         }
         return numberOfMultiplesOf7
     }
-  /*
+  
     func testNumberOfOddNumbersInArr() {
         XCTAssertEqual(2, numberOfOddNumbersInArr(arr: [1, 5]))
         XCTAssertEqual(0, numberOfOddNumbersInArr(arr: [2]))
@@ -187,5 +165,4 @@ class SimpleLoopTests: XCTestCase {
         let sum = a + b
         return sum
     }
- */
 }
