@@ -30,14 +30,20 @@ struct Board: CustomStringConvertible {
         return false
     }
     
-  mutating  func moveSnakeLeft() {
-        snake[0] = Point(row: snake[0].row, col: snake[0].col - 1)
+    
+    mutating  func moveSnakeLeft() {
         
-    for (index, _) in snake.enumerated() {
+        var newSnake = [Point]()
+        
+        newSnake.append(Point(row: snake[0].row, col: snake[0].col - 1))
+        
+        for (index, _) in snake.enumerated() {
             if index > 0 {
-                snake[index] = snake[index - 1]
+                newSnake.append(snake[index - 1])
             }
         }
+        
+        snake = newSnake
     }
     
     var description: String {

@@ -55,6 +55,58 @@ class BoardTests: XCTestCase {
     }
     
     func testMoveSnakeLeft() {
+        
+        /*
+         6 . . . . . . . .
+         5 . . . . . . . x
+         4 . . . o o . . .
+         3 . . . . . . . .
+         2 . . x . . . . .
+         1 x . . . . . . .
+         + A B C D E F G H
+         */
+        
+        let snake = [
+            Point(row: 4, col: 4),
+            Point(row: 4, col: 5),
+            Point(row: 3, col: 5),
+            Point(row: 3, col: 6),
+            Point(row: 3, col: 7),
+            ]
+        
+        let food = [
+            Point(row: 1, col: 1),
+            Point(row: 2, col: 3),
+            Point(row: 5, col: 8),
+            ]
+        
+        var board = Board(numRows: 6, numCols: 8, snake: snake, food: food)
+        
+        print("\(board)")
+//
+//        XCTAssertEqual(snake[0], Point(row: 4, col: 4))
+//        XCTAssertEqual(snake[1], Point(row: 4, col: 5))
+//        XCTAssertEqual(snake[2], Point(row: 4, col: 6))
+//        XCTAssertEqual(snake[3], Point(row: 4, col: 7))
+
+
+        
+        board.moveSnakeLeft()
+        
+//        XCTAssertEqual(board.snake[0], Point(row: 4, col: 3))
+//        XCTAssertEqual(board.snake[1], Point(row: 4, col: 4))
+//        XCTAssertEqual(board.snake[2], Point(row: 4, col: 5))
+//        XCTAssertEqual(board.snake[3], Point(row: 4, col: 6))
+
+
+
+
+
+        
+        print("\(board)")
+        
+//        XCTAssertEqual(snake[1], Point(row: 4, col: 4))
+        
         //create a board with a snake
         
         //try to move the snake left

@@ -20,10 +20,11 @@ class GameViewController: UIViewController {
         super.viewDidLoad()
         
         let snake: [Point] = [
-            Point(row: 2, col: 8),
-            Point(row: 2, col: 9),
-            Point(row: 2, col: 10),
-            Point(row: 2, col: 11)
+            Point(row: 4, col: 4),
+            Point(row: 4, col: 5),
+            Point(row: 3, col: 5),
+            Point(row: 3, col: 6),
+            Point(row: 3, col: 7),
         ]
         
         let food = [

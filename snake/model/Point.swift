@@ -8,9 +8,13 @@
 
 import Foundation
 
-struct Point {
+struct Point: Equatable {
     var row : Int
     var col : Int
+    
+    static func ==(lhs: Point, rhs: Point) -> Bool {
+        return lhs.row == rhs.row && lhs.col == rhs.col
+    }
 }
 
 
