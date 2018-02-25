@@ -20,7 +20,7 @@ class GameViewController: UIViewController {
         super.viewDidLoad()
         
         let snake: [Point] = [
-//            Point(row: 2, col: 2),
+            Point(row: 2, col: 2),
             Point(row: 2, col: 3)
         ]
         
@@ -69,15 +69,7 @@ class GameViewController: UIViewController {
         
         // based on our model, i.e. board
         // we can draw on boardView with all the info in board
-
-        var snakePointsInBoardView = [CGPoint]()
-        for point in board.snake {
-            let snakePointLocation = location(of: point, inBoardView: boardView)
-            snakePointsInBoardView.append(snakePointLocation)
-        }
-        boardView.snake = snakePointsInBoardView
         
-        //food
         for i in board.food {
             boardView.food.append(convertFrom(point: i))
         }

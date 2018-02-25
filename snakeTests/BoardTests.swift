@@ -53,4 +53,16 @@ class BoardTests: XCTestCase {
             XCTAssertTrue(board.isOnBoard(point: point))
         }
     }
+    
+    func testMoveSnakeLeft() {
+        //create a board with a snake
+        
+        //try to move the snake left
+        
+        //test moveSnakeLeft() function in board.swift
+        
+        //verify new locations and number of points
+        
+        //use: XCTAssertEqual
+    }
 }
