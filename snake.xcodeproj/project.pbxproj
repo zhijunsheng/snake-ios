@@ -17,7 +17,6 @@
 		BBBB9950201C08FB008FF835 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBBB994F201C08FB008FF835 /* Board.swift */; };
 		BBBB9961201C0B06008FF835 /* PointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBBB9960201C0B06008FF835 /* PointTests.swift */; };
 		BBBB9963201C0B36008FF835 /* BoardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBBB9962201C0B36008FF835 /* BoardTests.swift */; };
-		BBEC778C201FEBEE0027E02A /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBEC778B201FEBEE0027E02A /* BoardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,7 +44,6 @@
 		BBBB995A201C0ABB008FF835 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BBBB9960201C0B06008FF835 /* PointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointTests.swift; sourceTree = "<group>"; };
 		BBBB9962201C0B36008FF835 /* BoardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardTests.swift; sourceTree = "<group>"; };
-		BBEC778B201FEBEE0027E02A /* BoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,7 +87,6 @@
 			children = (
 				07FDE40D2016091500A674FE /* AppDelegate.swift */,
 				07FDE40F2016091500A674FE /* GameViewController.swift */,
-				BBEC778B201FEBEE0027E02A /* BoardView.swift */,
 				BBBB9951201C091A008FF835 /* model */,
 				07FDE4112016091500A674FE /* Main.storyboard */,
 				07FDE4142016091500A674FE /* Assets.xcassets */,
@@ -224,7 +221,6 @@
 			files = (
 				07FDE4102016091500A674FE /* GameViewController.swift in Sources */,
 				07FDE40E2016091500A674FE /* AppDelegate.swift in Sources */,
-				BBEC778C201FEBEE0027E02A /* BoardView.swift in Sources */,
 				BBBB9950201C08FB008FF835 /* Board.swift in Sources */,
 				BBBB994E201C0885008FF835 /* Point.swift in Sources */,
 			);
