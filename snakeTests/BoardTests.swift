@@ -202,19 +202,61 @@ class BoardTests: XCTestCase {
      . . . . . . . .
      . . . . . . . .
      . . . . . . . .
+    
+     11
+     10
+      6 . . . . . . . .
+      5 . . . . . . . .
+      4 . . . . . . . .
+      3 . . . . . . . .
+      2 . . . . . . . .
+      1 . . . . . . . .
+
      
     */
+
     func testBoard() {
-        let rows = 8
+        let rows = 12
         let cols = 6
         
         for y in 1...rows {
-            for x in 1...cols {
+            if rows - y + 1 >= 10 {
+                print("\(rows - y + 1)", terminator:" ")
+            } else {
+                print(" \(rows - y + 1)", terminator:" ")
+            }
+            for _ in 1...cols {
                 print(".", terminator:" ")
             }
             print(" ", terminator: "\n")
         }
     }
     
+    func testCreateBoardDesc() {
+        let boardDesc = createBoardDesc()
+        
+        print(boardDesc)
+    }
     
+    func createBoardDesc() -> String {
+        
+        let rows = 12
+        let cols = 8
+        
+        var boardString = ""
+        for y in 1...rows {
+            if rows - y + 1 >= 10 {
+
+                boardString += "\(rows - y + 1) "
+            } else {
+                boardString += " \(rows - y + 1) "
+            }
+            
+            for _ in 1...cols {
+                boardString += ". "
+            }
+            boardString += "\n"
+        }
+        return boardString
+    }
 }
