@@ -19,8 +19,18 @@ class ArrayTests: XCTestCase {
         XCTAssertEqual(362880, prod)
     }
     
-    func testHi() {
+    func testStringArray() {
+        let str = "hello peter"
+        let strArr = Array(str)
+        print(strArr[0])
+        print(strArr[4])
+        print(str)
+        print(strArr)
         
+        let subStr = strArr[0...4]
+        print(subStr)
+        let tmp = "abcdefg" + subStr
+        print(tmp)
     }
     
     func testAverageOfIntArray() {

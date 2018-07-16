@@ -10,14 +10,24 @@ import XCTest
 
 class PointTests: XCTestCase {
     
-    func testExample() {
-        print("-_-")
-        
-        let sum = add(a: 3, b: 5)
-        XCTAssertEqual(8, sum)
-    }
-    func add(a: Int, b: Int) -> Int {
-        return a + b
+    func testPoint() {
+        let p0 = MyPoint(x: 36, y: 125)
+        let p1 = MyPoint(x: 34, y: 256)
+        print(p0)
+        print(p1)
+        print(p0.x)
+        print(p1.x)
+        print(p0.y)
+        print(p1.y)
+        if p0.x == p1.x && p0.y == p1.y{
+            print("相同！！！")
+        } else {
+            print("不相同。☹️")
+        }
     }
     
+    struct MyPoint {
+        let x : Int
+        let y : Int
+    }
 }
