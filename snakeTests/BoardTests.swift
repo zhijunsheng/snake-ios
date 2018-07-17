@@ -224,7 +224,26 @@ class BoardTests: XCTestCase {
     //      1 Q . . Q . . . Q
     //      ✪ A B C D E F G H
     //
-// sj.g
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+             //
+            //
+           //
+          //
+         //
+        //
+       //
+      //
+     //
     //
    //
   //
@@ -267,13 +286,31 @@ class BoardTests: XCTestCase {
     }
     
     func createBoardDesc() -> String {
-        let p0 = Point(x: 3, y: 9)
-        let p1 = Point(x: 3, y: 8)
-        let p2 = Point(x: 3, y: 7)
-        let p3 = Point(x: 4, y: 7)
+        let snake = [Point(x: 3, y: 9),
+                     Point(x: 3, y: 8),
+                     Point(x: 3, y: 7),
+                     Point(x: 4, y: 7),
+                     Point(x: 4, y: 6),
+                     Point(x: 4, y: 5),
+                     Point(x: 5, y: 5),
+                     Point(x: 6, y: 5),
+                     Point(x: 6, y: 6),
+                     Point(x: 6, y: 7),
+                     Point(x: 6, y: 8),
+                     Point(x: 6, y: 9),
+                     Point(x: 6, y: 10),
+                     Point(x: 6, y: 11),
+                     Point(x: 6, y: 12),
+                     Point(x: 6, y: 13),
+                     Point(x: 6, y: 14),
+                     Point(x: 6, y: 15),
+                     Point(x: 6, y: 16),
+                     Point(x: 6, y: 17),
+                     Point(x: 6, y: 18),
+                     Point(x: 6, y: 19),]
         
-        let rows = 12
-        let cols = 8
+        let rows = 366
+        let cols = 25
         let bottomChars = " ✪ A B C D E F G H J K L M N O P Q R S T U V W X Y Z"
         let bottomCharsArr = Array(bottomChars) // bottomCharsArr = [" ", "✪", " ", "A", ...]
         let subString = bottomCharsArr[0 ... cols * 2 + 1]
@@ -288,7 +325,16 @@ class BoardTests: XCTestCase {
             }
             
             for x in 1...cols {
-                if p0.x == x && p0.y == rows - y + 1 || p1.x == x && p1.y == rows - y + 1 || p2.x == x && p2.y == rows - y + 1 || p3.x == x && p3.y == rows - y + 1 {
+                var onSnake = false
+                for cell in snake {
+                    if cell.x == x && cell.y == rows - y + 1 {
+                        onSnake = true
+                        break
+                    }
+                }
+                
+                // use onSnake
+                if onSnake {
                     boardString += "✪ "
                 } else {
                     boardString += ". "
@@ -299,9 +345,37 @@ class BoardTests: XCTestCase {
         boardString += subString + "\n"
         return boardString
     }
+    func testRemainder () {
+        let remainder = Remainder(a: 63, b: 90, c: 130)
+        var a = 2
+        while a < 10000 {
+            let n = remainder.a % a
+            let m = remainder.b % a
+            let o = remainder.c % a
+            
+            if n + m + o == 25 {
+                print("\(n) \(m) \(o) \(a)")
+            }
+            a += 1
+        }
+    }
+}
+
+struct Remainder {
+    let a : Int
+    let b : Int
+    let c : Int
 }
 
 struct Point {
     let x : Int
     let y : Int
 }
+
+/*
+ for a in 1...snake.count {
+ if a.x == x && a.y == y {
+ print ...........
+ }
+ }
+*/
