@@ -11,247 +11,10 @@ import XCTest
 
 class BoardTests: XCTestCase {
     
+    let rows = 36
+    let cols = 25
     
-    //     . . . . . .
-    //     . . . . . .
-    //     . o o . . .
-    //     . . o o . .
-    //     . . . . Q .
-    //     . . . . . .
-    //     . . Q . . .
-    //     . . . . . .
-    //
-    //     6 . . . . . . . .
-    //     5 . . . . . . . x
-    //     4 . . . o o . . .
-    //     3 . . . . . . . .
-    //     2 . . x . . . . .
-    //     1 x . . . . . . .
-    //
-    //
-    //
-    //     . . . . . . Q .
-    //     . . . . . . . .
-    //     . . Q . . . . .
-    //     . . . . . . . .
-    //     . . . . . . . .
-    //     . . . . . . . .
-    //     . . . . . . . .
-    //     . . . o o c . Q
-    //     . . . o . . . .
-    //     . o o o . . . .
-    //     . . . . . . . .
-    //     . . . . . . . .
-    //
-    //
-    //     . . . . . . Q .
-    //     . . . . . . . .
-    //     . . Q . . . . .
-    //     . . . . . . . .
-    //     . . . . . . . .
-    //     . . . . . . . .
-    //     . . . . . . . .
-    //     . . . o o o C Q
-    //     . . . o . . . .
-    //     . . o o . . . .
-    //     . . . . . . . .
-    //     . . . . . . . .
-    //
-    //
-    //     . . . . . . Q .
-    //     . . . . . . . .
-    //     . . Q . . . . .
-    //     . . . . . . . .
-    //     . . . . . . . .
-    //     . . . . . . . .
-    //     . . . . . . . .
-    //     . . . o o o o o
-    //     . . . o . . . .
-    //     . . . o . . . .
-    //     . . . o . . . .
-    //     . . . . . . . .
-    //
-    //     . . . . . . Q .
-    //     . . . . . . . .
-    //     . . Q . . . . .
-    //     . . . . . . . .
-    //     . . . . . . . .
-    //     . . . . . . . .
-    //     . . . . . . . o
-    //     . . . o o o o o
-    //     . . . o . . . .
-    //     . . . o . . . .
-    //     . . . . . . . .
-    //     . . . . . . . .
-    //
-    //     . . . . . . Q .
-    //     . . . . . . . .
-    //     . . Q . . . . .
-    //     . . . . . . . .
-    //     . . . . . . . .
-    //     . . . . . . . o
-    //     . . . . . . . o
-    //     . . . o o o o o
-    //     . . . o . . . .
-    //     . . . . . . . .
-    //     . . . . . . . .
-    //     . . . . . . . .
-    //
-    //     . . . . . . Q .
-    //     . . . . . . . .
-    //     . . Q . . . . .
-    //     . . . . . . . .
-    //     . . . . . . . .
-    //     . . . . . . o o
-    //     . . . . . . . o
-    //     . . . o o o o o
-    //     . . . . . . . .
-    //     . . . . . . . .
-    //     . . . . . . . .
-    //     . . . . . . . .
-    //
-    //     . . . . . . Q .
-    //     . . . . . . . .
-    //     . . Q . . . . .
-    //     . . . . . . . .
-    //     . . . . . . . .
-    //     . . . . . o o o
-    //     . . . . . . . o
-    //     . . . . o o o o
-    //     . . . . . . . .
-    //     . . . . . . . .
-    //     . . . . . . . .
-    //     . . . . . . . .
-    //
-    //     . . . . . . Q .
-    //     . . . . . . . .
-    //     . . Q . . . . .
-    //     . . . . . . . .
-    //     . . . . . . . .
-    //     . . . . o o o o
-    //     . . . . . . . o
-    //     . . . . . o o o
-    //     . . . . . . . .
-    //     . . . . . . . .
-    //     . . . . . . . .
-    //     . . . . . . . .
-    //
-    //     . . . . . . Q .
-    //     . . . . . . . .
-    //     . . Q . . . . .
-    //     . . . . . . . .
-    //     . . . . . . . .
-    //     . . . o o o o o
-    //     . . . . . . . o
-    //     . . . . . . o o
-    //     . . . . . . . .
-    //     . . . . . . . .
-    //     . . . . . . . .
-    //     . . . . . . . .
-    //
-    //     . . . . . . Q .
-    //     . . . . . . . .
-    //     . . Q . . . . .
-    //     . . . . . . . .
-    //     . . . . . . . .
-    //     . . o o o o o o
-    //     . . . . . . . o
-    //     . . . . . . . o
-    //     . . . . . . . .
-    //     . . . . . . . .
-    //     . . . . . . . .
-    //     . . . . . . . .
-    //
-    //     . . . . . . Q .
-    //     . . . . . . . .
-    //     . . Q . . . . .
-    //     . . . . . . . .
-    //     . . u . . . . .
-    //     . . o o o o o o
-    //     . . . . . . . o
-    //     . . . . . . . .
-    //     . . . . . . . .
-    //     . . . . . . . .
-    //     . . . . . . . .
-    //     . . . . . . . .
-    //
-    //     . . . . . . Q .
-    //     . . . . . . . .
-    //     . . Q . . . . .
-    //     . . U . . . . .
-    //     . . o . . . . .
-    //     . . o o o o o o
-    //     . . . . . . . .
-    //     . . . . . . . .
-    //     . . . . . . . .
-    //     . . . . . . . .
-    //     . . . . . . . .
-    //     . . . . . . . .
-    //
-    //     . . . . . . Q .
-    //     . . . . . . . .
-    //     . . o . . . . .
-    //     . . o . . . . .
-    //     . . o . . . . .
-    //     . . o o o o o o
-    //     . . . . . . . .
-    //     . . . . . . . .
-    //     . . . . . . . .
-    //     . . . . . . . .
-    //     . . . . . . . .
-    //     . . . . . . . .
-    //
-    //     11
-    //     10
-    //      6 . . . . . . . .
-    //      5 . . . . . . . .
-    //      4 . . . . . . . .
-    //      3 . . . . . . . .
-    //      2 . . . . . . . .
-    //      1 . . . . . . . .
-    //
-    //     12 Q . . Q . . . Q
-    //     11 . . . . . . . .
-    //     10 . . . . . . . .
-    //      9 . . o . . . . .
-    //      8 . . o . . . . .
-    //      7 . . o o  . . .
-    //      6 Q . . . . . . Q
-    //      5 . . . . . . . .
-    //      4 . . . . . . . .
-    //      3 . . . . . . . .
-    //      2 . . . . . . . .
-    //      1 Q . . Q . . . Q
-    //      ✪ A B C D E F G H
-    //
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-             //
-            //
-           //
-          //
-         //
-        //
-       //
-      //
-     //
-    //
-   //
-  //
- //
     func testBoard() {
-        let rows = 12
-        let cols = 8
-        
         for y in 1...rows {
             if rows - y + 1 >= 10 {
                 print("\(rows - y + 1)", terminator:" ")
@@ -268,16 +31,16 @@ class BoardTests: XCTestCase {
      12 Q . . Q . . . Q
      11 . . . . . . . .
      10 . . . . . . . .
-     9 . . o . . . . .
-     8 . . o . . . . .
-     7 . . o o . . . .
-     6 Q . . . . . . Q
-     5 . . . . . . . .
-     4 . . . . . . . .
-     3 . . . . . . . .
-     2 . . . . . . . .
-     1 Q . . Q . . . Q
-     ✪ A B C D E F G H
+      9 . . o . . . . .
+      8 . . o . . . . .
+      7 . . o o . . . .
+      6 Q . . . . . . Q
+      5 . . . . . . . .
+      4 . . . . . . . .
+      3 . . . . . . . .
+      2 . . . . . . . .
+      1 Q . . Q . . . Q
+      ✪ A B C D E F G H
      
      */
     func testCreateBoardDesc() {
@@ -286,7 +49,18 @@ class BoardTests: XCTestCase {
     }
     
     func createBoardDesc() -> String {
-        let snake = [Point(x: 3, y: 9),
+        let snake = [// Snake 1
+                     Point(x: 4, y: 18),
+                     Point(x: 4, y: 17),
+                     Point(x: 3, y: 17),
+                     Point(x: 3, y: 16),
+                     Point(x: 3, y: 15),
+                     Point(x: 3, y: 14),
+                     Point(x: 3, y: 13),
+                     Point(x: 3, y: 12),
+                     Point(x: 3, y: 11),
+                     Point(x: 3, y: 10),
+                     Point(x: 3, y: 9),
                      Point(x: 3, y: 8),
                      Point(x: 3, y: 7),
                      Point(x: 4, y: 7),
@@ -299,18 +73,16 @@ class BoardTests: XCTestCase {
                      Point(x: 6, y: 8),
                      Point(x: 6, y: 9),
                      Point(x: 6, y: 10),
-                     Point(x: 6, y: 11),
-                     Point(x: 6, y: 12),
+                     Point(x: 7, y: 10),
+                     Point(x: 8, y: 10),
+                     Point(x: 9, y: 10),
+                     Point(x: 9, y: 11),
+                     Point(x: 9, y: 12),
                      Point(x: 6, y: 13),
-                     Point(x: 6, y: 14),
-                     Point(x: 6, y: 15),
-                     Point(x: 6, y: 16),
-                     Point(x: 6, y: 17),
-                     Point(x: 6, y: 18),
-                     Point(x: 6, y: 19),]
-        
-        let rows = 366
-        let cols = 25
+                     Point(x: 7, y: 13),
+                     Point(x: 8, y: 13),
+                     Point(x: 9, y: 13),]
+       
         let bottomChars = " ✪ A B C D E F G H J K L M N O P Q R S T U V W X Y Z"
         let bottomCharsArr = Array(bottomChars) // bottomCharsArr = [" ", "✪", " ", "A", ...]
         let subString = bottomCharsArr[0 ... cols * 2 + 1]
@@ -325,17 +97,8 @@ class BoardTests: XCTestCase {
             }
             
             for x in 1...cols {
-                var onSnake = false
-                for cell in snake {
-                    if cell.x == x && cell.y == rows - y + 1 {
-                        onSnake = true
-                        break
-                    }
-                }
-                
-                // use onSnake
-                if onSnake {
-                    boardString += "✪ "
+                if isXY(x: x, y: y, onSnake: snake) {
+                    boardString += "O "
                 } else {
                     boardString += ". "
                 }
@@ -345,6 +108,29 @@ class BoardTests: XCTestCase {
         boardString += subString + "\n"
         return boardString
     }
+    
+    func isXY(x: Int, y: Int, onSnake snake: [Point]) -> Bool {
+        var onSnake = false
+        for cell in snake {
+            if cell.x == x && cell.y == rows - y + 1 {
+                onSnake = true
+                break
+            }
+        }
+        return onSnake
+    }
+    
+    func isPoint(point: Point, onSnake snake: [Point]) -> Bool {
+        var onSnake = false
+        for cell in snake {
+            if cell.x == point.x && cell.y == rows - point.y + 1 {
+                onSnake = true
+                break
+            }
+        }
+        return onSnake
+    }
+    
     func testRemainder () {
         let remainder = Remainder(a: 63, b: 90, c: 130)
         var a = 2
@@ -371,11 +157,3 @@ struct Point {
     let x : Int
     let y : Int
 }
-
-/*
- for a in 1...snake.count {
- if a.x == x && a.y == y {
- print ...........
- }
- }
-*/
