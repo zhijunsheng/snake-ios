@@ -10,19 +10,8 @@ import UIKit
 
 class BoardView: UIView {
     override func draw(_ rect: CGRect) {
-        print("hello world")
         
         let path = UIBezierPath()
-        
-        //        path.lineWidth = 2.5
-        //        path.move(to: CGPoint(x: 100, y: 150))
-        //        path.addLine(to: CGPoint(x: 200, y: 300))
-        //        UIColor.blue.setStroke()
-        //
-        //        path.move(to: CGPoint(x: 200, y: 300))
-        //        path.addLine(to: CGPoint(x: 225, y: 150))
-        //
-        //        path.stroke()
         
         let side = 20
         let originX = 50
@@ -48,5 +37,22 @@ class BoardView: UIView {
         UIColor.darkGray.setStroke()
         
         path.stroke()
+        
+        // snake -> 🐍
+        
+        let cell00 = CGRect(x: originX, y: originY, width: side, height: side)
+        let pathCell00 = UIBezierPath(roundedRect: cell00, cornerRadius: 6)
+        UIColor.red.setFill()
+        pathCell00.fill()
+        
+        let cell01 = CGRect(x: originX, y: originY + side, width: side, height: side)
+        let pathCell01 = UIBezierPath(roundedRect: cell01, cornerRadius: 6)
+        UIColor.orange.setFill()
+        pathCell01.fill()
+        
+        let cell02 = CGRect(x: originX, y: originY + 2 * side, width: side, height: side)
+        let pathCell02 = UIBezierPath(roundedRect: cell02, cornerRadius: 6)
+        UIColor.yellow.setFill()
+        pathCell02.fill()
     }
 }

@@ -9,7 +9,7 @@
 import XCTest
 
 class PrimeTests: XCTestCase {
-    
+
     func testPrime() {
         XCTAssertFalse(isPrime(candidate: 1))
         XCTAssertTrue( isPrime(candidate: 31))
@@ -21,12 +21,12 @@ class PrimeTests: XCTestCase {
         XCTAssertTrue( isPrime(candidate: 33333331))
         XCTAssertFalse(isPrime(candidate: 333333331)) // factor: 17
         XCTAssertFalse(isPrime(candidate: 3333333331)) // factor: 673
-        
+
         XCTAssertTrue( isPrime(candidate: 673))
         XCTAssertTrue( isPrime(candidate: 31313125397))
         XCTAssertTrue( isPrime(candidate: 30303030303031))
     }
-    
+
     func isPrime(candidate: Int) -> Bool {
         if candidate == 1 {
             return false
