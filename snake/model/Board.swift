@@ -14,25 +14,49 @@ struct Board: CustomStringConvertible {
     }
     
     func generateBoardDesc(rows: Int, columns: Int) -> String {
+        var number = -1
+        let snake = [Point(row: 3, col: 5), 
+                     Point(row: 4, col: 5),
+                     Point(row: 4, col: 6),
+                     Point(row: 4, col: 7),
+//                   Point(row: 4, col: 8)
+   ]
         let numberOfDots = " ."
         let letters = " + A B C D E F G H I J K L M N O P Q R W T U V W X Y Z"
         var boardDesc = ""
-        
-        for i in 1...rows {
-            if i < 10 {
-                boardDesc += " \(i)"
+        var r = rows
+        for _ in snake {
+            number += 1
+        }
+        while r > 0 {
+            if r < 10 {
+                boardDesc += " \(r)"
             } else {
-                boardDesc += "\(i)"
+                boardDesc += "\(r)"
             }
-            for a in 1...columns {
-                if a == columns {
+            for c in 1...columns {
+                if c == columns {
                     boardDesc += numberOfDots + "\n"
-                } else {
+                } else if ifInSnakeCells(r: r, c: c, snake: snake, numberOfCells: number) {
+                    boardDesc += " 0"
+                }
+                else {
                     boardDesc += numberOfDots
                 }
             }
+            r -= 1
         }
         boardDesc += letters.prefix(2 + columns * 2)
         return boardDesc
     }
+    
+    func ifInSnakeCells(r: Int, c: Int, snake: [Point], numberOfCells: Int) -> Bool {
+        for i in 0...numberOfCells {
+            if r == snake[i].row && c == snake[i].col {
+                return true
+            }
+        }
+        return false
+    }
 }
+

@@ -15,6 +15,7 @@
 		36D0EE5020E3180600229B77 /* BoardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D0EE4F20E3180600229B77 /* BoardTests.swift */; };
 		36D80E6B20F2B28500DF9A3E /* ClassesStructsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D80E6A20F2B28500DF9A3E /* ClassesStructsTests.swift */; };
 		36D80E6D20FBE96100DF9A3E /* OverrideTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D80E6C20FBE96100DF9A3E /* OverrideTests.swift */; };
+		36D80E6F20FBF13000DF9A3E /* PointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D80E6E20FBF13000DF9A3E /* PointTests.swift */; };
 		36E99EAA20D9DFA5009FC0C4 /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E99EA920D9DFA5009FC0C4 /* Point.swift */; };
 		36E99EAC20D9E214009FC0C4 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E99EAB20D9E214009FC0C4 /* Board.swift */; };
 /* End PBXBuildFile section */
@@ -40,6 +41,7 @@
 		36D0EE4F20E3180600229B77 /* BoardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardTests.swift; sourceTree = "<group>"; };
 		36D80E6A20F2B28500DF9A3E /* ClassesStructsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassesStructsTests.swift; sourceTree = "<group>"; };
 		36D80E6C20FBE96100DF9A3E /* OverrideTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverrideTests.swift; sourceTree = "<group>"; };
+		36D80E6E20FBF13000DF9A3E /* PointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointTests.swift; sourceTree = "<group>"; };
 		36E99EA920D9DFA5009FC0C4 /* Point.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Point.swift; sourceTree = "<group>"; };
 		36E99EAB20D9E214009FC0C4 /* Board.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
 		BBBB9956201C0ABA008FF835 /* snakeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = snakeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -108,10 +110,11 @@
 		BBBB9957201C0ABA008FF835 /* snakeTests */ = {
 			isa = PBXGroup;
 			children = (
-				BBBB995A201C0ABB008FF835 /* Info.plist */,
 				36D0EE4F20E3180600229B77 /* BoardTests.swift */,
 				36D80E6A20F2B28500DF9A3E /* ClassesStructsTests.swift */,
 				36D80E6C20FBE96100DF9A3E /* OverrideTests.swift */,
+				36D80E6E20FBF13000DF9A3E /* PointTests.swift */,
+				BBBB995A201C0ABB008FF835 /* Info.plist */,
 			);
 			path = snakeTests;
 			sourceTree = "<group>";
@@ -230,6 +233,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				36D80E6F20FBF13000DF9A3E /* PointTests.swift in Sources */,
 				36D0EE5020E3180600229B77 /* BoardTests.swift in Sources */,
 				36D80E6B20F2B28500DF9A3E /* ClassesStructsTests.swift in Sources */,
 				36D80E6D20FBE96100DF9A3E /* OverrideTests.swift in Sources */,
