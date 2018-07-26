@@ -26,6 +26,11 @@ class PointTests: XCTestCase {
         }
     }
     
+    func testPi() {
+        XCTAssertEqual(3.14159265358979323827433, Double.pi)
+        print("3.14159265358979323827433 = \(Double.pi)")
+    }
+    
     struct MyPoint {
         let x : Int
         let y : Int

@@ -134,7 +134,7 @@ class BoardTests: XCTestCase {
     func testRemainder () {
         let remainder = Remainder(a: 63, b: 90, c: 130)
         var a = 2
-        while a < 10000 {
+        while a < 63 {
             let n = remainder.a % a
             let m = remainder.b % a
             let o = remainder.c % a

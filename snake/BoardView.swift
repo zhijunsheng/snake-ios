@@ -9,50 +9,63 @@
 import UIKit
 
 class BoardView: UIView {
+    
+    let cols = 12
+    let rows = 15 // hi.
+    let side: CGFloat = 20.0
+    
     override func draw(_ rect: CGRect) {
+        // frame = (0 0; 414 736)
+        print(self)
+        print(self.frame.width)
+        print(self.frame.height)
         
-        let path = UIBezierPath()
+        let originX = (frame.width -  side * CGFloat(cols)) / 2
+        let originY = (frame.height - side * CGFloat(rows)) / 3
         
-        let side = 20
-        let originX = 50
-        let originY = 80
-        let cols = 15
-        let rows = 15
-        
-        // vertical
-        
-        for i in 0...cols {
-            path.move(to: CGPoint(x: originX + i * side, y: originY))
-            path.addLine(to: CGPoint(x: originX + i * side, y: originY + cols * side))
-        }
-        
-       // path.move(to: CGPoint)
+        // horizontally draw some lines
         
         for i in 0...rows {
-            path.move(to: CGPoint(x: originX, y: originY + i * side))
-            path.addLine(to: CGPoint(x: originX + rows * side, y: originY + i * side))
+            drawLine(fromX: originX,
+                     fromY: originY + CGFloat(i) * side,
+                     toX: originX + CGFloat(cols) * side,
+                     toY: originY + CGFloat(i) * side,
+                     color: .gray)
         }
         
-        path.lineWidth = 1
-        UIColor.darkGray.setStroke()
+        // vertically draw some lines
         
-        path.stroke()
+        for i in 0...cols {
+            drawLine(fromX: originX + CGFloat(i) * side,
+                     fromY: originY,
+                     toX: originX + CGFloat(i) * side,
+                     toY: originY + CGFloat(rows) * side,
+                     color: .gray)
+        }
         
         // snake -> 🐍
         
-        let cell00 = CGRect(x: originX, y: originY, width: side, height: side)
-        let pathCell00 = UIBezierPath(roundedRect: cell00, cornerRadius: 6)
-        UIColor.red.setFill()
-        pathCell00.fill()
-        
-        let cell01 = CGRect(x: originX, y: originY + side, width: side, height: side)
-        let pathCell01 = UIBezierPath(roundedRect: cell01, cornerRadius: 6)
-        UIColor.orange.setFill()
-        pathCell01.fill()
-        
-        let cell02 = CGRect(x: originX, y: originY + 2 * side, width: side, height: side)
-        let pathCell02 = UIBezierPath(roundedRect: cell02, cornerRadius: 6)
-        UIColor.yellow.setFill()
-        pathCell02.fill()
+        for i in 0...cols - 1 {
+            drawRect(x: originX,
+                     y: originY + CGFloat(i) * side,
+                     width: side,
+                     height: side,
+                     color: .green)
+        }
+    }
+    
+    func drawLine(fromX: CGFloat, fromY: CGFloat, toX: CGFloat, toY: CGFloat, color: UIColor) {
+        let line = UIBezierPath()
+        line.move(to: CGPoint(x: fromX, y: fromY))
+        line.addLine(to: CGPoint(x: toX, y: toY))
+        color.setStroke()
+        line.stroke()
+    }
+    
+    func drawRect(x: CGFloat, y: CGFloat, width: CGFloat, height: CGFloat, color: UIColor) {
+        let rect = CGRect(x: x, y: y, width: width, height: height)
+        let rectangle = UIBezierPath(roundedRect: rect, cornerRadius: 5)
+        color.setFill()
+        rectangle.fill()
     }
 }
