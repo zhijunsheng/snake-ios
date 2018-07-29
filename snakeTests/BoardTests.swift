@@ -32,17 +32,21 @@ class BoardTests: XCTestCase {
         let charsArr = Array(chars)
         
         for n in 0...rows {
-            print("\(rows + 1 - n) ", terminator: "")
+            if n < 3 {
+                print("\(rows + 1 - n) ", terminator: "")
+            } else {
+                print(" \(rows + 1 - n) ", terminator: "")
+            }
+            
             for i in 0...cols {
                 print(". ", terminator: "")
             }
             print("")
         }
-        
-        var bottomLine = ""
+
         
         for j in 0 ... cols + 1 {
-            print(charsArr[j], terminator: " ")
+            print(" \(charsArr[j])", terminator: "")
         }
         print("")
         
@@ -51,4 +55,4 @@ class BoardTests: XCTestCase {
 
 }
 
-homework: align graph
+//homework: align graph

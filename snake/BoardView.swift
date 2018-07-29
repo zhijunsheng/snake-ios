@@ -12,11 +12,17 @@ class BoardView: UIView {
 
     override func draw(_ rect: CGRect) {
         let path = UIBezierPath()
-        let rows = 7
+        let rows = 18
+        let cols = 10
         
         for i in 0 ... rows {
-            path.move(to: CGPoint(x: 10, y: i * 10 + 100))
-            path.addLine(to: CGPoint(x: 300, y: i * 10 + 100))
+            path.move(to: CGPoint(x: 0, y: i * 30 + 30))
+            path.addLine(to: CGPoint(x: 300, y: i * 30 + 30))
+        }
+        
+        for n in 0 ... cols {
+            path.move(to: CGPoint(x: n * 30 + 30, y: 30 ))
+            path.addLine(to: CGPoint(x: n * 30 + 30, y: 600))
         }
         
         path.stroke()
