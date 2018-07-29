@@ -25,34 +25,32 @@ class BoardTests: XCTestCase {
      + A B C D E F G H I
     */
     func testBoard() {
-        let cols = 11
-        let rows = 11
-        
+        print(boardDesc(cols: 11, rows: 11))
+    }
+    
+    func boardDesc(cols: Int, rows: Int) -> String {
+        var desc = ""
         let chars = "+ABCDEFGHIJKLMNOPQRSTUVWXYZ"
         let charsArr = Array(chars)
         
         for n in 0...rows {
             if n < 3 {
-                print("\(rows + 1 - n) ", terminator: "")
+                desc += "\(rows + 1 - n)"
             } else {
-                print(" \(rows + 1 - n) ", terminator: "")
+                desc += " \(rows + 1 - n)"
             }
             
-            for i in 0...cols {
-                print(". ", terminator: "")
+            for _ in 0...cols {
+                desc += " ."
             }
-            print("")
+            desc += "\n"
         }
-
         
         for j in 0 ... cols + 1 {
-            print(" \(charsArr[j])", terminator: "")
+            desc += " \(charsArr[j])"
         }
-        print("")
         
+        return desc
     }
-
-
 }
 
-//homework: align graph
