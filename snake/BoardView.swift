@@ -16,9 +16,6 @@ class BoardView: UIView {
     
     override func draw(_ rect: CGRect) {
         // frame = (0 0; 414 736)
-        print(self)
-        print(self.frame.width)
-        print(self.frame.height)
         
         let originX = (frame.width -  side * CGFloat(cols)) / 2
         let originY = (frame.height - side * CGFloat(rows)) / 3
