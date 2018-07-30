@@ -14,6 +14,11 @@ class BoardTests: XCTestCase {
     let rows = 36
     let cols = 25
     
+    func testBoardDesc() {
+        let board = Board()
+        print(board)
+    }
+    
     func testBoard() {
         for y in 1...rows {
             if rows - y + 1 >= 10 {
@@ -145,6 +150,7 @@ class BoardTests: XCTestCase {
             a += 1
         }
     }
+    
 }
 
 struct Remainder {
