@@ -14,10 +14,186 @@ class BoardTests: XCTestCase {
     let rows = 36
     let cols = 25
     
-    func testBoardDesc() {
-        let board = Board()
+    func testSnakeLeft() {
+        
+        var board = Board()
+        board.snake = [Point(row: 4, col: 11),
+                       Point(row: 4, col: 12),
+                       Point(row: 3, col: 12),
+                       Point(row: 2, col: 12),
+        ]
         print(board)
+        
+        board.moveSnakeLeft()
+        print(board)
+        
+        XCTAssertEqual(10, board.snake[0].col)
     }
+    
+    func testSnakeRight() {
+        var board = Board()
+        board.snake = [Point(row: 4, col: 11),
+                       Point(row: 4, col: 10),
+                       Point(row: 3, col: 10),
+                       Point(row: 2, col: 10),
+        ]
+        print(board)
+        
+        board.moveSnakeRight()
+        print(board)
+        
+        XCTAssertEqual(12, board.snake[0].col)
+    }
+    
+    func testSnakeUp() {
+        var board = Board()
+        board.snake = [Point(row: 5, col: 11),
+                       Point(row: 4, col: 11),
+                       Point(row: 3, col: 11),
+                       Point(row: 2, col: 11),
+        ]
+        print(board)
+        
+        board.moveSnakeUp()
+        print(board)
+        
+        XCTAssertEqual(6, board.snake[0].row)
+    }
+    
+    func testSnakeDown() {
+        var board = Board()
+        board.snake = [Point(row: 4, col: 11),
+                       Point(row: 5, col: 11),
+                       Point(row: 6, col: 11),
+                       Point(row: 7, col: 11),
+        ]
+        print(board)
+        
+        board.moveSnakeDown()
+        print(board)
+        
+        XCTAssertEqual(3, board.snake[0].row)
+    }
+    /*
+     
+     INIT
+     
+     8 . . . . . . . . . . . . . .
+     7 . . . . . . . . . . . . . .
+     6 . . . . . . . . . . . . . .
+     5 . . . U . . . . . . . . . .
+     4 . . . U U . . . . . . . . .
+     3 . . . . U . . Q . . . . . .
+     2 . . . . U U U U . . . . . .
+     1 . . . . . . . . . . . . . .
+     ✪ A B C D E F G H J K L M N O
+     
+     RIGHT
+     
+     8 . . . . . . . . . . . . . .
+     7 . . . . . . . . . . . . . .
+     6 . . . . . . . . . . . . . .
+     5 . . . . . . . . . . . . . .
+     4 . . . U U . . . . . . . . .
+     3 . . . . U . . U Q . . . . .
+     2 . . . . U U U U . . . . . .
+     1 . . . . . . . . . . . . . .
+     ✪ A B C D E F G H J K L M N O
+     
+     UP*2
+     
+     8 . . . . . . . . . . . . . .
+     7 . . . . . . . . . . . . . .
+     6 . . . . . . . . . . . . . .
+     5 . . . . . . . . . . . . . .
+     4 . . . . U . . . Q . . . . .
+     3 . . . . U . . U U . . . . .
+     2 . . . . U U U U . . . . . .
+     1 . . . . . . . . . . . . . .
+     ✪ A B C D E F G H J K L M N O
+     
+     8 . . . . . . . . . . . . . .
+     7 . . . . . . . . . . . . . .
+     6 . . . . . . . . Q . . . . .
+     5 . . . . . . . . U . . . . .
+     4 . . . . U . . U U . . . . .
+     3 . . . . U U U U . . . . . .
+     2 . . . . . . . . . . . . . .
+     1 . . . . . . . . . . . . . .
+     ✪ A B C D E F G H J K L M N O
+     
+     LEFT*2
+     
+     8 . . . . . . . . . . . . . .
+     7 . . . . . . . . . . . . . .
+     6 . . . . . . . Q U . . . . .
+     5 . . . . . . . . U . . . . .
+     4 . . . . . . . U U . . . . .
+     3 . . . . U U U U . . . . . .
+     2 . . . . . . . . . . . . . .
+     1 . . . . . . . . . . . . . .
+     ✪ A B C D E F G H J K L M N O
+     
+     8 . . . . . . . . . . . . . .
+     7 . . . . . . . . . . . . . .
+     6 . . . . . . Q U U . . . . .
+     5 . . . . . . . . U . . . . .
+     4 . . . . . . . U U . . . . .
+     3 . . . . . U U U . . . . . .
+     2 . . . . . . . . . . . . . .
+     1 . . . . . . . . . . . . . .
+     ✪ A B C D E F G H J K L M N O
+     
+     DOWN
+     
+     8 . . . . . . . . . . . . . .
+     7 . . . . . . . . . . . . . .
+     6 . . . . . . U U U . . . . .
+     5 . . . . . . Q . U . . . . .
+     4 . . . . . . . U U . . . . .
+     3 . . . . . . U U . . . . . .
+     2 . . . . . . . . . . . . . .
+     1 . . . . . . . . . . . . . .
+     ✪ A B C D E F G H J K L M N O
+     
+     */
+    func test$NAKEthatDANCE$() {
+        var board = Board()
+        board.snake = [Point(row: 3, col: 8),
+                       Point(row: 2, col: 8),
+                       Point(row: 2, col: 7),
+                       Point(row: 2, col: 6),
+                       Point(row: 2, col: 5),
+                       Point(row: 3, col: 5),
+                       Point(row: 4, col: 5),
+                       Point(row: 4, col: 4),
+                       Point(row: 5, col: 4),
+        ]
+        print(board)
+        XCTAssertEqual(3, board.snake[0].row)
+        XCTAssertEqual(5, board.snake[8].row)
+        board.moveSnakeRight()
+        print(board)
+        XCTAssertEqual(9, board.snake[0].col)
+        XCTAssertEqual(4, board.snake[8].col)
+        board.moveSnakeUp()
+        print(board)
+        XCTAssertEqual(4, board.snake[0].row)
+        board.moveSnakeUp()
+        print(board)
+        XCTAssertEqual(5, board.snake[0].row)
+        board.moveSnakeLeft()
+        print(board)
+        XCTAssertEqual(8, board.snake[0].col)
+        board.moveSnakeLeft()
+        print(board)
+        XCTAssertEqual(7, board.snake[0].col)
+        board.moveSnakeDown()
+        print(board)
+        XCTAssertEqual(4, board.snake[0].row)
+        XCTAssertEqual(2, board.snake[8].row)
+    }
+    
     
     func testBoard() {
         for y in 1...rows {
@@ -32,22 +208,7 @@ class BoardTests: XCTestCase {
             print(" ", terminator: "\n")
         }
     }
-    /*
-     12 Q . . Q . . . Q
-     11 . . . . . . . .
-     10 . . . . . . . .
-      9 . . o . . . . .
-      8 . . o . . . . .
-      7 . . o o . . . .
-      6 Q . . . . . . Q
-      5 . . . . . . . .
-      4 . . . . . . . .
-      3 . . . . . . . .
-      2 . . . . . . . .
-      1 Q . . Q . . . Q
-      ✪ A B C D E F G H
-     
-     */
+    
     func testCreateBoardDesc() {
         let boardDesc = createBoardDesc()
         print(boardDesc, terminator: "")
@@ -55,38 +216,11 @@ class BoardTests: XCTestCase {
     
     func createBoardDesc() -> String {
         let snake = [// Snake 1
-                     Point(x: 4, y: 18),
-                     Point(x: 4, y: 17),
-                     Point(x: 3, y: 17),
-                     Point(x: 3, y: 16),
-                     Point(x: 3, y: 15),
-                     Point(x: 3, y: 14),
-                     Point(x: 3, y: 13),
-                     Point(x: 3, y: 12),
-                     Point(x: 3, y: 11),
-                     Point(x: 3, y: 10),
-                     Point(x: 3, y: 9),
-                     Point(x: 3, y: 8),
-                     Point(x: 3, y: 7),
-                     Point(x: 4, y: 7),
-                     Point(x: 4, y: 6),
-                     Point(x: 4, y: 5),
-                     Point(x: 5, y: 5),
-                     Point(x: 6, y: 5),
-                     Point(x: 6, y: 6),
-                     Point(x: 6, y: 7),
-                     Point(x: 6, y: 8),
-                     Point(x: 6, y: 9),
-                     Point(x: 6, y: 10),
-                     Point(x: 7, y: 10),
-                     Point(x: 8, y: 10),
-                     Point(x: 9, y: 10),
-                     Point(x: 9, y: 11),
-                     Point(x: 9, y: 12),
-                     Point(x: 6, y: 13),
-                     Point(x: 7, y: 13),
-                     Point(x: 8, y: 13),
-                     Point(x: 9, y: 13),]
+            Point(row: 4, col: 18),
+            Point(row: 4, col: 17),
+            Point(row: 3, col: 17),
+            Point(row: 3, col: 16),
+            ]
        
         let bottomChars = " ✪ A B C D E F G H J K L M N O P Q R S T U V W X Y Z"
         let bottomCharsArr = Array(bottomChars) // bottomCharsArr = [" ", "✪", " ", "A", ...]
@@ -117,7 +251,7 @@ class BoardTests: XCTestCase {
     func isXY(x: Int, y: Int, onSnake snake: [Point]) -> Bool {
         var onSnake = false
         for cell in snake {
-            if cell.x == x && cell.y == rows - y + 1 {
+            if cell.col == x && cell.row == rows - y + 1 {
                 onSnake = true
                 break
             }
@@ -128,7 +262,7 @@ class BoardTests: XCTestCase {
     func isPoint(point: Point, onSnake snake: [Point]) -> Bool {
         var onSnake = false
         for cell in snake {
-            if cell.x == point.x && cell.y == rows - point.y + 1 {
+            if cell.col == point.col && cell.row == rows - point.row + 1 {
                 onSnake = true
                 break
             }
@@ -157,9 +291,4 @@ struct Remainder {
     let a : Int
     let b : Int
     let c : Int
-}
-
-struct Point {
-    let x : Int
-    let y : Int
 }
