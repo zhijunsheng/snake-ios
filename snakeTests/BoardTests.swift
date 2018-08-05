@@ -13,7 +13,17 @@ class BoardTests: XCTestCase {
     
     let rows = 36
     let cols = 25
-    
+    /*
+     8 . . . . . . . . . . . . . .
+     7 . . . . . . . . . . . . . .
+     6 . . . . . . . . . . . . . .
+     5 . . . . . . . . . . . . . .
+     4 . . . . . . . . . . U O . .
+     3 . . . . . . . . . . . O . .
+     2 . . . . . . . . . . . O . .
+     1 . . . . . . . . . . . . . .
+     ✪ A B C D E F G H J K L M N O
+     */
     func testSnakeLeft() {
         
         var board = Board()
@@ -28,6 +38,9 @@ class BoardTests: XCTestCase {
         print(board)
         
         XCTAssertEqual(10, board.snake[0].col)
+        XCTAssertEqual(4, board.snake[0].row)
+        XCTAssertEqual(12, board.snake[3].col)
+        XCTAssertEqual(3, board.snake[3].row)
     }
     
     func testSnakeRight() {
