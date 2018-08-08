@@ -10,6 +10,8 @@ import UIKit
 
 class BoardView: UIView {
 
+    
+    let widthOflines: CGFloat = 8.0
     override func draw(_ rect: CGRect) {
         
         let rows = 19
@@ -17,7 +19,6 @@ class BoardView: UIView {
         let originX : CGFloat = 50.0
         let originY : CGFloat = 40.0
         let side : CGFloat = 30
-        let widthOflines = 8.0
         var snakeCells = [Point]()
         let cell1 = Point(row: 4, col: 6)
         let cell2 = Point(row: 4, col: 5)
@@ -33,14 +34,12 @@ class BoardView: UIView {
         print(self.frame.width)
         print(self.frame.height)
         for i in 0...cols {
-            path.move(to: CGPoint(x: originX + CGFloat(i) * side, y: originY))
-            path.addLine(to: CGPoint(x: originX + CGFloat(i) * side, y: originY + side * CGFloat(rows)))
-            
+            drawLine(fromX: originX + CGFloat(i) * side, fromY: originY, toX: originX + CGFloat(i) * side, toY: originY + side * CGFloat(rows), color: .blue)
         }
         //horizontal
         for i in 0...rows {
-            path.move(to: CGPoint(x: originX, y: originY + CGFloat(i) * side))
-            path.addLine(to: CGPoint(x: originX + side * CGFloat(cols), y: originY + CGFloat(i) * side))
+
+            drawLine(fromX: originX, fromY: originY + CGFloat(i) * side, toX: originX + side * CGFloat(cols), toY: originY + CGFloat(i) * side, color: .blue)
         }
         
         path.stroke()
@@ -50,7 +49,7 @@ class BoardView: UIView {
         UIColor.green.setFill()
         let darkGreen = UIColor(red: 0, green: 0.6, blue: 0, alpha: 1.0)
         let path2 = UIBezierPath()
-        path2.lineWidth = CGFloat(widthOflines)
+        path2.lineWidth = widthOflines
         darkGreen.setStroke()
        
         
@@ -78,11 +77,12 @@ class BoardView: UIView {
         }
     }
     
-    func drawLine(fromX: Int, fromY: Int, toX: Int, toY: Int){
-        UIColor.blue.setStroke()
+    func drawLine(fromX: CGFloat, fromY: CGFloat, toX: CGFloat, toY: CGFloat, color: UIColor){
+        color.setStroke()
         let path4 = UIBezierPath()
         path4.move(to: CGPoint(x: fromX, y: fromY))
         path4.addLine(to: CGPoint(x: toX, y: toY))
+        path4.lineWidth = widthOflines
         path4.stroke()
     }
 }
