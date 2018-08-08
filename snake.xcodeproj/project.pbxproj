@@ -18,6 +18,7 @@
 		36D80E6F20FBF13000DF9A3E /* PointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D80E6E20FBF13000DF9A3E /* PointTests.swift */; };
 		36E99EAA20D9DFA5009FC0C4 /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E99EA920D9DFA5009FC0C4 /* Point.swift */; };
 		36E99EAC20D9E214009FC0C4 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E99EAB20D9E214009FC0C4 /* Board.swift */; };
+		36EE6F1421052A67003535F3 /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EE6F1321052A67003535F3 /* BoardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		36D80E6E20FBF13000DF9A3E /* PointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointTests.swift; sourceTree = "<group>"; };
 		36E99EA920D9DFA5009FC0C4 /* Point.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Point.swift; sourceTree = "<group>"; };
 		36E99EAB20D9E214009FC0C4 /* Board.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
+		36EE6F1321052A67003535F3 /* BoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardView.swift; sourceTree = "<group>"; };
 		BBBB9956201C0ABA008FF835 /* snakeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = snakeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBBB995A201C0ABB008FF835 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -90,6 +92,7 @@
 				36E99EA820D9DF6F009FC0C4 /* model */,
 				07FDE40D2016091500A674FE /* AppDelegate.swift */,
 				07FDE40F2016091500A674FE /* ViewController.swift */,
+				36EE6F1321052A67003535F3 /* BoardView.swift */,
 				07FDE4112016091500A674FE /* Main.storyboard */,
 				07FDE4142016091500A674FE /* Assets.xcassets */,
 				07FDE4162016091500A674FE /* LaunchScreen.storyboard */,
@@ -224,6 +227,7 @@
 			files = (
 				07FDE4102016091500A674FE /* ViewController.swift in Sources */,
 				07FDE40E2016091500A674FE /* AppDelegate.swift in Sources */,
+				36EE6F1421052A67003535F3 /* BoardView.swift in Sources */,
 				36E99EAC20D9E214009FC0C4 /* Board.swift in Sources */,
 				36E99EAA20D9DFA5009FC0C4 /* Point.swift in Sources */,
 			);
