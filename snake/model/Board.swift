@@ -8,19 +8,25 @@
 
 import Foundation
 
-struct Board: CustomStringConvertible {
+class Board: CustomStringConvertible {
+    
+    // define a snake here
+    var snake = [Point(row: 3, col: 5),
+                 Point(row: 4, col: 5),
+                 Point(row: 4, col: 6),
+                 Point(row: 4, col: 7),
+                 //                   Point(row: 4, col: 8)
+    ]
+    
     var description: String {
         return generateBoardDesc(rows: 10, columns: 10)
+
     }
     
     func generateBoardDesc(rows: Int, columns: Int) -> String {
         var number = -1
-        let snake = [Point(row: 3, col: 5), 
-                     Point(row: 4, col: 5),
-                     Point(row: 4, col: 6),
-                     Point(row: 4, col: 7),
-//                   Point(row: 4, col: 8)
-   ]
+        
+        print(snake)
         let numberOfDots = " ."
         let letters = " + A B C D E F G H I J K L M N O P Q R W T U V W X Y Z"
         var boardDesc = ""
@@ -50,6 +56,8 @@ struct Board: CustomStringConvertible {
         return boardDesc
     }
     
+
+
     func ifInSnakeCells(r: Int, c: Int, snake: [Point], numberOfCells: Int) -> Bool {
         for i in 0...numberOfCells {
             if r == snake[i].row && c == snake[i].col {

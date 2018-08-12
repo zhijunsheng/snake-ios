@@ -30,7 +30,33 @@ class BoardTests: XCTestCase {
      + A B C D E F G H I J
      */
     func testSnakeOnBoard() {
-    
+        
     }
     
+    func testMoveSnakeLeft() {
+        // there should be a board and a snake on board
+        
+        let brd = Board()
+//        moveSnakeLeft()
+        print(brd)
+            }
+    
+    func moveSnakeLeft(){
+        
+        let brd = Board()
+
+        for _ in brd.snake {
+            var t = 0
+            var i = 1
+            
+            if t > 0 {
+                brd.snake[brd.snake.count - t] = brd.snake[brd.snake.count - i]
+            } else {
+                brd.snake[0].row = brd.snake[0].row - 1
+                brd.snake[0].col = brd.snake[0].col - 1
+            }
+            i += 1
+            t += 1
+        }
+    }
 }
