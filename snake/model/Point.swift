@@ -16,5 +16,3 @@ struct Point: Equatable {
         return lhs.row == rhs.row && lhs.col == rhs.col
     }
 }
-
-
