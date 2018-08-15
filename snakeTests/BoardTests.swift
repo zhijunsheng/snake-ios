@@ -7,6 +7,7 @@
 //
 
 import XCTest
+@testable import snake
 
 class BoardTests: XCTestCase {
     
@@ -73,8 +74,5 @@ class BoardTests: XCTestCase {
         return false
     }
 
-struct Point {
-    var row : Int
-    var col : Int
-    }
+
 }
