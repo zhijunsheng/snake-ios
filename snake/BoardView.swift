@@ -10,8 +10,9 @@ import UIKit
 
 class BoardView: UIView {
     
-    let cols = 12
-    let rows = 15 // hi.
+    var cols = 0
+    var rows = 0
+    
     let side: CGFloat = 23.0
     let headColor = UIColor(red: 0/255,
                             green: 175/255,
@@ -30,15 +31,15 @@ class BoardView: UIView {
         let originX = (frame.width -  side * CGFloat(cols)) / 2
         let originY = (frame.height - side * CGFloat(rows)) / 3
         
-        snake = [Point(row: 15, col: 1),
-                 Point(row: 15, col: 2),
-        ]
+//        snake = [Point(row: 15, col: 1),
+//                 Point(row: 15, col: 2),
+//        ]
         
-        snakeCells = [CGPoint(x: originX, y: originY),
-                     CGPoint(x: originX + side, y: originY),
-                     //        CGPoint(x: 20.0, y: 20.0),
-            //        CGPoint(x: 20.0, y: 20.0),
-        ]
+//        snakeCells = [CGPoint(x: originX, y: originY),
+//                     CGPoint(x: originX + side, y: originY),
+//                     //        CGPoint(x: 20.0, y: 20.0),
+//            //        CGPoint(x: 20.0, y: 20.0),
+//        ]
         // calculate snakesXYs[0] and snakesXYs[1]
 //        snakesXYs[0] = //using snake[0]
 //        snakesXYs[1] = //side
@@ -65,17 +66,9 @@ class BoardView: UIView {
         
         // snake -> 🐍
         
-//        for i in 0...cols - 1 {
-//            drawRect(x: originX,
-//                     y: originY + CGFloat(i) * side,
-//                     width: side,
-//                     height: side,
-//                     color: .green)
-//        }
-        
-//        snakesXYs[0]
-        drawRect(x: snakeCells[0].x, y: snakeCells[0].y, width: side, height: side, color: headColor)
-        drawRect(x: snakeCells[1].x, y: snakeCells[1].y, width: side, height: side, color: .green)
+        for i in snakeCells.indices {
+            drawRect(x: snakeCells[i].x, y: snakeCells[i].y, width: side, height: side, color: headColor)
+        }
     }
     
     func drawLine(fromX: CGFloat, fromY: CGFloat, toX: CGFloat, toY: CGFloat, color: UIColor) {

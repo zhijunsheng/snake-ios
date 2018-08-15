@@ -9,14 +9,9 @@
 import Foundation
 struct Board: CustomStringConvertible {
     
-    let rows = 08
-    let cols = 14
-    
-    var snake = [Point(row: 4, col: 11),
-                 Point(row: 4, col: 12),
-                 Point(row: 3, col: 12),
-                 Point(row: 2, col: 12),
-                 ]
+    var rows: Int
+    var cols: Int
+    var snake: [Point]
     
     mutating  func moveSnakeLeft() {
         
