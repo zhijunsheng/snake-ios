@@ -25,7 +25,7 @@ class BoardTests: XCTestCase {
      + A B C D E F G H I
     */
     func testBoard() {
-        print(boardDesc(cols: 11, rows: 7))
+        print(boardDesc(cols: 12, rows: 8))
     }
     
     func boardDesc(cols: Int, rows: Int) -> String {
@@ -40,25 +40,24 @@ class BoardTests: XCTestCase {
         var desc = ""
         let chars = "+ABCDEFGHIJKLMNOPQRSTUVWXYZ"
         let charsArr = Array(chars)
-        for row in 0...rows {
+        for row in 0...rows - 1 {
             if row < rows - 8 {
-                desc += "\(rows + 1 - row)"
+                desc += "\(rows - row)"
             } else {
-                desc += " \(rows + 1 - row)"
+                desc += " \(rows - row)"
             }
             
-            for col in 0...cols {
-                if isOnSnake(row: rows + 1 - row, col: col + 1, snake: snake) {
+            for col in 0...cols - 1 {
+                if isOnSnake(row: rows - row, col: col + 1, snake: snake) {
                     desc += " o"
                 } else {
                     desc += " ."
                 }
-                
             }
             desc += "\n"
         }
         
-        for j in 0 ... cols + 1 {
+        for j in 0 ... cols {
             desc += " \(charsArr[j])"
         }
         
