@@ -12,16 +12,16 @@ let side: CGFloat = 23.0
 
 class GameViewController: UIViewController {
     
-    let numbOfRows = 14
-    let numbOfCols = 8
-    let initSnake = [Point(row: 4, col: 11),
-                 Point(row: 4, col: 12),
-                 Point(row: 3, col: 12),
-                 Point(row: 2, col: 12),
-                 ]
+    let numbOfRows = 8
+    let numbOfCols = 14
+    let initSnake = [Point(row: 2, col: 9),
+                     Point(row: 2, col: 8),
+                     Point(row: 3, col: 8),
+                     Point(row: 4, col: 8),
+                     ]
     
     var board = Board(rows: 0, cols: 0, snake: [])
-
+    
     
     @IBOutlet weak var boardView: BoardView!
     
@@ -29,53 +29,65 @@ class GameViewController: UIViewController {
         super.viewDidLoad()
         
         board = Board(rows: numbOfRows, cols: numbOfCols, snake: initSnake)
-
+        
         boardView.cols = numbOfCols
         boardView.rows = numbOfRows
     }
     
     @IBAction func touchLeft(_ sender: UIButton) {
-        print("left")
-        
+        board.moveSnakeLeft()
+        print(board)
+        for i in 0..<board.snake.count {
+            let pointToConvertI = board.snake[i]
+            let convertedCGPointI = convert(point: pointToConvertI)
+            boardView.snakeCells += [convertedCGPointI]
+        }
+        boardView.setNeedsDisplay()
     }
     
     @IBAction func touchUp(_ sender: UIButton) {
-        print("up")
+        board.moveSnakeUp()
+        print(board)
+        for i in 0..<board.snake.count {
+            let pointToConvertI = board.snake[i]
+            let convertedCGPointI = convert(point: pointToConvertI)
+            boardView.snakeCells += [convertedCGPointI]
+        }
+        boardView.setNeedsDisplay()
     }
     
     @IBAction func touchDown(_ sender: UIButton) {
-        print("down")
-        boardView.snakeCells = [CGPoint(x: 23.0 * 4.0, y: 23.0),
-                                CGPoint(x: 23.0 * 3.0, y: 23.0),
-        ]
-        // snake is actually board.snake
-        print(board.snake)
+        board.moveSnakeDown()
         print(board)
-        //        snake = [Point(row: 15, col: 1),
-        //                 Point(row: 15, col: 2),
-        //        ]
-        
-        // Peter needs to calculate snakeCells
-        
-        // step 1.0: convert board.snake[0]
-        // board.snake[0].row, board.snake[0].col
-        // =>
-        // snakeCells[0].y, snakeCells[0].x
-        
-        // step 1.1: convert board.snake[0] and board.snake[1]
-        // step 1.2: use a loop
-        
-        //        snakeCells = [CGPoint(x: originX, y: originY),
-        //                     CGPoint(x: originX + side, y: originY),
-        //                     //        CGPoint(x: 20.0, y: 20.0),
-        //            //        CGPoint(x: 20.0, y: 20.0),
-        //        ]
-        
-        
+        for i in 0..<board.snake.count {
+            let pointToConvertI = board.snake[i]
+            let convertedCGPointI = convert(point: pointToConvertI)
+            boardView.snakeCells += [convertedCGPointI]
+        }
         boardView.setNeedsDisplay()
     }
     
     @IBAction func touchRight(_ sender: UIButton) {
-        print("right")
+        board.moveSnakeRight()
+        print(board)
+        
+        boardView.snakeCells = []
+        
+        for i in board.snake.indices {
+            let pointToConvertI = board.snake[i]
+            let convertedCGPointI = convert(point: pointToConvertI)
+            boardView.snakeCells += [convertedCGPointI]
+        }
+        boardView.setNeedsDisplay()
+    }
+    
+    func convert(point: Point) -> CGPoint {
+        var cgPoint: CGPoint
+        
+        
+        let x: CGFloat = boardView.originX + side * CGFloat(point.col - 1)
+        let y: CGFloat = boardView.originY + side * CGFloat(numbOfRows) - side * CGFloat(point.row)
+        cgPoint = CGPoint(x: x, y: y)
+        return cgPoint
     }
 }

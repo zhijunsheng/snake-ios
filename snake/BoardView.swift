@@ -1,5 +1,7 @@
 //
-//  BoardView.swift
+//  BoardVie print("down")
+//        boardView.snakeCells = [CGPoint(x: board.snake[0].col, y: board.snake[0].row),
+//                                CGPoint((x: CGFloat(board.snake[0].col)) +w.swift
 //  snake
 //
 //  Created by Peter Shi on 2018-07-19.
@@ -11,7 +13,7 @@ import UIKit
 class BoardView: UIView {
     
     var cols = 0
-    var rows = 0
+    var rows = 0 // hi
     
     let side: CGFloat = 23.0
     let headColor = UIColor(red: 0/255,
@@ -27,9 +29,13 @@ class BoardView: UIView {
     var snakeCells = [CGPoint]()
     var snake = [Point]()
 
+    var originX: CGFloat = 0.0
+    var originY: CGFloat = 0.0
+    
+    
     override func draw(_ rect: CGRect) {
-        let originX = (frame.width -  side * CGFloat(cols)) / 2
-        let originY = (frame.height - side * CGFloat(rows)) / 3
+        originX = (frame.width -  side * CGFloat(cols)) / 2
+        originY = (frame.height - side * CGFloat(rows)) / 3
         
 //        snake = [Point(row: 15, col: 1),
 //                 Point(row: 15, col: 2),
