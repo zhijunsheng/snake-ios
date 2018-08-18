@@ -9,16 +9,20 @@
 import UIKit
 
 class BoardView: UIView {
+    
+    let rows = 18
+    let cols = 10
+    
+    let side: CGFloat = 20
+    
+    var snake = [CGPoint(x: 30, y: 30)]
 
     override func draw(_ rect: CGRect) {
-        print(self)
-        print(frame.width)
-        print(frame.height)
-        let rows = 18
-        let cols = 10
-        
-        let side: CGFloat = 20
-        
+        drawGrid()
+        drawSnake()
+    }
+    
+    func drawGrid() {
         let path = UIBezierPath()
         let originX = (frame.width - CGFloat(cols) * side) / 2
         let originY = (frame.height - CGFloat(rows) * side) / 2
@@ -26,18 +30,36 @@ class BoardView: UIView {
         // horizontal
         
         for i in 0 ... rows {
-            path.move(to: CGPoint(x: originX, y: originY + CGFloat(i) * side))
-            path.addLine(to: CGPoint(x: originX + CGFloat(cols) * side, y: originY + CGFloat(i) * side))
+            drawLine(fromX: originX,
+                     fromY: originY + CGFloat(i) * side,
+                     toX: originX + CGFloat(cols) * side,
+                     toY: originY + CGFloat(i) * side)
         }
         
         // vertical
         
         for i in 0 ... cols {
-            path.move(to: CGPoint(x: originX + CGFloat(i) * side, y: originY ))
-            path.addLine(to: CGPoint(x: originX + CGFloat(i) * side, y: originY + CGFloat(rows) * side))
+            drawLine(fromX: originX + CGFloat(i) * side,
+                     fromY: originY,
+                     toX: originX + CGFloat(i) * side,
+                     toY: originY + CGFloat(rows) * side)
         }
         
         path.stroke()
     }
+    
+    func drawSnake() {
+        
+    }
+    
+    func drawLine(fromX: CGFloat, fromY: CGFloat, toX: CGFloat, toY: CGFloat) {
+        let path = UIBezierPath()
+        
+        path.move(to: CGPoint(x: fromX, y: fromY))
+        path.addLine(to: CGPoint(x: toX, y: toY))
+        
+        path.stroke()
+    }
+
 }
 
