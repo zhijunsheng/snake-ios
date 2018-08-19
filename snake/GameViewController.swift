@@ -37,7 +37,10 @@ class GameViewController: UIViewController {
     @IBAction func touchLeft(_ sender: UIButton) {
         board.moveSnakeLeft()
         print(board)
-        for i in 0..<board.snake.count {
+        
+        boardView.snakeCells = []
+        
+        for i in board.snake.indices {
             let pointToConvertI = board.snake[i]
             let convertedCGPointI = convert(point: pointToConvertI)
             boardView.snakeCells += [convertedCGPointI]
@@ -48,7 +51,10 @@ class GameViewController: UIViewController {
     @IBAction func touchUp(_ sender: UIButton) {
         board.moveSnakeUp()
         print(board)
-        for i in 0..<board.snake.count {
+        
+        boardView.snakeCells = []
+        
+        for i in board.snake.indices {
             let pointToConvertI = board.snake[i]
             let convertedCGPointI = convert(point: pointToConvertI)
             boardView.snakeCells += [convertedCGPointI]
@@ -59,7 +65,10 @@ class GameViewController: UIViewController {
     @IBAction func touchDown(_ sender: UIButton) {
         board.moveSnakeDown()
         print(board)
-        for i in 0..<board.snake.count {
+        
+        boardView.snakeCells = []
+        
+        for i in board.snake.indices {
             let pointToConvertI = board.snake[i]
             let convertedCGPointI = convert(point: pointToConvertI)
             boardView.snakeCells += [convertedCGPointI]
@@ -91,3 +100,4 @@ class GameViewController: UIViewController {
         return cgPoint
     }
 }
+

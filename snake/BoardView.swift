@@ -1,7 +1,5 @@
 //
-//  BoardVie print("down")
-//        boardView.snakeCells = [CGPoint(x: board.snake[0].col, y: board.snake[0].row),
-//                                CGPoint((x: CGFloat(board.snake[0].col)) +w.swift
+//  BoardView.swift
 //  snake
 //
 //  Created by Peter Shi on 2018-07-19.
@@ -28,7 +26,7 @@ class BoardView: UIView {
     
     var snakeCells = [CGPoint]()
     var snake = [Point]()
-
+    
     var originX: CGFloat = 0.0
     var originY: CGFloat = 0.0
     
@@ -37,18 +35,18 @@ class BoardView: UIView {
         originX = (frame.width -  side * CGFloat(cols)) / 2
         originY = (frame.height - side * CGFloat(rows)) / 3
         
-//        snake = [Point(row: 15, col: 1),
-//                 Point(row: 15, col: 2),
-//        ]
+        //        snake = [Point(row: 15, col: 1),
+        //                 Point(row: 15, col: 2),
+        //        ]
         
-//        snakeCells = [CGPoint(x: originX, y: originY),
-//                     CGPoint(x: originX + side, y: originY),
-//                     //        CGPoint(x: 20.0, y: 20.0),
-//            //        CGPoint(x: 20.0, y: 20.0),
-//        ]
+        //        snakeCells = [CGPoint(x: originX, y: originY),
+        //                     CGPoint(x: originX + side, y: originY),
+        //                     //        CGPoint(x: 20.0, y: 20.0),
+        //            //        CGPoint(x: 20.0, y: 20.0),
+        //        ]
         // calculate snakesXYs[0] and snakesXYs[1]
-//        snakesXYs[0] = //using snake[0]
-//        snakesXYs[1] = //side
+        //        snakesXYs[0] = //using snake[0]
+        //        snakesXYs[1] = //side
         
         // horizontally draw some lines
         
@@ -69,6 +67,11 @@ class BoardView: UIView {
                      toY: originY + CGFloat(rows) * side,
                      color: .gray)
         }
+        
+        let rect = CGRect(x: 20.0, y: 20.0, width: side, height: side)
+        let rectangle = UIBezierPath(roundedRect: rect, cornerRadius: side * 2)
+        UIColor.red.setFill()
+        rectangle.fill()
         
         // snake -> 🐍
         
@@ -92,3 +95,4 @@ class BoardView: UIView {
         rectangle.fill()
     }
 }
+
