@@ -31,6 +31,16 @@ class PointTests: XCTestCase {
         print("3.14159265358979323827433 = \(Double.pi)")
     }
     
+    func testRandInt() {
+        let food = "🍏🍎🍐🍊🍋🍌🍉🍇🍓🍈🍒🍑🍍🥥🥝🍅🍆🥑🥦🥒🌶🌽🥕🥔🍠🥐🍞🥖🥨🧀🥚🍳🥞🥓🥩🍗🍖🌭🍔🍟🍕🥪🥙🌮🌯🥗🥘🥫🍝🍜🍲🍛🍣🍱🥟🍤🍙🍚🍘🍥🥠🍢🍡🍧🍨🍦🥧🎾🍰🎂🍮🍭🍬🍫🍿🍩🍪🌰🥜🍯🥛🍼☕️🍵🥤🍺🍻🥂🍷🥃🍸🍹🍾"
+        let foodArr = Array(food)
+        let rand = Int(arc4random()) % foodArr.count
+        let randFood = foodArr[rand]
+        print(randFood)
+//        print(foodArr)
+//        print(foodArr.count)
+    }
+    
     struct MyPoint {
         let x : Int
         let y : Int

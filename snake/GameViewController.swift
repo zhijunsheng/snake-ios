@@ -15,6 +15,7 @@ class GameViewController: UIViewController {
     let numbOfRows = 8
     let numbOfCols = 14
     let initSnake = [Point(row: 2, col: 9),
+                     Point(row: 8, col: 10),
                      Point(row: 2, col: 8),
                      Point(row: 3, col: 8),
                      Point(row: 4, col: 8),

@@ -26,7 +26,7 @@ class BoardTests: XCTestCase {
      */
     func testSnakeLeft() {
         
-        var board = Board()
+        var board = Board(rows: 1, cols: 1, snake: [])
         board.snake = [Point(row: 4, col: 11),
                        Point(row: 4, col: 12),
                        Point(row: 3, col: 12),
@@ -44,7 +44,7 @@ class BoardTests: XCTestCase {
     }
     
     func testSnakeRight() {
-        var board = Board()
+        var board = Board(rows: 1, cols: 1, snake: [])
         board.snake = [Point(row: 4, col: 11),
                        Point(row: 4, col: 10),
                        Point(row: 3, col: 10),
@@ -59,7 +59,7 @@ class BoardTests: XCTestCase {
     }
     
     func testSnakeUp() {
-        var board = Board()
+        var board = Board(rows: 1, cols: 1, snake: [])
         board.snake = [Point(row: 5, col: 11),
                        Point(row: 4, col: 11),
                        Point(row: 3, col: 11),
@@ -74,7 +74,7 @@ class BoardTests: XCTestCase {
     }
     
     func testSnakeDown() {
-        var board = Board()
+        var board = Board(rows: 1, cols: 1, snake: [])
         board.snake = [Point(row: 4, col: 11),
                        Point(row: 5, col: 11),
                        Point(row: 6, col: 11),
@@ -171,7 +171,7 @@ class BoardTests: XCTestCase {
      
      */
     func test$NAKEthatDANCE$() {
-        var board = Board()
+        var board = Board(rows: 1, cols: 1, snake: [])
         board.snake = [Point(row: 3, col: 8),
                        Point(row: 2, col: 8),
                        Point(row: 2, col: 7),

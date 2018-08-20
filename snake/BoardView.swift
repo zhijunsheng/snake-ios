@@ -32,21 +32,19 @@ class BoardView: UIView {
     
     
     override func draw(_ rect: CGRect) {
+        
+        // food 🍳🥚🍔🍕🍝🍟🍰🍿🍭🍬🍩🍫
+        let food = NSAttributedString(string: "💣🎾🍎🥚🍩🍳🍔🍕🍝🍟🍰🍿🍭🍬🍫")
+        food.draw(at: CGPoint(x: originX, y: originY))
+        
+        let rect = CGRect(x: 20.0, y: 20.0, width: side, height: side)
+        let rectangle = UIBezierPath(roundedRect: rect, cornerRadius: side * 2)
+        UIColor.red.setFill()
+        rectangle.fill()
+        
+        
         originX = (frame.width -  side * CGFloat(cols)) / 2
         originY = (frame.height - side * CGFloat(rows)) / 3
-        
-        //        snake = [Point(row: 15, col: 1),
-        //                 Point(row: 15, col: 2),
-        //        ]
-        
-        //        snakeCells = [CGPoint(x: originX, y: originY),
-        //                     CGPoint(x: originX + side, y: originY),
-        //                     //        CGPoint(x: 20.0, y: 20.0),
-        //            //        CGPoint(x: 20.0, y: 20.0),
-        //        ]
-        // calculate snakesXYs[0] and snakesXYs[1]
-        //        snakesXYs[0] = //using snake[0]
-        //        snakesXYs[1] = //side
         
         // horizontally draw some lines
         
@@ -67,12 +65,6 @@ class BoardView: UIView {
                      toY: originY + CGFloat(rows) * side,
                      color: .gray)
         }
-        
-        let rect = CGRect(x: 20.0, y: 20.0, width: side, height: side)
-        let rectangle = UIBezierPath(roundedRect: rect, cornerRadius: side * 2)
-        UIColor.red.setFill()
-        rectangle.fill()
-        
         // snake -> 🐍
         
         for i in snakeCells.indices {
