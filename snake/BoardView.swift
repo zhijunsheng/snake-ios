@@ -25,7 +25,7 @@ class BoardView: UIView {
         originY = (frame.height - CGFloat(rows) * side) / 2
         drawGrid()
         drawSnake()
-
+        
     }
     
     func drawGrid() {
@@ -64,15 +64,6 @@ class BoardView: UIView {
         
     }
     
-    func moveLeft() {
-        
-        snk[4] = snk[3]
-        snk[3] = snk[2]
-        snk[2] = snk[1]
-        snk[1] = snk[0]
-        snk[0].col -= 1
-        
-    }
     
     func drawLine(fromX: CGFloat, fromY: CGFloat, toX: CGFloat, toY: CGFloat) {
         let path = UIBezierPath()

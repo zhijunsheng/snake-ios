@@ -16,10 +16,14 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("rows")
         
         boardView.snk = board.snake
     }
     
+    @IBAction func touchLeft(_ sender: UIButton) {
+            board.moveLeft()
+        print("rows")
+        view.setNeedsDisplay()
+    }
 }
 

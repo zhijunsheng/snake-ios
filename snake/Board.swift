@@ -10,15 +10,26 @@ import Foundation
 
 struct Board: CustomStringConvertible {
     
-    let snake = [Point(row: 8, col: 1),
+    var snake = [Point(row: 8, col: 1),
                  Point(row: 8, col: 2),
                  Point(row: 7, col: 2),
                  Point(row: 7, col: 3),
-//                 Point(row: 7, col: 4)
+                 Point(row: 7, col: 4)
     ]
     
     let rows = 10
     let cols = 12
+    
+    mutating func moveLeft() {
+        
+        for i in snake.indices {
+            if i > 0 {
+                snake[snake.count - i] = snake [snake.count - i - 1]
+            }
+        }
+        snake[0].col -= 1
+        
+    }
     
     func isOnSnake(row: Int, col: Int, snake: [Point]) -> Bool {
         for i in snake.indices {
@@ -56,6 +67,7 @@ struct Board: CustomStringConvertible {
         
         return desc
     }
+    
     
 }
 
