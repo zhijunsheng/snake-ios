@@ -15,17 +15,21 @@ class BoardView: UIView {
     
     let side: CGFloat = 20
     
-    var snake = [CGPoint(x: 30, y: 30)]
+    var originX : CGFloat = 0
+    var originY : CGFloat = 0
+    
+    var snk = [Point]()
 
     override func draw(_ rect: CGRect) {
+        originX = (frame.width - CGFloat(cols) * side) / 2
+        originY = (frame.height - CGFloat(rows) * side) / 2
         drawGrid()
         drawSnake()
+
     }
     
     func drawGrid() {
         let path = UIBezierPath()
-        let originX = (frame.width - CGFloat(cols) * side) / 2
-        let originY = (frame.height - CGFloat(rows) * side) / 2
         
         // horizontal
         
@@ -50,6 +54,24 @@ class BoardView: UIView {
     
     func drawSnake() {
         
+        print("____________")
+        
+        for i in snk.indices {
+            let row0 = originY + CGFloat(rows - snk[i].row) * side
+            let col0 = originX + CGFloat(snk[i].col - 1) * side
+            drawRoundSquare(x: col0, y: row0, colour: .blue)
+        }
+        
+    }
+    
+    func moveLeft() {
+        
+        snk[4] = snk[3]
+        snk[3] = snk[2]
+        snk[2] = snk[1]
+        snk[1] = snk[0]
+        snk[0].col -= 1
+        
     }
     
     func drawLine(fromX: CGFloat, fromY: CGFloat, toX: CGFloat, toY: CGFloat) {
@@ -59,6 +81,14 @@ class BoardView: UIView {
         path.addLine(to: CGPoint(x: toX, y: toY))
         
         path.stroke()
+    }
+    
+    func drawRoundSquare(x: CGFloat, y: CGFloat, colour: UIColor) {
+        let rect = CGRect(x: x, y: y, width: side, height: side)
+        let path = UIBezierPath(roundedRect: rect, cornerRadius: 5)
+        colour.setFill()
+        
+        path.fill()
     }
 
 }

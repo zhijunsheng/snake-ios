@@ -10,7 +10,16 @@ import UIKit
 
 class ViewController: UIViewController {
     
-
+    var board = Board()
+    
+    @IBOutlet var boardView: BoardView!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        print("rows")
+        
+        boardView.snk = board.snake
+    }
     
 }
 

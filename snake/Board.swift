@@ -14,7 +14,7 @@ struct Board: CustomStringConvertible {
                  Point(row: 8, col: 2),
                  Point(row: 7, col: 2),
                  Point(row: 7, col: 3),
-                 Point(row: 7, col: 4)
+//                 Point(row: 7, col: 4)
     ]
     
     let rows = 10
