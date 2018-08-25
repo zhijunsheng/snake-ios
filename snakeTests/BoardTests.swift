@@ -29,5 +29,33 @@ class BoardTests: XCTestCase {
         let brd = Board()
         print(brd)
     }
+    
+    func testMoveSnakeDown() {
+        var brd = Board(snake: [])
+        brd.snake = [Point(row: 10, col: 1),
+                     Point(row: 10, col: 2),
+                     Point(row: 9, col: 2),
+                     Point(row: 9, col: 3),
+                     Point(row: 9, col: 4)]
+
+        brd.moveDown()
+        XCTAssertEqual(brd.snake[0].row, 9)
+        XCTAssertEqual(brd.snake[4].col, 3)
+        
+    }
+    
+    func testMoveSnakeLeft() {
+        var brd = Board(snake: [])
+        brd.snake = [Point(row: 5, col: 6),
+                     Point(row: 5, col: 7),
+                     Point(row: 4, col: 7),
+                     Point(row: 4, col: 8),
+                     Point(row: 4, col: 9)]
+        
+        brd.moveLeft()
+        XCTAssertEqual(brd.snake[0].col, 5)
+        XCTAssertEqual(brd.snake[4].col, 8)
+        
+    }
 
 }

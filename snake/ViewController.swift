@@ -21,9 +21,33 @@ class ViewController: UIViewController {
     }
     
     @IBAction func touchLeft(_ sender: UIButton) {
-            board.moveLeft()
-        print("rows")
-        view.setNeedsDisplay()
+        print(board)
+        board.moveLeft()
+        print(board)
+        boardView.snk = board.snake
+
+        boardView.setNeedsDisplay()
     }
+    
+    @IBAction func touchRight(_ sender: UIButton) {
+        board.moveRight()
+        boardView.snk = board.snake
+        boardView.setNeedsDisplay()
+
+    }
+    
+    @IBAction func touchUp(_ sender: UIButton) {
+        board.moveUp()
+        boardView.snk = board.snake
+        boardView.setNeedsDisplay()
+    }
+    
+    @IBAction func touchDown(_ sender: UIButton) {
+        board.moveDown()
+        boardView.snk = board.snake
+        boardView.setNeedsDisplay()
+    }
+    
+    
 }
 

@@ -31,6 +31,39 @@ struct Board: CustomStringConvertible {
         
     }
     
+    mutating func moveRight() {
+        
+        for i in snake.indices {
+            if i > 0 {
+                snake[snake.count - i] = snake [snake.count - i - 1]
+            }
+        }
+        snake[0].col += 1
+        
+    }
+    
+    mutating func moveUp() {
+        
+        for i in snake.indices {
+            if i > 0 {
+                snake[snake.count - i] = snake [snake.count - i - 1]
+            }
+        }
+        snake[0].row += 1
+        
+    }
+    
+    mutating func moveDown() {
+        
+        for i in snake.indices {
+            if i > 0 {
+                snake[snake.count - i] = snake [snake.count - i - 1]
+            }
+        }
+        snake[0].row -= 1
+        
+    }
+    
     func isOnSnake(row: Int, col: Int, snake: [Point]) -> Bool {
         for i in snake.indices {
             if row == snake[i].row, col == snake[i].col {

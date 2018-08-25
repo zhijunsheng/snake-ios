@@ -64,7 +64,6 @@ class BoardView: UIView {
         
     }
     
-    
     func drawLine(fromX: CGFloat, fromY: CGFloat, toX: CGFloat, toY: CGFloat) {
         let path = UIBezierPath()
         
