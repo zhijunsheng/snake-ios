@@ -25,7 +25,7 @@ class BoardTests: XCTestCase {
      ++ A B C D E
     */
     func testBoard() {
-        let brd = Board(rows: 10, cols: 5)
+        let brd = Board(rows: 11, cols: 5)
         print(brd)
     }
     
