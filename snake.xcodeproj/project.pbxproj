@@ -16,6 +16,7 @@
 		9DA7528420FBD2650090228B /* ArrayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA7528320FBD2650090228B /* ArrayTests.swift */; };
 		9DE646AA21247CE300218290 /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE646A921247CE300218290 /* Point.swift */; };
 		9DE646AC21247DED00218290 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE646AB21247DED00218290 /* Board.swift */; };
+		9DE646B22131AFA400218290 /* ClosureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE646B12131AFA400218290 /* ClosureTests.swift */; };
 		9DF652A22104DC6100C695D6 /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF652A12104DC6100C695D6 /* BoardView.swift */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +42,7 @@
 		9DA7528320FBD2650090228B /* ArrayTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayTests.swift; sourceTree = "<group>"; };
 		9DE646A921247CE300218290 /* Point.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Point.swift; sourceTree = "<group>"; };
 		9DE646AB21247DED00218290 /* Board.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
+		9DE646B12131AFA400218290 /* ClosureTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosureTests.swift; sourceTree = "<group>"; };
 		9DF652A12104DC6100C695D6 /* BoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardView.swift; sourceTree = "<group>"; };
 		BBBB9956201C0ABA008FF835 /* snakeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = snakeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBBB995A201C0ABB008FF835 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				9DA7528120FBCC8F0090228B /* BoardTests.swift */,
+				9DE646B12131AFA400218290 /* ClosureTests.swift */,
 				9DA7528320FBD2650090228B /* ArrayTests.swift */,
 				BBBB995A201C0ABB008FF835 /* Info.plist */,
 			);
@@ -225,6 +228,7 @@
 			files = (
 				9DA7528220FBCC8F0090228B /* BoardTests.swift in Sources */,
 				9DA7528420FBD2650090228B /* ArrayTests.swift in Sources */,
+				9DE646B22131AFA400218290 /* ClosureTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

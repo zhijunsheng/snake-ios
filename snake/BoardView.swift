@@ -19,13 +19,19 @@ class BoardView: UIView {
     var originY : CGFloat = 0
     
     var snk = [Point]()
+    
+
 
     override func draw(_ rect: CGRect) {
         originX = (frame.width - CGFloat(cols) * side) / 2
         originY = (frame.height - CGFloat(rows) * side) / 2
         drawGrid()
         drawSnake()
-        
+        drawFruit(fruit: "🍎", col: 2, row: 5)
+    }
+    
+    func drawFruit(fruit: String, col: Int, row: Int) {
+        fruit.draw(at: CGPoint(x: originX + CGFloat(col - 1) * side, y: originY + CGFloat(rows - row) * side) )
     }
     
     func drawGrid() {
@@ -53,8 +59,6 @@ class BoardView: UIView {
     }
     
     func drawSnake() {
-        
-        print("____________")
         
         for i in snk.indices {
             let row0 = originY + CGFloat(rows - snk[i].row) * side
