@@ -33,15 +33,11 @@ class BoardView: UIView {
     
     override func draw(_ rect: CGRect) {
         
-        // food 🍳🥚🍔🍕🍝🍟🍰🍿🍭🍬🍩🍫
-        let food = NSAttributedString(string: "💣🎾🍎🥚🍩🍳🍔🍕🍝🍟🍰🍿🍭🍬🍫")
-        food.draw(at: CGPoint(x: originX, y: originY))
-        
-        let rect = CGRect(x: 20.0, y: 20.0, width: side, height: side)
-        let rectangle = UIBezierPath(roundedRect: rect, cornerRadius: side * 2)
-        UIColor.red.setFill()
-        rectangle.fill()
-        
+//        let rect = CGRect(x: 20.0, y: 20.0, width: side, height: side)
+//        let rectangle = UIBezierPath(roundedRect: rect, cornerRadius: side * 2)
+//        UIColor.red.setFill()
+//        rectangle.fill()
+//
         
         originX = (frame.width -  side * CGFloat(cols)) / 2
         originY = (frame.height - side * CGFloat(rows)) / 3
@@ -68,7 +64,30 @@ class BoardView: UIView {
         // snake -> 🐍
         
         for i in snakeCells.indices {
-            drawRect(x: snakeCells[i].x, y: snakeCells[i].y, width: side, height: side, color: headColor)
+            if i == 0 {
+                drawRect(x: snakeCells[i].x, y: snakeCells[i].y, width: side, height: side, color: headColor)
+            } else {
+           drawRect(x: snakeCells[i].x, y: snakeCells[i].y, width: side, height: side, color: headColor)
+            }
+        }
+        
+       
+        // food 🍳🥚🍔🍕🍝🍟🍰🍿🍭🍬🍩🍫👍
+        for _ in 0...2{
+            let food = "🍏🍎🍐🍊🍋🍌🍉🍇🍓🍈🍒🍑🍍🥥🥝🍅🍆🥑🥦🥒🌶🌽🥕🥔🍠🥐🍞🥖🥨🧀🥚🍳🥞🥓🥩🍗🍖🌭🍔🍟🍕🥪🥙🌮🌯🥗🥘🥫🍝🍜🍲🍛💣🍣🍱🥟🍤🍙🍚🍘🍥🥠🍢🍡🍧🍨🍦🥧🎾🍰🎂🍮🍭🍬🍫🍿🍩🍪🌰🥜🍯🥛🍼☕️🍵🥤🍺🍻🥂🍷🥃🍸🍹🍾"
+       
+        let foodString = Array(food)
+        let rand = Int(arc4random()) % foodString.count
+        let randX = CGFloat(Int(arc4random()) % cols) * side + originX
+        let randY = CGFloat(Int(arc4random()) % rows) * side + originY
+        let paragraphStyle = NSMutableParagraphStyle()
+        let attributes = [
+            NSAttributedStringKey.paragraphStyle: paragraphStyle,
+            NSAttributedStringKey.font: UIFont.systemFont(ofSize: 16.3456789),
+            ]
+        let attributedString = NSAttributedString(string: String(foodString[rand]), attributes: attributes)
+        let stringRect = CGRect(x: randX, y: randY, width: 23, height: 23)
+        attributedString.draw(in: stringRect)
         }
     }
     

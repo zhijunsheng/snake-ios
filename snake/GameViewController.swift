@@ -14,8 +14,8 @@ class GameViewController: UIViewController {
     
     let numbOfRows = 8
     let numbOfCols = 14
-    let initSnake = [Point(row: 2, col: 9),
-                     Point(row: 8, col: 10),
+    let initSnake = [Point(row: 2, col: 10),
+                     Point(row: 2, col: 9),
                      Point(row: 2, col: 8),
                      Point(row: 3, col: 8),
                      Point(row: 4, col: 8),
@@ -36,8 +36,11 @@ class GameViewController: UIViewController {
     }
     
     @IBAction func touchLeft(_ sender: UIButton) {
+        let tailPoint = board.snake[board.snake.count - 1]
+        
         board.moveSnakeLeft()
         print(board)
+        board.snake += [tailPoint]
         
         boardView.snakeCells = []
         
@@ -45,13 +48,17 @@ class GameViewController: UIViewController {
             let pointToConvertI = board.snake[i]
             let convertedCGPointI = convert(point: pointToConvertI)
             boardView.snakeCells += [convertedCGPointI]
+            
         }
         boardView.setNeedsDisplay()
     }
     
     @IBAction func touchUp(_ sender: UIButton) {
+        let tailPoint = board.snake[board.snake.count - 1]
+        
         board.moveSnakeUp()
         print(board)
+        board.snake += [tailPoint]
         
         boardView.snakeCells = []
         
@@ -64,8 +71,11 @@ class GameViewController: UIViewController {
     }
     
     @IBAction func touchDown(_ sender: UIButton) {
+        let tailPoint = board.snake[board.snake.count - 1]
+        
         board.moveSnakeDown()
         print(board)
+        board.snake += [tailPoint]
         
         boardView.snakeCells = []
         
@@ -78,8 +88,11 @@ class GameViewController: UIViewController {
     }
     
     @IBAction func touchRight(_ sender: UIButton) {
+        let tailPoint = board.snake[board.snake.count - 1]
+        
         board.moveSnakeRight()
         print(board)
+        board.snake += [tailPoint]
         
         boardView.snakeCells = []
         
