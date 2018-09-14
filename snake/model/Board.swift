@@ -7,11 +7,23 @@
 //
 
 import Foundation
+
 struct Board: CustomStringConvertible {
     
     var rows: Int
     var cols: Int
     var snake: [Point]
+    var food = [Point]()
+    
+    mutating func foodSpot(numFoods: Int) {
+        let randY = Int(arc4random()) % rows
+        let randX = Int(arc4random()) % cols
+        
+        // numFoods  [point0, point1, point2]
+    
+        
+        // food = [point0, point1, point2]
+    }
     
     mutating  func moveSnakeLeft() {
         

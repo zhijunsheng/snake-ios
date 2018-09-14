@@ -73,22 +73,21 @@ class BoardView: UIView {
         
        
         // food 🍳🥚🍔🍕🍝🍟🍰🍿🍭🍬🍩🍫👍
-        for _ in 0...2{
-            let food = "🍏🍎🍐🍊🍋🍌🍉🍇🍓🍈🍒🍑🍍🥥🥝🍅🍆🥑🥦🥒🌶🌽🥕🥔🍠🥐🍞🥖🥨🧀🥚🍳🥞🥓🥩🍗🍖🌭🍔🍟🍕🥪🥙🌮🌯🥗🥘🥫🍝🍜🍲🍛💣🍣🍱🥟🍤🍙🍚🍘🍥🥠🍢🍡🍧🍨🍦🥧🎾🍰🎂🍮🍭🍬🍫🍿🍩🍪🌰🥜🍯🥛🍼☕️🍵🥤🍺🍻🥂🍷🥃🍸🍹🍾"
-       
-        let foodString = Array(food)
-        let rand = Int(arc4random()) % foodString.count
-        let randX = CGFloat(Int(arc4random()) % cols) * side + originX
-        let randY = CGFloat(Int(arc4random()) % rows) * side + originY
-        let paragraphStyle = NSMutableParagraphStyle()
-        let attributes = [
-            NSAttributedStringKey.paragraphStyle: paragraphStyle,
-            NSAttributedStringKey.font: UIFont.systemFont(ofSize: 16.3456789),
-            ]
-        let attributedString = NSAttributedString(string: String(foodString[rand]), attributes: attributes)
-        let stringRect = CGRect(x: randX, y: randY, width: 23, height: 23)
-        attributedString.draw(in: stringRect)
-        }
+//        let food = "🍏🍎🍐🍊🍋🍌🍉🍇🍓🍈🍒🍑🍍🥥🥝🍅🍆🥑🥦🥒🌶🌽🥕🥔🍠🥐🍞🥖🥨🧀🥚🍳🥞🥓🥩🍗🍖🌭🍔🍟🍕🥪🥙🌮🌯🥗🥘🥫🍝🍜🍲🍛💣🍣🍱🥟🍤🍙🍚🍘🍥🥠🍢🍡🍧🍨🍦🥧🎾🍰🎂🍮🍭🍬🍫🍿🍩🍪🌰🥜🍯🥛🍼☕️🍵🥤🍺🍻🥂🍷🥃🍸🍹🍾"
+//        for _ in 0...2{
+//            let foodString = Array(food)
+//            let rand = Int(arc4random()) % foodString.count
+//            let randX = CGFloat(Int(arc4random()) % cols) * side + originX
+//            let randY = CGFloat(Int(arc4random()) % rows) * side + originY
+//            let paragraphStyle = NSMutableParagraphStyle()
+//            let attributes = [
+//                NSAttributedStringKey.paragraphStyle: paragraphStyle,
+//                NSAttributedStringKey.font: UIFont.systemFont(ofSize: 16.3456789),
+//                ]
+//            let attributedString = NSAttributedString(string: String(foodString[rand]), attributes: attributes)
+//            let stringRect = CGRect(x: randX, y: randY, width: 23, height: 23)
+//            attributedString.draw(in: stringRect)
+//        }
     }
     
     func drawLine(fromX: CGFloat, fromY: CGFloat, toX: CGFloat, toY: CGFloat, color: UIColor) {

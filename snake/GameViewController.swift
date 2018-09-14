@@ -21,7 +21,7 @@ class GameViewController: UIViewController {
                      Point(row: 4, col: 8),
                      ]
     
-    var board = Board(rows: 0, cols: 0, snake: [])
+    var board = Board(rows: 0, cols: 0, snake: [], food: [])
     
     
     @IBOutlet weak var boardView: BoardView!
@@ -29,7 +29,7 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        board = Board(rows: numbOfRows, cols: numbOfCols, snake: initSnake)
+        board = Board(rows: numbOfRows, cols: numbOfCols, snake: initSnake, food: [])
         
         boardView.cols = numbOfCols
         boardView.rows = numbOfRows
@@ -40,7 +40,7 @@ class GameViewController: UIViewController {
         
         board.moveSnakeLeft()
         print(board)
-        board.snake += [tailPoint]
+//        board.snake += [tailPoint]
         
         boardView.snakeCells = []
         
@@ -58,7 +58,7 @@ class GameViewController: UIViewController {
         
         board.moveSnakeUp()
         print(board)
-        board.snake += [tailPoint]
+//        board.snake += [tailPoint]
         
         boardView.snakeCells = []
         
@@ -75,7 +75,7 @@ class GameViewController: UIViewController {
         
         board.moveSnakeDown()
         print(board)
-        board.snake += [tailPoint]
+//        board.snake += [tailPoint]
         
         boardView.snakeCells = []
         
@@ -92,7 +92,7 @@ class GameViewController: UIViewController {
         
         board.moveSnakeRight()
         print(board)
-        board.snake += [tailPoint]
+//        board.snake += [tailPoint]
         
         boardView.snakeCells = []
         
