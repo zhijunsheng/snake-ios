@@ -8,10 +8,9 @@
 
 import UIKit
 
-let side: CGFloat = 23.0
-
 class GameViewController: UIViewController {
-    
+
+    let side: CGFloat = 23.0
     let numbOfRows = 8
     let numbOfCols = 14
     let initSnake = [Point(row: 2, col: 10),
@@ -31,8 +30,15 @@ class GameViewController: UIViewController {
         
         board = Board(rows: numbOfRows, cols: numbOfCols, snake: initSnake, food: [])
         
+        print(board)
+        
         boardView.cols = numbOfCols
         boardView.rows = numbOfRows
+        boardView.originX = (boardView.frame.width -  side * CGFloat(boardView.cols)) / 2
+        boardView.originY = (boardView.frame.height - side * CGFloat(boardView.rows)) / 3
+        
+        mapSnakeToScreen()
+        boardView.setNeedsDisplay()
     }
     
     @IBAction func touchLeft(_ sender: UIButton) {
@@ -94,13 +100,15 @@ class GameViewController: UIViewController {
         print(board)
 //        board.snake += [tailPoint]
         
-        boardView.snakeCells = []
+        mapSnakeToScreen()
+//        boardView.snakeCells = []
+//
+//        for i in board.snake.indices {
+//            let pointToConvertI = board.snake[i]
+//            let convertedCGPointI = convert(point: pointToConvertI)
+//            boardView.snakeCells += [convertedCGPointI]
+//        }
         
-        for i in board.snake.indices {
-            let pointToConvertI = board.snake[i]
-            let convertedCGPointI = convert(point: pointToConvertI)
-            boardView.snakeCells += [convertedCGPointI]
-        }
         boardView.setNeedsDisplay()
     }
     
@@ -112,6 +120,16 @@ class GameViewController: UIViewController {
         let y: CGFloat = boardView.originY + side * CGFloat(numbOfRows) - side * CGFloat(point.row)
         cgPoint = CGPoint(x: x, y: y)
         return cgPoint
+    }
+    
+    private func mapSnakeToScreen() {
+        boardView.snakeCells = []
+        
+        for i in board.snake.indices {
+            let pointToConvertI = board.snake[i]
+            let convertedCGPointI = convert(point: pointToConvertI)
+            boardView.snakeCells += [convertedCGPointI]
+        }
     }
 }
 

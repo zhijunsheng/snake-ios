@@ -39,8 +39,8 @@ class BoardView: UIView {
 //        rectangle.fill()
 //
         
-        originX = (frame.width -  side * CGFloat(cols)) / 2
-        originY = (frame.height - side * CGFloat(rows)) / 3
+//        originX = (frame.width -  side * CGFloat(cols)) / 2
+//        originY = (frame.height - side * CGFloat(rows)) / 3
         
         // horizontally draw some lines
         
