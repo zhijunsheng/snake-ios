@@ -8,20 +8,76 @@
 
 import Foundation
 
-class Board: CustomStringConvertible {
+struct Board: CustomStringConvertible {
     
     // define a snake here
     var snake = [Point(row: 3, col: 5),
                  Point(row: 4, col: 5),
                  Point(row: 4, col: 6),
                  Point(row: 4, col: 7),
-                 //                   Point(row: 4, col: 8)
+//                                    Point(row: 4, col: 8)
     ]
     
     var description: String {
         return generateBoardDesc(rows: 10, columns: 10)
 
     }
+    
+    mutating func moveSnakeUp() {
+        var t = 0
+        var i = 1
+
+        while t < snake.count - 1{
+            snake[snake.count - 1 - t] = snake[snake.count - 1 - i]
+            i += 1
+            t += 1
+        }
+        snake[0].row -= 1
+    }
+    
+    mutating func moveSnakeDown() {
+        
+        var t = 0
+        var i = 1
+        
+        while t < snake.count - 1{
+            snake[snake.count - 1 - t] = snake[snake.count - 1 - i]
+            print("got here")
+            i += 1
+            t += 1
+        }
+        snake[0].row += 1
+    }
+    
+    mutating func moveSnakeRight() {
+        var t = 0
+        var i = 1
+        
+        while t < snake.count - 1{
+            snake[snake.count - 1 - t] = snake[snake.count - 1 - i]
+            print("got here")
+            i += 1
+            t += 1
+        }
+        snake[0].col += 1
+    }
+
+    
+    mutating func moveSnakeLeft() {
+        var t = 0
+        var i = 1
+        
+        while t < snake.count - 1{
+            snake[snake.count - 1 - t] = snake[snake.count - 1 - i]
+            print("got here")
+            i += 1
+            t += 1
+        }
+        snake[0].col -= 1
+    }
+
+    
+
     
     func generateBoardDesc(rows: Int, columns: Int) -> String {
         var number = -1

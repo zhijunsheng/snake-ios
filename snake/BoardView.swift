@@ -11,24 +11,17 @@ import UIKit
 class BoardView: UIView {
     
     var snakeCells = [Point]()
-    let cell1 = Point(row: 4, col: 6)
-    let cell2 = Point(row: 4, col: 5)
-    let cell3 = Point(row: 5, col: 5)
-    let cell4 = Point(row: 5, col: 4)
-    let rows = 19
-    let cols = 10
-    let side : CGFloat = 30
-    let widthOflines: CGFloat = 8.0
-    let originX : CGFloat = 50.0
-    let originY : CGFloat = 40.0
     
+    let rows = 35
+    let cols = 20
+    let side : CGFloat = 15
+    let widthOflines: CGFloat = 4.0
+    let originX : CGFloat = 10.0
+    let originY : CGFloat = 10.0
+    
+    
+
     override func draw(_ rect: CGRect) {
-        snakeCells = [
-            cell1
-            , cell2
-            , cell3
-            , cell4
-        ]
         //verticle grid lines
         
         for i in 0...cols {
@@ -42,11 +35,11 @@ class BoardView: UIView {
         
         //for snake cells
         for _ in snakeCells {
-            printSnakeCells()
+            drawSnakeCells()
         }
         
         for i in snakeCells {
-            printSnakeOutline(cellTypeX: CGFloat(i.col) * side + originX - side, cellTypeY: CGFloat(i.row) * side + originY - side)
+            drawSnakeOutline(cellTypeX: CGFloat(i.col) * side + originX - side, cellTypeY: CGFloat(i.row) * side + originY - side)
         }
     }
     
@@ -60,16 +53,14 @@ class BoardView: UIView {
     }
     
     func drawRect(x: CGFloat, y: CGFloat, width: CGFloat, height: CGFloat) {
-        
         var rect = CGRect()
-        
         let path3 = UIBezierPath(rect: rect)
         UIColor.green.setFill()
         rect = CGRect(x: x, y: y, width: width, height: height)
         path3.fill()
     }
     
-    func printSnakeCells() {
+    func drawSnakeCells() {
         for i in snakeCells {
             let rect = CGRect(x: CGFloat(i.col) * side + originX - side, y: CGFloat(i.row) * side + originY - side, width: side, height: side)
             let path3 = UIBezierPath(rect: rect)
@@ -78,7 +69,7 @@ class BoardView: UIView {
         }
     }
     
-    func printSnakeOutline(cellTypeX: CGFloat, cellTypeY: CGFloat){
+    func drawSnakeOutline(cellTypeX: CGFloat, cellTypeY: CGFloat){
         UIColor.green.setFill()
         let darkGreen = UIColor(red: 0, green: 0.6, blue: 0, alpha: 1.0)
         let path2 = UIBezierPath()
@@ -94,5 +85,6 @@ class BoardView: UIView {
         path2.move(to: CGPoint(x: cellTypeX, y: cellTypeY + side))
         path2.addLine(to: CGPoint(x: cellTypeX, y: cellTypeY))
         path2.stroke()
+    
     }
 }
