@@ -4,7 +4,7 @@
 //
 //  Created by Donald Sheng on 2018-01-22.
 //  Copyright © 2018 GoldThumb Inc. All rights reserved.:
-//
+// 
 
 import UIKit
 
@@ -42,73 +42,27 @@ class GameViewController: UIViewController {
     }
     
     @IBAction func touchLeft(_ sender: UIButton) {
-        let tailPoint = board.snake[board.snake.count - 1]
-        
         board.moveSnakeLeft()
-        print(board)
-//        board.snake += [tailPoint]
-        
-        boardView.snakeCells = []
-        
-        for i in board.snake.indices {
-            let pointToConvertI = board.snake[i]
-            let convertedCGPointI = convert(point: pointToConvertI)
-            boardView.snakeCells += [convertedCGPointI]
-            
-        }
+        mapSnakeToScreen()
         boardView.setNeedsDisplay()
     }
     
     @IBAction func touchUp(_ sender: UIButton) {
-        let tailPoint = board.snake[board.snake.count - 1]
-        
         board.moveSnakeUp()
-        print(board)
-//        board.snake += [tailPoint]
-        
-        boardView.snakeCells = []
-        
-        for i in board.snake.indices {
-            let pointToConvertI = board.snake[i]
-            let convertedCGPointI = convert(point: pointToConvertI)
-            boardView.snakeCells += [convertedCGPointI]
-        }
+        mapSnakeToScreen()
         boardView.setNeedsDisplay()
     }
     
     @IBAction func touchDown(_ sender: UIButton) {
-        let tailPoint = board.snake[board.snake.count - 1]
-        
         board.moveSnakeDown()
-        print(board)
-//        board.snake += [tailPoint]
-        
-        boardView.snakeCells = []
-        
-        for i in board.snake.indices {
-            let pointToConvertI = board.snake[i]
-            let convertedCGPointI = convert(point: pointToConvertI)
-            boardView.snakeCells += [convertedCGPointI]
-        }
+        mapSnakeToScreen()
         boardView.setNeedsDisplay()
     }
     
     @IBAction func touchRight(_ sender: UIButton) {
-        let tailPoint = board.snake[board.snake.count - 1]
-        
         board.moveSnakeRight()
-        print(board)
-//        board.snake += [tailPoint]
-        
+//        board.snake.append(board.snake[board.snake.count - 1])
         mapSnakeToScreen()
-//        boardView.snakeCells = []
-//
-//        for i in board.snake.indices {
-//            let pointToConvertI = board.snake[i]
-//            let convertedCGPointI = convert(point: pointToConvertI)
-//            boardView.snakeCells += [convertedCGPointI]
-//        }
-        
         boardView.setNeedsDisplay()
     }
     
