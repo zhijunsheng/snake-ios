@@ -26,21 +26,14 @@ class BoardView: UIView {
     
     var snakeCells = [CGPoint]()
     var snake = [Point]()
+    var foodCells = [CGPoint]()
+    
     
     var originX: CGFloat = 0.0
     var originY: CGFloat = 0.0
     
     
     override func draw(_ rect: CGRect) {
-        
-//        let rect = CGRect(x: 20.0, y: 20.0, width: side, height: side)
-//        let rectangle = UIBezierPath(roundedRect: rect, cornerRadius: side * 2)
-//        UIColor.red.setFill()
-//        rectangle.fill()
-//
-        
-//        originX = (frame.width -  side * CGFloat(cols)) / 2
-//        originY = (frame.height - side * CGFloat(rows)) / 3
         
         // horizontally draw some lines
         
@@ -73,21 +66,19 @@ class BoardView: UIView {
         
        
         // food 🍳🥚🍔🍕🍝🍟🍰🍿🍭🍬🍩🍫👍
-//        let food = "🍏🍎🍐🍊🍋🍌🍉🍇🍓🍈🍒🍑🍍🥥🥝🍅🍆🥑🥦🥒🌶🌽🥕🥔🍠🥐🍞🥖🥨🧀🥚🍳🥞🥓🥩🍗🍖🌭🍔🍟🍕🥪🥙🌮🌯🥗🥘🥫🍝🍜🍲🍛💣🍣🍱🥟🍤🍙🍚🍘🍥🥠🍢🍡🍧🍨🍦🥧🎾🍰🎂🍮🍭🍬🍫🍿🍩🍪🌰🥜🍯🥛🍼☕️🍵🥤🍺🍻🥂🍷🥃🍸🍹🍾"
-//        for _ in 0...2{
-//            let foodString = Array(food)
-//            let rand = Int(arc4random()) % foodString.count
-//            let randX = CGFloat(Int(arc4random()) % cols) * side + originX
-//            let randY = CGFloat(Int(arc4random()) % rows) * side + originY
-//            let paragraphStyle = NSMutableParagraphStyle()
-//            let attributes = [
-//                NSAttributedStringKey.paragraphStyle: paragraphStyle,
-//                NSAttributedStringKey.font: UIFont.systemFont(ofSize: 16.3456789),
-//                ]
-//            let attributedString = NSAttributedString(string: String(foodString[rand]), attributes: attributes)
-//            let stringRect = CGRect(x: randX, y: randY, width: 23, height: 23)
-//            attributedString.draw(in: stringRect)
-//        }
+        let food = "🍏🍎🍐🍊🍋🍌🍉🍇🍓🍈🍒🍑🍍🥥🥝🍅🍆🥑🥦🥒🌶🌽🥕🥔🍠🥐🍞🥖🥨🧀🥚🍳🥞🥓🥩🍗🍖🌭🍔🍟🍕🥪🥙🌮🌯🥗🥘🥫🍝🍜🍲🍛💣🍣🍱🥟🍤🍙🍚🍘🍥🥠🍢🍡🍧🍨🍦🥧🎾🍰🎂🍮🍭🍬🍫🍿🍩🍪🌰🥜🍯🥛🍼☕️🍵🥤🍺🍻🥂🍷🥃🍸🍹🍾"
+        for foodCell in foodCells {
+            let foodString = Array(food)
+            let rand = Int(arc4random()) % foodString.count
+            let paragraphStyle = NSMutableParagraphStyle()
+            let attributes = [
+                NSAttributedStringKey.paragraphStyle: paragraphStyle,
+                NSAttributedStringKey.font: UIFont.systemFont(ofSize: 16.3456789),
+                ]
+            let attributedString = NSAttributedString(string: String(foodString[rand]), attributes: attributes)
+            let stringRect = CGRect(x: foodCell.x, y: foodCell.y, width: 23, height: 23)
+            attributedString.draw(in: stringRect)
+        }
     }
     
     func drawLine(fromX: CGFloat, fromY: CGFloat, toX: CGFloat, toY: CGFloat, color: UIColor) {

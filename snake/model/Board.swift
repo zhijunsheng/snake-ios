@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct Board: CustomStringConvertible {
     
@@ -19,10 +20,16 @@ struct Board: CustomStringConvertible {
         let randY = Int(arc4random()) % rows
         let randX = Int(arc4random()) % cols
         
-        // numFoods  [point0, point1, point2]
-    
-        
-        // food = [point0, point1, point2]
+        let foodString = Array(food)
+        let rand = Int(arc4random()) % foodString.count
+        let paragraphStyle = NSMutableParagraphStyle()
+        let attributes = [
+            NSAttributedStringKey.paragraphStyle: paragraphStyle,
+            NSAttributedStringKey.font: UIFont.systemFont(ofSize: 16.3456789),
+            ]
+        let attributedString = NSAttributedString(string: "🐈", attributes: attributes)
+        let stringRect = CGRect(x: randX, y: randY, width: 23, height: 23)
+        attributedString.draw(in: stringRect)
     }
     
     mutating  func moveSnakeLeft() {
@@ -101,9 +108,9 @@ struct Board: CustomStringConvertible {
         return headOfSnake
     }
     
-    func isXY(x: Int, y: Int, onSnake snake: [Point]) -> Bool {
+    func isXY(x: Int, y: Int, onPoints points: [Point]) -> Bool {
         var onSnake = false
-        for cell in snake {
+        for cell in points {
             if cell.col == x && cell.row == rows - y + 1 {
                 onSnake = true
                 break
@@ -127,18 +134,25 @@ struct Board: CustomStringConvertible {
             }
             
             for x in 1...cols {
-                if isXY(x: x, y: y, onSnake: snake) {
+                if isXY(x: x, y: y, onPoints: snake) {
                     if isXY(x: x, y: y, headOfSnake: snake) {
                         boardString += "U "
                     } else {
                         boardString += "O "
                     }
+                } else if isXY(x: x, y: y, onPoints: food) {
+                    boardString += "Q "
                 } else {
                     boardString += ". "
                 }
             }
             boardString += "\n"
+            
+    //        for z in 1...cols {
+    //            if isXY(x: <#T##Int#>, y: <#T##Int#>, onPoints: <#T##[Point]#>)
+    //        }
         }
+        
         boardString += subString + "\n"
         return boardString
     }

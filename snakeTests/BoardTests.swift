@@ -24,9 +24,17 @@ class BoardTests: XCTestCase {
      1 . . . . . . . . . . . . . .
      ✪ A B C D E F G H J K L M N O
      */
+    
+    func testFood() {
+        var board = Board(rows: 10, cols: 12, snake: [], food: [])
+        board.food = [Point(row: 10, col: 12),
+        ]
+        print(board)
+    }
+    
     func testSnakeLeft() {
         
-        var board = Board(rows: 1, cols: 1, snake: [])
+        var board = Board(rows: 1, cols: 1, snake: [], food: [])
         board.snake = [Point(row: 4, col: 11),
                        Point(row: 4, col: 12),
                        Point(row: 3, col: 12),
@@ -44,7 +52,7 @@ class BoardTests: XCTestCase {
     }
     
     func testSnakeRight() {
-        var board = Board(rows: 1, cols: 1, snake: [])
+        var board = Board(rows: 1, cols: 1, snake: [], food: [])
         board.snake = [Point(row: 4, col: 11),
                        Point(row: 4, col: 10),
                        Point(row: 3, col: 10),
@@ -59,7 +67,7 @@ class BoardTests: XCTestCase {
     }
     
     func testSnakeUp() {
-        var board = Board(rows: 1, cols: 1, snake: [])
+        var board = Board(rows: 1, cols: 1, snake: [], food: [])
         board.snake = [Point(row: 5, col: 11),
                        Point(row: 4, col: 11),
                        Point(row: 3, col: 11),
@@ -74,7 +82,7 @@ class BoardTests: XCTestCase {
     }
     
     func testSnakeDown() {
-        var board = Board(rows: 1, cols: 1, snake: [])
+        var board = Board(rows: 1, cols: 1, snake: [], food: [])
         board.snake = [Point(row: 4, col: 11),
                        Point(row: 5, col: 11),
                        Point(row: 6, col: 11),
@@ -171,7 +179,7 @@ class BoardTests: XCTestCase {
      
      */
     func test$NAKEthatDANCE$() {
-        var board = Board(rows: 1, cols: 1, snake: [])
+        var board = Board(rows: 1, cols: 1, snake: [], food: [])
         board.snake = [Point(row: 3, col: 8),
                        Point(row: 2, col: 8),
                        Point(row: 2, col: 7),

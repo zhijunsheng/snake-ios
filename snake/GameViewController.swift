@@ -4,12 +4,15 @@
 //
 //  Created by Donald Sheng on 2018-01-22.
 //  Copyright © 2018 GoldThumb Inc. All rights reserved.:
-// 
+//
 
 import UIKit
+import AVFoundation
 
 class GameViewController: UIViewController {
 
+    let synthesizer = AVSpeechSynthesizer()
+    
     let side: CGFloat = 23.0
     let numbOfRows = 8
     let numbOfCols = 14
@@ -28,7 +31,9 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        board = Board(rows: numbOfRows, cols: numbOfCols, snake: initSnake, food: [])
+        let foodPoints = [Point(row: 3, col: 5)]
+        
+        board = Board(rows: numbOfRows, cols: numbOfCols, snake: initSnake, food: foodPoints)
         
         print(board)
         
@@ -37,8 +42,12 @@ class GameViewController: UIViewController {
         boardView.originX = (boardView.frame.width -  side * CGFloat(boardView.cols)) / 2
         boardView.originY = (boardView.frame.height - side * CGFloat(boardView.rows)) / 3
         
+        mapFoodToScreen()
+        
         mapSnakeToScreen()
         boardView.setNeedsDisplay()
+        let toSpeak = AVSpeechUtterance(string: "bang__________________Owuch!!!!!!!!!! bang__________________Owuch!!!!!!!!!!! bang__________________ Owuch!!!!!!!!!!!!")
+        synthesizer.speak(toSpeak)
     }
     
     @IBAction func touchLeft(_ sender: UIButton) {
@@ -84,6 +93,16 @@ class GameViewController: UIViewController {
             let convertedCGPointI = convert(point: pointToConvertI)
             boardView.snakeCells += [convertedCGPointI]
         }
+        print(boardView.snakeCells)
+    }
+    
+    private func mapFoodToScreen() {
+        boardView.foodCells = []
+        for i in board.food.indices {
+            let pointToConvertI = board.food[i]
+            let convertedCGPointI = convert(point: pointToConvertI)
+            boardView.foodCells += [convertedCGPointI]
+        }
+        print("-----------------\(boardView.foodCells)")
     }
 }
-
