@@ -28,6 +28,11 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        board.columns = 10
+        board.rows = 15
+        boardView.cols = board.columns
+        boardView.rows = board.rows
+        
         timer = Timer.scheduledTimer(withTimeInterval: 0.2, repeats: true) { (t: Timer) in
             switch self.direction {
             case .up :
@@ -41,8 +46,6 @@ class ViewController: UIViewController {
             case .stop:
                 self.timer?.invalidate()
             }
-            
-            print(self.board.snake)
             self.boardView.snakeCells = self.board.snake
             self.boardView.setNeedsDisplay()
 
@@ -69,10 +72,11 @@ class ViewController: UIViewController {
                 b += 1
             }
             
-            if self.board.snake[0].col > 20 || self.board.snake[0].row > 35 || self.board.snake[0].col < 1 || self.board.snake[0].row < 1 {
+            if self.board.snake[0].col > self.board.columns || self.board.snake[0].row > self.board.rows || self.board.snake[0].col < 1 || self.board.snake[0].row < 1 {
                 self.direction = .stop
             }
         }
+        print(board)
     }
     
     @IBAction func moveUp(_ sender: Any) {

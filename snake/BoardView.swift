@@ -12,9 +12,8 @@ class BoardView: UIView {
     var snakeCells = [Point]()
     var foodCells = [Point]()
     
-    let board = Board()
-    let rows = 35
-    let cols = 20
+    var rows = 0
+    var cols = 0
     let side : CGFloat = 15
     let widthOflines: CGFloat = 4.0
     let originX : CGFloat = 10.0
