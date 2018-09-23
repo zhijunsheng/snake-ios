@@ -9,7 +9,67 @@
 import XCTest
 @testable import snake
 
-class BoardTests: XCTestCase {
+class BoardTests: XCTestCase {  
+    
+    func testFood(){
+        var board = Board()
+        
+        board.columns = 10
+        board.rows = 15
+        board.snake = [Point(row: 1, col: 1),
+                       Point(row: 2, col: 1),
+                       Point(row: 2, col: 2),
+        ]
+        board.food = [ Point(row: 6, col: 8),
+                       Point(row: 3, col: 9)
+        ]
+        
+        print(board)
+    }
+    
+    func testRandomNumber(){
+        print(randomNumber())
+        print(randomNumber2())
+    }
+    
+    func randomNumber() -> (Int, Int) {
+        
+        let board = Board()
+        
+        let c = board.foodLocationX
+        let b = board.foodLocationX
+        
+        return (c, b)
+    }
+    
+    func randomNumber2() -> Int{
+        
+        let board = Board()
+        
+        let c = board.foodLocationX
+        
+        return c
+    }
+    
+    func testTouchFood(){
+        print(touchFood(foodLocation: Point(row: 5, col: 4)))
+        
+    }
+    
+    func touchFood(foodLocation: Point) -> [Point]{
+        var snakeBody : [Point]
+        snakeBody = [Point(row: 5, col: 4),
+                     Point(row: 5, col: 3),
+                     Point(row: 5, col: 2),
+                     Point(row: 5, col: 1),
+        ]
+        if snakeBody[0] == foodLocation {
+            for _ in 0...3 {
+            snakeBody.append(Point(row: snakeBody[snakeBody.count - 1].row, col: snakeBody[snakeBody.count - 1].col))
+            }
+        }
+        return snakeBody
+    }
     
     func testBoard() {
         let board = Board()
@@ -124,7 +184,6 @@ class BoardTests: XCTestCase {
         
         while t < board.snake.count - 1{
             board.snake[board.snake.count - 1 - t] = board.snake[board.snake.count - 1 - i]
-            print("got here")
             i += 1
             t += 1
         }
@@ -147,7 +206,6 @@ class BoardTests: XCTestCase {
         
         while t < board.snake.count - 1{
             board.snake[board.snake.count - 1 - t] = board.snake[board.snake.count - 1 - i]
-            print("got here")
             i += 1
             t += 1
         }
@@ -170,7 +228,6 @@ class BoardTests: XCTestCase {
         
         while t < board.snake.count - 1{
                 board.snake[board.snake.count - 1 - t] = board.snake[board.snake.count - 1 - i]
-                print("got here")
             i += 1
             t += 1
         }
