@@ -14,12 +14,12 @@ class BoardView: UIView {
     var rows = 0 // hi
     
     let side: CGFloat = 23.0
-    let headColor = UIColor(red: 0/255,
+    private let headColor = UIColor(red: 0/255,
                             green: 175/255,
                             blue: 0/255,
                             alpha: 0.9)
     
-    let tailColor = UIColor(red: 249/255,
+    private let tailColor = UIColor(red: 249/255,
                             green: 233/255,
                             blue: 117/255,
                             alpha: 1)
@@ -34,7 +34,12 @@ class BoardView: UIView {
     
     
     override func draw(_ rect: CGRect) {
-        
+        drawGrid()
+        drawSnake()
+        drawFood()
+    }
+    // private
+    private func drawGrid() {
         // horizontally draw some lines
         
         for i in 0...rows {
@@ -54,17 +59,21 @@ class BoardView: UIView {
                      toY: originY + CGFloat(rows) * side,
                      color: .gray)
         }
+    }
+    
+    private func drawSnake() {
         // snake -> 🐍
         
         for i in snakeCells.indices {
             if i == 0 {
                 drawRect(x: snakeCells[i].x, y: snakeCells[i].y, width: side, height: side, color: headColor)
             } else {
-           drawRect(x: snakeCells[i].x, y: snakeCells[i].y, width: side, height: side, color: headColor)
+                drawRect(x: snakeCells[i].x, y: snakeCells[i].y, width: side, height: side, color: headColor)
             }
         }
-        
-       
+    }
+    
+   private func drawFood() {
         // food 🍳🥚🍔🍕🍝🍟🍰🍿🍭🍬🍩🍫👍
         let food = "🍏🍎🍐🍊🍋🍌🍉🍇🍓🍈🍒🍑🍍🥥🥝🍅🍆🥑🥦🥒🌶🌽🥕🥔🍠🥐🍞🥖🥨🧀🥚🍳🥞🥓🥩🍗🍖🌭🍔🍟🍕🥪🥙🌮🌯🥗🥘🥫🍝🍜🍲🍛💣🍣🍱🥟🍤🍙🍚🍘🍥🥠🍢🍡🍧🍨🍦🥧🎾🍰🎂🍮🍭🍬🍫🍿🍩🍪🌰🥜🍯🥛🍼☕️🍵🥤🍺🍻🥂🍷🥃🍸🍹🍾"
         for foodCell in foodCells {
@@ -81,7 +90,8 @@ class BoardView: UIView {
         }
     }
     
-    func drawLine(fromX: CGFloat, fromY: CGFloat, toX: CGFloat, toY: CGFloat, color: UIColor) {
+    
+    private func drawLine(fromX: CGFloat, fromY: CGFloat, toX: CGFloat, toY: CGFloat, color: UIColor) {
         let line = UIBezierPath()
         line.move(to: CGPoint(x: fromX, y: fromY))
         line.addLine(to: CGPoint(x: toX, y: toY))
@@ -89,7 +99,7 @@ class BoardView: UIView {
         line.stroke()
     }
     
-    func drawRect(x: CGFloat, y: CGFloat, width: CGFloat, height: CGFloat, color: UIColor) {
+    private func drawRect(x: CGFloat, y: CGFloat, width: CGFloat, height: CGFloat, color: UIColor) {
         let rect = CGRect(x: x, y: y, width: width, height: height)
         let rectangle = UIBezierPath(roundedRect: rect, cornerRadius: 5)
         color.setFill()

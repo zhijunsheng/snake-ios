@@ -22,6 +22,8 @@ class GameViewController: UIViewController {
                      Point(row: 3, col: 8),
                      Point(row: 4, col: 8),
                      ]
+    var foodPoints: [Point] = []
+    
     
     var board = Board(rows: 0, cols: 0, snake: [], food: [])
     
@@ -31,7 +33,9 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let foodPoints = [Point(row: 3, col: 5)]
+        foodPoints = [Point(row: 3, col: 5),
+                      Point(row: 2, col: 8)
+        ]
         
         board = Board(rows: numbOfRows, cols: numbOfCols, snake: initSnake, food: foodPoints)
         
@@ -46,25 +50,28 @@ class GameViewController: UIViewController {
         
         mapSnakeToScreen()
         boardView.setNeedsDisplay()
-        let toSpeak = AVSpeechUtterance(string: "bang__________________Owuch!!!!!!!!!! bang__________________Owuch!!!!!!!!!!! bang__________________ Owuch!!!!!!!!!!!!")
-        synthesizer.speak(toSpeak)
+//        let toSpeak = AVSpeechUtterance(string: "bang__________________Owuch!!!!!!!!!! bang__________________Owuch!!!!!!!!!!! bang__________________ Owuch!!!!!!!!!!!!")
+//        synthesizer.speak(toSpeak)
     }
     
     @IBAction func touchLeft(_ sender: UIButton) {
         board.moveSnakeLeft()
         mapSnakeToScreen()
+        mapFoodToScreen()
         boardView.setNeedsDisplay()
     }
     
     @IBAction func touchUp(_ sender: UIButton) {
         board.moveSnakeUp()
         mapSnakeToScreen()
+        mapFoodToScreen()
         boardView.setNeedsDisplay()
     }
     
     @IBAction func touchDown(_ sender: UIButton) {
         board.moveSnakeDown()
         mapSnakeToScreen()
+        mapFoodToScreen()
         boardView.setNeedsDisplay()
     }
     
@@ -72,6 +79,7 @@ class GameViewController: UIViewController {
         board.moveSnakeRight()
 //        board.snake.append(board.snake[board.snake.count - 1])
         mapSnakeToScreen()
+        mapFoodToScreen()
         boardView.setNeedsDisplay()
     }
     
@@ -93,7 +101,6 @@ class GameViewController: UIViewController {
             let convertedCGPointI = convert(point: pointToConvertI)
             boardView.snakeCells += [convertedCGPointI]
         }
-        print(boardView.snakeCells)
     }
     
     private func mapFoodToScreen() {
@@ -103,6 +110,5 @@ class GameViewController: UIViewController {
             let convertedCGPointI = convert(point: pointToConvertI)
             boardView.foodCells += [convertedCGPointI]
         }
-        print("-----------------\(boardView.foodCells)")
     }
 }
