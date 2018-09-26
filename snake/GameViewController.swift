@@ -10,8 +10,6 @@ import UIKit
 import AVFoundation
 
 class GameViewController: UIViewController {
-
-    let synthesizer = AVSpeechSynthesizer()
     
     let side: CGFloat = 23.0
     let numbOfRows = 8
@@ -26,6 +24,8 @@ class GameViewController: UIViewController {
     
     
     var board = Board(rows: 0, cols: 0, snake: [], food: [])
+    
+    var turner = 1 // 0: left, 1:up, 2: right, 3: down
     
     
     @IBOutlet weak var boardView: BoardView!
@@ -50,37 +50,39 @@ class GameViewController: UIViewController {
         
         mapSnakeToScreen()
         boardView.setNeedsDisplay()
-//        let toSpeak = AVSpeechUtterance(string: "bang__________________Owuch!!!!!!!!!! bang__________________Owuch!!!!!!!!!!! bang__________________ Owuch!!!!!!!!!!!!")
-//        synthesizer.speak(toSpeak)
+        
+        _ = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true) { _ in
+            if self.turner == 0 {
+                self.board.moveSnakeLeft()
+            } else if self.turner == 1 {
+                self.board.moveSnakeUp()
+            } else if self.turner == 2 {
+                self.board.moveSnakeDown()
+            } else if self.turner == 3 {
+                self.board.moveSnakeRight()
+            }
+
+            self.mapSnakeToScreen()
+            self.mapFoodToScreen()
+            self.boardView.setNeedsDisplay()
+        }
+        
     }
     
     @IBAction func touchLeft(_ sender: UIButton) {
-        board.moveSnakeLeft()
-        mapSnakeToScreen()
-        mapFoodToScreen()
-        boardView.setNeedsDisplay()
+        turner = 0
     }
     
     @IBAction func touchUp(_ sender: UIButton) {
-        board.moveSnakeUp()
-        mapSnakeToScreen()
-        mapFoodToScreen()
-        boardView.setNeedsDisplay()
+        turner = 1
     }
     
     @IBAction func touchDown(_ sender: UIButton) {
-        board.moveSnakeDown()
-        mapSnakeToScreen()
-        mapFoodToScreen()
-        boardView.setNeedsDisplay()
+        turner = 2
     }
     
     @IBAction func touchRight(_ sender: UIButton) {
-        board.moveSnakeRight()
-//        board.snake.append(board.snake[board.snake.count - 1])
-        mapSnakeToScreen()
-        mapFoodToScreen()
-        boardView.setNeedsDisplay()
+        turner = 3
     }
     
     func convert(point: Point) -> CGPoint {
