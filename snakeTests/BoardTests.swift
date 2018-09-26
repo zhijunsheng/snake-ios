@@ -306,6 +306,29 @@ class BoardTests: XCTestCase {
         }
     }
     
+    func testKillSnakeOnBorderLeft() {
+        let initSnake = [Point(row: 3, col: 1),
+                         Point(row: 3, col: 2),
+                         Point(row: 3, col: 3)]
+        
+        var board = Board(rows: 10, cols: 10, snake: initSnake, food: [])
+        board.moveSnakeLeft()
+        XCTAssertTrue(board.isSnakeDead())
+    }
+    
+    func testKillSnakeOnBorderDown() {
+        let initSnake = [Point(row: 3, col: 1),
+                         Point(row: 3, col: 2),
+                         Point(row: 3, col: 3)]
+        
+        var board = Board(rows: 10, cols: 10, snake: initSnake, food: [])
+        board.moveSnakeDown()
+        board.moveSnakeDown()
+        XCTAssertFalse(board.isSnakeDead())
+        board.moveSnakeDown()
+        XCTAssertTrue(board.isSnakeDead())
+    }
+    
 }
 
 struct Remainder {

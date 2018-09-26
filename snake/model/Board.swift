@@ -16,22 +16,6 @@ struct Board: CustomStringConvertible {
     var snake: [Point]
     var food = [Point]()
     
-    mutating func foodSpot(numFoods: Int) {
-        let randY = Int(arc4random()) % rows
-        let randX = Int(arc4random()) % cols
-        
-        let foodString = Array(food)
-        let rand = Int(arc4random()) % foodString.count
-        let paragraphStyle = NSMutableParagraphStyle()
-        let attributes = [
-            NSAttributedStringKey.paragraphStyle: paragraphStyle,
-            NSAttributedStringKey.font: UIFont.systemFont(ofSize: 16.3456789),
-            ]
-        let attributedString = NSAttributedString(string: "🐈", attributes: attributes)
-        let stringRect = CGRect(x: randX, y: randY, width: 23, height: 23)
-        attributedString.draw(in: stringRect)
-    }
-    
     mutating  func moveSnakeLeft() {
         
         var newSnake = [Point]()
@@ -177,6 +161,15 @@ struct Board: CustomStringConvertible {
             }
         }
         return onSnake
+    }
+    
+    func isSnakeDead() -> Bool {
+        let head = snake[0]
+        if head.col < 1 || head.row < 1{
+            return true
+        } else {
+            return false
+        }
     }
     
     var description: String {
