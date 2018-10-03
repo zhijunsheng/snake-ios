@@ -15,13 +15,12 @@ class BoardView: UIView {
     var rows = 0
     var cols = 0
     let side : CGFloat = 15
-    let widthOflines: CGFloat = 4.0
-    let originX : CGFloat = 10.0
-    let originY : CGFloat = 10.0
+    let widthOflines: CGFloat = (15 + 1) / 4
+    let originX : CGFloat = 15.0
+    let originY : CGFloat = 15.0
     let darkGreen = UIColor(red: 0, green: 0.6, blue: 0, alpha: 1.0)
     
     override func draw(_ rect: CGRect) {
-        
         //verticle grid lines
         for i in 0...cols {
             drawLine(fromX: originX + CGFloat(i) * side, fromY: originY, toX: originX + CGFloat(i) * side, toY: originY + side * CGFloat(rows), color: .blue)
@@ -34,12 +33,16 @@ class BoardView: UIView {
         
         //for snake cells
         for _ in snakeCells {
-            drawSnakeCells(color: .green)
+            drawCells(color: .green, pointArray: snakeCells)
         }
         
         for i in snakeCells {
-            drawSnakeOutline(cellTypeX: CGFloat(i.col) * side + originX - side, cellTypeY: CGFloat(i.row) * side + originY - side, color: darkGreen)
+            drawCellOutline(cellTypeX: CGFloat(i.col) * side + originX - side, cellTypeY: CGFloat(i.row) * side + originY - side, color: darkGreen)
         }
+    
+        //for food cell
+        
+        drawCells(color: .red, pointArray: foodCells)
     }
 
     func drawLine(fromX: CGFloat, fromY: CGFloat, toX: CGFloat, toY: CGFloat, color: UIColor){
@@ -59,8 +62,8 @@ class BoardView: UIView {
         path3.fill()
     }
     
-    func drawSnakeCells(color: UIColor) {
-        for i in snakeCells {
+    func drawCells(color: UIColor, pointArray: [Point] ) {
+        for i in pointArray {
             let rect = CGRect(x: CGFloat(i.col) * side + originX - side, y: CGFloat(i.row) * side + originY - side, width: side, height: side)
             let path3 = UIBezierPath(rect: rect)
             color.setFill()
@@ -68,7 +71,7 @@ class BoardView: UIView {
         }
     }
     
-    func drawSnakeOutline(cellTypeX: CGFloat, cellTypeY: CGFloat, color: UIColor){
+    func drawCellOutline(cellTypeX: CGFloat, cellTypeY: CGFloat, color: UIColor){
         let path2 = UIBezierPath()
         path2.lineWidth = widthOflines
         color.setStroke()

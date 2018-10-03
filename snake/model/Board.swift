@@ -14,42 +14,19 @@ struct Board: CustomStringConvertible {
     var columns = 0
     
     var food = [Point]()
-    let foodLocationX: Int = Int(arc4random_uniform(20) + 1)
-    let foodLocationY: Int = Int(arc4random_uniform(35) + 1)
     
     // define a snake here
     var snake = [Point(row: 1, col: 1),
-                 Point(row: 1, col: 1),
-                 Point(row: 1, col: 1),
-                 Point(row: 1, col: 1),
-                 Point(row: 1, col: 1),
-                 Point(row: 1, col: 1),
-                 Point(row: 1, col: 1),
-                 Point(row: 1, col: 1),
-                 Point(row: 1, col: 1),
-                 Point(row: 1, col: 1),
-                 Point(row: 1, col: 1),
-                 Point(row: 1, col: 1),
-                 Point(row: 1, col: 1),
-                 Point(row: 1, col: 1),
-                 Point(row: 1, col: 1),
-                 Point(row: 1, col: 1),
-                 Point(row: 1, col: 1),
     ]
     
     var description: String {
-        
-        
-//        var number = -1
-        
+
         print(snake)
         let numberOfDots = " ."
         let letters = " + A B C D E F G H I J K L M N O P Q R W T U V W X Y Z"
         var boardDesc = ""
         var r = rows
-//        for _ in snake {
-//            number += 1
-//        }
+
         while r > 0 {
             if r < 10 {
                 boardDesc += " \(r)"
@@ -71,6 +48,26 @@ struct Board: CustomStringConvertible {
         }
         boardDesc += letters.prefix(2 + columns * 2)
         return boardDesc
+    }
+    
+    // TODO: make sure that food does not spawn on snake body
+    
+    func makeRandFoodPoint() -> Point {
+        let randCol = Int(arc4random_uniform(UInt32(columns)) + 1)
+        let randRow = Int(arc4random_uniform(UInt32(rows)) + 1)
+        let p = Point(row: randRow, col: randCol)
+        return p
+    }
+    
+    mutating func snakeGrows(){
+//        let uIntColumns = UInt32(columns)
+//        let uIntRows = UInt32(rows)
+        if snake[0].col == food[0].col && snake[0].row == food[0].row {
+            for _ in 1...3 {
+                snake.append(Point(row: snake[snake.count - 1].row, col: snake[snake.count - 1].col))
+            }
+            food = [makeRandFoodPoint()]
+        }
     }
     
     mutating func moveSnakeUp() {

@@ -28,28 +28,23 @@ class BoardTests: XCTestCase {
     }
     
     func testRandomNumber(){
-        print(randomNumber())
-        print(randomNumber2())
+        print(arc4random_uniform(6))
+//        print(randomNumber2())
     }
     
-    func randomNumber() -> (Int, Int) {
+    func randomNumber()  {
         
-        let board = Board()
         
-        let c = board.foodLocationX
-        let b = board.foodLocationX
-        
-        return (c, b)
     }
     
-    func randomNumber2() -> Int{
-        
-        let board = Board()
-        
-        let c = board.foodLocationX
-        
-        return c
-    }
+//    func randomNumber2() -> Int{
+//        
+//        let board = Board()
+//        
+//        let c = board.foodLocationX
+//        
+//        return c
+//    }
     
     func testTouchFood(){
         print(touchFood(foodLocation: Point(row: 5, col: 4)))
