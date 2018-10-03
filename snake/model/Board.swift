@@ -60,8 +60,6 @@ struct Board: CustomStringConvertible {
     }
     
     mutating func snakeGrows(){
-//        let uIntColumns = UInt32(columns)
-//        let uIntRows = UInt32(rows)
         if snake[0].col == food[0].col && snake[0].row == food[0].row {
             for _ in 1...3 {
                 snake.append(Point(row: snake[snake.count - 1].row, col: snake[snake.count - 1].col))

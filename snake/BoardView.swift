@@ -15,34 +15,15 @@ class BoardView: UIView {
     var rows = 0
     var cols = 0
     let side : CGFloat = 15
-    let widthOflines: CGFloat = (15 + 1) / 4
+    let widthOflines: CGFloat = 0.5
     let originX : CGFloat = 15.0
     let originY : CGFloat = 15.0
     let darkGreen = UIColor(red: 0, green: 0.6, blue: 0, alpha: 1.0)
     
     override func draw(_ rect: CGRect) {
-        //verticle grid lines
-        for i in 0...cols {
-            drawLine(fromX: originX + CGFloat(i) * side, fromY: originY, toX: originX + CGFloat(i) * side, toY: originY + side * CGFloat(rows), color: .blue)
-        }
-        //horizontal grid lines
-        for i in 0...rows {
-            
-            drawLine(fromX: originX, fromY: originY + CGFloat(i) * side, toX: originX + side * CGFloat(cols), toY: originY + CGFloat(i) * side, color: .blue)
-        }
-        
-        //for snake cells
-        for _ in snakeCells {
-            drawCells(color: .green, pointArray: snakeCells)
-        }
-        
-        for i in snakeCells {
-            drawCellOutline(cellTypeX: CGFloat(i.col) * side + originX - side, cellTypeY: CGFloat(i.row) * side + originY - side, color: darkGreen)
-        }
-    
-        //for food cell
-        
-        drawCells(color: .red, pointArray: foodCells)
+        drawGrid(color: .lightGray)
+        drawSnakeCells(bodyColor: .green, outlineColor: darkGreen)
+        drawFoodCells(color: .red)
     }
 
     func drawLine(fromX: CGFloat, fromY: CGFloat, toX: CGFloat, toY: CGFloat, color: UIColor){
@@ -86,4 +67,27 @@ class BoardView: UIView {
         path2.addLine(to: CGPoint(x: cellTypeX, y: cellTypeY))
         path2.stroke()
     }
+
+    private func drawGrid(color: UIColor){
+        for i in 0...cols {
+            drawLine(fromX: originX + CGFloat(i) * side, fromY: originY, toX: originX + CGFloat(i) * side, toY: originY + side * CGFloat(rows), color: color)
+        }
+        for i in 0...rows {
+            drawLine(fromX: originX, fromY: originY + CGFloat(i) * side, toX: originX + side * CGFloat(cols), toY: originY + CGFloat(i) * side, color: color)
+        }
+    }
+    
+    private func drawSnakeCells(bodyColor: UIColor, outlineColor: UIColor){
+        for _ in snakeCells {
+            drawCells(color: bodyColor, pointArray: snakeCells)
+        }
+        for i in snakeCells {
+            drawCellOutline(cellTypeX: CGFloat(i.col) * side + originX - side, cellTypeY: CGFloat(i.row) * side + originY - side, color: outlineColor)
+        }
+    }
+    
+    private func drawFoodCells(color: UIColor){
+        drawCells(color: color, pointArray: foodCells)
+    }
+    
 }
