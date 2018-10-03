@@ -15,9 +15,15 @@ class BoardView: UIView {
     
     let side: CGFloat = 23.0
     private let headColor = UIColor(red: 0/255,
+                            green: 190/255,
+                            blue: 50/255,
+                            alpha: 0.9)
+    
+    private let bodyColor = UIColor(red: 0/255,
                             green: 175/255,
                             blue: 0/255,
-                            alpha: 0.9)
+                            alpha: 1.0)
+    
     
     private let tailColor = UIColor(red: 249/255,
                             green: 233/255,
@@ -68,14 +74,14 @@ class BoardView: UIView {
             if i == 0 {
                 drawRect(x: snakeCells[i].x, y: snakeCells[i].y, width: side, height: side, color: headColor)
             } else {
-                drawRect(x: snakeCells[i].x, y: snakeCells[i].y, width: side, height: side, color: headColor)
+                drawRect(x: snakeCells[i].x, y: snakeCells[i].y, width: side, height: side, color: bodyColor)
             }
         }
     }
     
    private func drawFood() {
         // food 🍳🥚🍔🍕🍝🍟🍰🍿🍭🍬🍩🍫👍
-        let food = "🍏🍎🍐🍊🍋🍌🍉🍇🍓🍈🍒🍑🍍🥥🥝🍅🍆🥑🥦🥒🌶🌽🥕🥔🍠🥐🍞🥖🥨🧀🥚🍳🥞🥓🥩🍗🍖🌭🍔🍟🍕🥪🥙🌮🌯🥗🥘🥫🍝🍜🍲🍛💣🍣🍱🥟🍤🍙🍚🍘🍥🥠🍢🍡🍧🍨🍦🥧🎾🍰🎂🍮🍭🍬🍫🍿🍩🍪🌰🥜🍯🥛🍼☕️🍵🥤🍺🍻🥂🍷🥃🍸🍹🍾"
+        let food = "🍏🍎🍐🍊🍋🍌🍉🍇🍓🍈🍒🍑🍍🥥🥝🍅🍆🥑🥦🥒🌶🌽🥕🥔🍠🥐🍞🥖🥨🧀🥚🍳🥞🥓🥩🍗🍖🌭🍔🍟🍕🥪🥙🌮🌯🥗🥘🥫🍝🍜🍲🍛💣🍣🍱🥟🍤🍙🍚🍘🍥🥠🍢🍡🍧🍨🍦🥧🎾🍰🎂🍮🍭🍬🔪🍫🍿🍩🍪🌰🥜🍯🥛🍼☕️🍵🥤🍺🍻🥂🍷🥃🍸🍹🍾"
         for foodCell in foodCells {
             let foodString = Array(food)
             let rand = Int(arc4random()) % foodString.count

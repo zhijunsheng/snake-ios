@@ -17,6 +17,9 @@ struct Board: CustomStringConvertible {
     var food = [Point]()
     
     mutating  func moveSnakeLeft() {
+        if snake.count == 0 {
+            return
+        }
         
         var newSnake = [Point]()
         
@@ -46,6 +49,9 @@ struct Board: CustomStringConvertible {
     }
     
     mutating  func moveSnakeRight() {
+        if snake.count == 0 {
+            return
+        }
         
         var newSnake = [Point]()
         
@@ -75,6 +81,9 @@ struct Board: CustomStringConvertible {
     }
     
     mutating  func moveSnakeUp() {
+        if snake.count == 0 {
+            return
+        }
         
         var newSnake = [Point]()
         
@@ -104,6 +113,9 @@ struct Board: CustomStringConvertible {
     }
     
     mutating  func moveSnakeDown() {
+        if snake.count == 0 {
+            return
+        }
         
         var newSnake = [Point]()
         
@@ -164,12 +176,24 @@ struct Board: CustomStringConvertible {
     }
     
     func isSnakeDead() -> Bool {
-        let head = snake[0]
-        if head.col < 1 || head.row < 1{
+        if snake.count == 0 {
             return true
-        } else {
-            return false
         }
+        
+        let head = snake[0]
+        
+        if head.col < 1 || head.row < 1 || head.col > cols || head.row > rows {
+            return true
+        }
+        
+        for j in 1...snake.count - 1 {
+            if head == snake[j] {
+//                self.snake = []
+//                snake.removeAll()
+                return true
+            }
+        }
+        return false
     }
     
     var description: String {

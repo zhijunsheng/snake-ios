@@ -329,6 +329,45 @@ class BoardTests: XCTestCase {
         XCTAssertTrue(board.isSnakeDead())
     }
     
+    func testKillSnakeOnBorderUp() {
+        let initSnake = [Point(row: 3, col: 1),
+                         Point(row: 3, col: 2),
+                         Point(row: 3, col: 3)]
+        
+        var board = Board(rows: 10, cols: 10, snake: initSnake, food: [])
+        board.moveSnakeUp()
+        print(board)
+        board.moveSnakeUp()
+        print(board)
+        board.moveSnakeUp()
+        print(board)
+        board.moveSnakeUp()
+        print(board)
+        board.moveSnakeUp()
+        print(board)
+        board.moveSnakeUp()
+        print(board)
+        board.moveSnakeUp()
+        print(board)
+        board.moveSnakeUp()
+        XCTAssertTrue(board.isSnakeDead())
+        print(board)
+    }
+    
+    func testKillSnakeOnBody() {
+        let initSnake = [Point(row: 3, col: 2),
+                         Point(row: 3, col: 3),
+                         Point(row: 3, col: 4),
+                         Point(row: 4, col: 4),
+                         Point(row: 5, col: 4),
+                         Point(row: 5, col: 5),
+                         ]
+        
+        var board = Board(rows: 10, cols: 10, snake: initSnake, food: [])
+        print(board)
+        XCTAssertTrue(board.isSnakeDead())
+        print(board)
+    }
 }
 
 struct Remainder {

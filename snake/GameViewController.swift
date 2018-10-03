@@ -51,7 +51,7 @@ class GameViewController: UIViewController {
         mapSnakeToScreen()
         boardView.setNeedsDisplay()
         
-        _ = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true) { _ in
+        _ = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true) { timer in
             if self.turner == 0 {
                 self.board.moveSnakeLeft()
             } else if self.turner == 1 {
@@ -60,6 +60,11 @@ class GameViewController: UIViewController {
                 self.board.moveSnakeDown()
             } else if self.turner == 3 {
                 self.board.moveSnakeRight()
+            }
+            
+            if self.board.isSnakeDead() {
+                self.board.snake.removeAll()
+                timer.invalidate()
             }
 
             self.mapSnakeToScreen()
