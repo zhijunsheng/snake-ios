@@ -12,7 +12,7 @@ import AVFoundation
 class GameViewController: UIViewController {
     
     let side: CGFloat = 23.0
-    let numbOfRows = 8
+    let numbOfRows = 25
     let numbOfCols = 14
     let initSnake = [Point(row: 2, col: 10),
                      Point(row: 2, col: 9),
@@ -25,7 +25,7 @@ class GameViewController: UIViewController {
     
     var board = Board(rows: 0, cols: 0, snake: [], food: [])
     
-    var turner = 1 // 0: left, 1:up, 2: right, 3: down
+    var turner = Direction.up // 0: left, 1:up, 2: right, 3: down
     
     
     @IBOutlet weak var boardView: BoardView!
@@ -52,13 +52,14 @@ class GameViewController: UIViewController {
         boardView.setNeedsDisplay()
         
         _ = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true) { timer in
-            if self.turner == 0 {
-                self.board.moveSnakeLeft()
-            } else if self.turner == 1 {
+            switch self.turner {
+            case .up:
                 self.board.moveSnakeUp()
-            } else if self.turner == 2 {
+            case .down:
                 self.board.moveSnakeDown()
-            } else if self.turner == 3 {
+            case .left:
+                self.board.moveSnakeLeft()
+            case .right:
                 self.board.moveSnakeRight()
             }
             
@@ -75,20 +76,44 @@ class GameViewController: UIViewController {
     }
     
     @IBAction func touchLeft(_ sender: UIButton) {
-        turner = 0
+        turner = .left
     }
     
     @IBAction func touchUp(_ sender: UIButton) {
-        turner = 1
+        turner = .up
     }
     
     @IBAction func touchDown(_ sender: UIButton) {
-        turner = 2
+        turner = .down
     }
     
     @IBAction func touchRight(_ sender: UIButton) {
-        turner = 3
+        turner = .right
     }
+    
+    @IBAction func touchBoard(_ sender: UITapGestureRecognizer) {
+        print("¯\\\\_(ツ)_//¯")
+        print(sender.location(in: boardView))
+        let touchX = sender.location(in: boardView).x
+        let touchY = sender.location(in: boardView).y
+        
+        // to be ✂️
+        let headX = self.boardView.snakeCells[0].x
+        let headY = self.boardView.snakeCells[0].y
+        print("headX = \(headX), headY = \(headY)")
+        
+        
+//        if headX < touchX && (turner == 0 || turner == 1 || turner == 2) {
+//            turner = 3
+//        } else if headY > touchY && (turner == 0 || turner == 1 || turner == 3) {
+//            turner = 2
+//        } else if headY < touchY && (turner == 0 || turner == 2 || turner == 3) {
+//            turner = 1
+//        } else if headX > touchX && (turner == 1 || turner == 2 || turner == 3) {
+//            turner = 0
+//        }
+   }
+    
     
     func convert(point: Point) -> CGPoint {
         var cgPoint: CGPoint
