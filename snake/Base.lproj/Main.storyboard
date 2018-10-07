@@ -59,7 +59,12 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="l30-0u-h7L" appends="YES" id="Qgc-gs-Txk"/>
+                            <outletCollection property="gestureRecognizers" destination="ILg-lW-Qcf" appends="YES" id="YBa-n0-QMu"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="boardView" destination="8bC-Xf-vdC" id="kZy-6E-dLc"/>
@@ -67,6 +72,16 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="l30-0u-h7L">
+                    <connections>
+                        <action selector="touchBoard:" destination="BYZ-38-t0r" id="ODx-7r-aY1"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <swipeGestureRecognizer direction="right" id="ILg-lW-Qcf">
+                    <connections>
+                        <action selector="swipeOnBoard:" destination="BYZ-38-t0r" id="2bo-rX-xUY"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="140.57971014492756" y="132.88043478260872"/>
         </scene>

@@ -37,6 +37,9 @@ class ViewController: UIViewController {
         boardView.cols = board.columns
         boardView.rows = board.rows
         board.food = [board.makeRandFoodPoint()]
+        boardView.snakeCells = board.snake
+        boardView.setNeedsDisplay()
+        print(CGFloat(boardView.snakeCells[0].col - 1) * boardView.side + boardView.originX)
         
         timer = Timer.scheduledTimer(withTimeInterval: 0.2, repeats: true) { (t: Timer) in
             switch self.direction {
@@ -89,6 +92,13 @@ class ViewController: UIViewController {
         print(board)
     }
     
+    
+    @IBAction func swipeOnBoard(_ sender: UISwipeGestureRecognizer) {
+        //        if sender.direction == UISwipeGestureRecognizer.left {
+        //
+        //        }
+    }
+    
     @IBAction func moveUp(_ sender: Any) {
         if board.snake.count > 1 {
             if direction != .down {
@@ -99,6 +109,50 @@ class ViewController: UIViewController {
         }
     }
     
+    @IBAction func touchBoard(_ sender: UITapGestureRecognizer){
+        
+        let snakeHeadX = CGFloat(board.snake[0].col - 1) * boardView.side + boardView.originX
+        let touchX = sender.location(in: view).x
+        let snakeHeadY = CGFloat(board.snake[0].row - 1) * boardView.side + boardView.originY
+        let touchY = sender.location(in: view).y
+        
+        switch direction {
+        case .up, .down :
+            if  snakeHeadX > touchX {
+                                direction = .left
+            } else if snakeHeadX + boardView.side < touchX {
+                                direction = .right
+                            }
+            
+            
+            
+        case .left,.right:
+            if  snakeHeadY > touchY {
+                                direction = .up
+                            } else if snakeHeadY + boardView.side < touchY {
+                                direction = .down
+                            }
+        case .stop:
+            break
+        }
+        
+//        if direction == .up || direction == .down {
+//            if  snakeHeadX > touchX {
+//                direction = .left
+//            } else if snakeHeadX + boardView.side < touchX {
+//
+//                direction = .right
+//            }
+//        } else if direction == .right || direction == .left {
+//            if  snakeHeadY > touchY {
+//                direction = .up
+//            } else if snakeHeadY + boardView.side < touchY {
+//                direction = .down
+//            }
+//        }
+        
+        print ("\(snakeHeadX)  and \(touchX)")
+    }
     @IBAction func moveDown(_ sender: Any) {
         if board.snake.count > 1 {
             if direction != .up {
