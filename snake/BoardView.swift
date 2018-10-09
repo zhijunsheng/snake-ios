@@ -53,7 +53,7 @@ class BoardView: UIView {
                      fromY: originY + CGFloat(i) * side,
                      toX: originX + CGFloat(cols) * side,
                      toY: originY + CGFloat(i) * side,
-                     color: .gray)
+                     color: .white)
         }
         
         // vertically draw some lines
@@ -63,7 +63,7 @@ class BoardView: UIView {
                      fromY: originY,
                      toX: originX + CGFloat(i) * side,
                      toY: originY + CGFloat(rows) * side,
-                     color: .gray)
+                     color: .white)
         }
     }
     

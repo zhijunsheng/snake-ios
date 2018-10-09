@@ -12,8 +12,8 @@ import AVFoundation
 class GameViewController: UIViewController {
     
     let side: CGFloat = 23.0
-    let numbOfRows = 25
-    let numbOfCols = 14
+    let numbOfRows = 27
+    let numbOfCols = 16
     let initSnake = [Point(row: 2, col: 10),
                      Point(row: 2, col: 9),
                      Point(row: 2, col: 8),
@@ -43,8 +43,8 @@ class GameViewController: UIViewController {
         
         boardView.cols = numbOfCols
         boardView.rows = numbOfRows
-        boardView.originX = (boardView.frame.width -  side * CGFloat(boardView.cols)) / 2
-        boardView.originY = (boardView.frame.height - side * CGFloat(boardView.rows)) / 3
+//        boardView.originX = (boardView.frame.width -  side * CGFloat(boardView.cols)) / 2
+//        boardView.originY = (boardView.frame.height - side * CGFloat(boardView.rows)) / 3
         
         mapFoodToScreen()
         
@@ -94,15 +94,32 @@ class GameViewController: UIViewController {
     @IBAction func touchBoard(_ sender: UITapGestureRecognizer) {
         print("¯\\\\_(ツ)_//¯")
         print(sender.location(in: boardView))
-        let touchX = sender.location(in: boardView).x
-        let touchY = sender.location(in: boardView).y
-        
+        let touchX = sender.location(in: boardView).x * side
+        let touchY = sender.location(in: boardView).y * side
         // to be ✂️
-        let headX = self.boardView.snakeCells[0].x
-        let headY = self.boardView.snakeCells[0].y
+        //## -> # | #
+        let headX = self.boardView.snakeCells[0].x * side
+        let headY = self.boardView.snakeCells[0].y * side
         print("headX = \(headX), headY = \(headY)")
         
-        
+        switch self.turner {
+        case .up, .down:
+            // to be handled
+            // TODO: 𝑻O 𝑫O
+            // TODO: - turn point into rect -
+            if touchX < headX {
+                turner = .left
+            } else if touchX > headX + side {
+                turner = .right
+            }
+                
+        case .left, .right:
+            if headY < touchY + side {
+                turner = .down
+            } else if headY > touchY {
+                turner = .up
+            }
+        }
 //        if headX < touchX && (turner == 0 || turner == 1 || turner == 2) {
 //            turner = 3
 //        } else if headY > touchY && (turner == 0 || turner == 1 || turner == 3) {
