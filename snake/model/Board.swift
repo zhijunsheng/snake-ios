@@ -177,7 +177,7 @@ struct Board: CustomStringConvertible {
     
     func isSnakeDead() -> Bool {
         if snake.count == 0 {
-            return true
+            return false
         }
         
         let head = snake[0]

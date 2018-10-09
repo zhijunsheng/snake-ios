@@ -65,7 +65,18 @@ class GameViewController: UIViewController {
             
             if self.board.isSnakeDead() {
                 self.board.snake.removeAll()
-                timer.invalidate()
+                let alert = UIAlertController(title: "GAME OVER!!!", message: "Would you like to revive your snake?", preferredStyle: .alert)
+                let yesAction = UIAlertAction(title: "Yes", style: .default, handler: { (action) in
+                    self.board.snake = self.initSnake
+                    self.board.food = self.foodPoints
+                    self.mapSnakeToScreen()
+                    self.mapFoodToScreen()
+                    self.boardView.setNeedsDisplay()
+                })
+                alert.addAction(yesAction)
+                alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
+                
+                self.present(alert, animated: true)
             }
 
             self.mapSnakeToScreen()
@@ -92,15 +103,10 @@ class GameViewController: UIViewController {
     }
     
     @IBAction func touchBoard(_ sender: UITapGestureRecognizer) {
-        print("¯\\\\_(ツ)_//¯")
-        print(sender.location(in: boardView))
         let touchX = sender.location(in: boardView).x * side
         let touchY = sender.location(in: boardView).y * side
-        // to be ✂️
-        //## -> # | #
         let headX = self.boardView.snakeCells[0].x * side
         let headY = self.boardView.snakeCells[0].y * side
-        print("headX = \(headX), headY = \(headY)")
         
         switch self.turner {
         case .up, .down:
