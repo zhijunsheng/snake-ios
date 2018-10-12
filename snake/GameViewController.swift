@@ -69,6 +69,8 @@ class GameViewController: UIViewController {
                 let yesAction = UIAlertAction(title: "Yes", style: .default, handler: { (action) in
                     self.board.snake = self.initSnake
                     self.board.food = self.foodPoints
+                    self.turner = .up
+                    print(self.board)
                     self.mapSnakeToScreen()
                     self.mapFoodToScreen()
                     self.boardView.setNeedsDisplay()
