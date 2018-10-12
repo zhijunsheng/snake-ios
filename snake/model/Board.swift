@@ -40,12 +40,6 @@ struct Board: CustomStringConvertible {
             }
         }
         
-        for j in 1...snake.count - 1 {
-            if snake[0] == snake[j] {
-                snake.removeAll()
-                break
-            }
-        }
     }
     
     mutating  func moveSnakeRight() {
@@ -68,13 +62,6 @@ struct Board: CustomStringConvertible {
             if snake[0] == food[i] {
                 food.remove(at: i)
                 snake.append(snake[snake.count - 1])
-                break
-            }
-        }
-        
-        for j in 1...snake.count - 1 {
-            if snake[0] == snake[j] {
-                snake.removeAll()
                 break
             }
         }
@@ -103,13 +90,6 @@ struct Board: CustomStringConvertible {
                 break
             }
         }
-        
-        for j in 1...snake.count - 1 {
-            if snake[0] == snake[j] {
-                snake.removeAll()
-                break
-            }
-        }
     }
     
     mutating  func moveSnakeDown() {
@@ -132,13 +112,6 @@ struct Board: CustomStringConvertible {
             if snake[0] == food[i] {
                 food.remove(at: i)
                 snake.append(snake[snake.count - 1])
-                break
-            }
-        }
-        
-        for j in 1...snake.count - 1 {
-            if snake[0] == snake[j] {
-                snake.removeAll()
                 break
             }
         }
@@ -188,8 +161,6 @@ struct Board: CustomStringConvertible {
         
         for j in 1...snake.count - 1 {
             if head == snake[j] {
-//                self.snake = []
-//                snake.removeAll()
                 return true
             }
         }
