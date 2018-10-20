@@ -12,6 +12,7 @@ class BoardView: UIView {
     
     var cols = 0
     var rows = 0 // hi
+    let foodArr = Array("🍏🍎🍐🍊🍋🍌🍉🍇🍓🍈🍒🍑🍍🥥🥝🍅🍆🥑🥦🥒🌶🌽🥕🥔🍠🥐🍞🥖🥨🧀🥚🍳🥞🥓🥩🍗🍖🌭🍔🍟🍕🥪🥙🌮🌯🥗🥘🥫🍝🍜🍲🍛💣🍣🍱🥟🍤🍙🍚🍘🍥🥠🍢🍡🍧🍨🍦🥧🎾🍰🎂🍮🍭🍬🔪🍫🍿🍩🍪🌰🥜🍯🥛🍼☕️🍵🥤🍺🍻🥂🍷🥃🍸🍹🍾")
     
     let side: CGFloat = 23.0
     private let headColor = UIColor(red: 0/255,
@@ -80,22 +81,29 @@ class BoardView: UIView {
     }
     
    private func drawFood() {
-        // food 🍳🥚🍔🍕🍝🍟🍰🍿🍭🍬🍩🍫👍
-        let food = "🍏🍎🍐🍊🍋🍌🍉🍇🍓🍈🍒🍑🍍🥥🥝🍅🍆🥑🥦🥒🌶🌽🥕🥔🍠🥐🍞🥖🥨🧀🥚🍳🥞🥓🥩🍗🍖🌭🍔🍟🍕🥪🥙🌮🌯🥗🥘🥫🍝🍜🍲🍛💣🍣🍱🥟🍤🍙🍚🍘🍥🥠🍢🍡🍧🍨🍦🥧🎾🍰🎂🍮🍭🍬🔪🍫🍿🍩🍪🌰🥜🍯🥛🍼☕️🍵🥤🍺🍻🥂🍷🥃🍸🍹🍾"
+        // food Brf🍳🥚lun🍔🍕🍝🍟snak🍰🍿🍭🍬din🍩🍫 👍
+    
         for foodCell in foodCells {
-            let foodString = Array(food)
-            let rand = Int(arc4random()) % foodString.count
+            let rand = Int(arc4random()) % foodArr.count
             let paragraphStyle = NSMutableParagraphStyle()
             let attributes = [
                 NSAttributedStringKey.paragraphStyle: paragraphStyle,
                 NSAttributedStringKey.font: UIFont.systemFont(ofSize: 16.3456789),
                 ]
-            let attributedString = NSAttributedString(string: String(foodString[rand]), attributes: attributes)
+            let attributedString = NSAttributedString(string: String(foodArr[rand]), attributes: attributes)
             let stringRect = CGRect(x: foodCell.x, y: foodCell.y, width: 23, height: 23)
             attributedString.draw(in: stringRect)
         }
     }
     
+    private func getFood(numbOfFood: Int) -> [Character] {
+        var result = [Character]()
+        for _ in 0..<numbOfFood {
+            let rand = Int(arc4random()) % foodArr.count
+            result.append(foodArr[rand])
+        }
+        return result
+    }
     
     private func drawLine(fromX: CGFloat, fromY: CGFloat, toX: CGFloat, toY: CGFloat, color: UIColor) {
         let line = UIBezierPath()

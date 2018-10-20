@@ -23,7 +23,7 @@ class GameViewController: UIViewController {
     var foodPoints: [Point] = []
     
     
-    var board = Board(rows: 0, cols: 0, snake: [], food: [])
+    var board = Board(rows: 0, cols: 0, snake: [], food: [], currentNoOfFood: 43221283)
     
     var turner = Direction.up // 0: left, 1:up, 2: right, 3: down
     
@@ -37,7 +37,7 @@ class GameViewController: UIViewController {
                       Point(row: 2, col: 8)
         ]
         
-        board = Board(rows: numbOfRows, cols: numbOfCols, snake: initSnake, food: foodPoints)
+        board = Board(rows: numbOfRows, cols: numbOfCols, snake: initSnake, food: foodPoints, currentNoOfFood: foodPoints.count)
         
         print(board)
         

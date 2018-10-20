@@ -15,6 +15,32 @@ struct Board: CustomStringConvertible {
     var cols: Int
     var snake: [Point]
     var food = [Point]()
+    var currentNoOfFood = 0
+    
+    
+    func generateRandomFood(numbOfPoints: Int) -> [Point] {
+        var result = [Point]()
+        for _ in 0..<numbOfPoints {
+            let randRow = Int(arc4random()) % rows
+            let randCol = Int(arc4random()) % cols
+            result.append(Point(row: randRow, col: randCol))
+        }
+        return result
+    }
+    
+    mutating func snakesGiganticEatingFunction() {
+        for i in food.indices {
+            if snake[0] == food[i] {
+                food.remove(at: i)
+                if food.count == 0 {
+                    currentNoOfFood += 1
+                    food = generateRandomFood(numbOfPoints: currentNoOfFood)
+                }
+                snake.append(snake[snake.count - 1])
+                break
+            }
+        }
+    }
     
     mutating  func moveSnakeLeft() {
         if snake.count == 0 {
@@ -32,14 +58,7 @@ struct Board: CustomStringConvertible {
         }
         snake = newSnake
         
-        for i in food.indices {
-            if snake[0] == food[i] {
-                food.remove(at: i)
-                snake.append(snake[snake.count - 1])
-                break
-            }
-        }
-        
+        snakesGiganticEatingFunction()
     }
     
     mutating  func moveSnakeRight() {
@@ -58,13 +77,7 @@ struct Board: CustomStringConvertible {
         }
         snake = newSnake
         
-        for i in food.indices {
-            if snake[0] == food[i] {
-                food.remove(at: i)
-                snake.append(snake[snake.count - 1])
-                break
-            }
-        }
+        snakesGiganticEatingFunction()
     }
     
     mutating  func moveSnakeUp() {
@@ -83,13 +96,7 @@ struct Board: CustomStringConvertible {
         }
         snake = newSnake
         
-        for i in food.indices {
-            if snake[0] == food[i] {
-                food.remove(at: i)
-                snake.append(snake[snake.count - 1])
-                break
-            }
-        }
+        snakesGiganticEatingFunction()
     }
     
     mutating  func moveSnakeDown() {
@@ -108,13 +115,7 @@ struct Board: CustomStringConvertible {
         }
         snake = newSnake
         
-        for i in food.indices {
-            if snake[0] == food[i] {
-                food.remove(at: i)
-                snake.append(snake[snake.count - 1])
-                break
-            }
-        }
+        snakesGiganticEatingFunction()
     }
     
     mutating func mrSnakeWillMoveToTheLeft() {
