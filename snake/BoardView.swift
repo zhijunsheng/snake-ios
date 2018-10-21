@@ -14,7 +14,7 @@ class BoardView: UIView {
     var rows = 0 // hi
     let foodArr = Array("🍏🍎🍐🍊🍋🍌🍉🍇🍓🍈🍒🍑🍍🥥🥝🍅🍆🥑🥦🥒🌶🌽🥕🥔🍠🥐🍞🥖🥨🧀🥚🍳🥞🥓🥩🍗🍖🌭🍔🍟🍕🥪🥙🌮🌯🥗🥘🥫🍝🍜🍲🍛💣🍣🍱🥟🍤🍙🍚🍘🍥🥠🍢🍡🍧🍨🍦🥧🎾🍰🎂🍮🍭🍬🔪🍫🍿🍩🍪🌰🥜🍯🥛🍼☕️🍵🥤🍺🍻🥂🍷🥃🍸🍹🍾")
     
-    let side: CGFloat = 23.0
+    var side: CGFloat = -1.0
     private let headColor = UIColor(red: 0/255,
                             green: 190/255,
                             blue: 50/255,
@@ -54,7 +54,7 @@ class BoardView: UIView {
                      fromY: originY + CGFloat(i) * side,
                      toX: originX + CGFloat(cols) * side,
                      toY: originY + CGFloat(i) * side,
-                     color: .white)
+                     color: .lightGray)
         }
         
         // vertically draw some lines
@@ -64,7 +64,7 @@ class BoardView: UIView {
                      fromY: originY,
                      toX: originX + CGFloat(i) * side,
                      toY: originY + CGFloat(rows) * side,
-                     color: .white)
+                     color: .lightGray)
         }
     }
     
@@ -81,17 +81,17 @@ class BoardView: UIView {
     }
     
    private func drawFood() {
-        // food Brf🍳🥚lun🍔🍕🍝🍟snak🍰🍿🍭🍬din🍩🍫 👍
+        /// food Breakfast🍳🥚lunch🍔🍕🍝🍟snack🍰🍿🍭🍬dinner🍩🍫 //👍
     
         for foodCell in foodCells {
             let rand = Int(arc4random()) % foodArr.count
             let paragraphStyle = NSMutableParagraphStyle()
             let attributes = [
                 NSAttributedStringKey.paragraphStyle: paragraphStyle,
-                NSAttributedStringKey.font: UIFont.systemFont(ofSize: 16.3456789),
+                NSAttributedStringKey.font: UIFont.systemFont(ofSize: 0.710681691304348 * side),
                 ]
             let attributedString = NSAttributedString(string: String(foodArr[rand]), attributes: attributes)
-            let stringRect = CGRect(x: foodCell.x, y: foodCell.y, width: 23, height: 23)
+            let stringRect = CGRect(x: foodCell.x, y: foodCell.y, width: side, height: side)
             attributedString.draw(in: stringRect)
         }
     }

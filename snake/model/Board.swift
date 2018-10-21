@@ -29,17 +29,24 @@ struct Board: CustomStringConvertible {
     }
     
     mutating func snakesGiganticEatingFunction() {
-        for i in food.indices {
-            if snake[0] == food[i] {
-                food.remove(at: i)
-                if food.count == 0 {
-                    currentNoOfFood += 1
-                    food = generateRandomFood(numbOfPoints: currentNoOfFood)
-                }
-                snake.append(snake[snake.count - 1])
-                break
+        if let indexOfFoodEaten = foodEaten() {
+            food.remove(at: indexOfFoodEaten)
+            snake.append(snake[snake.count - 1])
+            
+            if food.count == 0 {
+                food = generateRandomFood(numbOfPoints: currentNoOfFood)
             }
         }
+        
+    }
+    
+    func foodEaten() -> Int? {
+        for i in food.indices {
+            if snake[0] == food[i] {
+                return i
+            }
+        }
+        return nil
     }
     
     mutating  func moveSnakeLeft() {

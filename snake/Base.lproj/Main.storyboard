@@ -52,7 +52,7 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="90Z-9x-SAI" customClass="BoardView" customModule="snake" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="394" height="657"/>
+                                <rect key="frame" x="20" y="20" width="374" height="637"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <gestureRecognizers/>
@@ -86,7 +86,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="357.97101449275362" y="-82.33695652173914"/>
+            <point key="canvasLocation" x="356.52173913043481" y="-82.33695652173914"/>
         </scene>
     </scenes>
 </document>

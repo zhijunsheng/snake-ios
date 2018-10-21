@@ -11,9 +11,9 @@ import AVFoundation
 
 class GameViewController: UIViewController {
     
-    let side: CGFloat = 23.0
-    let numbOfRows = 27
-    let numbOfCols = 16
+    let side: CGFloat = 15.0
+    let numbOfRows = 18
+    let numbOfCols = 10
     let initSnake = [Point(row: 2, col: 10),
                      Point(row: 2, col: 9),
                      Point(row: 2, col: 8),
@@ -33,8 +33,8 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        foodPoints = [Point(row: 3, col: 5),
-                      Point(row: 2, col: 8)
+        foodPoints = [Point(row: 9, col: 5),
+                      Point(row: 9, col: 6)
         ]
         
         board = Board(rows: numbOfRows, cols: numbOfCols, snake: initSnake, food: foodPoints, currentNoOfFood: foodPoints.count)
@@ -43,8 +43,9 @@ class GameViewController: UIViewController {
         
         boardView.cols = numbOfCols
         boardView.rows = numbOfRows
-//        boardView.originX = (boardView.frame.width -  side * CGFloat(boardView.cols)) / 2
-//        boardView.originY = (boardView.frame.height - side * CGFloat(boardView.rows)) / 3
+        boardView.side = side
+        boardView.originX = (boardView.frame.width -  side * CGFloat(boardView.cols)) / 2
+        boardView.originY = (boardView.frame.height - side * CGFloat(boardView.rows)) / 2
         
         mapFoodToScreen()
         
@@ -128,15 +129,6 @@ class GameViewController: UIViewController {
                 turner = .up
             }
         }
-//        if headX < touchX && (turner == 0 || turner == 1 || turner == 2) {
-//            turner = 3
-//        } else if headY > touchY && (turner == 0 || turner == 1 || turner == 3) {
-//            turner = 2
-//        } else if headY < touchY && (turner == 0 || turner == 2 || turner == 3) {
-//            turner = 1
-//        } else if headX > touchX && (turner == 1 || turner == 2 || turner == 3) {
-//            turner = 0
-//        }
    }
     
     
