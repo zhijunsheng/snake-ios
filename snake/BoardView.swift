@@ -21,9 +21,9 @@ class BoardView: UIView {
     let darkGreen = UIColor(red: 0, green: 0.6, blue: 0, alpha: 1.0)
     
     override func draw(_ rect: CGRect) {
-        drawGrid(color: .lightGray)
         drawSnakeCells(bodyColor: .green, outlineColor: darkGreen)
         drawFoodCells(color: .red)
+        drawGrid(color: .lightGray)
     }
 
     func drawLine(fromX: CGFloat, fromY: CGFloat, toX: CGFloat, toY: CGFloat, color: UIColor){
@@ -35,18 +35,11 @@ class BoardView: UIView {
         path.stroke()
     }
     
-    func drawRect(x: CGFloat, y: CGFloat, width: CGFloat, height: CGFloat, color: UIColor) {
-        var rect = CGRect()
-        let path3 = UIBezierPath(rect: rect)
-        color.setFill()
-        rect = CGRect(x: x, y: y, width: width, height: height)
-        path3.fill()
-    }
-    
     func drawCells(color: UIColor, pointArray: [Point] ) {
         for i in pointArray {
             let rect = CGRect(x: CGFloat(i.col) * side + originX - side, y: CGFloat(i.row) * side + originY - side, width: side, height: side)
             let path3 = UIBezierPath(rect: rect)
+//            path3.ad
             color.setFill()
             path3.fill()
         }
@@ -68,7 +61,7 @@ class BoardView: UIView {
         path2.stroke()
     }
 
-    private func drawGrid(color: UIColor){
+    func drawGrid(color: UIColor){
         for i in 0...cols {
             drawLine(fromX: originX + CGFloat(i) * side, fromY: originY, toX: originX + CGFloat(i) * side, toY: originY + side * CGFloat(rows), color: color)
         }

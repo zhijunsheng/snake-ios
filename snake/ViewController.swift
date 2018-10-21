@@ -17,7 +17,7 @@ class ViewController: UIViewController {
     
     
     var timer: Timer?
-    var direction: Direction = .down
+    var direction: Direction = .start
     
     enum Direction {
         case up
@@ -25,23 +25,24 @@ class ViewController: UIViewController {
         case left
         case right
         case stop
+        case start
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        var stringScoreBoard = scoreBoard.text
         
-        board.columns = 25
-        board.rows = 40
+        var counter = 0
+        board.columns = Int((boardView.frame.width / boardView.side) - 1)
+        board.rows = Int(boardView.frame.height / boardView.side - 2)
         boardView.cols = board.columns
         boardView.rows = board.rows
         board.food = [board.makeRandFoodPoint()]
         boardView.snakeCells = board.snake
         boardView.setNeedsDisplay()
-        print(CGFloat(boardView.snakeCells[0].col - 1) * boardView.side + boardView.originX)
+        print(CGFloat(boardView.snakeCells[0].col - 1) * boardView.side + boardView.originX)        
         
-        timer = Timer.scheduledTimer(withTimeInterval: 0.2, repeats: true) { (t: Timer) in
+        timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { (t: Timer) in
             switch self.direction {
             case .up :
                 self.board.moveSnakeUp()
@@ -53,25 +54,19 @@ class ViewController: UIViewController {
                 self.board.moveSnakeRight()
             case .stop:
                 self.timer?.invalidate()
+            case .start:
+                break
             }
+            print(counter)
+            counter += 1
             self.boardView.foodCells = self.board.food
             self.boardView.snakeCells = self.board.snake
             self.boardView.setNeedsDisplay()
             
-            for _ in self.board.snake {
-                var number = 0
-                
-                if number > 0 {
-                    if self.board.snake[0] == self.board.snake[number] {
-                        self.direction = .stop
-                    }
-                }
-                number += 1
-            }
             var b = 0
             for i in self.board.snake {
                 if b > 0 {
-                    if self.board.snake[0].col == i.col && self.board.snake[0].row == i.row {
+                    if (self.board.snake[0].col == i.col && self.board.snake[0].row == i.row) && (self.direction == .right || self.direction == .left || self.direction == .up || self.direction == .down){
                         self.direction = .stop
                     }
                 }
@@ -81,13 +76,13 @@ class ViewController: UIViewController {
                 b += 1
             }
             
+            
             if self.board.snake[0].col > self.board.columns || self.board.snake[0].row > self.board.rows || self.board.snake[0].col < 1 || self.board.snake[0].row < 1 {
                 self.direction = .stop
             }
             self.board.snakeGrows()
         
-            self.scoreBoard.text = "Score: \(self.board.snake.count - 1)"
-            
+            self.scoreBoard.text = "Score: \(self.board.snake.count - 3)"
         }
         print(board)
     }
@@ -97,16 +92,6 @@ class ViewController: UIViewController {
         //        if sender.direction == UISwipeGestureRecognizer.left {
         //
         //        }
-    }
-    
-    @IBAction func moveUp(_ sender: Any) {
-        if board.snake.count > 1 {
-            if direction != .down {
-                direction = .up
-            }
-        } else {
-            direction = .up
-        }
     }
     
     @IBAction func touchBoard(_ sender: UITapGestureRecognizer){
@@ -119,67 +104,25 @@ class ViewController: UIViewController {
         switch direction {
         case .up, .down :
             if  snakeHeadX > touchX {
-                                direction = .left
+                direction = .left
             } else if snakeHeadX + boardView.side < touchX {
-                                direction = .right
-                            }
-            
-            
+                direction = .right
+            }
             
         case .left,.right:
             if  snakeHeadY > touchY {
-                                direction = .up
-                            } else if snakeHeadY + boardView.side < touchY {
-                                direction = .down
-                            }
-        case .stop:
-            break
-        }
-        
-//        if direction == .up || direction == .down {
-//            if  snakeHeadX > touchX {
-//                direction = .left
-//            } else if snakeHeadX + boardView.side < touchX {
-//
-//                direction = .right
-//            }
-//        } else if direction == .right || direction == .left {
-//            if  snakeHeadY > touchY {
-//                direction = .up
-//            } else if snakeHeadY + boardView.side < touchY {
-//                direction = .down
-//            }
-//        }
-        
-        print ("\(snakeHeadX)  and \(touchX)")
-    }
-    @IBAction func moveDown(_ sender: Any) {
-        if board.snake.count > 1 {
-            if direction != .up {
+                direction = .up
+            } else if snakeHeadY + boardView.side < touchY {
                 direction = .down
             }
-        } else {
-            direction = .down
-        }
-    }
-    @IBAction func moveRight(_ sender: Any) {
-        if board.snake.count > 1 {
-            if direction != .left {
-                direction = .right
-            }
-        } else {
-            direction = .right
-        }
-    }
-    
-    
-    @IBAction func moveLeft(_ sender: Any) {
-        if board.snake.count > 1 {
-            if direction != .right {
-                direction = .left
-            }
-        } else {
+        case .stop:
+            break
+        case .start:
+            
+            
             direction = .left
-        }
+            direction = .right
+        
     }
+}
 }

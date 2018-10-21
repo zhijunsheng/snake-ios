@@ -16,9 +16,7 @@ struct Board: CustomStringConvertible {
     var food = [Point]()
     
     // define a snake here
-    var snake = [Point(row: 1, col: 1),
-    ]
-    
+    var snake = Array<Point>(repeating:Point(row: 1, col: 1), count: 20)
     var description: String {
 
         print(snake)
@@ -53,9 +51,21 @@ struct Board: CustomStringConvertible {
     // TODO: make sure that food does not spawn on snake body
     
     func makeRandFoodPoint() -> Point {
-        let randCol = Int(arc4random_uniform(UInt32(columns)) + 1)
-        let randRow = Int(arc4random_uniform(UInt32(rows)) + 1)
-        let p = Point(row: randRow, col: randCol)
+        var randCol = Int(arc4random_uniform(UInt32(columns)) + 1)
+        var randRow = Int(arc4random_uniform(UInt32(rows)) + 1)
+        
+        var p = Point(row: randRow, col: randCol)
+        for a in snake {
+            if randCol != a.col && randRow != a.row {
+                p = Point(row: randRow, col: randCol)
+            } else {
+                while randCol == a.col && randRow == a.row {
+                     randCol = Int(arc4random_uniform(UInt32(columns)) + 1)
+                     randRow = Int(arc4random_uniform(UInt32(rows)) + 1)
+                }
+            p = Point(row: randRow, col: randCol)
+            }
+        }
         return p
     }
     
@@ -82,14 +92,14 @@ struct Board: CustomStringConvertible {
     
     mutating func moveSnakeDown() {
         
-        var t = 0
-        var i = 1
-        
-        while t < snake.count - 1{
-            snake[snake.count - 1 - t] = snake[snake.count - 1 - i]
-            i += 1
-            t += 1
+        for i in 1..<snake.count {
+
+            snake[snake.count - i] = snake[snake.count - i - 1]
+            // snake moves starting from end to beggining
         }
+        
+        
+        
         snake[0].row += 1
     }
     
