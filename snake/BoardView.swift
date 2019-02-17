@@ -2,11 +2,11 @@ import UIKit
 
 class BoardView: UIView {
     
-    let side : CGFloat = 20.0
+    let side : CGFloat = 28.0
     let rows = 20
     let cols = 12
-    let orgX: CGFloat = 100
-    let orgY: CGFloat = 100
+    let orgX: CGFloat = 20
+    let orgY: CGFloat = 50
     
     override func draw(_ rect: CGRect) {
         drawGrid()
