@@ -6,6 +6,25 @@ class BoardView: UIView {
     let boardY   : CGFloat = 20
     let line     : CGFloat = 19
     override func draw(_ rect: CGRect) {
+        drawGrid()
+        drawSnake()
+        
+    }
+    func drawSnake() {
+        drawSnakeCell(x: boardX + line, y: boardY + line)
+        drawSnakeCell(x: boardX + line * 2, y: boardY + line)
+        drawSnakeCell(x: boardX + line * 2, y: boardY + line * 2)
+        drawSnakeCell(x: boardX + line * 3, y: boardY + line * 2)
+        drawSnakeCell(x: boardX + line * 3, y: boardY + line * 3)
+    }
+    func drawSnakeCell(x: CGFloat, y: CGFloat) {
+        let bPath = UIBezierPath(roundedRect: CGRect(x: x, y: y, width: line, height: line), cornerRadius: 6)
+        #colorLiteral(red: 0.2745098039, green: 0, blue: 0.5254901961, alpha: 1).setFill()
+        bPath.fill()
+        #colorLiteral(red: 0.3176470588, green: 0, blue: 0.5450980392, alpha: 1).setStroke()
+        bPath.stroke()
+    }
+    func drawGrid() {
         let aPath = UIBezierPath()
         for i in 0...rows {
             aPath.move(to: CGPoint(x: boardX, y: boardY + line * CGFloat(i)))
@@ -15,8 +34,8 @@ class BoardView: UIView {
             aPath.move(to: CGPoint(x: boardX + line * CGFloat(i), y: boardY))
             aPath.addLine(to: CGPoint(x: boardX + line * CGFloat(i), y: boardY + line * CGFloat(rows)))
         }
-        #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1).setStroke()
-        aPath.lineWidth = 0.5
+        #colorLiteral(red: 0.8470588235, green: 0.4392156863, blue: 0.6901960784, alpha: 1).setStroke()
+        aPath.lineWidth = 0.8
         aPath.stroke()
     }
 }
