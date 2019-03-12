@@ -1,7 +1,7 @@
 import UIKit
 class BoardView: UIView {
     let cols     : Int         = 13
-    let rows     : Int         = 23
+    let rows     : Int         = 18
     let boardX   : CGFloat     = 20
     let boardY   : CGFloat     = 20
     let line     : CGFloat     = 19
