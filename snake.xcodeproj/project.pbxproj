@@ -12,6 +12,7 @@
 		07FDE4132016091500A674FE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07FDE4112016091500A674FE /* Main.storyboard */; };
 		07FDE4152016091500A674FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07FDE4142016091500A674FE /* Assets.xcassets */; };
 		07FDE4182016091500A674FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07FDE4162016091500A674FE /* LaunchScreen.storyboard */; };
+		8238C1142237E09600D6D4FF /* SnakeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8238C1132237E09600D6D4FF /* SnakeCell.swift */; };
 		82EF99FF2134D5D0002CB69D /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82EF99FE2134D5D0002CB69D /* BoardView.swift */; };
 		BBBB9961201C0B06008FF835 /* SampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBBB9960201C0B06008FF835 /* SampleTests.swift */; };
 /* End PBXBuildFile section */
@@ -34,6 +35,7 @@
 		07FDE4142016091500A674FE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		07FDE4172016091500A674FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		07FDE4192016091500A674FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8238C1132237E09600D6D4FF /* SnakeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnakeCell.swift; sourceTree = "<group>"; };
 		82EF99FE2134D5D0002CB69D /* BoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardView.swift; sourceTree = "<group>"; };
 		BBBB9956201C0ABA008FF835 /* snakeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = snakeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBBB995A201C0ABB008FF835 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 		07FDE40C2016091500A674FE /* snake */ = {
 			isa = PBXGroup;
 			children = (
+				8238C1132237E09600D6D4FF /* SnakeCell.swift */,
 				07FDE40D2016091500A674FE /* AppDelegate.swift */,
 				07FDE40F2016091500A674FE /* ViewController.swift */,
 				82EF99FE2134D5D0002CB69D /* BoardView.swift */,
@@ -202,6 +205,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8238C1142237E09600D6D4FF /* SnakeCell.swift in Sources */,
 				82EF99FF2134D5D0002CB69D /* BoardView.swift in Sources */,
 				07FDE4102016091500A674FE /* ViewController.swift in Sources */,
 				07FDE40E2016091500A674FE /* AppDelegate.swift in Sources */,

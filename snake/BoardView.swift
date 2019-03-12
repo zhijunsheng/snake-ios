@@ -1,21 +1,26 @@
 import UIKit
 class BoardView: UIView {
-    let cols     : Int     = 13
-    let rows     : Int     = 23
-    let boardX   : CGFloat = 20
-    let boardY   : CGFloat = 20
-    let line     : CGFloat = 19
+    let cols     : Int         = 13
+    let rows     : Int         = 23
+    let boardX   : CGFloat     = 20
+    let boardY   : CGFloat     = 20
+    let line     : CGFloat     = 19
+    let snake    : [SnakeCell] = [
+        SnakeCell(col: 1, row: 1),
+        SnakeCell(col: 2, row: 1),
+        SnakeCell(col: 2, row: 2),
+        SnakeCell(col: 3, row: 2),
+        SnakeCell(col: 3, row: 3),
+        SnakeCell(col: 3, row: 4)
+    ]
     override func draw(_ rect: CGRect) {
         drawGrid()
         drawSnake()
-        
     }
     func drawSnake() {
-        drawSnakeCell(x: boardX + line, y: boardY + line)
-        drawSnakeCell(x: boardX + line * 2, y: boardY + line)
-        drawSnakeCell(x: boardX + line * 2, y: boardY + line * 2)
-        drawSnakeCell(x: boardX + line * 3, y: boardY + line * 2)
-        drawSnakeCell(x: boardX + line * 3, y: boardY + line * 3)
+        for cell in snake {
+            drawSnakeCell(x: boardX + line * CGFloat(cell.col), y: boardY + line * CGFloat(cell.row))
+        }
     }
     func drawSnakeCell(x: CGFloat, y: CGFloat) {
         let bPath = UIBezierPath(roundedRect: CGRect(x: x, y: y, width: line, height: line), cornerRadius: 6)
