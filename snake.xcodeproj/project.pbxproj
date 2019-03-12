@@ -15,6 +15,7 @@
 		E79F7F502134CA25009028D9 /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79F7F4F2134CA25009028D9 /* BoardView.swift */; };
 		E7B8A2632218F5600041CF35 /* SnakeBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B8A2622218F5600041CF35 /* SnakeBoard.swift */; };
 		E7B8A2672218F69A0041CF35 /* SnakeBoardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B8A2642218F66F0041CF35 /* SnakeBoardTests.swift */; };
+		E7EA80AB2237D54600CEE273 /* SnakeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EA80AA2237D54600CEE273 /* SnakeCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 		E79F7F4F2134CA25009028D9 /* BoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardView.swift; sourceTree = "<group>"; };
 		E7B8A2622218F5600041CF35 /* SnakeBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnakeBoard.swift; sourceTree = "<group>"; };
 		E7B8A2642218F66F0041CF35 /* SnakeBoardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnakeBoardTests.swift; sourceTree = "<group>"; };
+		E7EA80AA2237D54600CEE273 /* SnakeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnakeCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +86,7 @@
 				07FDE40D2016091500A674FE /* AppDelegate.swift */,
 				07FDE40F2016091500A674FE /* ViewController.swift */,
 				E7B8A2622218F5600041CF35 /* SnakeBoard.swift */,
+				E7EA80AA2237D54600CEE273 /* SnakeCell.swift */,
 				E79F7F4F2134CA25009028D9 /* BoardView.swift */,
 				07FDE4112016091500A674FE /* Main.storyboard */,
 				07FDE4142016091500A674FE /* Assets.xcassets */,
@@ -209,6 +212,7 @@
 				E7B8A2632218F5600041CF35 /* SnakeBoard.swift in Sources */,
 				07FDE4102016091500A674FE /* ViewController.swift in Sources */,
 				07FDE40E2016091500A674FE /* AppDelegate.swift in Sources */,
+				E7EA80AB2237D54600CEE273 /* SnakeCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
