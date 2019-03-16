@@ -5,13 +5,13 @@ class BoardView: UIView {
     let boardX   : CGFloat     = 20
     let boardY   : CGFloat     = 20
     let line     : CGFloat     = 19
-    let snake    : [SnakeCell] = [
-        SnakeCell(col: 1, row: 1),
-        SnakeCell(col: 2, row: 1),
-        SnakeCell(col: 2, row: 2),
-        SnakeCell(col: 3, row: 2),
-        SnakeCell(col: 3, row: 3),
-        SnakeCell(col: 3, row: 4)
+    var snake    : [SnakeCell] = [
+        SnakeCell(col: 1, row: 1)
+//        SnakeCell(col: 2, row: 1),
+//        SnakeCell(col: 2, row: 2),
+//        SnakeCell(col: 3, row: 2),
+//        SnakeCell(col: 3, row: 3),
+//        SnakeCell(col: 3, row: 4),
     ]
     override func draw(_ rect: CGRect) {
         drawGrid()
