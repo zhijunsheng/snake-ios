@@ -6,12 +6,12 @@ class BoardView: UIView {
     let boardY   : CGFloat     = 20
     let line     : CGFloat     = 19
     var snake    : [SnakeCell] = [
-        SnakeCell(col: 1, row: 1)
-//        SnakeCell(col: 2, row: 1),
+        SnakeCell(col: 1, row: 1),
+        SnakeCell(col: 2, row: 1),
 //        SnakeCell(col: 2, row: 2),
 //        SnakeCell(col: 3, row: 2),
 //        SnakeCell(col: 3, row: 3),
-//        SnakeCell(col: 3, row: 4),
+//        SnakeCell(col: 3, row: 4)
     ]
     override func draw(_ rect: CGRect) {
         drawGrid()
@@ -24,9 +24,9 @@ class BoardView: UIView {
     }
     func drawSnakeCell(x: CGFloat, y: CGFloat) {
         let bPath = UIBezierPath(roundedRect: CGRect(x: x, y: y, width: line, height: line), cornerRadius: 6)
-        #colorLiteral(red: 0.2745098039, green: 0, blue: 0.5254901961, alpha: 1).setFill()
+        #colorLiteral(red: 0.9921568627, green: 0, blue: 1, alpha: 1).setFill()
         bPath.fill()
-        #colorLiteral(red: 0.3176470588, green: 0, blue: 0.5450980392, alpha: 1).setStroke()
+        #colorLiteral(red: 1, green: 0, blue: 1, alpha: 1).setStroke()
         bPath.stroke()
     }
     func drawGrid() {
