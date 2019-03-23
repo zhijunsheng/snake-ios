@@ -29,18 +29,19 @@ class ViewController: UIViewController {
     }
     @IBAction func touchDown(_ sender: UIButton) {
         print("touchDown")
-        let row = boardView.snake[0].row
-        let col = boardView.snake[0].col
-        // [cell, snakecell1]
-        boardView.snake.remove(at: 0)
-        // [snakecell1]
-        boardView.snake.remove(at: 0)
+        let row0 = boardView.snake[0].row // snake[0], snake[1], snake[2], ...
+        let col0 = boardView.snake[0].col
+        let row1 = boardView.snake[1].row
+        let col1 = boardView.snake[1].col
+        boardView.snake.removeAll()
         
-        let cell = SnakeCell(col: col, row: row + 1)
-        let snakeCell1 = SnakeCell(col: col, row: row)
+        let cell = SnakeCell(col: col0, row: row0 + 1)
+        let snakeCell1 = SnakeCell(col: col0, row: row0)
+        let snakeCell2 = SnakeCell(col: col1, row: row1)
         
         boardView.snake.append(cell)
         boardView.snake.append(snakeCell1)
+        boardView.snake.append(snakeCell2)
         boardView.setNeedsDisplay()
     }
     @IBAction func touchRight(_ sender: UIButton) {

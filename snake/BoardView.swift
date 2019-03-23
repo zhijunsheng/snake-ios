@@ -8,8 +8,7 @@ class BoardView: UIView {
     var snake    : [SnakeCell] = [
         SnakeCell(col: 1, row: 1),
         SnakeCell(col: 2, row: 1),
-//        SnakeCell(col: 2, row: 2),
-//        SnakeCell(col: 3, row: 2),
+        SnakeCell(col: 2, row: 2),
 //        SnakeCell(col: 3, row: 3),
 //        SnakeCell(col: 3, row: 4)
     ]
