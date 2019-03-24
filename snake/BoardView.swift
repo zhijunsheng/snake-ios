@@ -6,9 +6,9 @@ class BoardView: UIView {
     let boardY   : CGFloat     = 20
     let line     : CGFloat     = 19
     var snake    : [SnakeCell] = [
-        SnakeCell(col: 1, row: 1),
-        SnakeCell(col: 2, row: 1),
-        SnakeCell(col: 2, row: 2),
+        SnakeCell(col: 6, row: 7),
+        SnakeCell(col: 7, row: 7),
+        SnakeCell(col: 7, row: 8),
 //        SnakeCell(col: 3, row: 3),
 //        SnakeCell(col: 3, row: 4)
     ]
