@@ -11,11 +11,11 @@ class BoardView: UIView {
     var snake: [SnakeCell] = [
         SnakeCell(col: 2, row: 1, color: #colorLiteral(red: 1, green: 0.3098039216, blue: 0.2823529412, alpha: 1)),
         SnakeCell(col: 3, row: 1, color: #colorLiteral(red: 1, green: 0.5763723254, blue: 0, alpha: 1)),
-//        SnakeCell(col: 3, row: 2, color: #colorLiteral(red: 0.9843137255, green: 1, blue: 0, alpha: 1)),
-//        SnakeCell(col: 4, row: 2, color: #colorLiteral(red: 0, green: 0.831372549, blue: 0.1725490196, alpha: 1)),
-//        SnakeCell(col: 4, row: 3, color: #colorLiteral(red: 0, green: 1, blue: 1, alpha: 1)),
-//        SnakeCell(col: 4, row: 4, color: #colorLiteral(red: 0, green: 0.4156862745, blue: 1, alpha: 1)),
-//        SnakeCell(col: 3, row: 4, color: #colorLiteral(red: 0.5215686275, green: 0.3764705882, blue: 0.7490196078, alpha: 1))
+        SnakeCell(col: 3, row: 2, color: #colorLiteral(red: 0.9843137255, green: 1, blue: 0, alpha: 1)),
+        SnakeCell(col: 4, row: 2, color: #colorLiteral(red: 0, green: 0.831372549, blue: 0.1725490196, alpha: 1)),
+        SnakeCell(col: 4, row: 3, color: #colorLiteral(red: 0, green: 1, blue: 1, alpha: 1)),
+        SnakeCell(col: 4, row: 4, color: #colorLiteral(red: 0, green: 0.4156862745, blue: 1, alpha: 1)),
+        SnakeCell(col: 3, row: 4, color: #colorLiteral(red: 0.5215686275, green: 0.3764705882, blue: 0.7490196078, alpha: 1))
     ]
     
     override func draw(_ rect: CGRect) {
