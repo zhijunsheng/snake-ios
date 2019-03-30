@@ -2,6 +2,13 @@ import UIKit
 
 class ViewController: UIViewController {
     @IBOutlet weak var boardView: BoardView!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        boardView.foodRow = Int(arc4random_uniform(UInt32(boardView.rows)))
+        boardView.foodCol = Int(arc4random_uniform(UInt32(boardView.cols)))
+    }
+    
     @IBAction func upButton(_ sender: Any) {
         
         var newSnake: [SnakeCell] = []

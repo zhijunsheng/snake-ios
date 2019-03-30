@@ -7,6 +7,8 @@ class BoardView: UIView {
     let cols = 12
     let orgX: CGFloat = 20
     let orgY: CGFloat = 50
+    var foodRow: Int = 7
+    var foodCol: Int = 3
     
     var snake: [SnakeCell] = [
         SnakeCell(col: 2, row: 1, color: #colorLiteral(red: 1, green: 0.3098039216, blue: 0.2823529412, alpha: 1)),
@@ -20,6 +22,7 @@ class BoardView: UIView {
     
     override func draw(_ rect: CGRect) {
         drawGrid()
+        drawSnakeBody1(roundedRect: CGRect(x: orgX + CGFloat(foodCol) * side, y: orgY + CGFloat(foodRow) * side, width: side, height: side), color: #colorLiteral(red: 0.8310368141, green: 0.3735524222, blue: 1, alpha: 1))
         drawSnakeBodys()
     }
     
