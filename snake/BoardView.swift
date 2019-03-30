@@ -1,7 +1,7 @@
 import UIKit
 class BoardView: UIView {
     let cols     : Int         = 13
-    let rows     : Int         = 18
+    let rows     : Int         = 21
     let boardX   : CGFloat     = 20
     let boardY   : CGFloat     = 20
     let line     : CGFloat     = 19
@@ -9,8 +9,8 @@ class BoardView: UIView {
         SnakeCell(col: 6, row: 7),
         SnakeCell(col: 7, row: 7),
         SnakeCell(col: 7, row: 8),
-//        SnakeCell(col: 3, row: 3),
-//        SnakeCell(col: 3, row: 4)
+        SnakeCell(col: 8, row: 8),
+        SnakeCell(col: 8, row: 9)
     ]
     override func draw(_ rect: CGRect) {
         drawGrid()
@@ -43,3 +43,4 @@ class BoardView: UIView {
         aPath.stroke()
     }
 }
+
