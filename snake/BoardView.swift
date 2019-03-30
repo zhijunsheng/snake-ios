@@ -17,13 +17,14 @@ class BoardView: UIView {
         drawSnake()
     }
     func drawSnake() {
-        for cell in snake {
-            drawSnakeCell(x: boardX + line * CGFloat(cell.col), y: boardY + line * CGFloat(cell.row))
+        drawSnakeCell(x: boardX + line * CGFloat(snake[0].col), y: boardY + line * CGFloat(snake[0].row), color: #colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1))
+        for i in 1..<snake.count { // snake[i],
+            drawSnakeCell(x: boardX + line * CGFloat(snake[i].col), y: boardY + line * CGFloat(snake[i].row), color: #colorLiteral(red: 0.9607843161, green: 0.7058823705, blue: 0.200000003, alpha: 1))
         }
     }
-    func drawSnakeCell(x: CGFloat, y: CGFloat) {
+    func drawSnakeCell(x: CGFloat, y: CGFloat, color: UIColor) {
         let bPath = UIBezierPath(roundedRect: CGRect(x: x, y: y, width: line, height: line), cornerRadius: 6)
-        #colorLiteral(red: 0.9921568627, green: 0, blue: 1, alpha: 1).setFill()
+        color.setFill()
         bPath.fill()
         #colorLiteral(red: 1, green: 0, blue: 1, alpha: 1).setStroke()
         bPath.stroke()
