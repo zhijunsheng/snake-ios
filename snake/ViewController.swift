@@ -22,6 +22,10 @@ class ViewController: UIViewController {
         
         if boardView.foodCol == boardView.snake[0].col && boardView.foodRow == boardView.snake[0].row {
             print("🔱🔱🔱🔱")
+            let tailCell = boardView.snake[boardView.snake.count - 1]
+            boardView.snake.append(tailCell)
+            boardView.foodCol = Int(arc4random_uniform(UInt32(boardView.cols)))
+            boardView.foodRow = Int(arc4random_uniform(UInt32(boardView.rows)))
         }
         
     }
@@ -36,6 +40,10 @@ class ViewController: UIViewController {
         boardView.setNeedsDisplay()
         if boardView.foodCol == boardView.snake[0].col && boardView.foodRow == boardView.snake[0].row {
             print("🔱🔱🔱🔱")
+            let tailCell = boardView.snake[boardView.snake.count - 1]
+            boardView.snake.append(tailCell)
+            boardView.foodCol = Int(arc4random_uniform(UInt32(boardView.cols)))
+            boardView.foodRow = Int(arc4random_uniform(UInt32(boardView.rows)))
         }
     }
     @IBAction func touchDown(_ sender: UIButton) {
@@ -49,6 +57,10 @@ class ViewController: UIViewController {
         boardView.setNeedsDisplay()
         if boardView.foodCol == boardView.snake[0].col && boardView.foodRow == boardView.snake[0].row {
             print("🔱🔱🔱🔱")
+            let tailCell = boardView.snake[boardView.snake.count - 1]
+            boardView.snake.append(tailCell)
+            boardView.foodCol = Int(arc4random_uniform(UInt32(boardView.cols)))
+            boardView.foodRow = Int(arc4random_uniform(UInt32(boardView.rows)))
         }
     }
     @IBAction func touchRight(_ sender: UIButton) {
@@ -62,6 +74,10 @@ class ViewController: UIViewController {
         boardView.setNeedsDisplay()
         if boardView.foodCol == boardView.snake[0].col && boardView.foodRow == boardView.snake[0].row {
             print("🔱🔱🔱🔱")
+            let tailCell = boardView.snake[boardView.snake.count - 1]
+            boardView.snake.append(tailCell)
+            boardView.foodCol = Int(arc4random_uniform(UInt32(boardView.cols)))
+            boardView.foodRow = Int(arc4random_uniform(UInt32(boardView.rows)))
         }
     }
 }
