@@ -24,7 +24,7 @@ class ViewController: UIViewController {
         
         if boardView.foodRow == boardView.snake[0].row && boardView.foodCol == boardView.snake[0].col {
             
-            let newCell = SnakeCell(col: boardView.snake[0].col, row: boardView.snake[0].row, color: #colorLiteral(red: 0.9960784314, green: 0.4015842014, blue: 0, alpha: 1))
+            let newCell = SnakeCell(col: boardView.snake[0].col, row: boardView.snake[0].row, color: randomColor())
             boardView.snake.append(newCell)
             
             boardView.foodRow = Int(arc4random_uniform(UInt32(boardView.rows)))
@@ -46,7 +46,7 @@ class ViewController: UIViewController {
         
         if boardView.foodRow == boardView.snake[0].row && boardView.foodCol == boardView.snake[0].col {
             
-            let newCell = SnakeCell(col: boardView.snake[0].col, row: boardView.snake[0].row, color: #colorLiteral(red: 0.9960784314, green: 0.4015842014, blue: 0, alpha: 1))
+            let newCell = SnakeCell(col: boardView.snake[0].col, row: boardView.snake[0].row, color: randomColor())
             boardView.snake.append(newCell)
             
             boardView.foodRow = Int(arc4random_uniform(UInt32(boardView.rows)))
@@ -68,7 +68,7 @@ class ViewController: UIViewController {
         
         if boardView.foodRow == boardView.snake[0].row && boardView.foodCol == boardView.snake[0].col {
 
-            let newCell = SnakeCell(col: boardView.snake[0].col, row: boardView.snake[0].row, color: #colorLiteral(red: 0.9960784314, green: 0.4015842014, blue: 0, alpha: 1))
+            let newCell = SnakeCell(col: boardView.snake[0].col, row: boardView.snake[0].row, color: randomColor())
             boardView.snake.append(newCell)
             
             boardView.foodRow = Int(arc4random_uniform(UInt32(boardView.rows)))
@@ -90,11 +90,20 @@ class ViewController: UIViewController {
         
         if boardView.foodRow == boardView.snake[0].row && boardView.foodCol == boardView.snake[0].col {
             
-            let newCell = SnakeCell(col: boardView.snake[0].col, row: boardView.snake[0].row, color: #colorLiteral(red: 0.9960784314, green: 0.4015842014, blue: 0, alpha: 1))
+            let newCell = SnakeCell(col: boardView.snake[0].col, row: boardView.snake[0].row, color: randomColor())
             boardView.snake.append(newCell)
             
             boardView.foodRow = Int(arc4random_uniform(UInt32(boardView.rows)))
             boardView.foodCol = Int(arc4random_uniform(UInt32(boardView.cols)))
         }
+    }
+    
+    func randomColor() -> UIColor {
+        let rdRed = CGFloat.random(in: 0.6..<1)
+        let rdGreen = CGFloat.random(in: 0..<0.6)
+        let rdBlue = CGFloat.random(in: 0..<0.6)
+        
+        let color = UIColor(red: rdRed, green: rdGreen, blue: rdBlue, alpha: 1)
+        return color
     }
 }
