@@ -9,6 +9,14 @@ class ViewController: UIViewController {
         boardView.foodRow = Int(arc4random_uniform(UInt32(boardView.rows)))
     }
     
+    func isDead() -> Bool {
+        if boardView.snake[0].col + 1 > boardView.cols || boardView.snake[0].col < 0 || boardView.snake[0].row + 1 > boardView.rows || boardView.snake[0].row < 0 {
+            return true
+            
+        }
+        return false
+
+    }
     
     @IBAction func touchUp(_ sender: UIButton) {
         print("touchUp")
@@ -19,6 +27,12 @@ class ViewController: UIViewController {
         }
         boardView.snake = newSnake
         boardView.setNeedsDisplay()
+        
+        if isDead() {
+            print("☠️☠️☠️☠️")
+            return
+        }
+        
         
         if boardView.foodCol == boardView.snake[0].col && boardView.foodRow == boardView.snake[0].row {
             print("🔱🔱🔱🔱")
@@ -38,6 +52,12 @@ class ViewController: UIViewController {
         }
         boardView.snake = newSnake
         boardView.setNeedsDisplay()
+        
+        if isDead() {
+            print("☠️☠️☠️☠️")
+            return
+        }
+        
         if boardView.foodCol == boardView.snake[0].col && boardView.foodRow == boardView.snake[0].row {
             print("🔱🔱🔱🔱")
             let tailCell = boardView.snake[boardView.snake.count - 1]
@@ -55,6 +75,12 @@ class ViewController: UIViewController {
         }
         boardView.snake = newSnake
         boardView.setNeedsDisplay()
+        
+        if isDead() {
+            print("☠️☠️☠️☠️")
+            return
+        }
+        
         if boardView.foodCol == boardView.snake[0].col && boardView.foodRow == boardView.snake[0].row {
             print("🔱🔱🔱🔱")
             let tailCell = boardView.snake[boardView.snake.count - 1]
@@ -72,6 +98,12 @@ class ViewController: UIViewController {
         }
         boardView.snake = newSnake
         boardView.setNeedsDisplay()
+        
+        if isDead() {
+            print("☠️☠️☠️☠️")
+            return
+        }
+        
         if boardView.foodCol == boardView.snake[0].col && boardView.foodRow == boardView.snake[0].row {
             print("🔱🔱🔱🔱")
             let tailCell = boardView.snake[boardView.snake.count - 1]
