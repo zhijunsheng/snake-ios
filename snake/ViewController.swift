@@ -20,6 +20,10 @@ class ViewController: UIViewController {
         
         boardView.snake = newSnake
         
+        if isSnakeDead() {
+            return
+        }
+        
         boardView.setNeedsDisplay()
         
         if boardView.foodRow == boardView.snake[0].row && boardView.foodCol == boardView.snake[0].col {
@@ -41,6 +45,10 @@ class ViewController: UIViewController {
         }
         
         boardView.snake = newSnake
+        
+        if isSnakeDead() {
+            return
+        }
         
         boardView.setNeedsDisplay()
         
@@ -64,6 +72,10 @@ class ViewController: UIViewController {
         
         boardView.snake = newSnake
         
+        if isSnakeDead() {
+            return
+        }
+        
         boardView.setNeedsDisplay()
         
         if boardView.foodRow == boardView.snake[0].row && boardView.foodCol == boardView.snake[0].col {
@@ -86,6 +98,10 @@ class ViewController: UIViewController {
         
         boardView.snake = newSnake
         
+        if isSnakeDead() {
+            return
+        }
+        
         boardView.setNeedsDisplay()
         
         if boardView.foodRow == boardView.snake[0].row && boardView.foodCol == boardView.snake[0].col {
@@ -96,6 +112,17 @@ class ViewController: UIViewController {
             boardView.foodRow = Int(arc4random_uniform(UInt32(boardView.rows)))
             boardView.foodCol = Int(arc4random_uniform(UInt32(boardView.cols)))
         }
+    }
+    
+    func isSnakeDead() -> Bool {
+        if boardView.snake[0].row > boardView.rows ||
+           boardView.snake[0].col >= boardView.cols ||
+           boardView.snake[0].row < 0 ||
+           boardView.snake[0].col < 0  {
+            return true
+        }
+        
+        return false
     }
     
     func randomColor() -> UIColor {
