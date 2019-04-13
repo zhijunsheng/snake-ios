@@ -21,6 +21,7 @@ class ViewController: UIViewController {
         boardView.snake = newSnake
         
         if isSnakeDead() {
+            
             return
         }
         

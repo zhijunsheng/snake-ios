@@ -2,11 +2,11 @@ import UIKit
 
 class BoardView: UIView {
     
-    let side : CGFloat = 28.0
+    let side: CGFloat = 28.0
     let rows = 20
     let cols = 12
-    let orgX: CGFloat = 20
-    let orgY: CGFloat = 50
+    let orgX: CGFloat = 0
+    let orgY: CGFloat = 0
     var foodRow: Int = -100
     var foodCol: Int = -1002
     
