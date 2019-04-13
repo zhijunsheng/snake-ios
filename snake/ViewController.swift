@@ -9,8 +9,20 @@ class ViewController: UIViewController {
         boardView.foodRow = Int(arc4random_uniform(UInt32(boardView.rows)))
     }
     
-    func isDead() -> Bool {
-        if boardView.snake[0].col + 1 > boardView.cols || boardView.snake[0].col < 0 || boardView.snake[0].row + 1 > boardView.rows || boardView.snake[0].row < 0 {
+    func isTouchingBody() -> Bool {
+        let  head = boardView.snake[0]
+        for i in 1..<boardView.snake.count {
+            let bodyCell = boardView.snake[i]
+            if bodyCell.col == head.col && bodyCell.row == head.row {
+                return true
+            }
+        }
+        return false
+    }
+    
+    func outsideBoard() -> Bool {
+        if boardView.snake[0].col + 1 > boardView.cols || boardView.snake[0].col < 0 || boardView.snake[0].row + 1 > boardView.rows || boardView.snake[0].row < 0  {
+            //
             return true
             
         }
@@ -28,7 +40,7 @@ class ViewController: UIViewController {
         boardView.snake = newSnake
         boardView.setNeedsDisplay()
         
-        if isDead() {
+        if outsideBoard() || isTouchingBody() {
             print("☠️☠️☠️☠️")
             return
         }
@@ -53,7 +65,7 @@ class ViewController: UIViewController {
         boardView.snake = newSnake
         boardView.setNeedsDisplay()
         
-        if isDead() {
+        if outsideBoard() || isTouchingBody() {
             print("☠️☠️☠️☠️")
             return
         }
@@ -76,7 +88,7 @@ class ViewController: UIViewController {
         boardView.snake = newSnake
         boardView.setNeedsDisplay()
         
-        if isDead() {
+        if outsideBoard() || isTouchingBody() {
             print("☠️☠️☠️☠️")
             return
         }
@@ -99,7 +111,7 @@ class ViewController: UIViewController {
         boardView.snake = newSnake
         boardView.setNeedsDisplay()
         
-        if isDead() {
+        if outsideBoard() || isTouchingBody() {
             print("☠️☠️☠️☠️")
             return
         }

@@ -8,7 +8,7 @@ class BoardView: UIView {
     var foodCol  : Int         = -67
     var foodRow  : Int         = -90
     var snake    : [SnakeCell] = [
-        SnakeCell(col: 6, row: 7),
+        SnakeCell(col: 6, row: 7),// sna
         SnakeCell(col: 7, row: 7),
         SnakeCell(col: 7, row: 8),
         SnakeCell(col: 8, row: 8),
