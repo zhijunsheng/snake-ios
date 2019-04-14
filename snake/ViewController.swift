@@ -7,6 +7,11 @@ class ViewController: UIViewController {
         
         boardView.foodCol = Int(arc4random_uniform(UInt32(boardView.cols)))
         boardView.foodRow = Int(arc4random_uniform(UInt32(boardView.rows)))
+        
+        Timer.scheduledTimer(withTimeInterval: 2, repeats: true) { (t) in
+            print("⚜️⚜️⚜️⚜️")
+//            self.moveDown()
+        }
     }
     
     func isTouchingBody() -> Bool {
@@ -80,19 +85,10 @@ class ViewController: UIViewController {
     }
     @IBAction func touchDown(_ sender: UIButton) {
         print("touchDown")
-        var newSnake : [SnakeCell] = []
-        newSnake.append(SnakeCell(col: boardView.snake[0].col, row: boardView.snake[0].row + 1))
-        for i in 0..<boardView.snake.count - 1 {
-            newSnake.append(SnakeCell(col: boardView.snake[i].col, row: boardView.snake[i].row))
-        }
-        boardView.snake = newSnake
-        boardView.setNeedsDisplay()
-        
-        if outsideBoard() || isTouchingBody() {
-            print("☠️☠️☠️☠️")
-            return
-        }
-        
+        moveDown()
+        tryToEat()
+    }
+    func tryToEat() {
         if boardView.foodCol == boardView.snake[0].col && boardView.foodRow == boardView.snake[0].row {
             print("🔱🔱🔱🔱")
             let tailCell = boardView.snake[boardView.snake.count - 1]
@@ -101,6 +97,21 @@ class ViewController: UIViewController {
             boardView.foodRow = Int(arc4random_uniform(UInt32(boardView.rows)))
         }
     }
+    func moveDown() {
+        var newSnake : [SnakeCell] = []
+        newSnake.append(SnakeCell(col: boardView.snake[0].col, row: boardView.snake[0].row + 1))
+        for i in 0..<boardView.snake.count - 1 {
+            newSnake.append(SnakeCell(col: boardView.snake[i].col, row: boardView.snake[i].row))
+        }
+        boardView.snake = newSnake
+        boardView.setNeedsDisplay()
+        if outsideBoard() || isTouchingBody() {
+            print("☠️☠️☠️☠️")
+            return
+        }
+    }
+    
+    
     @IBAction func touchRight(_ sender: UIButton) {
         print("touchRight")
         var newSnake : [SnakeCell] = []
