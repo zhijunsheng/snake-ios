@@ -7,10 +7,30 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         boardView.foodRow = Int(arc4random_uniform(UInt32(boardView.rows)))
         boardView.foodCol = Int(arc4random_uniform(UInt32(boardView.cols)))
+        
+        Timer.scheduledTimer(withTimeInterval: 2, repeats: true) { (t_) in
+            self.downFlying()
+        }
+        
     }
     
     @IBAction func upButton(_ sender: Any) {
-        
+        upFlying()
+        food()
+    }
+    
+    func food() {
+        if boardView.foodRow == boardView.snake[0].row && boardView.foodCol == boardView.snake[0].col {
+            
+            let newCell = SnakeCell(col: boardView.snake[0].col, row: boardView.snake[0].row, color: randomColor())
+            boardView.snake.append(newCell)
+            
+            boardView.foodRow = Int(arc4random_uniform(UInt32(boardView.rows)))
+            boardView.foodCol = Int(arc4random_uniform(UInt32(boardView.cols)))
+        }
+    }
+    
+    func upFlying() {
         var newSnake: [SnakeCell] = []
         newSnake.append(SnakeCell(col: boardView.snake[0].col, row: boardView.snake[0].row - 1, color: boardView.snake[0].color))
         
@@ -27,18 +47,14 @@ class ViewController: UIViewController {
         }
         
         boardView.setNeedsDisplay()
-        
-        if boardView.foodRow == boardView.snake[0].row && boardView.foodCol == boardView.snake[0].col {
-            
-            let newCell = SnakeCell(col: boardView.snake[0].col, row: boardView.snake[0].row, color: randomColor())
-            boardView.snake.append(newCell)
-            
-            boardView.foodRow = Int(arc4random_uniform(UInt32(boardView.rows)))
-            boardView.foodCol = Int(arc4random_uniform(UInt32(boardView.cols)))
-        }
     }
     
     @IBAction func leftButton(_ sender: Any) {
+        leftFlying()
+        food()
+    }
+    
+    func leftFlying() {
         var newSnake: [SnakeCell] = []
         newSnake.append(SnakeCell(col: boardView.snake[0].col - 1, row: boardView.snake[0].row, color: boardView.snake[0].color))
         
@@ -55,18 +71,14 @@ class ViewController: UIViewController {
         }
         
         boardView.setNeedsDisplay()
-        
-        if boardView.foodRow == boardView.snake[0].row && boardView.foodCol == boardView.snake[0].col {
-            
-            let newCell = SnakeCell(col: boardView.snake[0].col, row: boardView.snake[0].row, color: randomColor())
-            boardView.snake.append(newCell)
-            
-            boardView.foodRow = Int(arc4random_uniform(UInt32(boardView.rows)))
-            boardView.foodCol = Int(arc4random_uniform(UInt32(boardView.cols)))
-        }
     }
     
     @IBAction func downButton(_ sender: Any) {
+        downFlying()
+        food()
+    }
+    
+    func downFlying() {
         var newSnake: [SnakeCell] = []
         newSnake.append(SnakeCell(col: boardView.snake[0].col, row: boardView.snake[0].row + 1, color: boardView.snake[0].color))
         
@@ -83,18 +95,14 @@ class ViewController: UIViewController {
         }
         
         boardView.setNeedsDisplay()
-        
-        if boardView.foodRow == boardView.snake[0].row && boardView.foodCol == boardView.snake[0].col {
-            
-            let newCell = SnakeCell(col: boardView.snake[0].col, row: boardView.snake[0].row, color: randomColor())
-            boardView.snake.append(newCell)
-            
-            boardView.foodRow = Int(arc4random_uniform(UInt32(boardView.rows)))
-            boardView.foodCol = Int(arc4random_uniform(UInt32(boardView.cols)))
-        }
     }
     
     @IBAction func rightButton(_ sender: Any) {
+        rightFlying()
+        food()
+    }
+    
+    func rightFlying() {
         var newSnake: [SnakeCell] = []
         newSnake.append(SnakeCell(col: boardView.snake[0].col + 1, row: boardView.snake[0].row, color: boardView.snake[0].color))
         
@@ -111,15 +119,6 @@ class ViewController: UIViewController {
         }
         
         boardView.setNeedsDisplay()
-        
-        if boardView.foodRow == boardView.snake[0].row && boardView.foodCol == boardView.snake[0].col {
-            
-            let newCell = SnakeCell(col: boardView.snake[0].col, row: boardView.snake[0].row, color: randomColor())
-            boardView.snake.append(newCell)
-            
-            boardView.foodRow = Int(arc4random_uniform(UInt32(boardView.rows)))
-            boardView.foodCol = Int(arc4random_uniform(UInt32(boardView.cols)))
-        }
     }
     
     func isSnakeDead() -> Bool {
