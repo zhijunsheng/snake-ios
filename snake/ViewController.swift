@@ -3,20 +3,30 @@ import UIKit
 class ViewController: UIViewController {
     @IBOutlet weak var boardView: BoardView!
     
+    var flyingSnake = 3
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         boardView.foodRow = Int(arc4random_uniform(UInt32(boardView.rows)))
         boardView.foodCol = Int(arc4random_uniform(UInt32(boardView.cols)))
         
-        Timer.scheduledTimer(withTimeInterval: 2, repeats: true) { (t_) in
-            self.downFlying()
+        Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { (t_) in
+            if self.flyingSnake == 0 {
+                self.upFlying()
+            } else if self.flyingSnake == 1 {
+                self.leftFlying()
+            } else if self.flyingSnake == 2 {
+                self.downFlying()
+            } else if self.flyingSnake == 3 {
+                self.rightFlying()
+            }
+            
+            self.food()
         }
-        
     }
     
     @IBAction func upButton(_ sender: Any) {
-        upFlying()
-        food()
+        flyingSnake = 0
     }
     
     func food() {
@@ -50,8 +60,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func leftButton(_ sender: Any) {
-        leftFlying()
-        food()
+        flyingSnake = 1
     }
     
     func leftFlying() {
@@ -74,8 +83,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func downButton(_ sender: Any) {
-        downFlying()
-        food()
+        flyingSnake = 2
     }
     
     func downFlying() {
@@ -98,8 +106,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func rightButton(_ sender: Any) {
-        rightFlying()
-        food()
+        flyingSnake = 3
     }
     
     func rightFlying() {

@@ -5,8 +5,6 @@ import XCTest
 class SnakeBoardTests: XCTestCase {
     
     func testSnakeBoard() {
-        let snbod = SnakeBoard()
-        print(snbod)
     }
     
 }
