@@ -4,13 +4,14 @@ class ViewController: UIViewController {
     @IBOutlet weak var boardView: BoardView!
     
     var flyingSnake = 3
+
     var timer1st: Timer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         boardView.foodRow = Int(arc4random_uniform(UInt32(boardView.rows)))
         boardView.foodCol = Int(arc4random_uniform(UInt32(boardView.cols)))
-        
+     
         timer1st = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { (t_) in
             if self.flyingSnake == 0 {
                 self.upFlying()
@@ -23,10 +24,12 @@ class ViewController: UIViewController {
             }
             
             self.food()
+
         }
     }
     
     @IBAction func upButton(_ sender: Any) {
+
         flyingSnake = 0
     }
     
