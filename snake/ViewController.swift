@@ -4,13 +4,14 @@ class ViewController: UIViewController {
     @IBOutlet weak var boardView: BoardView!
     
     var flyingSnake = 3
+    var timer1st: Timer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         boardView.foodRow = Int(arc4random_uniform(UInt32(boardView.rows)))
         boardView.foodCol = Int(arc4random_uniform(UInt32(boardView.cols)))
         
-        Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { (t_) in
+        timer1st = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { (t_) in
             if self.flyingSnake == 0 {
                 self.upFlying()
             } else if self.flyingSnake == 1 {
@@ -149,8 +150,25 @@ class ViewController: UIViewController {
     }
     
     func resetGame() {
+        timer1st.invalidate()
         boardView.snake = [
             SnakeCell(col: 2, row: 1, color: #colorLiteral(red: 0.877359709, green: 1, blue: 0.621459494, alpha: 1)),
             SnakeCell(col: 3, row: 1, color: #colorLiteral(red: 1, green: 0.5763723254, blue: 0, alpha: 1))]
+        Timer.scheduledTimer(withTimeInterval: 5, repeats: false) { (asw_edf) in
+            self.timer1st = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { (t_) in
+                if self.flyingSnake == 0 {
+                    self.upFlying()
+                } else if self.flyingSnake == 1 {
+                    self.leftFlying()
+                } else if self.flyingSnake == 2 {
+                    self.downFlying()
+                } else if self.flyingSnake == 3 {
+                    self.rightFlying()
+                }
+                
+                self.food()
+            }
+        }
+        
     }
 }
