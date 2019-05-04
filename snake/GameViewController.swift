@@ -8,4 +8,12 @@ class GameViewController: UIViewController {
         boardView.x = boardView.x - 1
         boardView.setNeedsDisplay()
     }
+    
+    @IBAction func touchUp(_ sender: UIButton) {
+        boardView.y = boardView.y - 1
+        boardView.setNeedsDisplay()
+    }
+    
+    // Down
+    // Right ->
 }
