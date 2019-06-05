@@ -14,6 +14,7 @@
 		07FDE4182016091500A674FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07FDE4162016091500A674FE /* LaunchScreen.storyboard */; };
 		73A277722270802700DF6151 /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A277712270802700DF6151 /* BoardView.swift */; };
 		73A27774228C2C5700DF6151 /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A27773228C2C5700DF6151 /* Point.swift */; };
+		73A27777229020CB00DF6151 /* ArrayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A27776229020CB00DF6151 /* ArrayTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,8 @@
 		07FDE4192016091500A674FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		73A277712270802700DF6151 /* BoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardView.swift; sourceTree = "<group>"; };
 		73A27773228C2C5700DF6151 /* Point.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Point.swift; sourceTree = "<group>"; };
+		73A27775229020CB00DF6151 /* snakeTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "snakeTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		73A27776229020CB00DF6151 /* ArrayTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayTests.swift; sourceTree = "<group>"; };
 		BBBB9956201C0ABA008FF835 /* snakeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = snakeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBBB995A201C0ABB008FF835 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -63,7 +66,6 @@
 			children = (
 				07FDE40C2016091500A674FE /* snake */,
 				BBBB9957201C0ABA008FF835 /* snakeTests */,
-				BBBB995A201C0ABB008FF835 /* Info.plist */,
 				07FDE40B2016091500A674FE /* Products */,
 			);
 			sourceTree = "<group>";
@@ -95,6 +97,9 @@
 		BBBB9957201C0ABA008FF835 /* snakeTests */ = {
 			isa = PBXGroup;
 			children = (
+				73A27776229020CB00DF6151 /* ArrayTests.swift */,
+				BBBB995A201C0ABB008FF835 /* Info.plist */,
+				73A27775229020CB00DF6151 /* snakeTests-Bridging-Header.h */,
 			);
 			path = snakeTests;
 			sourceTree = "<group>";
@@ -153,6 +158,7 @@
 					};
 					BBBB9955201C0ABA008FF835 = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 1010;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 07FDE4092016091500A674FE;
 					};
@@ -213,6 +219,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				73A27777229020CB00DF6151 /* ArrayTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -387,12 +394,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = J8B74FCZCC;
 				INFOPLIST_FILE = snakeTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = NICOLE.co.snakeTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "snakeTests/snakeTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/snake.app/snake";
@@ -403,12 +413,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = J8B74FCZCC;
 				INFOPLIST_FILE = snakeTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = NICOLE.co.snakeTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "snakeTests/snakeTests-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/snake.app/snake";
