@@ -9,9 +9,9 @@ class BoardView: UIView {
     let cellSide: CGFloat = 27
 
     var snake: [Point] = [
-        Point(col: 4, row: 5), // snake[0]
-        Point(col: 5, row: 5), // snake[1]
-        Point(col: 5, row: 6), // snake[2]
+        Point(col: 4, row: 5),
+        Point(col: 5, row: 5),
+        Point(col: 5, row: 6),
         Point(col: 6, row: 6),
         Point(col: 7, row: 6),
     ]

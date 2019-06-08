@@ -5,8 +5,12 @@ class GameViewController: UIViewController {
     @IBOutlet weak var boardView: BoardView!
     
     @IBAction func touchLeft(_ sender: UIButton) {
-        var newSnake: [Point] = []
         let oldHead = boardView.snake[0]
+        if oldHead.col == 0 {
+            return
+        }
+        
+        var newSnake: [Point] = []
         let newHead = Point(col: oldHead.col - 1, row: oldHead.row)
         newSnake.append(newHead)
         
@@ -20,8 +24,12 @@ class GameViewController: UIViewController {
     }
     
     @IBAction func touchUp(_ sender: UIButton) {
-        var newSnake: [Point] = []
         let oldHead = boardView.snake[0]
+        if oldHead.row == 0 {
+            return
+        }
+        
+        var newSnake: [Point] = []
         let newHead = Point(col: oldHead.col, row: oldHead.row - 1)
         newSnake.append(newHead)
         
@@ -35,8 +43,12 @@ class GameViewController: UIViewController {
     }
     
     @IBAction func touchDown(_ sender: UIButton) {
-        var newSnake: [Point] = []
         let oldHead = boardView.snake[0]
+        if oldHead.row == boardView.rows - 1 {
+            return
+        }
+        
+        var newSnake: [Point] = []
         let newHead = Point(col: oldHead.col, row: oldHead.row + 1)
         newSnake.append(newHead)
         
@@ -50,8 +62,12 @@ class GameViewController: UIViewController {
     }
     
     @IBAction func touchRight(_ sender: UIButton) {
-        var newSnake: [Point] = []
         let oldHead = boardView.snake[0]
+        if oldHead.col == boardView.cols - 1 {
+            return
+        }
+        
+        var newSnake: [Point] = []
         let newHead = Point(col: oldHead.col + 1, row: oldHead.row)
         newSnake.append(newHead)
         
