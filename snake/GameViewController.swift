@@ -4,6 +4,13 @@ class GameViewController: UIViewController {
     
     @IBOutlet weak var boardView: BoardView!
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        boardView.appleX = Int(arc4random() % UInt32(boardView.cols))
+        boardView.appleY = Int(arc4random() % UInt32(boardView.rows))
+    }
+    
     @IBAction func touchLeft(_ sender: UIButton) {
         let oldHead = boardView.snake[0]
         if oldHead.col == 0 {

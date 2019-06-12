@@ -7,6 +7,9 @@ class BoardView: UIView {
     let originX: CGFloat = 10
     let originY: CGFloat = 10
     let cellSide: CGFloat = 27
+    
+    var appleX: Int = 5
+    var appleY: Int = 3
 
     var snake: [Point] = [
         Point(col: 4, row: 5),
@@ -18,12 +21,31 @@ class BoardView: UIView {
 
     override func draw(_ rect: CGRect) {
         drawGrid()
-        
+        drawSnake()
+        drawFruit()
+    }
+    
+    func drawFruit() {
+        let fruit = "🥝"
+        let paragraphStyle = NSMutableParagraphStyle()
+        let attributes = [
+            NSAttributedStringKey.paragraphStyle: paragraphStyle,
+            NSAttributedStringKey.font: UIFont.systemFont(ofSize: 0.8 *  cellSide),
+            ]
+        let attrFruit = NSAttributedString(string: fruit, attributes: attributes)
+        attrFruit.draw(in: CGRect(x: CGFloat(appleX) * cellSide + originX, y: CGFloat(appleY) * cellSide + originY, width: cellSide, height: cellSide))
+    }
+    
+    func drawSnake() {
         for cell in snake {
             let pen = UIBezierPath(roundedRect: CGRect(x: originX + CGFloat(cell.col) * cellSide, y: originY + CGFloat(cell.row) * cellSide, width: cellSide, height: cellSide), cornerRadius: 4)
             
-            #colorLiteral(red: 0, green: 0.8426381946, blue: 1, alpha: 1).setFill()
-            pen.fill()
+            for cell in snake {
+                let pen = UIBezierPath(roundedRect: CGRect(x: originX + CGFloat(cell.col) * cellSide, y: originY + CGFloat(cell.row) * cellSide, width: cellSide, height: cellSide), cornerRadius: 4)
+                
+                #colorLiteral(red: 0, green: 0.8426381946, blue: 1, alpha: 1).setFill()
+                pen.fill()
+            }
         }
     }
     
