@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kb6-2c-OYy" customClass="BoardView" customModule="snake" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="482"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.13284953839999999" green="1" blue="0.99590586800000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
@@ -32,6 +32,15 @@
                                     <action selector="upTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HUn-zU-bk8"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Cn-p3-ldy">
+                                <rect key="frame" x="107" y="506" width="30" height="42"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="⬅️"/>
+                                <connections>
+                                    <action selector="leftTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dfz-6h-PjK"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="021-Ah-HfY">
                                 <rect key="frame" x="145" y="526" width="30" height="42"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -42,21 +51,12 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NSe-70-hxK">
-                                <rect key="frame" x="192" y="506" width="30" height="42"/>
+                                <rect key="frame" x="175" y="506" width="30" height="42"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="➡️"/>
                                 <connections>
                                     <action selector="rightTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hmU-Ra-m8z"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Cn-p3-ldy">
-                                <rect key="frame" x="107" y="506" width="30" height="42"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <state key="normal" title="⬅️"/>
-                                <connections>
-                                    <action selector="leftTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dfz-6h-PjK"/>
                                 </connections>
                             </button>
                         </subviews>

@@ -13,33 +13,31 @@ class GameViewController: UIViewController {
     @IBOutlet weak var boardView: BoardView!
     
     @IBAction func upTouched(_ sender: Any) {
-        print("Leean is going to France today at 5:50")
         
-        boardView.snakeRow = boardView.snakeRow - 1
+        if boardView.snakeRow > 0 {
+            boardView.snakeRow = boardView.snakeRow - 1
+            boardView.setNeedsDisplay()
+        }
         
-        boardView.setNeedsDisplay()
     }
-    
-    
     @IBAction func leftTouched(_ sender: Any) {
-        boardView.snakeCol = boardView.snakeCol - 1
-         boardView.setNeedsDisplay()
+        if boardView.snakeCol > 0 {
+            boardView.snakeCol = boardView.snakeCol - 1
+            boardView.setNeedsDisplay()
+        }
     }
     
     @IBAction func downTouched(_ sender: Any) {
-        boardView.snakeRow = boardView.snakeRow + 1
-        boardView.setNeedsDisplay()
+        if boardView.snakeRow < boardView.rows - 1 {
+            boardView.snakeRow = boardView.snakeRow + 1
+            boardView.setNeedsDisplay()
+        }
     }
     
     @IBAction func rightTouched(_ sender: Any) {
-        boardView.snakeCol = boardView.snakeCol + 1
-        boardView.setNeedsDisplay()
+        if boardView.snakeCol < boardView.cols - 1 {
+            boardView.snakeCol = boardView.snakeCol + 1
+            boardView.setNeedsDisplay()
+        }
     }
-    
-    
-    
-    
-    
-    
 }
-

@@ -9,9 +9,8 @@
 import UIKit
 
 class BoardView: UIView {
-    
-    let originY:CGFloat = 130
-    let originX:CGFloat = 100
+    let originX:CGFloat = 50
+    let originY:CGFloat = 80
     let cellSide:CGFloat = 20
     let cols:Int = 10
     let rows:Int = 15
