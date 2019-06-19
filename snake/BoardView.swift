@@ -18,6 +18,11 @@ class BoardView: UIView {
     var snakeCol:Int = 7
     var snakeRow:Int = 4
     
+    var  snakeBody0Col: Int = 8
+    var snakeBody0Row: Int = 4 
+    
+    
+    
     override func draw(_ rect: CGRect) {
         drawBoard()
        
@@ -25,7 +30,10 @@ class BoardView: UIView {
         #colorLiteral(red: 1, green: 0, blue: 1, alpha: 1).setFill()
         pencil.fill()
 
-        
+        let pencil2 = UIBezierPath(roundedRect: CGRect(x: originX + CGFloat(snakeBody0Col) * cellSide, y: originY + CGFloat(snakeBody0Row) * cellSide, width: cellSide, height: cellSide), cornerRadius: 2)
+        #colorLiteral(red: 1, green: 0.9039442274, blue: 0.7955186632, alpha: 1).setFill()
+        pencil2.fill()
+    
     }
     
     func drawBoard() {
