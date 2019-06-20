@@ -19,7 +19,10 @@ class BoardView: UIView {
     var snakeRow:Int = 4
     
     var  snakeBody0Col: Int = 8
-    var snakeBody0Row: Int = 4 
+    var snakeBody0Row: Int = 4
+    
+    var  snakeBody1Col: Int = 9
+    var snakeBody1Row: Int = 4
     
     
     
@@ -34,6 +37,9 @@ class BoardView: UIView {
         #colorLiteral(red: 1, green: 0.9039442274, blue: 0.7955186632, alpha: 1).setFill()
         pencil2.fill()
     
+        let pencil3 = UIBezierPath(roundedRect: CGRect(x: originX + CGFloat(snakeBody1Col) * cellSide, y: originY + CGFloat(snakeBody1Row) * cellSide, width: cellSide, height: cellSide), cornerRadius: 2)
+        #colorLiteral(red: 0.8549019694, green: 0.250980407, blue: 0.4784313738, alpha: 1).setFill()
+        pencil3.fill()
     }
     
     func drawBoard() {
