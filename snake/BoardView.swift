@@ -12,47 +12,44 @@ class BoardView: UIView {
     let originX:CGFloat = 50
     let originY:CGFloat = 80
     let cellSide:CGFloat = 20
-    let cols:Int = 10
-    let rows:Int = 15
+    let cols:Int = 12
+    let rows:Int = 17
     
-    var snakeCol:Int = 7
-    var snakeRow:Int = 4
-    
-    var  snakeBody0Col: Int = 8
-    var snakeBody0Row: Int = 4
-    
-    var  snakeBody1Col: Int = 9
-    var snakeBody1Row: Int = 4
-    
-    var  snakeBody2Col: Int = 9
-    var snakeBody2Row: Int = 5
-    
-    var  snakeBody3Col: Int = 9
-    var snakeBody3Row: Int = 6
-    
+//    var snakeCol:Int = 7
+//    var snakeRow:Int = 4
+//
+//    var  snakeBody0Col: Int = 8
+//    var snakeBody0Row: Int = 4
+//
+//    var  snakeBody1Col: Int = 9
+//    var snakeBody1Row: Int = 4
+//
+//    var  snakeBody2Col: Int = 9
+//    var snakeBody2Row: Int = 5
+//
+//    var  snakeBody3Col: Int = 9
+//    var snakeBody3Row: Int = 6
+    var snake: [Location] = [
+        Location(x: 9, y: 6),
+        Location(x: 9, y: 7),
+        Location(x: 8, y: 7),
+        Location(x: 7, y: 7),
+        Location(x: 7, y: 8),
+        Location(x: 7, y: 9),
+        Location(x: 7, y: 10),
+        // add 3 here
+    ]
     
     override func draw(_ rect: CGRect) {
         drawBoard()
-       
-        let pencil = UIBezierPath(roundedRect: CGRect(x: originX + CGFloat(snakeCol) * cellSide, y: originY + CGFloat(snakeRow) * cellSide, width: cellSide, height: cellSide), cornerRadius: 3)
-        #colorLiteral(red: 1, green: 0, blue: 1, alpha: 1).setFill()
-        pencil.fill()
-
-        let pencil2 = UIBezierPath(roundedRect: CGRect(x: originX + CGFloat(snakeBody0Col) * cellSide, y: originY + CGFloat(snakeBody0Row) * cellSide, width: cellSide, height: cellSide), cornerRadius: 2)
-        #colorLiteral(red: 1, green: 0.9039442274, blue: 0.7955186632, alpha: 1).setFill()
-        pencil2.fill()
-    
-        let pencil3 = UIBezierPath(roundedRect: CGRect(x: originX + CGFloat(snakeBody1Col) * cellSide, y: originY + CGFloat(snakeBody1Row) * cellSide, width: cellSide, height: cellSide), cornerRadius: 2)
-        #colorLiteral(red: 0.8549019694, green: 0.250980407, blue: 0.4784313738, alpha: 1).setFill()
-        pencil3.fill()
-        
-        let pencil4 = UIBezierPath(roundedRect: CGRect(x: originX + CGFloat(snakeBody2Col) * cellSide, y: originY + CGFloat(snakeBody2Row) * cellSide, width: cellSide, height: cellSide), cornerRadius: 2)
-        #colorLiteral(red: 0, green: 0, blue: 0.80859375, alpha: 1).setFill()
-        pencil4.fill()
-        
-        let pencil5 = UIBezierPath(roundedRect: CGRect(x: originX + CGFloat(snakeBody3Col) * cellSide, y: originY + CGFloat(snakeBody3Row) * cellSide, width: cellSide, height: cellSide), cornerRadius: 2)
-        #colorLiteral(red: 1, green: 0, blue: 0.80859375, alpha: 1).setFill()
-        pencil5.fill()
+        for i in 0..<snake.count { // the count is the count, it's already  7, why adding 2?
+            //okay
+              let cell: Location = snake [i]
+            let pencil = UIBezierPath(roundedRect: CGRect(x: originX + CGFloat(cell.x) * cellSide, y: originY + CGFloat(cell.y) * cellSide, width: cellSide, height: cellSide), cornerRadius: 3)
+            #colorLiteral(red: 1, green: 0, blue: 1, alpha: 1).setFill()
+            pencil.fill()
+          
+        }
     }
     
     func drawBoard() {

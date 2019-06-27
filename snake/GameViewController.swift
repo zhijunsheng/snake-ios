@@ -13,79 +13,61 @@ class GameViewController: UIViewController {
     @IBOutlet weak var boardView: BoardView!
     
     @IBAction func upTouched(_ sender: Any) {
-      
-        if boardView.snakeRow > 0 {
-            boardView.snakeBody3Row = boardView.snakeBody2Row
-            boardView.snakeBody3Col = boardView.snakeBody2Col
-            
-            boardView.snakeBody2Row = boardView.snakeBody1Row
-            boardView.snakeBody2Col = boardView.snakeBody1Col
-            
-            boardView.snakeBody1Row = boardView.snakeBody0Row
-            boardView.snakeBody1Col = boardView.snakeBody0Col
-            
-            boardView.snakeBody0Row = boardView.snakeRow
-            boardView.snakeBody0Col = boardView.snakeCol
-            
-            boardView.snakeRow = boardView.snakeRow - 1
+        let oldHead:Location = boardView.snake[0]
+        if oldHead.y > 0 {
+            var newSnake: [Location] = []
+            newSnake.append(Location(x: oldHead.x, y: oldHead.y - 1))
+            for i in 0..<boardView.snake.count - 1 {
+                let cell: Location = boardView.snake[i]
+                newSnake.append(cell)
+            }
+            boardView.snake = newSnake
             boardView.setNeedsDisplay()
-            
         }
-        
     }
+    
+    
+    
+    
     @IBAction func leftTouched(_ sender: Any) {
-        if boardView.snakeCol > 0 {
-            boardView.snakeBody3Row = boardView.snakeBody2Row
-            boardView.snakeBody3Col = boardView.snakeBody2Col
-            
-            boardView.snakeBody2Row = boardView.snakeBody1Row
-            boardView.snakeBody2Col = boardView.snakeBody1Col
-            
-            boardView.snakeBody1Row = boardView.snakeBody0Row
-            boardView.snakeBody1Col = boardView.snakeBody0Col
-            
-            boardView.snakeBody0Row = boardView.snakeRow
-            boardView.snakeBody0Col = boardView.snakeCol
-            
-            boardView.snakeCol = boardView.snakeCol - 1
+        let oldHead:Location = boardView.snake[0]
+        if oldHead.x > 0 {
+            var newSnake: [Location] = []
+            newSnake.append(Location(x: oldHead.x - 1 , y: oldHead.y  ))
+            for i in 0..<boardView.snake.count - 1 {
+                let cell: Location = boardView.snake[i]
+                newSnake.append(cell)
+            }
+            boardView.snake = newSnake
             boardView.setNeedsDisplay()
         }
     }
     
     @IBAction func downTouched(_ sender: Any) {
-        if boardView.snakeRow < boardView.rows - 1 {
-            boardView.snakeBody3Row = boardView.snakeBody2Row
-            boardView.snakeBody3Col = boardView.snakeBody2Col
-            
-            boardView.snakeBody2Row = boardView.snakeBody1Row
-            boardView.snakeBody2Col = boardView.snakeBody1Col
-            
-            boardView.snakeBody1Row = boardView.snakeBody0Row
-            boardView.snakeBody1Col = boardView.snakeBody0Col
-            
-            boardView.snakeBody0Row = boardView.snakeRow
-            boardView.snakeBody0Col = boardView.snakeCol
-            
-            boardView.snakeRow = boardView.snakeRow + 1
+        let oldHead:Location = boardView.snake[0]
+        if oldHead.y < boardView.rows - 1  {
+            var newSnake:[Location] = []
+            newSnake.append(Location(x: oldHead.x, y: oldHead.y + 1))
+            for i in 0..<boardView.snake.count - 1{
+                let cell: Location = boardView.snake[i]
+                newSnake.append(cell)
+            }
+            boardView.snake = newSnake
             boardView.setNeedsDisplay()
         }
     }
     
+    
     @IBAction func rightTouched(_ sender: Any) {
-        if boardView.snakeCol < boardView.cols - 1 {
-            boardView.snakeBody3Row = boardView.snakeBody2Row
-            boardView.snakeBody3Col = boardView.snakeBody2Col
-            
-            boardView.snakeBody2Row = boardView.snakeBody1Row
-            boardView.snakeBody2Col = boardView.snakeBody1Col
-            
-            boardView.snakeBody1Row = boardView.snakeBody0Row
-            boardView.snakeBody1Col = boardView.snakeBody0Col
-            
-            boardView.snakeBody0Row = boardView.snakeRow
-            boardView.snakeBody0Col = boardView.snakeCol
-            
-            boardView.snakeCol = boardView.snakeCol + 1
+        let oldHead:Location = boardView.snake[0]
+        if oldHead.x < boardView.cols - 1 {
+            var newSnake: [Location] = []
+            newSnake.append(Location(x: oldHead.x + 1 , y: oldHead.y  ))
+            for i in 0..<boardView.snake.count - 1 {
+                let cell: Location = boardView.snake[i]
+                newSnake.append(cell)
+            }
+            boardView.snake = newSnake
             boardView.setNeedsDisplay()
         }
     }
