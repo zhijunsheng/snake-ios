@@ -3,7 +3,7 @@ import UIKit
 // use finger to control the snake head
 // the snake has to eat more than 1 fruit to grow
 // better to have different fruits
-// let snake die when touching edges
+// let snake die when touching edges √
 class GameViewController: UIViewController {
     
     @IBOutlet weak var boardView: BoardView!
@@ -18,6 +18,14 @@ class GameViewController: UIViewController {
     @IBAction func touchLeft(_ sender: UIButton) {
         let oldHead = boardView.snake[0]
         if oldHead.col == 0 {
+            boardView.snake = [
+                Point(col: 4, row: 5),
+                Point(col: 5, row: 5),
+                Point(col: 5, row: 6),
+                Point(col: 6, row: 6),
+                Point(col: 7, row: 6),
+            ]
+            boardView.setNeedsDisplay()
             return
         }
         var newSnake: [Point] = []
@@ -42,6 +50,14 @@ class GameViewController: UIViewController {
     @IBAction func touchUp(_ sender: UIButton) {
         let oldHead = boardView.snake[0]
         if oldHead.row == 0 {
+            boardView.snake = [
+                Point(col: 4, row: 5),
+                Point(col: 5, row: 5),
+                Point(col: 5, row: 6),
+                Point(col: 6, row: 6),
+                Point(col: 7, row: 6),
+            ]
+            boardView.setNeedsDisplay()
             return
         }
         
@@ -67,6 +83,14 @@ class GameViewController: UIViewController {
     @IBAction func touchDown(_ sender: UIButton) {
         let oldHead = boardView.snake[0]
         if oldHead.row == boardView.rows - 1 {
+            boardView.snake = [
+                Point(col: 4, row: 5),
+                Point(col: 5, row: 5),
+                Point(col: 5, row: 6),
+                Point(col: 6, row: 6),
+                Point(col: 7, row: 6),
+            ]
+            boardView.setNeedsDisplay()
             return
         }
         
@@ -92,6 +116,14 @@ class GameViewController: UIViewController {
     @IBAction func touchRight(_ sender: UIButton) {
         let oldHead = boardView.snake[0]
         if oldHead.col == boardView.cols - 1 {
+            boardView.snake = [
+                Point(col: 4, row: 5),
+                Point(col: 5, row: 5),
+                Point(col: 5, row: 6),
+                Point(col: 6, row: 6),
+                Point(col: 7, row: 6),
+            ]
+            boardView.setNeedsDisplay()
             return
         }
         
