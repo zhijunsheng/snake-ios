@@ -12,16 +12,18 @@ class ArrayTests: XCTestCase {
     }
     
     func testIntArray() {
-        let numbers: [Int] = [23, 0, -13, 100]
+        var numbers: [Int] = [23, 0, -13, 100]
         print(numbers[0])
         print(numbers[1])
         print(numbers[2])
         print(numbers[3])
-        
+        numbers.append(333)
+        print(numbers[4])
+
         for i in 0..<4 {
            print(numbers[i])
         }
-        
+
         for bear in numbers {
             print(bear)
         }

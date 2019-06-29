@@ -1,5 +1,9 @@
 import UIKit
 
+// use finger to control the snake head
+// the snake has to eat more than 1 fruit to grow
+// better to have different fruits
+// let snake die when touching edges
 class GameViewController: UIViewController {
     
     @IBOutlet weak var boardView: BoardView!
@@ -16,7 +20,6 @@ class GameViewController: UIViewController {
         if oldHead.col == 0 {
             return
         }
-        
         var newSnake: [Point] = []
         let newHead = Point(col: oldHead.col - 1, row: oldHead.row)
         newSnake.append(newHead)
@@ -25,8 +28,14 @@ class GameViewController: UIViewController {
             let cell = boardView.snake[i - 1]
             newSnake.append(cell)
         }
-        boardView.snake = newSnake
         
+        if newHead.col == boardView.appleX && newHead.row == boardView.appleY {
+            boardView.appleX = Int(arc4random() % UInt32(boardView.cols))
+            boardView.appleY = Int(arc4random() % UInt32(boardView.rows))
+            newSnake.append(boardView.snake[boardView.snake.count - 1])
+        }
+        
+        boardView.snake = newSnake
         boardView.setNeedsDisplay()
     }
     
@@ -44,8 +53,14 @@ class GameViewController: UIViewController {
             let cell = boardView.snake[i - 1]
             newSnake.append(cell)
         }
-        boardView.snake = newSnake
         
+        if newHead.col == boardView.appleX && newHead.row == boardView.appleY {
+            boardView.appleX = Int(arc4random() % UInt32(boardView.cols))
+            boardView.appleY = Int(arc4random() % UInt32(boardView.rows))
+            newSnake.append(boardView.snake[boardView.snake.count - 1])
+        }
+        
+        boardView.snake = newSnake
         boardView.setNeedsDisplay()
     }
     
@@ -63,8 +78,14 @@ class GameViewController: UIViewController {
             let cell = boardView.snake[i - 1]
             newSnake.append(cell)
         }
-        boardView.snake = newSnake
         
+        if newHead.col == boardView.appleX && newHead.row == boardView.appleY {
+            boardView.appleX = Int(arc4random() % UInt32(boardView.cols))
+            boardView.appleY = Int(arc4random() % UInt32(boardView.rows))
+            newSnake.append(boardView.snake[boardView.snake.count - 1])
+        }
+        
+        boardView.snake = newSnake
         boardView.setNeedsDisplay()
     }
     
@@ -77,13 +98,19 @@ class GameViewController: UIViewController {
         var newSnake: [Point] = []
         let newHead = Point(col: oldHead.col + 1, row: oldHead.row)
         newSnake.append(newHead)
-        
+
         for i in 1..<boardView.snake.count {
             let cell = boardView.snake[i - 1]
             newSnake.append(cell)
         }
-        boardView.snake = newSnake
         
+        if newHead.col == boardView.appleX && newHead.row == boardView.appleY{
+            boardView.appleX = Int(arc4random() % UInt32(boardView.cols))
+            boardView.appleY = Int(arc4random() % UInt32(boardView.rows))
+            newSnake.append(boardView.snake[boardView.snake.count - 1])
+        }
+        
+        boardView.snake = newSnake
         boardView.setNeedsDisplay()
     }
 }
