@@ -15,20 +15,6 @@ class BoardView: UIView {
     let cols:Int = 12
     let rows:Int = 17
     
-//    var snakeCol:Int = 7
-//    var snakeRow:Int = 4
-//
-//    var  snakeBody0Col: Int = 8
-//    var snakeBody0Row: Int = 4
-//
-//    var  snakeBody1Col: Int = 9
-//    var snakeBody1Row: Int = 4
-//
-//    var  snakeBody2Col: Int = 9
-//    var snakeBody2Row: Int = 5
-//
-//    var  snakeBody3Col: Int = 9
-//    var snakeBody3Row: Int = 6
     var snake: [Location] = [
         Location(x: 9, y: 6),
         Location(x: 9, y: 7),
@@ -37,21 +23,39 @@ class BoardView: UIView {
         Location(x: 7, y: 8),
         Location(x: 7, y: 9),
         Location(x: 7, y: 10),
-        // add 3 here
-    ]
+        ]
+    
+    let cherryLocation : Location  = Location(x: 10, y: 4)
+    let cherryString : String = "🍒"
+    
+    
     
     override func draw(_ rect: CGRect) {
+        print(cherryString)
         drawBoard()
-        for i in 0..<snake.count { // the count is the count, it's already  7, why adding 2?
-            //okay
-              let cell: Location = snake [i]
+        drawSnake()
+        drawCherry()
+    }
+    
+    
+    func drawCherry() {
+        let paragraphStyle = NSMutableParagraphStyle()
+        let attributes = [
+            NSAttributedStringKey.paragraphStyle: paragraphStyle,
+            NSAttributedStringKey.font: UIFont.systemFont(ofSize: 1.01 * cellSide),
+        ]
+        let attrString: NSAttributedString = NSAttributedString(string: cherryString , attributes: attributes)
+        attrString.draw(in: CGRect(x:  CGFloat(cherryLocation.x)  * cellSide + originX, y: CGFloat(cherryLocation.y) * cellSide + originY, width: cellSide, height: cellSide))
+    }
+    
+    func drawSnake() {
+        for i in 0..<snake.count {
+            let cell: Location = snake [i]
             let pencil = UIBezierPath(roundedRect: CGRect(x: originX + CGFloat(cell.x) * cellSide, y: originY + CGFloat(cell.y) * cellSide, width: cellSide, height: cellSide), cornerRadius: 3)
             #colorLiteral(red: 1, green: 0, blue: 1, alpha: 1).setFill()
             pencil.fill()
-          
         }
     }
-    
     func drawBoard() {
         let pencil = UIBezierPath()
         for i in 0...rows {
@@ -63,7 +67,6 @@ class BoardView: UIView {
             pencil.move(to: CGPoint(x: originX + cellSide * CGFloat(i) , y: originY ))
             pencil.addLine(to: CGPoint(x: originX + cellSide * CGFloat (i)  , y: originY + cellSide * CGFloat(rows)) )
         }
-        
         pencil.stroke()
     }
 }
