@@ -25,8 +25,8 @@ class BoardView: UIView {
         Location(x: 7, y: 10),
         ]
     
-    let cherryLocation : Location  = Location(x: 10, y: 4)
-    let cherryString : String = "🍒"
+    var cherryLocation : Location  = Location(x: 10, y: 4)
+    var cherryString : String = "🍒"
     
     
     

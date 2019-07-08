@@ -13,7 +13,7 @@ class GameViewController: UIViewController {
     @IBOutlet weak var boardView: BoardView!
     
     @IBAction func upTouched(_ sender: Any) {
-        let oldHead:Location = boardView.snake[0]
+        var oldHead:Location = boardView.snake[0]
         if oldHead.y > 0 {
             var newSnake: [Location] = []
             newSnake.append(Location(x: oldHead.x, y: oldHead.y - 1))
@@ -24,8 +24,20 @@ class GameViewController: UIViewController {
             boardView.snake = newSnake
             boardView.setNeedsDisplay()
         }
+        
+        //        var cols:Int = 12
+        //        var rows:Int = 17
+        //        var oldHead:Location = boardView.snake[ 0]
+        //        if oldHead.col == oldHead.x {
+        //            if oldHead.row == oldHead.y {
+        //            print("Yay!")
+        
+        if oldHead.x == boardView.cherryLocation.x {
+            if oldHead.y == boardView.cherryLocation.y {
+                print("YAY")
+            }
+        }
     }
-    
     
     
     
@@ -34,13 +46,19 @@ class GameViewController: UIViewController {
         if oldHead.x > 0 {
             var newSnake: [Location] = []
             newSnake.append(Location(x: oldHead.x - 1 , y: oldHead.y  ))
-            for i in 0..<boardView.snake.count - 1 {
+            for i in 0..<boardView.snake.count - 1  {
                 let cell: Location = boardView.snake[i]
                 newSnake.append(cell)
             }
             boardView.snake = newSnake
             boardView.setNeedsDisplay()
         }
+        if oldHead.x == boardView.cherryLocation.x {
+            if oldHead.y == boardView.cherryLocation.y  {
+                print("YAY")
+            }
+        }
+
     }
     
     @IBAction func downTouched(_ sender: Any) {
@@ -55,6 +73,12 @@ class GameViewController: UIViewController {
             boardView.snake = newSnake
             boardView.setNeedsDisplay()
         }
+        if oldHead.x == boardView.cherryLocation.x {
+            if oldHead.y == boardView.cherryLocation.y {
+                print("YAY")
+            }
+        }
+
     }
     
     
@@ -70,5 +94,12 @@ class GameViewController: UIViewController {
             boardView.snake = newSnake
             boardView.setNeedsDisplay()
         }
+        if oldHead.x == boardView.cherryLocation.x {
+            if oldHead.y == boardView.cherryLocation.y  {
+                print("YAY")
+            }
+        }
+
     }
 }
+
