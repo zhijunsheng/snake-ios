@@ -23,18 +23,12 @@ class GameViewController: UIViewController {
             }
             boardView.snake = newSnake
             boardView.setNeedsDisplay()
-        }
-        
-        //        var cols:Int = 12
-        //        var rows:Int = 17
-        //        var oldHead:Location = boardView.snake[ 0]
-        //        if oldHead.col == oldHead.x {
-        //            if oldHead.row == oldHead.y {
-        //            print("Yay!")
-        
-        if oldHead.x == boardView.cherryLocation.x {
-            if oldHead.y == boardView.cherryLocation.y {
-                print("YAY")
+       
+            if oldHead.x == boardView.cherryLocation.x {
+                if oldHead.y == boardView.cherryLocation.y {
+                    print("YAY")
+                    boardView.cherryLocation = Location (x: 100, y: 100)
+                }
             }
         }
     }
@@ -52,12 +46,16 @@ class GameViewController: UIViewController {
             }
             boardView.snake = newSnake
             boardView.setNeedsDisplay()
-        }
-        if oldHead.x == boardView.cherryLocation.x {
-            if oldHead.y == boardView.cherryLocation.y  {
-                print("YAY")
+        
+            if oldHead.x == boardView.cherryLocation.x {
+                if oldHead.y == boardView.cherryLocation.y  {
+                    print("YAY")
+                    boardView.cherryLocation = Location (x: 100, y: 100)
+                    
+                }
             }
         }
+        
 
     }
     
@@ -72,20 +70,25 @@ class GameViewController: UIViewController {
             }
             boardView.snake = newSnake
             boardView.setNeedsDisplay()
-        }
-        if oldHead.x == boardView.cherryLocation.x {
-            if oldHead.y == boardView.cherryLocation.y {
-                print("YAY")
+           
+            if oldHead.x == boardView.cherryLocation.x {
+                if oldHead.y == boardView.cherryLocation.y {
+                    print("YAY")
+                    boardView.cherryLocation = Location (x: 100, y: 100)
+                }
             }
         }
 
+        
     }
     
     
     @IBAction func rightTouched(_ sender: Any) {
         let oldHead:Location = boardView.snake[0]
+        
         if oldHead.x < boardView.cols - 1 {
             var newSnake: [Location] = []
+            
             newSnake.append(Location(x: oldHead.x + 1 , y: oldHead.y  ))
             for i in 0..<boardView.snake.count - 1 {
                 let cell: Location = boardView.snake[i]
@@ -93,13 +96,16 @@ class GameViewController: UIViewController {
             }
             boardView.snake = newSnake
             boardView.setNeedsDisplay()
-        }
-        if oldHead.x == boardView.cherryLocation.x {
-            if oldHead.y == boardView.cherryLocation.y  {
-                print("YAY")
+            
+            if oldHead.x == boardView.cherryLocation.x {
+                if oldHead.y == boardView.cherryLocation.y  {
+                    print("YAY")
+                    boardView.cherryLocation = Location (x: 100, y: 100)
+                    
+                    print(boardView.snake[6])
+                }
             }
         }
-
     }
 }
 
