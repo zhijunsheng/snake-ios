@@ -49,8 +49,6 @@ class ViewController: UIViewController {
             print("☠️☠️☠️☠️")
             return
         }
-        
-        
         if boardView.foodCol == boardView.snake[0].col && boardView.foodRow == boardView.snake[0].row {
             print("🔱🔱🔱🔱")
             let tailCell = boardView.snake[boardView.snake.count - 1]
