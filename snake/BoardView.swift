@@ -1,10 +1,10 @@
 import UIKit
 class BoardView: UIView {
-    let cols     : Int         = 13
+    let cols     : Int         = 21
     let rows     : Int         = 21
-    let boardX   : CGFloat     = 20
-    let boardY   : CGFloat     = 20
-    let line     : CGFloat     = 19
+    var boardX   : CGFloat     = 20
+    var boardY   : CGFloat     = 20
+    let line     : CGFloat     = 29
     var foodCol  : Int         = -67
     var foodRow  : Int         = -90
     var snake    : [SnakeCell] = [
@@ -15,7 +15,10 @@ class BoardView: UIView {
         SnakeCell(col: 8, row: 9)
     ]
     override func draw(_ rect: CGRect) {
-        
+        boardX = (bounds.width - line * CGFloat(cols)) / 2
+        boardY = (bounds.height - line * CGFloat(rows)) / 2
+        //        horizontal: left: 3.2cm, right: 3.2cm, equal: true
+        //        vertical: top: 2.75cm, bottom: 2.75cm, equal: true
         drawSnakeCell(x: boardX + line * CGFloat(foodCol), y: boardY + line * CGFloat(foodRow), color: #colorLiteral(red: 0.7254902124, green: 0.4784313738, blue: 0.09803921729, alpha: 1))
         
         drawGrid()
@@ -35,6 +38,8 @@ class BoardView: UIView {
         bPath.stroke()
     }
     func drawGrid() {
+        print(bounds.width)
+        print(bounds.height)
         let aPath = UIBezierPath()
         for i in 0...rows {
             aPath.move(to: CGPoint(x: boardX, y: boardY + line * CGFloat(i)))

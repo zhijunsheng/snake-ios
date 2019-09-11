@@ -9,8 +9,8 @@ class ViewController: UIViewController {
         boardView.foodRow = Int(arc4random_uniform(UInt32(boardView.rows)))
         
         Timer.scheduledTimer(withTimeInterval: 2, repeats: true) { (t) in
-            print("⚜️⚜️⚜️⚜️")
-//            self.moveDown()
+//            print("")
+            //            self.moveDown()
         }
     }
     
