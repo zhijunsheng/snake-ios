@@ -11,9 +11,9 @@ import UIKit
 class BoardView: UIView {
     let originX:CGFloat = 50
     let originY:CGFloat = 80
-    let cellSide:CGFloat = 20
-    let cols:Int = 12
-    let rows:Int = 17
+    let cellSide:CGFloat = 8
+    let cols:Int = 30
+    let rows:Int = 24
     
     var snake: [Location] = [
         Location(x: 9, y: 6),
