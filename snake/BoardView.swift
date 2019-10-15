@@ -11,7 +11,7 @@ import UIKit
 class BoardView: UIView {
     let originX:CGFloat = 50
     let originY:CGFloat = 80
-    let cellSide:CGFloat = 8
+    let cellSide:CGFloat = 23
     let cols:Int = 30
     let rows:Int = 24
     
