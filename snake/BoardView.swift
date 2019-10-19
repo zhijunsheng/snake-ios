@@ -9,11 +9,11 @@
 import UIKit
 
 class BoardView: UIView {
-    let originX:CGFloat = 50
-    let originY:CGFloat = 80
-    let cellSide:CGFloat = 23
-    let cols:Int = 30
-    let rows:Int = 24
+    var originX: CGFloat = 23
+    var originY: CGFloat = 80
+    let cellSide: CGFloat = 23
+    let cols: Int = 30//width
+    let rows: Int = 24
     
     var snake: [Location] = [
         Location(x: 9, y: 6),
@@ -31,6 +31,12 @@ class BoardView: UIView {
     
     
     override func draw(_ rect: CGRect) {
+        // bounds.width, bounds.height
+        print(bounds.width)
+        print(bounds.height)
+        originX = (bounds.width - CGFloat(cols) * cellSide) / 2 // hw: center the grip based on Elaine's math skill
+        originY = (bounds.height - CGFloat(rows) * cellSide) / 2
+        
         print(cherryString)
         drawBoard()
         drawSnake()
