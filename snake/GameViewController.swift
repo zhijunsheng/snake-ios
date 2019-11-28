@@ -16,14 +16,15 @@ class GameViewController: UIViewController {
     }
     
     @IBAction func touchLeft(_ sender: UIButton) {
-        let oldHead = boardView.snake[0]
+        let oldHead: Point = boardView.snake[0]
         if oldHead.col == 0 {
             restartGame()
             boardView.setNeedsDisplay()
             return
         }
+        
         var newSnake: [Point] = []
-        let newHead = Point(col: oldHead.col - 1, row: oldHead.row)
+        let newHead: Point = Point(col: oldHead.col - 1, row: oldHead.row)
         newSnake.append(newHead)
         
         for i in 1..<boardView.snake.count {
@@ -132,3 +133,4 @@ class GameViewController: UIViewController {
         ]
     }
 }
+// succeed prey expert cover cloak
