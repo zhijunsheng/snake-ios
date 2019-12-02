@@ -39,13 +39,9 @@ class BoardView: UIView {
     func drawSnake() {
         for cell in snake {
             let pen = UIBezierPath(roundedRect: CGRect(x: originX + CGFloat(cell.col) * cellSide, y: originY + CGFloat(cell.row) * cellSide, width: cellSide, height: cellSide), cornerRadius: 4)
-            
-            for cell in snake {
-                let pen = UIBezierPath(roundedRect: CGRect(x: originX + CGFloat(cell.col) * cellSide, y: originY + CGFloat(cell.row) * cellSide, width: cellSide, height: cellSide), cornerRadius: 4)
                 
-                #colorLiteral(red: 0, green: 0.8426381946, blue: 1, alpha: 1).setFill()
-                pen.fill()
-            }
+            #colorLiteral(red: 0, green: 0.8426381946, blue: 1, alpha: 1).setFill()
+            pen.fill()
         }
     }
     
