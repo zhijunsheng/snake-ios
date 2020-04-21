@@ -23,6 +23,15 @@
                                     <constraint firstAttribute="width" secondItem="LMH-BP-4no" secondAttribute="height" multiplier="1:1" id="FES-W7-zkX"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9UK-Rv-EmN">
+                                <rect key="frame" x="352" y="769" width="65" height="84"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="60"/>
+                                <state key="normal" title="⬆️"/>
+                                <connections>
+                                    <action selector="upArrow:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4AW-aR-idz"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.10549102525465925" green="1" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -32,6 +41,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="boardView" destination="LMH-BP-4no" id="mcz-25-jqZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

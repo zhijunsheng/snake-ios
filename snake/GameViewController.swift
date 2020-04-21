@@ -9,12 +9,17 @@
 import UIKit
 
 class GameViewController: UIViewController {
+    @IBOutlet weak var boardView: BoardView!
     
    
     override func viewDidLoad() {
         super.viewDidLoad()
         
      
+    }
+    @IBAction func upArrow(_ sender: Any) {
+        boardView.y = 400
+        boardView.setNeedsDisplay()
     }
     
     

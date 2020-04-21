@@ -10,80 +10,32 @@ import UIKit
 
 class BoardView: UIView {
 
+    var y = 500
+    
     
     override func draw(_ rect: CGRect) {
         // 10 x 10 grid, better to think about using for loop
         
         let pencil = UIBezierPath()
-        pencil.move(to: CGPoint(x: 80, y: 100))
-        pencil.addLine(to: CGPoint(x: 560, y: 100))
+
+        for i in 0 ... 9 {
+            pencil.move(to: CGPoint(x: 80, y: 100 + i * 50))
+            pencil.addLine(to: CGPoint(x: 530, y: 100 + i * 50))
+            
+        }
         
-        pencil.move(to: CGPoint(x: 80, y: 100))
-        pencil.addLine(to: CGPoint(x: 80, y: 500))
+        for i in 0 ... 9 {
+            pencil.move(to: CGPoint(x: 80 + i * 50, y: 100))
+            pencil.addLine(to: CGPoint(x: 80 + i * 50, y: 550))
+            
+        }
         
-        pencil.move(to: CGPoint(x: 80, y: 500))
-        pencil.addLine(to: CGPoint(x: 560, y: 500))
-        
-        pencil.move(to: CGPoint(x: 560, y: 500))
-        pencil.addLine(to: CGPoint(x: 560, y: 100))
-        
-        pencil.move(to: CGPoint(x: 80, y: 140))
-        pencil.addLine(to: CGPoint(x: 560, y: 140))
-        
-        pencil.move(to: CGPoint(x: 80, y: 180))
-        pencil.addLine(to: CGPoint(x: 560, y: 180))
-        
-        pencil.move(to: CGPoint(x: 80, y: 220))
-        pencil.addLine(to: CGPoint(x: 560, y: 220))
-        
-        pencil.move(to: CGPoint(x: 80, y: 260))
-        pencil.addLine(to: CGPoint(x: 560, y: 260))
-        
-        pencil.move(to: CGPoint(x: 80, y: 300))
-        pencil.addLine(to: CGPoint(x: 560, y: 300))
-        
-        pencil.move(to: CGPoint(x: 80, y: 340))
-        pencil.addLine(to: CGPoint(x: 560, y: 340))
-        
-        pencil.move(to: CGPoint(x: 80, y: 380))
-        pencil.addLine(to: CGPoint(x: 560, y: 380))
-        
-        pencil.move(to: CGPoint(x: 80, y: 420))
-        pencil.addLine(to: CGPoint(x: 560, y: 420))
-        
-        pencil.move(to: CGPoint(x: 80, y: 460))
-        pencil.addLine(to: CGPoint(x: 560, y: 460))
-        
-        pencil.move(to: CGPoint(x: 128, y: 100))
-        pencil.addLine(to: CGPoint(x: 128, y: 500))
-        
-        pencil.move(to: CGPoint(x: 176, y: 100))
-        pencil.addLine(to: CGPoint(x: 176, y: 500))
-        
-        pencil.move(to: CGPoint(x: 224, y: 100))
-        pencil.addLine(to: CGPoint(x: 224, y: 500))
-        
-        pencil.move(to: CGPoint(x: 272, y: 100))
-        pencil.addLine(to: CGPoint(x: 272, y: 500))
-        
-        pencil.move(to: CGPoint(x: 320, y: 100))
-        pencil.addLine(to: CGPoint(x: 320, y: 500))
-        
-        pencil.move(to: CGPoint(x: 368, y: 100))
-        pencil.addLine(to: CGPoint(x: 368, y: 500))
-        
-        pencil.move(to: CGPoint(x: 416, y: 100))
-        pencil.addLine(to: CGPoint(x: 416, y: 500))
-        
-        pencil.move(to: CGPoint(x: 464, y: 100))
-        pencil.addLine(to: CGPoint(x: 464, y: 500))
-        
-        pencil.move(to: CGPoint(x: 512, y: 100))
-        pencil.addLine(to: CGPoint(x: 512, y: 500))
-        
+        #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1).setStroke()
         pencil.stroke()
         
+        let pencil2 = UIBezierPath(arcCenter: CGPoint(x: 105, y: y), radius: 25, startAngle: 0, endAngle: CGFloat.pi * 2, clockwise: true)
+        
+        #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1).setStroke()
+        pencil2.stroke()
     }
-    
-
 }
