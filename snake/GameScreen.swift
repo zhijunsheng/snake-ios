@@ -9,22 +9,40 @@
 import UIKit
 
 class GameScreen: UIView {
+    var snakeCell = SnakeCell(col: 10, row: 10)
 
     
     override func draw(_ rect: CGRect) {
         grid()
+        babySnake()
+        
     }
     
     func grid() {
         let pen = UIBezierPath()
-        let squareSide = bounds.width / 30
+        let squareSide = bounds.width / 20
         
-        for i in 0..<50 {
+        for i in 0..<25 {
             pen.move(to: CGPoint(x: CGFloat(i) * squareSide, y: 0))
             pen.addLine(to: CGPoint(x: CGFloat(i) * squareSide, y: bounds.height))
+            
+            pen.move(to: CGPoint(x: 0, y: CGFloat(i) * squareSide))
+            pen.addLine(to: CGPoint(x: bounds.width, y: CGFloat(i) * squareSide))
             
             pen.stroke()
         }
     }
-
+    
+    func babySnake() {
+        let col = snakeCell.col
+        let row = snakeCell.row
+        let squareSide = bounds.width / 20
+        
+        let head = UIBezierPath(rect: CGRect(x: CGFloat(col) * squareSide, y: CGFloat(row) * squareSide, width: squareSide, height: squareSide))
+        
+        #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1).setFill()
+        head.fill()
+        
+    }
+    
 }
