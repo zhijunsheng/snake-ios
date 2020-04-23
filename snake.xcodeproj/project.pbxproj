@@ -12,11 +12,10 @@
 		07FDE4132016091500A674FE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07FDE4112016091500A674FE /* Main.storyboard */; };
 		07FDE4152016091500A674FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07FDE4142016091500A674FE /* Assets.xcassets */; };
 		07FDE4182016091500A674FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07FDE4162016091500A674FE /* LaunchScreen.storyboard */; };
+		A322015B2452303E00150D3A /* SnakeGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = A322015A2452303E00150D3A /* SnakeGame.swift */; };
+		A322015D245238FD00150D3A /* SnakeGameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A322015C245238FD00150D3A /* SnakeGameTests.swift */; };
 		A39FA6FC244D2DCA00BFE260 /* GameScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39FA6FB244D2DCA00BFE260 /* GameScreen.swift */; };
 		A39FA6FE244D314100BFE260 /* SnakeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39FA6FD244D314100BFE260 /* SnakeCell.swift */; };
-		BB8151E72030A12900C408AF /* SimpleLoopTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8151E62030A12900C408AF /* SimpleLoopTests.swift */; };
-		BBBB9961201C0B06008FF835 /* PointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBBB9960201C0B06008FF835 /* PointTests.swift */; };
-		BBBB9963201C0B36008FF835 /* BoardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBBB9962201C0B36008FF835 /* BoardTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,13 +36,12 @@
 		07FDE4142016091500A674FE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		07FDE4172016091500A674FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		07FDE4192016091500A674FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A322015A2452303E00150D3A /* SnakeGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnakeGame.swift; sourceTree = "<group>"; };
+		A322015C245238FD00150D3A /* SnakeGameTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnakeGameTests.swift; sourceTree = "<group>"; };
 		A39FA6FB244D2DCA00BFE260 /* GameScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScreen.swift; sourceTree = "<group>"; };
 		A39FA6FD244D314100BFE260 /* SnakeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnakeCell.swift; sourceTree = "<group>"; };
-		BB8151E62030A12900C408AF /* SimpleLoopTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleLoopTests.swift; sourceTree = "<group>"; };
 		BBBB9956201C0ABA008FF835 /* snakeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = snakeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBBB995A201C0ABB008FF835 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BBBB9960201C0B06008FF835 /* PointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointTests.swift; sourceTree = "<group>"; };
-		BBBB9962201C0B36008FF835 /* BoardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +84,7 @@
 			isa = PBXGroup;
 			children = (
 				A39FA6FB244D2DCA00BFE260 /* GameScreen.swift */,
+				A322015A2452303E00150D3A /* SnakeGame.swift */,
 				A39FA6FD244D314100BFE260 /* SnakeCell.swift */,
 				07FDE40D2016091500A674FE /* AppDelegate.swift */,
 				07FDE40F2016091500A674FE /* GameViewController.swift */,
@@ -100,9 +99,7 @@
 		BBBB9957201C0ABA008FF835 /* snakeTests */ = {
 			isa = PBXGroup;
 			children = (
-				BBBB9960201C0B06008FF835 /* PointTests.swift */,
-				BB8151E62030A12900C408AF /* SimpleLoopTests.swift */,
-				BBBB9962201C0B36008FF835 /* BoardTests.swift */,
+				A322015C245238FD00150D3A /* SnakeGameTests.swift */,
 				BBBB995A201C0ABB008FF835 /* Info.plist */,
 			);
 			path = snakeTests;
@@ -211,6 +208,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A322015B2452303E00150D3A /* SnakeGame.swift in Sources */,
 				A39FA6FE244D314100BFE260 /* SnakeCell.swift in Sources */,
 				A39FA6FC244D2DCA00BFE260 /* GameScreen.swift in Sources */,
 				07FDE4102016091500A674FE /* GameViewController.swift in Sources */,
@@ -222,9 +220,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BBBB9963201C0B36008FF835 /* BoardTests.swift in Sources */,
-				BB8151E72030A12900C408AF /* SimpleLoopTests.swift in Sources */,
-				BBBB9961201C0B06008FF835 /* PointTests.swift in Sources */,
+				A322015D245238FD00150D3A /* SnakeGameTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

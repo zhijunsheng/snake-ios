@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct SnakeCell {
+struct SnakeCell: Hashable {
     let col: Int
     let row: Int
 }

@@ -12,6 +12,7 @@ class GameScreen: UIView {
     var snakeCell = SnakeCell(col: 10, row: 10)
 
     
+    
     override func draw(_ rect: CGRect) {
         grid()
         babySnake()
@@ -29,8 +30,9 @@ class GameScreen: UIView {
             pen.move(to: CGPoint(x: 0, y: CGFloat(i) * squareSide))
             pen.addLine(to: CGPoint(x: bounds.width, y: CGFloat(i) * squareSide))
             
-            pen.stroke()
         }
+        #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1).setStroke()
+        pen.stroke()
     }
     
     func babySnake() {
