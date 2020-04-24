@@ -27,15 +27,24 @@ class GameViewController: UIViewController {
     }
     
     @IBAction func leftArrow(_ sender: Any) {
-        boardView.y = boardView.x - 50
+        boardView.x = boardView.x - 50
         if boardView.x < 150 {
             boardView.x = 150
         }
     }
+    
     @IBAction func downArrow(_ sender: Any) {
         boardView.y = boardView.y + 50
+//        if boardView.y <  {
+            
+//        }
         boardView.setNeedsDisplay()
         
+    }
+    
+    @IBAction func rightArrow(_ sender: Any) {
+        boardView.x = boardView.x + 50
+        boardView.setNeedsDisplay()
     }
     
 }
