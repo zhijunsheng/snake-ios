@@ -24,12 +24,30 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9UK-Rv-EmN">
-                                <rect key="frame" x="352" y="769" width="65" height="84"/>
+                                <rect key="frame" x="360" y="769" width="65" height="84"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="60"/>
                                 <state key="normal" title="⬆️"/>
                                 <connections>
-                                    <action selector="upArrow:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4AW-aR-idz"/>
+                                    <action selector="upArrow:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Vi8-AD-CRI"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qrR-Vl-xSI">
+                                <rect key="frame" x="360" y="852" width="65" height="84"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="60"/>
+                                <state key="normal" title="⬇️"/>
+                                <connections>
+                                    <action selector="downArrow:" destination="BYZ-38-t0r" eventType="touchUpInside" id="erk-lU-izb"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iPs-JB-AhM">
+                                <rect key="frame" x="287" y="852" width="65" height="84"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="60"/>
+                                <state key="normal" title="⬅️"/>
+                                <connections>
+                                    <action selector="leftArrow:" destination="BYZ-38-t0r" eventType="touchUpInside" id="duD-1M-zTm"/>
                                 </connections>
                             </button>
                         </subviews>

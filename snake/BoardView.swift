@@ -11,11 +11,21 @@ import UIKit
 class BoardView: UIView {
 
     var y = 500
+    var x = 5
     
     
     override func draw(_ rect: CGRect) {
-        // 10 x 10 grid, better to think about using for loop
         
+        drawGrid()
+        
+        let pencil2 = UIBezierPath(arcCenter: CGPoint(x: 105, y: y - 25), radius: 25, startAngle: 0, endAngle: CGFloat.pi * 2, clockwise: true)
+        
+        #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1).setStroke()
+        pencil2.stroke()
+        
+    }
+    
+    func drawGrid() {
         let pencil = UIBezierPath()
 
         for i in 0 ... 9 {
@@ -33,9 +43,5 @@ class BoardView: UIView {
         #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1).setStroke()
         pencil.stroke()
         
-        let pencil2 = UIBezierPath(arcCenter: CGPoint(x: 105, y: y), radius: 25, startAngle: 0, endAngle: CGFloat.pi * 2, clockwise: true)
-        
-        #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1).setStroke()
-        pencil2.stroke()
     }
 }
