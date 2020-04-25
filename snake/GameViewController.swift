@@ -16,6 +16,24 @@ class GameViewController: UIViewController {
         
         
     }
+
+    @IBAction func goUp(_ sender: Any) {
+        print("hi")
+    }
+    
+    @IBAction func goDown(_ sender: Any) {
+    
+    }
+    
+    @IBAction func goLeft(_ sender: Any) {
+    
+    }
+        
+    @IBAction func goRight(_ sender: Any) {
+    }
+    
+    
+    
     
 }
 

@@ -23,6 +23,44 @@
                                     <constraint firstAttribute="width" secondItem="abu-5G-33X" secondAttribute="height" multiplier="1:1" id="TUd-bn-prK"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qDT-0l-ovs">
+                                <rect key="frame" x="285" y="756" width="198" height="127"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="106"/>
+                                <state key="normal" title="⬆️">
+                                    <color key="titleColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="goUp:" destination="BYZ-38-t0r" eventType="touchUpInside" id="IaG-3T-gjg"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="krK-Zt-yBD">
+                                <rect key="frame" x="293" y="891" width="182" height="124"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="106"/>
+                                <state key="normal" title="⬇️"/>
+                                <connections>
+                                    <action selector="goDown:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Xre-Sa-Mr5"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fl2-HE-8Yf">
+                                <rect key="frame" x="109" y="868" width="176" height="52"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="106"/>
+                                <state key="normal" title="⬅️"/>
+                                <connections>
+                                    <action selector="goLeft:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2MX-s4-eEq"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="68j-ax-lC4">
+                                <rect key="frame" x="520" y="825" width="114" height="139"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="106"/>
+                                <state key="normal" title="➡️"/>
+                                <connections>
+                                    <action selector="goRight:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qPR-he-aoq"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -35,7 +73,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53.90625" y="104.8828125"/>
+            <point key="canvasLocation" x="302" y="-15"/>
         </scene>
     </scenes>
 </document>
