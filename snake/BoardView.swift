@@ -9,7 +9,9 @@
 import UIKit
 
 class BoardView: UIView {
-
+    
+    let cellSide = 60
+    
     var y = 500
     var x = 55
     
@@ -28,15 +30,15 @@ class BoardView: UIView {
     func drawGrid() {
         let pencil = UIBezierPath()
 
-        for i in 0 ... 9 {
-            pencil.move(to: CGPoint(x: 80, y: 100 + i * 50))
-            pencil.addLine(to: CGPoint(x: 530, y: 100 + i * 50))
+        for i in 0 ... 10 {
+            pencil.move(to: CGPoint(x: 80, y: 100 + i * cellSide))
+            pencil.addLine(to: CGPoint(x: 80 + cellSide * 10, y: 100 + i * cellSide))
             
         }
         
-        for i in 0 ... 9 {
-            pencil.move(to: CGPoint(x: 80 + i * 50, y: 100))
-            pencil.addLine(to: CGPoint(x: 80 + i * 50, y: 550))
+        for i in 0 ... 10 {
+            pencil.move(to: CGPoint(x: 80 + i * cellSide, y: 100))
+            pencil.addLine(to: CGPoint(x: 80 + i * cellSide, y: 100 + cellSide * 10))
             
         }
         
