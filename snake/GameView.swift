@@ -9,11 +9,12 @@
 import UIKit
 
 class GameView: UIView {
-    let cellSide: CGFloat = 40
-    let originX: CGFloat = 30
-    let originY: CGFloat = 10
+    let cellSide: CGFloat = 60
+    let originX: CGFloat = 100
+    let originY: CGFloat = 120
     let size: Int = 10
     var snakeY = 0
+    var snakeX = 3
 
     override func draw(_ rect: CGRect) {
         drawGrid()
@@ -21,7 +22,7 @@ class GameView: UIView {
     }
 
     func drawSnake() {
-        let cell = UIBezierPath(arcCenter: CGPoint(x: 360, y: 630), radius: 30, startAngle: 0, endAngle: 2 * CGFloat.pi, clockwise: true)
+        let cell = UIBezierPath(arcCenter: CGPoint(x: originX + cellSide / 2 + cellSide * CGFloat(snakeX), y: originY + cellSide / 2 + cellSide * CGFloat(snakeY)), radius: 30, startAngle: 0, endAngle: 2 * CGFloat.pi, clockwise: true)
         #colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 1).setStroke()
         cell.lineWidth = 2
         cell.stroke()
