@@ -18,9 +18,10 @@ class GameViewController: UIViewController {
     }
     
     @IBAction func upArrow(_ sender: Any) {
-        boardView.y = boardView.y - 50
-        if boardView.y < 150 {
-            boardView.y = 150
+
+        boardView.y = boardView.y - boardView.cellSide
+        if boardView.y < 100 + boardView.cellSide / 2 {
+            boardView.y = 100 + boardView.cellSide / 2
         }
         
         boardView.setNeedsDisplay()

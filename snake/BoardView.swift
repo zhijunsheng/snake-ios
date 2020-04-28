@@ -10,17 +10,17 @@ import UIKit
 
 class BoardView: UIView {
     
-    let cellSide = 60
+    var cellSide = 50
     
     var y = 500
-    var x = 55
+    var x = 80
     
     
     override func draw(_ rect: CGRect) {
         
         drawGrid()
         
-        let pencil2 = UIBezierPath(arcCenter: CGPoint(x: x + 50, y: y - 25), radius: 25, startAngle: 0, endAngle: CGFloat.pi * 2, clockwise: true)
+        let pencil2 = UIBezierPath(arcCenter: CGPoint(x: x + cellSide / 2, y: y - cellSide / 2), radius: CGFloat(cellSide / 2), startAngle: 0, endAngle: CGFloat.pi * 2, clockwise: true)
         
         #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1).setStroke()
         pencil2.stroke()
