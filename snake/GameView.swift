@@ -22,19 +22,24 @@ class GameView: UIView {
     }
 
     func drawSnake() {
-        let cell = UIBezierPath(arcCenter: CGPoint(x: originX + cellSide / 2 + cellSide * CGFloat(snakeX), y: originY + cellSide / 2 + cellSide * CGFloat(snakeY)), radius: 30, startAngle: 0, endAngle: 2 * CGFloat.pi, clockwise: true)
+
+        drawSnakeCell(col: 3, row: 2, colour: #colorLiteral(red: 1, green: 0.4937949181, blue: 0.5472809076, alpha: 1))
+        drawSnakeCell(col: 4, row: 2, colour: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0))
+        drawSnakeCell(col: 5, row: 2, colour: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0))
+        drawSnakeCell(col: 6, row: 2, colour: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0))
+        drawSnakeCell(col: 7, row: 2, colour: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0))
+        drawSnakeCell(col: 8, row: 2, colour: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0))
+    }
+    
+    func drawSnakeCell(col: Int, row: Int, colour: UIColor) {
+        let x = originX + cellSide / 2 + cellSide * CGFloat(col)
+        let y = originY + cellSide / 2 + cellSide * CGFloat(row)
+        let cell = UIBezierPath(arcCenter: CGPoint(x: x, y: y), radius: cellSide / 2, startAngle: 0, endAngle: 2 * CGFloat.pi, clockwise: true)
         #colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 1).setStroke()
         cell.lineWidth = 2
         cell.stroke()
-        #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1).setFill()
+        colour.setFill()
         cell.fill()
-        
-        //        let cell1 = UIBezierPath(arcCenter: CGPoint(x: 360, y: 570), radius: 30, startAngle: 0, endAngle: 2 * CGFloat.pi, clockwise: true)
-        //        #colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 1).setStroke()
-        //        cell1.lineWidth = 2
-        //        cell1.stroke()
-        //        #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1).setFill()
-        //        cell1.fill()
     }
     
     func drawGrid() {
