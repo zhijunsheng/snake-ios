@@ -33,6 +33,8 @@ class GameViewController: UIViewController {
     
     @IBAction func moveUp(_ sender: Any) {
         gameScreen.snakeCell = SnakeCell(col: gameScreen.snakeCell.col, row: gameScreen.snakeCell.row - 1)
+        
+        gameScreen.drawMoveUp()
         gameScreen.setNeedsDisplay()
 
     }

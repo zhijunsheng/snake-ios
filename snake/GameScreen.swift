@@ -10,13 +10,21 @@ import UIKit
 
 class GameScreen: UIView {
     var snakeCell = SnakeCell(col: 10, row: 10)
+    var snakeShadow: [SnakeCell] = []
 
-    
-    
     override func draw(_ rect: CGRect) {
         grid()
-        babySnake()
         
+        
+            drawMoveUp()
+    }
+    
+    func drawMoveUp() {
+
+//        for i in 0..<6 {
+//            babySnake(cell: SnakeGame.snake[i])
+//
+//        }
     }
     
     func grid() {
@@ -35,9 +43,9 @@ class GameScreen: UIView {
         pen.stroke()
     }
     
-    func babySnake() {
-        let col = snakeCell.col
-        let row = snakeCell.row
+    func babySnake(cell: SnakeCell) {
+        let col = cell.col
+        let row = cell.row
         let squareSide = bounds.width / 20
         
         let head = UIBezierPath(rect: CGRect(x: CGFloat(col) * squareSide, y: CGFloat(row) * squareSide, width: squareSide, height: squareSide))
