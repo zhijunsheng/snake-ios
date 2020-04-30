@@ -10,6 +10,13 @@ import UIKit
 
 class GameViewController: UIViewController {
     
+    // MVC
+    // M: object of SnakeGame
+    // V: object of GameScreen
+    // C: object of GameViewController
+    
+    var snakeGame = SnakeGame()
+    
     @IBOutlet weak var gameScreen: GameScreen!
     
     
@@ -17,7 +24,15 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-     
+        snakeGame.snake.append(SnakeCell(col: 14, row: 11)) // 0
+        snakeGame.snake.append(SnakeCell(col: 14, row: 12)) // 1
+        snakeGame.snake.append(SnakeCell(col: 14, row: 13)) // 2
+        snakeGame.snake.append(SnakeCell(col: 15, row: 13)) // 3
+        snakeGame.snake.append(SnakeCell(col: 16, row: 13)) // 4
+        snakeGame.snake.append(SnakeCell(col: 16, row: 12)) // 5
+        
+        gameScreen.snakeShadow = snakeGame.snake
+        gameScreen.setNeedsDisplay()
     }
     
     @IBAction func moveRight(_ sender: Any) {
@@ -32,9 +47,8 @@ class GameViewController: UIViewController {
     }
     
     @IBAction func moveUp(_ sender: Any) {
-        gameScreen.snakeCell = SnakeCell(col: gameScreen.snakeCell.col, row: gameScreen.snakeCell.row - 1)
         
-        gameScreen.drawMoveUp()
+        snakeGame.moveUp()
         gameScreen.setNeedsDisplay()
 
     }

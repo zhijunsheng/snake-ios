@@ -16,15 +16,15 @@ class GameScreen: UIView {
         grid()
         
         
-            drawMoveUp()
+        drawSnake()
     }
     
-    func drawMoveUp() {
+    func drawSnake() {
 
-//        for i in 0..<6 {
-//            babySnake(cell: SnakeGame.snake[i])
-//
-//        }
+        for i in 0..<6 {
+            babySnake(cell: snakeShadow[i])
+
+        }
     }
     
     func grid() {
