@@ -19,8 +19,6 @@ class GameViewController: UIViewController {
     
     @IBOutlet weak var gameScreen: GameScreen!
     
-    
-   
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -47,10 +45,9 @@ class GameViewController: UIViewController {
     }
     
     @IBAction func moveUp(_ sender: Any) {
-        
         snakeGame.moveUp()
+        gameScreen.snakeShadow = snakeGame.snake
         gameScreen.setNeedsDisplay()
-
     }
     
     @IBAction func moveDown(_ sender: Any) {

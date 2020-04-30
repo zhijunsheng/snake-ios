@@ -13,21 +13,19 @@ class GameScreen: UIView {
     var snakeShadow: [SnakeCell] = []
 
     override func draw(_ rect: CGRect) {
-        grid()
+        drawGrid()
         
         
         drawSnake()
     }
     
     func drawSnake() {
-
-        for i in 0..<6 {
+        for i in 0..<snakeShadow.count {
             babySnake(cell: snakeShadow[i])
-
         }
     }
     
-    func grid() {
+    func drawGrid() {
         let pen = UIBezierPath()
         let squareSide = bounds.width / 20
         
