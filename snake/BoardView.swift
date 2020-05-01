@@ -10,13 +10,13 @@ import UIKit
 
 class BoardView: UIView {
     
-    let cellSide: CGFloat = 50
-    let originX: CGFloat = 187
+    let cellSide: CGFloat = 59
+    let originX: CGFloat = 100
     let originY: CGFloat = 100
     
     
-    var y: CGFloat = 500
-    var x: CGFloat = 80
+    var y: CGFloat = 120
+    var x: CGFloat = 120
 
     
     
@@ -48,15 +48,20 @@ class BoardView: UIView {
     }
     
     func drawSnake() {
-        drawSnakeCell(col: 0, row: 0)
-        
+
+        drawSnakeCell(col: 3, row: 2)
+        drawSnakeCell(col: 3, row: 3)
+        drawSnakeCell(col: 4, row: 3)
+        drawSnakeCell(col: 4, row: 4)
+        drawSnakeCell(col: 5, row: 4)
+
     }
     
     func drawSnakeCell(col: Int, row: Int) {
-        let centerX: CGFloat = 80 + cellSide / 2
-        let centerY: CGFloat = 100 + cellSide / 2
+        let x: CGFloat = originX + cellSide / 2 + cellSide * CGFloat(col)
+        let y: CGFloat = originY + cellSide / 2 + cellSide * CGFloat(row)
         
-        let pencil2 = UIBezierPath(arcCenter: CGPoint(x: centerX, y: centerY), radius: CGFloat(cellSide / 2), startAngle: 0, endAngle: CGFloat.pi * 2, clockwise: true)
+        let pencil2 = UIBezierPath(arcCenter: CGPoint(x: x, y: y), radius: CGFloat(cellSide / 2), startAngle: 0, endAngle: CGFloat.pi * 2, clockwise: true)
         
         #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1).setStroke()
         pencil2.stroke()

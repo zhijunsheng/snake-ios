@@ -18,36 +18,37 @@ class GameViewController: UIViewController {
     }
     
     @IBAction func upArrow(_ sender: Any) {
-
+        
         boardView.y = boardView.y - boardView.cellSide
-        if boardView.y < 100 + boardView.cellSide / 2 {
-            boardView.y = 100 + boardView.cellSide / 2
+        if boardView.y < boardView.originX + boardView.cellSide / 2 {
+            boardView.y = boardView.originX + boardView.cellSide / 2
         }
         
         boardView.setNeedsDisplay()
     }
     
     @IBAction func leftArrow(_ sender: Any) {
-        boardView.x = boardView.x - 50
-        if boardView.x < 55 {
-            boardView.x = 55
+        boardView.x = boardView.x - boardView.cellSide
+        if boardView.x < boardView.originX + boardView.cellSide / 2 {
+            boardView.x = boardView.originX + boardView.cellSide / 2
         }
         boardView.setNeedsDisplay()
     }
+
     
     @IBAction func downArrow(_ sender: Any) {
-        boardView.y = boardView.y + 50
-        if boardView.y > 600 {
-            boardView.y = 600
+        boardView.y = boardView.y + boardView.cellSide
+        if boardView.y > boardView.originY + boardView.cellSide * 10 - boardView.cellSide / 2 {
+            boardView.y = boardView.originY + boardView.cellSide * 10 - boardView.cellSide / 2 
         }
         boardView.setNeedsDisplay()
         
     }
     
     @IBAction func rightArrow(_ sender: Any) {
-        boardView.x = boardView.x + 50
-        if boardView.x > 505 {
-            boardView.x = 505
+        boardView.x = boardView.x + boardView.cellSide
+        if boardView.x > boardView.originX + boardView.cellSide * 10 - boardView.cellSide / 2 {
+            boardView.x = boardView.originX + boardView.cellSide * 10 - boardView.cellSide / 2
         }
         boardView.setNeedsDisplay()
     }
