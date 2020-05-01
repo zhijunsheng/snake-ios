@@ -14,10 +14,10 @@ class BoardView: UIView {
     let originX: CGFloat = 100
     let originY: CGFloat = 100
     
+    var snakeCol: Int = 5
+    var snakeRow: Int = 5
     
-    var y: CGFloat = 120
-    var x: CGFloat = 120
-
+    
     
     
     override func draw(_ rect: CGRect) {
@@ -47,13 +47,13 @@ class BoardView: UIView {
         
     }
     
-    func drawSnake() {
-
-        drawSnakeCell(col: 3, row: 2)
-        drawSnakeCell(col: 3, row: 3)
-        drawSnakeCell(col: 4, row: 3)
-        drawSnakeCell(col: 4, row: 4)
-        drawSnakeCell(col: 5, row: 4)
+    func drawSnake() { // (x, y) (129.5, 129.5)
+        
+        drawSnakeCell(col: snakeCol, row: snakeRow)
+//        drawSnakeCell(col: 3, row: 3)
+//        drawSnakeCell(col: 4, row: 3)
+//        drawSnakeCell(col: 4, row: 4)
+//        drawSnakeCell(col: 5, row: 4)
 
     }
     
