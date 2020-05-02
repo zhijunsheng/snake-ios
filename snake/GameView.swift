@@ -29,11 +29,13 @@ class GameView: UIView {
         snake.append(SnakeCell(col: 5, row: 2))
         snake.append(SnakeCell(col: 6, row: 2))
         snake.append(SnakeCell(col: 7, row: 2))
+        snake.append(SnakeCell(col: 8, row: 2))
         
-        for i in 0..<snake.count {
+        drawSnakeCell(col: snake[0].col, row: snake[0].row, colour: #colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1))
+        
+        for i in 1..<snake.count {
             drawSnakeCell(col: snake[i].col, row: snake[i].row, colour: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1))
         }
-        drawSnakeCell(col: 8, row: 2, colour: #colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1))
     }
     
     func drawSnakeCell(col: Int, row: Int, colour: UIColor) {
