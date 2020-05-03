@@ -10,21 +10,16 @@ import UIKit
 
 class BoardView: UIView {
     
-    let cellSide: CGFloat = 59
+    let cellSide: CGFloat = 50
     let originX: CGFloat = 100
     let originY: CGFloat = 100
     
     var snakeCol: Int = 5
     var snakeRow: Int = 5
-    
-    
-    
-    
-    override func draw(_ rect: CGRect) {
-        
+
+    override func draw(_ rect: CGRect) {        
         drawGrid()
         drawSnake()
-        
     }
     
     func drawGrid() {
@@ -39,22 +34,19 @@ class BoardView: UIView {
         for i in 0 ... 10 {
             pencil.move(to: CGPoint(x: originX + CGFloat(i) * cellSide, y: originY))
             pencil.addLine(to: CGPoint(x: originX + CGFloat(i) * cellSide, y: originY + cellSide * 10))
-            
         }
         
         #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1).setStroke()
         pencil.stroke()
-        
     }
     
-    func drawSnake() { // (x, y) (129.5, 129.5)
+    func drawSnake() {
         
         drawSnakeCell(col: snakeCol, row: snakeRow)
 //        drawSnakeCell(col: 3, row: 3)
 //        drawSnakeCell(col: 4, row: 3)
 //        drawSnakeCell(col: 4, row: 4)
 //        drawSnakeCell(col: 5, row: 4)
-
     }
     
     func drawSnakeCell(col: Int, row: Int) {
