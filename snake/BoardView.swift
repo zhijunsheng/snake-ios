@@ -20,6 +20,19 @@ class BoardView: UIView {
     override func draw(_ rect: CGRect) {        
         drawGrid()
         drawSnake()
+        
+        // array ?
+        let intArr: [Int] = [18, 0, -12, 9, 0, 122, 27]
+        let first = intArr[0]
+        let second = intArr[1]
+        let third = intArr[2]
+//        let last = intArr("\()")
+        
+        print("\(first)")
+        print("\(second)")
+        print("\(third)")
+//        print("\(last)")
+        print("\(intArr.count)")
     }
     
     func drawGrid() {

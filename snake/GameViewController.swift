@@ -49,6 +49,14 @@ class GameViewController: UIViewController {
         }
         boardView.setNeedsDisplay()
     }
+    @IBAction func bottomLeftArrow(_ sender: Any) {
+        boardView.snakeCol = boardView.snakeCol + 1
+        boardView.snakeRow = boardView.snakeRow + 1
+        if boardView.snakeCol > 9 {
+            boardView.snakeCol = 9
+        }
+        boardView.setNeedsDisplay()
+    }
     
 }
 

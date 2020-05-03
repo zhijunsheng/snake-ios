@@ -59,6 +59,15 @@
                                     <action selector="rightArrow:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BUC-ET-xVW"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PrJ-mM-Z1h">
+                                <rect key="frame" x="360" y="940" width="65" height="84"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="60"/>
+                                <state key="normal" title="↘️"/>
+                                <connections>
+                                    <action selector="bottomLeftArrow:" destination="BYZ-38-t0r" eventType="touchUpInside" id="so4-1g-vsH"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.10549102525465925" green="1" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
