@@ -24,7 +24,45 @@ struct SnakeGame {
         }
         
         snake = newSnake
+    }
+    
+    mutating func moveLeft() {
+        var newSnake: [SnakeCell] = [SnakeCell]()
+        let head = SnakeCell(col: snake[0].col - 1, row: snake[0].row)
         
+        newSnake.append(head)
+        
+        for i in 0..<snake.count - 1 {
+            newSnake.append(snake[i])
+        }
+        
+        snake = newSnake
+    }
+    
+    mutating func moveRight() {
+        var newSnake: [SnakeCell] = [SnakeCell]()
+        let head = SnakeCell(col: snake[0].col + 1, row: snake[0].row)
+        
+        newSnake.append(head)
+        
+        for i in 0..<snake.count - 1 {
+            newSnake.append(snake[i])
+        }
+        
+        snake = newSnake
+    }
+    
+    mutating func moveDown() {
+        var newSnake: [SnakeCell] = [SnakeCell]()
+        let head = SnakeCell(col: snake[0].col, row: snake[0].row + 1)
+        
+        newSnake.append(head)
+        
+        for i in 0..<snake.count - 1 {
+            newSnake.append(snake[i])
+        }
+        
+        snake = newSnake
     }
 }
 

@@ -34,14 +34,15 @@ class GameViewController: UIViewController {
     }
     
     @IBAction func moveRight(_ sender: Any) {
-        gameScreen.snakeCell = SnakeCell(col: gameScreen.snakeCell.col + 1, row: gameScreen.snakeCell.row)
+        snakeGame.moveRight()
+        gameScreen.snakeShadow = snakeGame.snake
         gameScreen.setNeedsDisplay()
     }
     
     @IBAction func moveLeft(_ sender: Any) {
-        gameScreen.snakeCell = SnakeCell(col: gameScreen.snakeCell.col - 1, row: gameScreen.snakeCell.row)
+        snakeGame.moveLeft()
+        gameScreen.snakeShadow = snakeGame.snake
         gameScreen.setNeedsDisplay()
-
     }
     
     @IBAction func moveUp(_ sender: Any) {
@@ -51,7 +52,8 @@ class GameViewController: UIViewController {
     }
     
     @IBAction func moveDown(_ sender: Any) {
-        gameScreen.snakeCell = SnakeCell(col: gameScreen.snakeCell.col, row: gameScreen.snakeCell.row + 1)
+        snakeGame.moveDown()
+        gameScreen.snakeShadow = snakeGame.snake
         gameScreen.setNeedsDisplay()
 
     }
