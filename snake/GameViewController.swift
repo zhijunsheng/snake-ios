@@ -22,6 +22,10 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        snakeGame.randomApple()
+        gameScreen.shadowAppleX = snakeGame.appleX
+        gameScreen.shadowAppleY = snakeGame.appleY
+
         snakeGame.snake.append(SnakeCell(col: 14, row: 11)) // 0
         snakeGame.snake.append(SnakeCell(col: 14, row: 12)) // 1
         snakeGame.snake.append(SnakeCell(col: 14, row: 13)) // 2

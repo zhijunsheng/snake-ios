@@ -10,8 +10,10 @@ import Foundation
 
 
 struct SnakeGame {
-    
+    let squareSides = 20
     var snake: [SnakeCell] = [SnakeCell]()
+    var appleX: Int = 5
+    var appleY: Int = 5
 
     
     mutating func updateSnakeWith(head: SnakeCell) {
@@ -41,6 +43,12 @@ struct SnakeGame {
     mutating func moveDown() {
         updateSnakeWith(head: SnakeCell(col: snake[0].col, row: snake[0].row + 1))
     }
+    
+    mutating func randomApple() {
+        appleX = Int(arc4random() % UInt32(squareSides))
+        appleY = Int(arc4random() % UInt32(squareSides))
+    }
+    
 }
 
 

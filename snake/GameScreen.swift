@@ -11,11 +11,13 @@ import UIKit
 class GameScreen: UIView {
     var snakeCell = SnakeCell(col: 10, row: 10)
     var snakeShadow: [SnakeCell] = []
+    var shadowAppleX: Int = 5
+    var shadowAppleY: Int = 5
 
     override func draw(_ rect: CGRect) {
         drawGrid()
         
-        
+        apple()
         drawSnake()
     }
     
@@ -52,6 +54,15 @@ class GameScreen: UIView {
         color.setFill()
         head.fill()
         
+    }
+    
+    func apple() {
+        let squareSide = bounds.width / 20
+
+        let apple = UIBezierPath(rect: CGRect(x: CGFloat(shadowAppleX) * squareSide, y: CGFloat(shadowAppleY) * squareSide, width: squareSide, height: squareSide))
+        
+        #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1).setFill()
+        apple.fill()
     }
     
 }
