@@ -50,4 +50,10 @@ class GameViewController: UIViewController {
         boardView.snakeShadow = snakeGame.snake
         boardView.setNeedsDisplay()
     }
+
+    @IBAction func goDownDiagonal(_ sender: Any) {
+        snakeGame.moveDownDiagonal()
+        boardView.snakeShadow = snakeGame.snake
+        boardView.setNeedsDisplay()
+    }
 }

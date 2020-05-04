@@ -39,6 +39,12 @@ struct SnakeGame {
         newSnake.append(SnakeCell(col: snake[0].col, row: snake[0].row + 1))
         snake = newSnake
     }
+    
+    mutating func moveDownDiagonal() {
+        var newSnake: [SnakeCell] = []
+        newSnake.append(SnakeCell(col: snake[0].col + 1, row: snake[0].row + 1))
+        snake = newSnake
+    }
 }
 
 
