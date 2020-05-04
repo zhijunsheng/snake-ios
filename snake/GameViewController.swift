@@ -10,29 +10,44 @@ import UIKit
 
 class GameViewController: UIViewController {
 
+    var snakeGame: SnakeGame = SnakeGame()
+    
     @IBOutlet weak var boardView: GameView!
     
     override func viewDidLoad() {
-        super.viewDidLoad()      
+        super.viewDidLoad()
+        
+        snakeGame.snake.append(SnakeCell(col: 3, row: 2))
+//        snakeGame.snake.append(SnakeCell(col: 4, row: 2))
+//        snakeGame.snake.append(SnakeCell(col: 5, row: 2))
+//        snakeGame.snake.append(SnakeCell(col: 6, row: 2))
+//        snakeGame.snake.append(SnakeCell(col: 7, row: 2))
+//        snakeGame.snake.append(SnakeCell(col: 8, row: 2))
+        
+        boardView.snakeShadow = snakeGame.snake
     }
 
     @IBAction func goUp(_ sender: Any) {
-        boardView.snakeY = boardView.snakeY - 1
+        snakeGame.moveUp()
+        boardView.snakeShadow = snakeGame.snake
         boardView.setNeedsDisplay()
     }
     
     @IBAction func goDown(_ sender: Any) {
-        boardView.snakeY = boardView.snakeY + 1
+        snakeGame.moveDown()
+        boardView.snakeShadow = snakeGame.snake
         boardView.setNeedsDisplay()
     }
     
     @IBAction func goLeft(_ sender: Any) {
-        boardView.snakeX = boardView.snakeX - 1
+        snakeGame.moveLeft()
+        boardView.snakeShadow = snakeGame.snake
         boardView.setNeedsDisplay()
     }
         
     @IBAction func goRight(_ sender: Any) {
-        boardView.snakeX = boardView.snakeX + 1
+        snakeGame.moveRight()
+        boardView.snakeShadow = snakeGame.snake
         boardView.setNeedsDisplay()
     }
 }

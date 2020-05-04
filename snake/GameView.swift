@@ -10,31 +10,26 @@ import UIKit
 
 class GameView: UIView {
     let cellSide: CGFloat = 60
-    let originX: CGFloat = 100
-    let originY: CGFloat = 120
+    let originX: CGFloat = 80
+    let originY: CGFloat = 80
     let size: Int = 10
-    var snakeY = 0
-    var snakeX = 3
-
+    
+    var snakeShadow: [SnakeCell] = []
+    
     override func draw(_ rect: CGRect) {
         drawGrid()
         drawSnake()
-
     }
 
     func drawSnake() {
-        var snake: [SnakeCell] = []
-        snake.append(SnakeCell(col: 3, row: 2))
-        snake.append(SnakeCell(col: 4, row: 2))
-        snake.append(SnakeCell(col: 5, row: 2))
-        snake.append(SnakeCell(col: 6, row: 2))
-        snake.append(SnakeCell(col: 7, row: 2))
-        snake.append(SnakeCell(col: 8, row: 2))
+        if snakeShadow.count == 0 {
+            return
+        }
         
-        drawSnakeCell(col: snake[0].col, row: snake[0].row, colour: #colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1))
+        drawSnakeCell(col: snakeShadow[0].col, row: snakeShadow[0].row, colour: #colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1))
         
-        for i in 1..<snake.count {
-            drawSnakeCell(col: snake[i].col, row: snake[i].row, colour: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1))
+        for i in 1..<snakeShadow.count {
+            drawSnakeCell(col: snakeShadow[i].col, row: snakeShadow[i].row, colour: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1))
         }
     }
     
@@ -51,13 +46,11 @@ class GameView: UIView {
     
     func drawGrid() {
         let pencil = UIBezierPath()
-        // horizontal lines
         for i in 0..<size + 1 {
+            // horizontal lines
             pencil.move(to: CGPoint(x: originX, y: CGFloat(i) * cellSide + originY))
             pencil.addLine(to: CGPoint(x: originX + CGFloat(size) * cellSide, y: CGFloat(i) * cellSide + originY))
-        }
-        // vertical lines
-        for i in 0..<size + 1 {
+            // vertical lines
             pencil.move(to: CGPoint(x: CGFloat(i) * cellSide + originX, y: originY))
             pencil.addLine(to: CGPoint(x: CGFloat(i) * cellSide + originX, y: CGFloat(size) * cellSide + originY))
         }
