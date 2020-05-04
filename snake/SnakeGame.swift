@@ -12,57 +12,34 @@ import Foundation
 struct SnakeGame {
     
     var snake: [SnakeCell] = [SnakeCell]()
+
     
-    mutating func moveUp() {
+    mutating func updateSnakeWith(head: SnakeCell) {
         var newSnake: [SnakeCell] = [SnakeCell]()
-        let head = SnakeCell(col: snake[0].col, row: snake[0].row - 1)
 
         newSnake.append(head)
-        
+
         for i in 0..<snake.count - 1 {
             newSnake.append(snake[i])
         }
-        
         snake = newSnake
+        newSnake.removeAll()
+    }
+    
+    mutating func moveUp() {
+        updateSnakeWith(head: SnakeCell(col: snake[0].col, row: snake[0].row - 1))
     }
     
     mutating func moveLeft() {
-        var newSnake: [SnakeCell] = [SnakeCell]()
-        let head = SnakeCell(col: snake[0].col - 1, row: snake[0].row)
-        
-        newSnake.append(head)
-        
-        for i in 0..<snake.count - 1 {
-            newSnake.append(snake[i])
-        }
-        
-        snake = newSnake
+        updateSnakeWith(head: SnakeCell(col: snake[0].col - 1, row: snake[0].row))
     }
     
     mutating func moveRight() {
-        var newSnake: [SnakeCell] = [SnakeCell]()
-        let head = SnakeCell(col: snake[0].col + 1, row: snake[0].row)
-        
-        newSnake.append(head)
-        
-        for i in 0..<snake.count - 1 {
-            newSnake.append(snake[i])
-        }
-        
-        snake = newSnake
+        updateSnakeWith(head: SnakeCell(col: snake[0].col + 1, row: snake[0].row))
     }
     
     mutating func moveDown() {
-        var newSnake: [SnakeCell] = [SnakeCell]()
-        let head = SnakeCell(col: snake[0].col, row: snake[0].row + 1)
-        
-        newSnake.append(head)
-        
-        for i in 0..<snake.count - 1 {
-            newSnake.append(snake[i])
-        }
-        
-        snake = newSnake
+        updateSnakeWith(head: SnakeCell(col: snake[0].col, row: snake[0].row + 1))
     }
 }
 
