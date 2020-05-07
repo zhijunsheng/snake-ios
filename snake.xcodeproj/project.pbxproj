@@ -12,6 +12,7 @@
 		07FDE4132016091500A674FE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07FDE4112016091500A674FE /* Main.storyboard */; };
 		07FDE4152016091500A674FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07FDE4142016091500A674FE /* Assets.xcassets */; };
 		07FDE4182016091500A674FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07FDE4162016091500A674FE /* LaunchScreen.storyboard */; };
+		A3148A572464A9080027EDEA /* WhileLoopTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3148A562464A9080027EDEA /* WhileLoopTests.swift */; };
 		A322015B2452303E00150D3A /* SnakeGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = A322015A2452303E00150D3A /* SnakeGame.swift */; };
 		A322015D245238FD00150D3A /* SnakeGameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A322015C245238FD00150D3A /* SnakeGameTests.swift */; };
 		A39FA6FC244D2DCA00BFE260 /* GameScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39FA6FB244D2DCA00BFE260 /* GameScreen.swift */; };
@@ -36,6 +37,7 @@
 		07FDE4142016091500A674FE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		07FDE4172016091500A674FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		07FDE4192016091500A674FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A3148A562464A9080027EDEA /* WhileLoopTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhileLoopTests.swift; sourceTree = "<group>"; };
 		A322015A2452303E00150D3A /* SnakeGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnakeGame.swift; sourceTree = "<group>"; };
 		A322015C245238FD00150D3A /* SnakeGameTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnakeGameTests.swift; sourceTree = "<group>"; };
 		A39FA6FB244D2DCA00BFE260 /* GameScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScreen.swift; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 			children = (
 				A322015C245238FD00150D3A /* SnakeGameTests.swift */,
 				BBBB995A201C0ABB008FF835 /* Info.plist */,
+				A3148A562464A9080027EDEA /* WhileLoopTests.swift */,
 			);
 			path = snakeTests;
 			sourceTree = "<group>";
@@ -221,6 +224,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A322015D245238FD00150D3A /* SnakeGameTests.swift in Sources */,
+				A3148A572464A9080027EDEA /* WhileLoopTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

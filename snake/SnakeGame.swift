@@ -51,6 +51,21 @@ struct SnakeGame {
     mutating func randomApple() {
         appleX = Int(arc4random() % UInt32(squareSides))
         appleY = Int(arc4random() % UInt32(squareSides))
+    
+        while onSnake(x: appleX, y: appleY) {
+            appleX = Int(arc4random() % UInt32(squareSides))
+            appleY = Int(arc4random() % UInt32(squareSides))
+        }
+        // will only break when the snake fills the board
+    }
+    
+    func onSnake(x: Int, y: Int) -> Bool {
+        for cell in snake {
+            if x == cell.col && y == cell.row {
+                return true
+            }
+        }
+        return false
     }
     
     mutating func eat() {
