@@ -14,7 +14,8 @@ struct SnakeGame {
     var snake: [SnakeCell] = [SnakeCell]()
     var appleX: Int = 5
     var appleY: Int = 5
-
+    var points: Int = 0
+    
     
     mutating func updateSnakeWith(head: SnakeCell) {
         var newSnake: [SnakeCell] = [SnakeCell]()
@@ -24,12 +25,15 @@ struct SnakeGame {
         for i in 0..<snake.count - 1 {
             newSnake.append(snake[i])
         }
+        
         snake = newSnake
         newSnake.removeAll()
     }
     
     mutating func moveUp() {
         updateSnakeWith(head: SnakeCell(col: snake[0].col, row: snake[0].row - 1))
+        
+        
     }
     
     mutating func moveLeft() {
@@ -49,6 +53,14 @@ struct SnakeGame {
         appleY = Int(arc4random() % UInt32(squareSides))
     }
     
+    mutating func eat() {
+        appleX = 1000
+        appleY = 1000
+        
+        points = points + 1
+        print("Points:", points)
+        
+    }
 }
 
 
