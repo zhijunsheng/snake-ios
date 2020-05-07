@@ -46,8 +46,12 @@ class GameViewController: UIViewController {
             snakeGame.randomApple()
             gameScreen.shadowAppleX = snakeGame.appleX
             gameScreen.shadowAppleY = snakeGame.appleY
+            
+            snakeGame.snake.append(SnakeCell(col: snakeGame.snake[snakeGame.snake.count - 1].col, row: snakeGame.snake[snakeGame.snake.count - 1].row - 1))
+            gameScreen.snakeShadow = snakeGame.snake
+            gameScreen.setNeedsDisplay()
         }
-    
+        
     }
     
     @IBAction func moveRight(_ sender: Any) {
