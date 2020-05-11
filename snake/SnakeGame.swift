@@ -28,12 +28,23 @@ struct SnakeGame {
         
         snake = newSnake
         newSnake.removeAll()
+        
+        if snake[0].col == appleX && snake[0].row == appleY {
+            // nom nom
+            appleX = 1000
+            appleY = 1000
+        
+            points = points + 1
+            print("Points:", points)
+            
+            randomApple()
+            
+            snake.append(SnakeCell(col: snake[snake.count - 1].col, row: snake[snake.count - 1].row - 1))
+        }
     }
     
     mutating func moveUp() {
         updateSnakeWith(head: SnakeCell(col: snake[0].col, row: snake[0].row - 1))
-        
-        
     }
     
     mutating func moveLeft() {
@@ -66,21 +77,6 @@ struct SnakeGame {
             }
         }
         return false
-    }
-    
-    mutating func eat() {
-        appleX = 1000
-        appleY = 1000
-        
-        points = points + 1
-        print("Points:", points)
-        
-        
-        
-        randomApple()
-       
-        
-        snake.append(SnakeCell(col: snake[snake.count - 1].col, row: snake[snake.count - 1].row - 1))
     }
 }
 

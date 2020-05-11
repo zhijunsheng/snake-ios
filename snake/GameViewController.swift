@@ -39,17 +39,11 @@ class GameViewController: UIViewController {
     }
     
     func eatUpdate() {
-        if snakeGame.snake[0].col == snakeGame.appleX && snakeGame.snake[0].row == snakeGame.appleY {            
-            gameScreen.shadowAppleX = snakeGame.appleX
-            gameScreen.shadowAppleY = snakeGame.appleY
-            snakeGame.eat()
-            gameScreen.shadowAppleX = snakeGame.appleX
-            gameScreen.shadowAppleY = snakeGame.appleY
-            
-            gameScreen.snakeShadow = snakeGame.snake
-            gameScreen.setNeedsDisplay()
-        }
-
+        gameScreen.shadowAppleX = snakeGame.appleX
+        gameScreen.shadowAppleY = snakeGame.appleY
+        
+        gameScreen.snakeShadow = snakeGame.snake
+        gameScreen.setNeedsDisplay()
     }
     
     @IBAction func moveRight(_ sender: Any) {
