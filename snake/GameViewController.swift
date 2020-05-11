@@ -39,24 +39,21 @@ class GameViewController: UIViewController {
     }
     
     func eatUpdate() {
-        if snakeGame.snake[0].col == snakeGame.appleX && snakeGame.snake[0].row == snakeGame.appleY {
+        if snakeGame.snake[0].col == snakeGame.appleX && snakeGame.snake[0].row == snakeGame.appleY {            
+            gameScreen.shadowAppleX = snakeGame.appleX
+            gameScreen.shadowAppleY = snakeGame.appleY
             snakeGame.eat()
             gameScreen.shadowAppleX = snakeGame.appleX
             gameScreen.shadowAppleY = snakeGame.appleY
-            snakeGame.randomApple()
-            gameScreen.shadowAppleX = snakeGame.appleX
-            gameScreen.shadowAppleY = snakeGame.appleY
             
-            snakeGame.snake.append(SnakeCell(col: snakeGame.snake[snakeGame.snake.count - 1].col, row: snakeGame.snake[snakeGame.snake.count - 1].row - 1))
             gameScreen.snakeShadow = snakeGame.snake
             gameScreen.setNeedsDisplay()
         }
-        
+
     }
     
     @IBAction func moveRight(_ sender: Any) {
         snakeGame.moveRight()
-        
         eatUpdate()
         
         gameScreen.snakeShadow = snakeGame.snake

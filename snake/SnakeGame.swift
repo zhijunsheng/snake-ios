@@ -75,6 +75,12 @@ struct SnakeGame {
         points = points + 1
         print("Points:", points)
         
+        
+        
+        randomApple()
+       
+        
+        snake.append(SnakeCell(col: snake[snake.count - 1].col, row: snake[snake.count - 1].row - 1))
     }
 }
 
