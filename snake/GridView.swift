@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Grid: UIView {
+class GridView: UIView {
     
     let gridNum: Int = 10
     
