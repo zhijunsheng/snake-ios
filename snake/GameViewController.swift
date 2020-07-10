@@ -10,13 +10,18 @@ import UIKit
 
 class GameViewController: UIViewController {
     
-   
+    @IBOutlet weak var gridView: Grid!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
      
     }
     
+    @IBAction func moveUp(_ sender: Any) {
+        gridView.snakeRow = gridView.snakeRow - 1
+        gridView.setNeedsDisplay()
+    }
     
 }
 

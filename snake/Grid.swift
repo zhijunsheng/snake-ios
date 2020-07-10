@@ -16,6 +16,11 @@ class Grid: UIView {
     let xStart: CGFloat = 100
     let yStart: CGFloat = 100
     
+    var snakeCol: Int = 0
+    var snakeRow: Int = 5
+    
+    
+    
     override func draw(_ rect: CGRect) {
         drawGrid()
         drawSnake()
@@ -40,11 +45,7 @@ class Grid: UIView {
     }
     
     func drawSnake() {
-        drawSnakeCell(col: 0, row: 1)
-        drawSnakeCell(col: 1, row: 1)
-        drawSnakeCell(col: 2, row: 1)
-        drawSnakeCell(col: 2, row: 2)
-        drawSnakeCell(col: 3, row: 2)
+        drawSnakeCell(col: snakeCol, row: snakeRow)
     }
     
 }
