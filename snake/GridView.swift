@@ -19,7 +19,7 @@ class GridView: UIView {
     var snakeCol: Int = 0
     var snakeRow: Int = 5
     
-    
+    var snake: [SnakeCell] = []
     
     override func draw(_ rect: CGRect) {
         drawGrid()
@@ -47,5 +47,4 @@ class GridView: UIView {
     func drawSnake() {
         drawSnakeCell(col: snakeCol, row: snakeRow)
     }
-    
 }

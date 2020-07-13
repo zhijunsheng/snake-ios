@@ -23,5 +23,20 @@ class GameViewController: UIViewController {
         gridView.setNeedsDisplay()
     }
     
+    @IBAction func moveDown(_ sender: Any) {
+        gridView.snakeRow = gridView.snakeRow + 1
+        gridView.setNeedsDisplay()
+    }
+    
+    @IBAction func moveLeft(_ sender: Any) {
+        gridView.snakeCol = gridView.snakeCol - 1
+        gridView.setNeedsDisplay()
+    }
+    
+    
+    @IBAction func moveRight(_ sender: Any) {
+        gridView.snakeCol = gridView.snakeCol + 1
+        gridView.setNeedsDisplay()
+    }
 }
 
