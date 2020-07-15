@@ -10,33 +10,42 @@ import UIKit
 
 class GameViewController: UIViewController {
     
+    var game: SnakeGame = SnakeGame()
+    
     @IBOutlet weak var gridView: GridView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-     
+        game.snake.append(SnakeCell(col: 1, row: 1))
+        game.snake.append(SnakeCell(col: 1, row: 2))
+        game.snake.append(SnakeCell(col: 1, row: 3))
+        game.snake.append(SnakeCell(col: 1, row: 4))
+        game.snake.append(SnakeCell(col: 1, row: 5))
+        gridView.snakeCopy = game.snake
     }
     
     @IBAction func moveUp(_ sender: Any) {
-        gridView.snakeRow = gridView.snakeRow - 1
+        game.moveSnakeUp()
+        gridView.snakeCopy = game.snake
         gridView.setNeedsDisplay()
     }
     
     @IBAction func moveDown(_ sender: Any) {
-        gridView.snakeRow = gridView.snakeRow + 1
+        game.moveSnakeDown()
+        gridView.snakeCopy = game.snake
         gridView.setNeedsDisplay()
     }
     
     @IBAction func moveLeft(_ sender: Any) {
-        gridView.snakeCol = gridView.snakeCol - 1
+        game.moveSnakeLeft()
+        gridView.snakeCopy = game.snake
         gridView.setNeedsDisplay()
     }
     
     
     @IBAction func moveRight(_ sender: Any) {
-        gridView.snakeCol = gridView.snakeCol + 1
+        game.moveSnakeRight()
+        gridView.snakeCopy = game.snake
         gridView.setNeedsDisplay()
     }
 }
-

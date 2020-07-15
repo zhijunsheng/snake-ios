@@ -16,10 +16,7 @@ class GridView: UIView {
     let xStart: CGFloat = 100
     let yStart: CGFloat = 100
     
-    var snakeCol: Int = 0
-    var snakeRow: Int = 5
-    
-    var snake: [SnakeCell] = []
+    var snakeCopy: [SnakeCell] = []
     
     override func draw(_ rect: CGRect) {
         drawGrid()
@@ -45,6 +42,9 @@ class GridView: UIView {
     }
     
     func drawSnake() {
-        drawSnakeCell(col: snakeCol, row: snakeRow)
+        for i in 0 ..< snakeCopy.count {
+            let snakeCell = snakeCopy[i]
+            drawSnakeCell(col: snakeCell.col, row: snakeCell.row)
+        }
     }
 }
