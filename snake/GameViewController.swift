@@ -22,6 +22,11 @@ class GameViewController: UIViewController {
         game.snake.append(SnakeCell(col: 2, row: 2))
         game.snake.append(SnakeCell(col: 2, row: 3))
         game.snake.append(SnakeCell(col: 3, row: 3))
+        game.snake.append(SnakeCell(col: 3, row: 4))
+        game.snake.append(SnakeCell(col: 3, row: 2))
+        game.snake.append(SnakeCell(col: 3, row: 1))
+        game.snake.append(SnakeCell(col: 3, row: 0))
+        
         
         gridView.snakeCopy = game.snake
     }

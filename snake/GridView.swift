@@ -49,7 +49,7 @@ class GridView: UIView {
         
         let snakeCell = snakeCopy[0]
         drawSnakeCell(col: snakeCell.col, row: snakeCell.row, color: UIColor(red: redRandom, green: greenRandom, blue: blueRandom, alpha: 1))
-        for i in 0 ..< 4 {
+        for i in 0 ..< snakeCopy.count - 1 {
             let snakeCell0 = snakeCopy[i + 1]
             drawSnakeCell(col: snakeCell0.col, row: snakeCell0.row, color: #colorLiteral(red: 0, green: 0.5603182912, blue: 0, alpha: 1))
         }
