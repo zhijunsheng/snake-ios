@@ -16,11 +16,13 @@ class GameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         game.snake.append(SnakeCell(col: 1, row: 1))
-        game.snake.append(SnakeCell(col: 1, row: 2))
-        game.snake.append(SnakeCell(col: 1, row: 3))
-        game.snake.append(SnakeCell(col: 1, row: 4))
-        game.snake.append(SnakeCell(col: 1, row: 5))
+        game.snake.append(SnakeCell(col: 2, row: 1))
+        game.snake.append(SnakeCell(col: 2, row: 2))
+        game.snake.append(SnakeCell(col: 2, row: 3))
+        game.snake.append(SnakeCell(col: 3, row: 3))
+        
         gridView.snakeCopy = game.snake
     }
     
