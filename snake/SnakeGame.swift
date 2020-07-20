@@ -6,11 +6,13 @@
 //  Copyright © 2020 GoldThumb Inc. All rights reserved.
 //
 //
-// import Foundation
-//
+
+import Foundation
 
 struct SnakeGame {
     var snake: [SnakeCell] = []
+    
+    var fruit: Fruit?
     
     
     mutating func moveSnakeRight() {
@@ -20,9 +22,13 @@ struct SnakeGame {
         for i in 0 ..< snake.count - 1 {
             newSnake.append(snake[i])
         }
-        
-        
         snake = newSnake
+        
+        if snake[0].col == fruit?.col && snake[0].row == fruit?.row {
+            let randomCol: Int = Int(arc4random()) % GridView.gridNum
+            let randomRow: Int = Int(arc4random()) % GridView.gridNum
+            fruit = Fruit(col: randomCol, row: randomRow)
+        }
     }
     
     mutating func moveSnakeDown() {
@@ -34,6 +40,12 @@ struct SnakeGame {
         }
         
         snake = newSnake
+        
+        if snake[0].col == fruit?.col && snake[0].row == fruit?.row {
+            let randomCol: Int = Int(arc4random()) % GridView.gridNum
+            let randomRow: Int = Int(arc4random()) % GridView.gridNum
+            fruit = Fruit(col: randomCol, row: randomRow)
+        }
     }
     
     mutating func moveSnakeLeft() {
@@ -45,6 +57,11 @@ struct SnakeGame {
         }
         
         snake = newSnake
+        if snake[0].col == fruit?.col && snake[0].row == fruit?.row {
+            let randomCol: Int = Int(arc4random()) % GridView.gridNum
+            let randomRow: Int = Int(arc4random()) % GridView.gridNum
+            fruit = Fruit(col: randomCol, row: randomRow)
+        }
     }
     
     mutating func moveSnakeUp() {
@@ -54,6 +71,13 @@ struct SnakeGame {
         for i in 0 ..< snake.count - 1 {
             newSnake.append(snake[i])
         }
+        
         snake = newSnake
+        
+        if snake[0].col == fruit?.col && snake[0].row == fruit?.row {
+            let randomCol: Int = Int(arc4random()) % GridView.gridNum
+            let randomRow: Int = Int(arc4random()) % GridView.gridNum
+            fruit = Fruit(col: randomCol, row: randomRow)
+        }
     }
 }

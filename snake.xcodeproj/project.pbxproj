@@ -15,6 +15,7 @@
 		1E58C11624BCEEA800CB9A0F /* SnakeGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E58C11524BCEEA800CB9A0F /* SnakeGame.swift */; };
 		1EA6265224B8EFD1000DDD79 /* SnakeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA6265024B8EFD1000DDD79 /* SnakeCell.swift */; };
 		1EA6265324B8EFD1000DDD79 /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA6265124B8EFD1000DDD79 /* GridView.swift */; };
+		1ED8334C24C229A3003A4EA1 /* Fruit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED8334B24C229A3003A4EA1 /* Fruit.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +40,7 @@
 		1E60A29624B6583A00A308D7 /* snake.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = snake.entitlements; sourceTree = "<group>"; };
 		1EA6265024B8EFD1000DDD79 /* SnakeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnakeCell.swift; sourceTree = "<group>"; };
 		1EA6265124B8EFD1000DDD79 /* GridView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
+		1ED8334B24C229A3003A4EA1 /* Fruit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fruit.swift; sourceTree = "<group>"; };
 		BBBB9956201C0ABA008FF835 /* snakeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = snakeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBBB995A201C0ABB008FF835 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -86,8 +88,9 @@
 				07FDE40D2016091500A674FE /* AppDelegate.swift */,
 				07FDE40F2016091500A674FE /* GameViewController.swift */,
 				1EA6265124B8EFD1000DDD79 /* GridView.swift */,
-				1EA6265024B8EFD1000DDD79 /* SnakeCell.swift */,
 				1E58C11524BCEEA800CB9A0F /* SnakeGame.swift */,
+				1EA6265024B8EFD1000DDD79 /* SnakeCell.swift */,
+				1ED8334B24C229A3003A4EA1 /* Fruit.swift */,
 				07FDE4112016091500A674FE /* Main.storyboard */,
 				07FDE4142016091500A674FE /* Assets.xcassets */,
 				07FDE4162016091500A674FE /* LaunchScreen.storyboard */,
@@ -149,7 +152,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0920;
-				LastUpgradeCheck = 0920;
+				LastUpgradeCheck = 1160;
 				ORGANIZATIONNAME = "GoldThumb Inc.";
 				TargetAttributes = {
 					07FDE4092016091500A674FE = {
@@ -207,6 +210,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1ED8334C24C229A3003A4EA1 /* Fruit.swift in Sources */,
 				1E58C11624BCEEA800CB9A0F /* SnakeGame.swift in Sources */,
 				1EA6265224B8EFD1000DDD79 /* SnakeCell.swift in Sources */,
 				07FDE4102016091500A674FE /* GameViewController.swift in Sources */,
@@ -266,6 +270,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -273,6 +278,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -323,6 +329,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -330,6 +337,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;

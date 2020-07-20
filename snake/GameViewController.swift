@@ -21,31 +21,34 @@ class GameViewController: UIViewController {
         game.snake.append(SnakeCell(col: 2, row: 1))
         game.snake.append(SnakeCell(col: 2, row: 2))
         game.snake.append(SnakeCell(col: 2, row: 3))
-        game.snake.append(SnakeCell(col: 3, row: 3))
-        game.snake.append(SnakeCell(col: 3, row: 4))
-        game.snake.append(SnakeCell(col: 3, row: 2))
-        game.snake.append(SnakeCell(col: 3, row: 1))
-        game.snake.append(SnakeCell(col: 3, row: 0))
         
+        let randomCol: Int = Int(arc4random()) % GridView.gridNum
+        let randomRow: Int = Int(arc4random()) % GridView.gridNum
+        
+        game.fruit = Fruit(col: randomCol, row: randomRow)
         
         gridView.snakeCopy = game.snake
+        gridView.fruitCopy = game.fruit
     }
     
     @IBAction func moveUp(_ sender: Any) {
         game.moveSnakeUp()
         gridView.snakeCopy = game.snake
+        gridView.fruitCopy = game.fruit
         gridView.setNeedsDisplay()
     }
     
     @IBAction func moveDown(_ sender: Any) {
         game.moveSnakeDown()
         gridView.snakeCopy = game.snake
+        gridView.fruitCopy = game.fruit
         gridView.setNeedsDisplay()
     }
     
     @IBAction func moveLeft(_ sender: Any) {
         game.moveSnakeLeft()
         gridView.snakeCopy = game.snake
+        gridView.fruitCopy = game.fruit
         gridView.setNeedsDisplay()
     }
     
@@ -53,6 +56,7 @@ class GameViewController: UIViewController {
     @IBAction func moveRight(_ sender: Any) {
         game.moveSnakeRight()
         gridView.snakeCopy = game.snake
+        gridView.fruitCopy = game.fruit
         gridView.setNeedsDisplay()
     }
 }

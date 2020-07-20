@@ -9,30 +9,36 @@
 import UIKit
 
 class GridView: UIView {
-    
-    let gridNum: Int = 10
-    
+   
+   static let gridNum: Int = 10
+   
     let cell: CGFloat = 50
     let xStart: CGFloat = 100
     let yStart: CGFloat = 100
-    
+   
     var snakeCopy: [SnakeCell] = []
-    
+    var fruitCopy: Fruit?
+   
     override func draw(_ rect: CGRect) {
         drawGrid()
         drawSnake()
-        drawFruit(col: 6, row: 6)
+   
+   
+        if let fruit = fruitCopy {
+            drawFruitCopy(col: fruit.col, row: fruit.row)
+        }
+   
     }
     
     func drawGrid() {
         #colorLiteral(red: 0.5401437283, green: 0.5470389724, blue: 0.5468119979, alpha: 0.8094231592).setStroke()
         let path = UIBezierPath()
-        for i in 0 ... gridNum {
+        for i in 0 ... GridView.gridNum {
             path.move(to: CGPoint(x: xStart, y: cell * CGFloat(i) + yStart))
-            path.addLine(to: CGPoint(x: CGFloat(gridNum) * cell + xStart, y: cell * CGFloat(i) + yStart))
+            path.addLine(to: CGPoint(x: CGFloat(GridView.gridNum) * cell + xStart, y: cell * CGFloat(i) + yStart))
             
             path.move(to: CGPoint(x: cell * CGFloat(i) + xStart, y: yStart))
-            path.addLine(to: CGPoint(x: cell * CGFloat(i) + xStart, y: CGFloat(gridNum) * cell + yStart))
+            path.addLine(to: CGPoint(x: cell * CGFloat(i) + xStart, y: CGFloat(GridView.gridNum) * cell + yStart))
         }
         path.stroke()
     }
@@ -55,11 +61,10 @@ class GridView: UIView {
         }
     }
     
-    func drawFruit(col: Int, row: Int) {
+    func drawFruitCopy(col: Int, row: Int) {
         let redRandom: CGFloat = CGFloat(arc4random() % 1000)/1000
         let greenRandom: CGFloat = CGFloat(arc4random() % 1000)/1000
         let blueRandom: CGFloat = CGFloat(arc4random() % 1000)/1000
-        
         
         let red: CGFloat = redRandom
         let green: CGFloat = greenRandom
