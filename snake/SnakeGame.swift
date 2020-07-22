@@ -22,13 +22,16 @@ struct SnakeGame {
         for i in 0 ..< snake.count - 1 {
             newSnake.append(snake[i])
         }
-        snake = newSnake
         
         if snake[0].col == fruit?.col && snake[0].row == fruit?.row {
+            newSnake.append(snake[snake.count - 1])
             let randomCol: Int = Int(arc4random()) % GridView.gridNum
             let randomRow: Int = Int(arc4random()) % GridView.gridNum
             fruit = Fruit(col: randomCol, row: randomRow)
         }
+        
+        snake = newSnake
+
     }
     
     mutating func moveSnakeDown() {
@@ -39,13 +42,15 @@ struct SnakeGame {
             newSnake.append(snake[i])
         }
         
-        snake = newSnake
-        
         if snake[0].col == fruit?.col && snake[0].row == fruit?.row {
+            newSnake.append(snake[snake.count - 1])
             let randomCol: Int = Int(arc4random()) % GridView.gridNum
             let randomRow: Int = Int(arc4random()) % GridView.gridNum
             fruit = Fruit(col: randomCol, row: randomRow)
         }
+        
+        snake = newSnake
+        
     }
     
     mutating func moveSnakeLeft() {
@@ -56,12 +61,15 @@ struct SnakeGame {
             newSnake.append(snake[i])
         }
         
-        snake = newSnake
         if snake[0].col == fruit?.col && snake[0].row == fruit?.row {
+            newSnake.append(snake[snake.count - 1])
             let randomCol: Int = Int(arc4random()) % GridView.gridNum
             let randomRow: Int = Int(arc4random()) % GridView.gridNum
             fruit = Fruit(col: randomCol, row: randomRow)
         }
+        
+        snake = newSnake
+        
     }
     
     mutating func moveSnakeUp() {
@@ -72,12 +80,14 @@ struct SnakeGame {
             newSnake.append(snake[i])
         }
         
-        snake = newSnake
-        
         if snake[0].col == fruit?.col && snake[0].row == fruit?.row {
+            newSnake.append(snake[snake.count - 1])
             let randomCol: Int = Int(arc4random()) % GridView.gridNum
             let randomRow: Int = Int(arc4random()) % GridView.gridNum
             fruit = Fruit(col: randomCol, row: randomRow)
         }
+        
+        snake = newSnake
+        
     }
 }
