@@ -13,6 +13,7 @@
 		07FDE4152016091500A674FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07FDE4142016091500A674FE /* Assets.xcassets */; };
 		07FDE4182016091500A674FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07FDE4162016091500A674FE /* LaunchScreen.storyboard */; };
 		1E58C11624BCEEA800CB9A0F /* SnakeGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E58C11524BCEEA800CB9A0F /* SnakeGame.swift */; };
+		1E9BC27024C8D69C009298B2 /* Direction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9BC26F24C8D69C009298B2 /* Direction.swift */; };
 		1EA6265224B8EFD1000DDD79 /* SnakeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA6265024B8EFD1000DDD79 /* SnakeCell.swift */; };
 		1EA6265324B8EFD1000DDD79 /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA6265124B8EFD1000DDD79 /* GridView.swift */; };
 		1ED8334C24C229A3003A4EA1 /* Fruit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED8334B24C229A3003A4EA1 /* Fruit.swift */; };
@@ -38,6 +39,7 @@
 		07FDE4192016091500A674FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1E58C11524BCEEA800CB9A0F /* SnakeGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnakeGame.swift; sourceTree = "<group>"; };
 		1E60A29624B6583A00A308D7 /* snake.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = snake.entitlements; sourceTree = "<group>"; };
+		1E9BC26F24C8D69C009298B2 /* Direction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Direction.swift; sourceTree = "<group>"; };
 		1EA6265024B8EFD1000DDD79 /* SnakeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnakeCell.swift; sourceTree = "<group>"; };
 		1EA6265124B8EFD1000DDD79 /* GridView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
 		1ED8334B24C229A3003A4EA1 /* Fruit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fruit.swift; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 				1E58C11524BCEEA800CB9A0F /* SnakeGame.swift */,
 				1EA6265024B8EFD1000DDD79 /* SnakeCell.swift */,
 				1ED8334B24C229A3003A4EA1 /* Fruit.swift */,
+				1E9BC26F24C8D69C009298B2 /* Direction.swift */,
 				07FDE4112016091500A674FE /* Main.storyboard */,
 				07FDE4142016091500A674FE /* Assets.xcassets */,
 				07FDE4162016091500A674FE /* LaunchScreen.storyboard */,
@@ -210,6 +213,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E9BC27024C8D69C009298B2 /* Direction.swift in Sources */,
 				1ED8334C24C229A3003A4EA1 /* Fruit.swift in Sources */,
 				1E58C11624BCEEA800CB9A0F /* SnakeGame.swift in Sources */,
 				1EA6265224B8EFD1000DDD79 /* SnakeCell.swift in Sources */,

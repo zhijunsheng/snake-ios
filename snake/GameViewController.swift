@@ -30,21 +30,21 @@ class GameViewController: UIViewController {
     }
     
     @IBAction func moveUp(_ sender: Any) {
-        game.moveSnakeUp()
+        game.moveSnake(direction: .north)
         gridView.snakeCopy = game.snake
         gridView.fruitCopy = game.fruit
         gridView.setNeedsDisplay()
     }
     
     @IBAction func moveDown(_ sender: Any) {
-        game.moveSnakeDown()
+        game.moveSnake(direction: .south )
         gridView.snakeCopy = game.snake
         gridView.fruitCopy = game.fruit
         gridView.setNeedsDisplay()
     }
     
     @IBAction func moveLeft(_ sender: Any) {
-        game.moveSnakeLeft()
+        game.moveSnake(direction: .west)
         gridView.snakeCopy = game.snake
         gridView.fruitCopy = game.fruit
         gridView.setNeedsDisplay()
@@ -52,7 +52,7 @@ class GameViewController: UIViewController {
     
     
     @IBAction func moveRight(_ sender: Any) {
-        game.moveSnakeRight()
+        game.moveSnake(direction: .east)
         gridView.snakeCopy = game.snake
         gridView.fruitCopy = game.fruit
         gridView.setNeedsDisplay()
