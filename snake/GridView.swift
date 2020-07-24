@@ -9,9 +9,9 @@
 import UIKit
 
 class GridView: UIView {
-   
-   static let gridNum: Int = 10
-   
+    
+    static let gridNum: Int = 10
+    
     let cell: CGFloat = 50
     let xStart: CGFloat = 100
     let yStart: CGFloat = 100
