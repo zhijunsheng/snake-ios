@@ -18,18 +18,18 @@ class BoardView: UIView {
         
         let path = UIBezierPath()
         
-        
-        path.move(to: CGPoint(x: 0, y: 0))
-        path.addLine(to: CGPoint(x: 1000, y: 1000))
-        
-        
-        path.lineWidth = 5
-        #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1).setStroke()
-        path.stroke()
-        
-        for i in 0..<10 {
-            print("i = \(i)")
+        for i in 0..<8 {
+            path.move(to: CGPoint(x: 100, y: i * 50 + 100))
+            path.addLine(to: CGPoint(x: 100 + 6 * 50, y: CGFloat(i) * 50 + 100))
         }
+        
+        for n in 0..<7 {
+            path.move(to: CGPoint(x: CGFloat(n) * 50 + 100, y: 100))
+            path.addLine(to: CGPoint(x: CGFloat(n) * 50 + 100, y: 100 + 7 * 50))
+        }
+        path.lineWidth = 5
+        #colorLiteral(red: 0.1960784346, green: 0.3411764801, blue: 0.1019607857, alpha: 1).setStroke()
+        path.stroke()
     }
     
 
