@@ -10,6 +10,7 @@
 import Foundation
 
 struct SnakeGame {
+    static let gridNum: Int = 20
     var snake: [SnakeCell] = []
     
     var fruit: Fruit?
@@ -29,12 +30,15 @@ struct SnakeGame {
         }
 
         return newHead
-
     }
     
     mutating func moveSnake(direction: Direction) {
         var newSnake: [SnakeCell] = []
         newSnake.append(createNewHead(direction: direction))
+        
+        if snake[0].col >= SnakeGame.gridNum || snake[0].col <= 0 {
+            print("game over")
+        }
         
         for i in 0 ..< snake.count - 1 {
             newSnake.append(snake[i])
@@ -42,12 +46,11 @@ struct SnakeGame {
         
         if snake[0].col == fruit?.col && snake[0].row == fruit?.row {
             newSnake.append(snake[snake.count - 1])
-            let randomCol: Int = Int(arc4random()) % GridView.gridNum
-            let randomRow: Int = Int(arc4random()) % GridView.gridNum
+            let randomCol: Int = Int(arc4random()) % SnakeGame.gridNum
+            let randomRow: Int = Int(arc4random()) % SnakeGame.gridNum
             fruit = Fruit(col: randomCol, row: randomRow)
         }
         
         snake = newSnake
-        
     }
 }

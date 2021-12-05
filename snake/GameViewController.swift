@@ -17,11 +17,11 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        game.snake.append(SnakeCell(col: 1, row: GridView.gridNum/2))
-        game.snake.append(SnakeCell(col: 0, row: GridView.gridNum/2))
+        game.snake.append(SnakeCell(col: 1, row: SnakeGame.gridNum/2))
+        game.snake.append(SnakeCell(col: 0, row: SnakeGame.gridNum/2))
         
-        let randomCol: Int = Int(arc4random()) % GridView.gridNum
-        let randomRow: Int = Int(arc4random()) % GridView.gridNum
+        let randomCol: Int = Int(arc4random()) % SnakeGame.gridNum
+        let randomRow: Int = Int(arc4random()) % SnakeGame.gridNum
         
         game.fruit = Fruit(col: randomCol, row: randomRow)
         
