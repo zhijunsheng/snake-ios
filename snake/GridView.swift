@@ -9,9 +9,6 @@
 import UIKit
 
 class GridView: UIView {
-    
-    
-    
     var cell: CGFloat = 0
     var xStart: CGFloat = 0
     var yStart: CGFloat = 0
@@ -82,5 +79,4 @@ class GridView: UIView {
         
         UIBezierPath(roundedRect: CGRect(x: xStart + cell * CGFloat(col), y: yStart + cell * CGFloat(row), width: cell, height: cell), cornerRadius: cell * 0.2).fill()
     }
-    
 }
