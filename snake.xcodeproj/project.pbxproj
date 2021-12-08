@@ -16,6 +16,7 @@
 		1E9F851727603EFB003A0C61 /* SnakeGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9F851627603EFB003A0C61 /* SnakeGame.swift */; };
 		1E9F851927603F0A003A0C61 /* SnakeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9F851827603F0A003A0C61 /* SnakeCell.swift */; };
 		1E9F851B27603F18003A0C61 /* Fruit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9F851A27603F18003A0C61 /* Fruit.swift */; };
+		1E9F851D276040D6003A0C61 /* Direction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9F851C276040D6003A0C61 /* Direction.swift */; };
 		BB8151E72030A12900C408AF /* SimpleLoopTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8151E62030A12900C408AF /* SimpleLoopTests.swift */; };
 		BBBB9961201C0B06008FF835 /* PointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBBB9960201C0B06008FF835 /* PointTests.swift */; };
 		BBBB9963201C0B36008FF835 /* BoardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBBB9962201C0B36008FF835 /* BoardTests.swift */; };
@@ -43,6 +44,7 @@
 		1E9F851627603EFB003A0C61 /* SnakeGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnakeGame.swift; sourceTree = "<group>"; };
 		1E9F851827603F0A003A0C61 /* SnakeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnakeCell.swift; sourceTree = "<group>"; };
 		1E9F851A27603F18003A0C61 /* Fruit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fruit.swift; sourceTree = "<group>"; };
+		1E9F851C276040D6003A0C61 /* Direction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Direction.swift; sourceTree = "<group>"; };
 		BB8151E62030A12900C408AF /* SimpleLoopTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleLoopTests.swift; sourceTree = "<group>"; };
 		BBBB9956201C0ABA008FF835 /* snakeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = snakeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBBB995A201C0ABB008FF835 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 				07FDE40D2016091500A674FE /* AppDelegate.swift */,
 				07FDE40F2016091500A674FE /* GameViewController.swift */,
 				1E9F851627603EFB003A0C61 /* SnakeGame.swift */,
+				1E9F851C276040D6003A0C61 /* Direction.swift */,
 				1E9F851827603F0A003A0C61 /* SnakeCell.swift */,
 				1E9F851427603E51003A0C61 /* GridView.swift */,
 				1E9F851A27603F18003A0C61 /* Fruit.swift */,
@@ -217,6 +220,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E9F851D276040D6003A0C61 /* Direction.swift in Sources */,
 				1E9F851B27603F18003A0C61 /* Fruit.swift in Sources */,
 				07FDE4102016091500A674FE /* GameViewController.swift in Sources */,
 				07FDE40E2016091500A674FE /* AppDelegate.swift in Sources */,
