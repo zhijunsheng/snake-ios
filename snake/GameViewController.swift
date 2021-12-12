@@ -14,6 +14,8 @@ class GameViewController: UIViewController {
     
     @IBOutlet weak var gridView: GridView!
     
+    var direction: Direction = .none
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -27,34 +29,28 @@ class GameViewController: UIViewController {
         
         gridView.snakeCopy = game.snake
         gridView.fruitCopy = game.fruit
+        
+        Timer.scheduledTimer(withTimeInterval: 0.3, repeats: true) { _ in
+            self.game.moveSnake(direction: self.direction)
+            self.gridView.snakeCopy = self.game.snake
+            self.gridView.fruitCopy = self.game.fruit
+            self.gridView.setNeedsDisplay()
+        }
     }
     
     @IBAction func moveUp(_ sender: Any) {
-        game.moveSnake(direction: .north)
-        gridView.snakeCopy = game.snake
-        gridView.fruitCopy = game.fruit
-        gridView.setNeedsDisplay()
+        direction = .north
     }
     
     @IBAction func moveDown(_ sender: Any) {
-        game.moveSnake(direction: .south )
-        gridView.snakeCopy = game.snake
-        gridView.fruitCopy = game.fruit
-        gridView.setNeedsDisplay()
+        direction = .south
     }
     
     @IBAction func moveLeft(_ sender: Any) {
-        game.moveSnake(direction: .west)
-        gridView.snakeCopy = game.snake
-        gridView.fruitCopy = game.fruit
-        gridView.setNeedsDisplay()
+        direction = .west
     }
     
-    
     @IBAction func moveRight(_ sender: Any) {
-        game.moveSnake(direction: .east)
-        gridView.snakeCopy = game.snake
-        gridView.fruitCopy = game.fruit
-        gridView.setNeedsDisplay()
+        direction = .east
     }
 }

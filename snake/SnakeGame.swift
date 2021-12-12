@@ -26,12 +26,18 @@ struct SnakeGame {
             newHead = SnakeCell(col: snake[0].col, row: snake[0].row + 1)
         case .west:
             newHead = SnakeCell(col: snake[0].col - 1, row: snake[0].row)
+        case .none:
+            newHead = snake[0]
         }
 
         return newHead
     }
     
     mutating func moveSnake(direction: Direction) {
+        if direction == .none {
+            return
+        }
+        
         var newSnake: [SnakeCell] = []
         newSnake.append(createNewHead(direction: direction))
         
@@ -46,7 +52,6 @@ struct SnakeGame {
         
         for i in 1 ..< snake.count {
             if newSnake[0].col == snake[i].col && newSnake[0].row == snake[i].row {
-                print("game over")
                 return
             }
         }

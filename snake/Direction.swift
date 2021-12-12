@@ -9,6 +9,7 @@
 import Foundation
 
 enum Direction {
+    case none
     case north
     case south
     case east
