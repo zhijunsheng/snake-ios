@@ -35,8 +35,9 @@ struct SnakeGame {
         var newSnake: [SnakeCell] = []
         newSnake.append(createNewHead(direction: direction))
         
-        if snake[0].col >= SnakeGame.gridNum || snake[0].col <= 0 {
-            print("game over")
+        if newSnake[0].col >= SnakeGame.gridNum || newSnake[0].col < 0 ||
+            newSnake[0].row >= SnakeGame.gridNum || newSnake[0].row <= 0 {
+            return
         }
         
         for i in 0 ..< snake.count - 1 {

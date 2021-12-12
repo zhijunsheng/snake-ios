@@ -57,12 +57,12 @@ class GridView: UIView {
         let greenRandom: CGFloat = CGFloat(arc4random() % 1000)/1000
         let blueRandom: CGFloat = CGFloat(arc4random() % 1000)/1000
         
-//        let snakeCell = snakeCopy[0]
-//        drawSnakeCell(col: snakeCell.col, row: snakeCell.row, color: UIColor(red: redRandom, green: greenRandom, blue: blueRandom, alpha: 1))
-//        for i in 0 ..< snakeCopy.count - 1 {
-//            let snakeCell0 = snakeCopy[i + 1]
-//            drawSnakeCell(col: snakeCell0.col, row: snakeCell0.row, color: UIColor.green)
-//        }
+        let snakeCell = snakeCopy[0]
+        drawSnakeCell(col: snakeCell.col, row: snakeCell.row, color: UIColor(red: redRandom, green: greenRandom, blue: blueRandom, alpha: 1))
+        for i in 0 ..< snakeCopy.count - 1 {
+            let snakeCell0 = snakeCopy[i + 1]
+            drawSnakeCell(col: snakeCell0.col, row: snakeCell0.row, color: UIColor.green)
+        }
     }
     
     func drawFruitCopy(col: Int, row: Int) {
