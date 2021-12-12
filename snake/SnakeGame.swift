@@ -36,12 +36,19 @@ struct SnakeGame {
         newSnake.append(createNewHead(direction: direction))
         
         if newSnake[0].col >= SnakeGame.gridNum || newSnake[0].col < 0 ||
-            newSnake[0].row >= SnakeGame.gridNum || newSnake[0].row <= 0 {
+            newSnake[0].row >= SnakeGame.gridNum || newSnake[0].row < 0 {
             return
         }
         
         for i in 0 ..< snake.count - 1 {
             newSnake.append(snake[i])
+        }
+        
+        for i in 1 ..< snake.count {
+            if newSnake[0].col == snake[i].col && newSnake[0].row == snake[i].row {
+                print("game over")
+                return
+            }
         }
         
         if snake[0].col == fruit?.col && snake[0].row == fruit?.row {

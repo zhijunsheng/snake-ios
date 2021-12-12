@@ -50,15 +50,6 @@
                                     <action selector="moveLeft:" destination="BYZ-38-t0r" eventType="touchUpInside" id="O9m-JN-GRf"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="UUh-sn-uKh">
-                                <rect key="frame" x="386" y="823" width="176" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="100"/>
-                                <state key="normal" title="⇒"/>
-                                <connections>
-                                    <action selector="moveRight:" destination="BYZ-38-t0r" eventType="touchUpInside" id="At8-ue-jZY"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="zcr-hR-50w">
                                 <rect key="frame" x="313" y="904" width="127" height="120"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -66,6 +57,15 @@
                                 <state key="normal" title="⇓"/>
                                 <connections>
                                     <action selector="moveDown:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Cnv-4P-cBE"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="UUh-sn-uKh">
+                                <rect key="frame" x="415" y="822" width="136" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="100"/>
+                                <state key="normal" title="⇒"/>
+                                <connections>
+                                    <action selector="moveRight:" destination="BYZ-38-t0r" eventType="touchUpInside" id="At8-ue-jZY"/>
                                 </connections>
                             </button>
                         </subviews>
