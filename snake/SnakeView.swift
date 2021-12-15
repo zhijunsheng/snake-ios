@@ -10,15 +10,26 @@ import UIKit
 
 class SnakeView: UIView {
     
+    let size: Int = 20
+    let cell: CGFloat = 30
+    let gx: CGFloat = 50
+    let gy: CGFloat = 50
 
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
     override func draw(_ rect: CGRect) {
         // Drawing code
-        
+
         let pencil = UIBezierPath()
-        pencil.move(to: CGPoint(x: 100, y: 100))
-        pencil.addLine(to: CGPoint(x: 50, y: 100))
+        
+        for i in 0 ... size {
+            pencil.move(to: CGPoint(x: gx, y: gy + cell * CGFloat(i)))
+            pencil.addLine(to: CGPoint(x: gx + cell * CGFloat(size), y: gy + cell * CGFloat(i)))
+        }
+        
+        for i in 0 ... size {
+            pencil.move(to: CGPoint(x: gx + cell * CGFloat(i), y: gy  ))
+            pencil.addLine(to: CGPoint(x: gx + cell * CGFloat(i), y: gy + cell * CGFloat(size) ))
+        }
+        
         pencil.stroke()
         
         
