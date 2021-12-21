@@ -13,7 +13,11 @@ import XCTest
 class SnakeGameTests: XCTestCase {
 
     func testPrintingBoard() {
-        let game = SnakeGame()
+        var game = SnakeGame()
+        game.moveRight()
+        game.moveDown()
+        game.moveDown()
+        game.moveDown()
         print(game)
         
     }
