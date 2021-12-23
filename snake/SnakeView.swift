@@ -10,18 +10,21 @@ import UIKit
 
 class SnakeView: UIView {
 
+    let xcode: CGFloat = 23
+    let apple: CGFloat = 100
+    let paper: CGFloat = 150
 
     override func draw(_ rect: CGRect) {
         let  pencil = UIBezierPath()
         
         for i in 0 ..< 15 {
-            pencil.move(to: CGPoint(x: 50 , y:  100 + i * 30))
-            pencil.addLine(to: CGPoint(x: 650, y: 100 + i * 30))
+            pencil.move(to: CGPoint(x: apple , y:  paper + CGFloat(i) * xcode)) 
+            pencil.addLine(to: CGPoint(x: apple + xcode * 20, y: paper + CGFloat(i) * xcode))
         }
         
         for i in 0 ..< 21 {
-            pencil.move(to: CGPoint(x:  50 + i * 30, y: 100))
-            pencil.addLine(to: CGPoint(x:  50 + i * 30, y: 100 + 14 * 30))
+            pencil.move(to: CGPoint(x:  apple + CGFloat(i) * xcode, y: paper))
+            pencil.addLine(to: CGPoint(x:  apple + CGFloat(i) * xcode, y: paper + 14 * xcode))
         }
         
         pencil.stroke()
