@@ -17,7 +17,6 @@ class SnakeGameTests: XCTestCase {
         game.moveRight()
         game.moveDown()
         game.moveDown()
-        game.moveDown()
         print(game)
         
     }

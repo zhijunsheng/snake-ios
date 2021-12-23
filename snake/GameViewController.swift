@@ -8,15 +8,22 @@
 
 import UIKit
 
-class GameViewController: UIViewController {
+class GameViewController: UIViewController, SnakeDelegate {
+    var snakeGame = SnakeGame()
     
-   
+    @IBOutlet weak var snakeView: SnakeView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-     
+        snakeView.delegate = self
+        
+        snakeGame.moveDown()
+        snakeGame.moveRight()
     }
     
-    
+    func snakeCellAt(col: Int, row: Int) -> SnakeCell? {
+        return snakeGame.snakeCellAt(col: col, row: row)
+    }
 }
 

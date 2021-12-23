@@ -13,33 +13,43 @@ class SnakeView: UIView {
     let cell: CGFloat = 30
     let gx: CGFloat = 50
     let gy: CGFloat = 20
+    
+    var delegate: SnakeDelegate? = nil
 
     override func draw(_ rect: CGRect) {
-        // Drawing code
-
+        drawGrid()
+        drawSnake()
+    }
+    
+    func drawGrid() {
         let pencil = UIBezierPath()
-        
         for i in 0 ... SnakeGame.size {
+            
+            //horizontal lines
             pencil.move(to: CGPoint(x: gx, y: gy + cell * CGFloat(i)))
             pencil.addLine(to: CGPoint(x: gx + cell * CGFloat(SnakeGame.size), y: gy + cell * CGFloat(i)))
-        }
         
-        for i in 0 ... SnakeGame.size {
+            //vertical lines
             pencil.move(to: CGPoint(x: gx + cell * CGFloat(i), y: gy  ))
             pencil.addLine(to: CGPoint(x: gx + cell * CGFloat(i), y: gy + cell * CGFloat(SnakeGame.size) ))
         }
-        
         pencil.stroke()
-        
-        let snakecell = UIBezierPath(roundedRect: CGRect(x: gx + cell * 2, y: gy + cell * 1, width: cell, height: cell), cornerRadius: 8)
-        UIColor.green.setFill()
-        snakecell.fill()
-        snakecell.stroke()
-        
-        
-        
     }
-     
-     
-
+    
+    func drawSnake() {
+        
+        for c in 0 ..< SnakeGame.size {
+            for r in 0 ..< SnakeGame.size {
+                let snakeCell = delegate?.snakeCellAt(col: c, row: r)
+                
+                if snakeCell != nil {
+                    let snakecell = UIBezierPath(roundedRect: CGRect(x: gx + cell * CGFloat(c), y: gy + cell * CGFloat(r), width: cell, height: cell), cornerRadius: 8)
+                    UIColor.green.setFill()
+                    snakecell.fill()
+                    snakecell.stroke()
+                    
+                }
+            }
+        }
+    }
 }
