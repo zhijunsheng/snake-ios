@@ -67,6 +67,7 @@
                     <connections>
                         <outlet property="gameOver" destination="ebh-tZ-56P" id="v8Q-3p-433"/>
                         <outlet property="gridView" destination="Y6w-L8-sXb" id="KI8-zK-1Sv"/>
+                        <outlet property="restartButton" destination="CVf-5z-xGz" id="O0H-OR-ZFn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
