@@ -15,7 +15,7 @@ class GameViewController: UIViewController {
     @IBOutlet weak var gridView: GridView!
     @IBOutlet weak var gameOver: UILabel!
     
-    var direction: Direction = .none
+    var direction: Direction = .east
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +31,7 @@ class GameViewController: UIViewController {
         gridView.snakeCopy = game.snake
         gridView.fruitCopy = game.fruit
         
-        Timer.scheduledTimer(withTimeInterval: 0.3, repeats: true) { _ in
+        Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true) { _ in
             self.game.moveSnake(direction: self.direction)
             self.gridView.snakeCopy = self.game.snake
             self.gridView.fruitCopy = self.game.fruit
@@ -60,21 +60,5 @@ class GameViewController: UIViewController {
         } else if gridView.snakeCopy[0].col >  col && (gridView.snakeCopy[0].row > row - 5 && gridView.snakeCopy[0].row < row + 5) {
             direction = .west
         }
-    }
-    
-    @IBAction func moveUp(_ sender: Any) {
-        direction = .north
-    }
-    
-    @IBAction func moveDown(_ sender: Any) {
-        direction = .south
-    }
-    
-    @IBAction func moveLeft(_ sender: Any) {
-        direction = .west
-    }
-    
-    @IBAction func moveRight(_ sender: Any) {
-        direction = .east
     }
 }
