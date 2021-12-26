@@ -20,8 +20,7 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        game.snake.append(SnakeCell(col: 1, row: SnakeGame.gridNum/2))
-        game.snake.append(SnakeCell(col: 0, row: SnakeGame.gridNum/2))
+        game.reset()
         
         let randomCol: Int = Int(arc4random()) % SnakeGame.gridNum
         let randomRow: Int = Int(arc4random()) % SnakeGame.gridNum
@@ -44,7 +43,9 @@ class GameViewController: UIViewController {
     }
     
     @IBAction func playAgain(_ sender: Any) {
-        
+        game.reset()
+        direction = .east
+        gridView.setNeedsDisplay()
     }
     
     @IBAction func tap(_ sender: UITapGestureRecognizer) {

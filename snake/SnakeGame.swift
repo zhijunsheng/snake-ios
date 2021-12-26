@@ -14,8 +14,10 @@ struct SnakeGame {
     var gameOver = false
     var fruit: Fruit?
     
-    func reset() {
-        
+    mutating func reset() {
+        snake.removeAll()
+        snake.append(SnakeCell(col: 1, row: SnakeGame.gridNum/2))
+        snake.append(SnakeCell(col: 0, row: SnakeGame.gridNum/2))
     }
     
     func createNewHead(direction: Direction) -> SnakeCell {
