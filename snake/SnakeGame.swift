@@ -11,8 +11,12 @@ import Foundation
 struct SnakeGame {
     static let gridNum: Int = 20
     var snake: [SnakeCell] = []
-    
+    var gameOver = false
     var fruit: Fruit?
+    
+    func reset() {
+        
+    }
     
     func createNewHead(direction: Direction) -> SnakeCell {
         var newHead: SnakeCell
@@ -43,6 +47,7 @@ struct SnakeGame {
         
         if newSnake[0].col >= SnakeGame.gridNum || newSnake[0].col < 0 ||
             newSnake[0].row >= SnakeGame.gridNum || newSnake[0].row < 0 {
+            gameOver = true
             return
         }
         
@@ -52,6 +57,7 @@ struct SnakeGame {
         
         for i in 1 ..< snake.count {
             if newSnake[0].col == snake[i].col && newSnake[0].row == snake[i].row {
+                gameOver = true
                 return
             }
         }

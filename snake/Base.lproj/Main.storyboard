@@ -19,10 +19,31 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y6w-L8-sXb" customClass="GridView" customModule="snake" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="768" height="768"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ebh-tZ-56P">
+                                        <rect key="frame" x="0.0" y="0.0" width="768" height="442"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="100"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="voV-Ld-Acy">
+                                        <rect key="frame" x="0.0" y="450" width="768" height="310"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title=""/>
+                                        <connections>
+                                            <action selector="playAgain:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5wO-vn-B87"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Y6w-L8-sXb" secondAttribute="height" multiplier="1:1" id="EGd-NP-gbs"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="JCx-Rz-7Jc" appends="YES" id="KaI-ox-VyW"/>
+                                </connections>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="51G-5n-Qs0">
                                 <rect key="frame" x="313" y="776" width="127" height="104"/>
@@ -78,10 +99,16 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="gameOver" destination="ebh-tZ-56P" id="v8Q-3p-433"/>
                         <outlet property="gridView" destination="Y6w-L8-sXb" id="KI8-zK-1Sv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="JCx-Rz-7Jc">
+                    <connections>
+                        <action selector="tap:" destination="BYZ-38-t0r" id="ahg-NH-yrv"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="140.625" y="133.0078125"/>
         </scene>
