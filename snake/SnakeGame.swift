@@ -14,59 +14,63 @@ struct SnakeGame: CustomStringConvertible {
     
     var snake: [SnakeCell] = [
         SnakeCell(col: 1, row: 2),
+        SnakeCell(col: 1, row: 3),
+        SnakeCell(col: 1, row: 4),
+        SnakeCell(col: 1, row: 5),
     ]
     
     mutating func moveLeft() {
-        let singleCell = snake.first!
         
-        let oldRow = singleCell.row
-        let oldCol = singleCell.col
+        var newSnake: [SnakeCell] = []
+        let oldHead = snake[0]
+        let newHead = SnakeCell(col: oldHead.col - 1, row: oldHead.row)
+        newSnake.append(newHead)
         
-        let newRow = oldRow
-        let newCol = oldCol - 1
-        let newCell = SnakeCell(col: newCol, row: newRow)
+        for i in 0 ..< snake.count - 1 {
+            newSnake.append(snake[i])
+        }
         
-        snake[0] = newCell
+        snake = newSnake
+        
     }
     mutating func moveUp()  {
-        let singleCell = snake.first!
         
-        let oldRow = singleCell.row
-        let oldCol = singleCell.col
+        var newSnake: [SnakeCell] = []
+        let oldHead = snake[0]
+        let newHead = SnakeCell(col: oldHead.col, row: oldHead.row - 1)
+        newSnake.append(newHead)
         
-        let newRow = oldRow - 1
-        let newCol = oldCol
-        let newCell = SnakeCell(col: newCol, row: newRow)
+        for i in 0 ..< snake.count - 1 {
+            newSnake.append(snake[i])
+        }
         
-        snake[0] = newCell
+        snake = newSnake
     }
     mutating func moveDown() {
-        let singleCell = snake.first!
+
+        var newSnake: [SnakeCell] = []
+        let oldHead = snake[0]
+        let newHead = SnakeCell(col: oldHead.col, row: oldHead.row + 1)
+        newSnake.append(newHead)
         
-        let oldRow = singleCell.row
-        let oldCol = singleCell.col
+        for i in 0 ..< snake.count - 1 {
+            newSnake.append(snake[i])
+        }
         
-        let newRow = oldRow + 1
-        let newCol = oldCol
-        let newCell = SnakeCell(col: newCol, row: newRow)
-        
-        snake[0] = newCell
+        snake = newSnake
     }
     mutating func moveRight() {
-        let singleCell = snake.first!
-
-        // step 1: we need to know where the cell is located
-        let oldRow = singleCell.row
-        let oldCol = singleCell.col
         
-        // step 2: we create a new cell at the new location
-        let newRow = oldRow
-        let newCol = oldCol + 1
-        let newCell = SnakeCell(col: newCol, row: oldRow)
+        var newSnake: [SnakeCell] = []
+        let oldHead = snake[0]
+        let newHead = SnakeCell(col: oldHead.col + 1, row: oldHead.row)
+        newSnake.append(newHead)
         
+        for i in 0 ..< snake.count - 1 {
+            newSnake.append(snake[i])
+        }
         
-        // step 3:  snake[0], snake[1],
-        snake[0] = newCell
+        snake = newSnake
         
     }
 
