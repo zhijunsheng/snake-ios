@@ -29,6 +29,16 @@ class GameViewController: UIViewController, SnakeDelegate {
         snakeView.setNeedsDisplay()
     }
     
+    @IBAction func moveLeft(_ sender: Any) {
+        snakeGame.moveLeft()
+        snakeView.setNeedsDisplay()
+    }
+    
+    @IBAction func moveUp(_ sender: Any) {
+        snakeGame.moveUp()
+        snakeView.setNeedsDisplay()
+    }
+    
     
     
     func snakeCellAt(col: Int, row: Int) -> SnakeCell? {

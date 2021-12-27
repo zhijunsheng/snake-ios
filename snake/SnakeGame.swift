@@ -15,6 +15,31 @@ struct SnakeGame: CustomStringConvertible {
     var snake: [SnakeCell] = [
         SnakeCell(col: 1, row: 2),
     ]
+    
+    mutating func moveLeft() {
+        let singleCell = snake.first!
+        
+        let oldRow = singleCell.row
+        let oldCol = singleCell.col
+        
+        let newRow = oldRow
+        let newCol = oldCol - 1
+        let newCell = SnakeCell(col: newCol, row: newRow)
+        
+        snake[0] = newCell
+    }
+    mutating func moveUp()  {
+        let singleCell = snake.first!
+        
+        let oldRow = singleCell.row
+        let oldCol = singleCell.col
+        
+        let newRow = oldRow - 1
+        let newCol = oldCol
+        let newCell = SnakeCell(col: newCol, row: newRow)
+        
+        snake[0] = newCell
+    }
     mutating func moveDown() {
         let singleCell = snake.first!
         
