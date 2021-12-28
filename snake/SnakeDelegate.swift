@@ -10,4 +10,5 @@ import Foundation
 
 protocol SnakeDelegate {
     func snakeCellAt(col: Int, row: Int) -> SnakeCell?
+    func currentFruit() -> Fruit
 }

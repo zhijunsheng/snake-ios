@@ -19,7 +19,18 @@ class SnakeView: UIView {
     override func draw(_ rect: CGRect) {
         drawGrid()
         drawSnake()
+        drawFruit()
     }
+    
+    func drawFruit() {
+        
+        guard let fruit = delegate?.currentFruit() else { return }
+        
+        let path = UIBezierPath(roundedRect: CGRect(x: gx + cell * CGFloat(fruit.col), y: gy + cell * CGFloat(fruit.row), width: cell, height: cell), cornerRadius: 8)
+        UIColor.red.setFill()
+        path.fill()
+    }
+    
     
     func drawGrid() {
         let pencil = UIBezierPath()

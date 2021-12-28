@@ -9,6 +9,7 @@
 import UIKit
 
 class GameViewController: UIViewController, SnakeDelegate {
+    
     var snakeGame = SnakeGame()
     
     @IBOutlet weak var snakeView: SnakeView!
@@ -43,6 +44,10 @@ class GameViewController: UIViewController, SnakeDelegate {
     
     func snakeCellAt(col: Int, row: Int) -> SnakeCell? {
         return snakeGame.snakeCellAt(col: col, row: row)
+    }
+    
+    func currentFruit() -> Fruit {
+        return snakeGame.currentFruit()
     }
 }
 

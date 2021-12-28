@@ -18,6 +18,12 @@ struct SnakeGame: CustomStringConvertible {
         SnakeCell(col: 1, row: 4),
         SnakeCell(col: 1, row: 5),
     ]
+
+    func currentFruit() -> Fruit {
+        let nextFruit = Fruit(col: 11, row: 9)
+        
+        return nextFruit
+    }
     
     mutating func moveLeft() {
         
@@ -26,12 +32,17 @@ struct SnakeGame: CustomStringConvertible {
         let newHead = SnakeCell(col: oldHead.col - 1, row: oldHead.row)
         newSnake.append(newHead)
         
+        // if snake has length 5
+        // 0,1,2,3,4
+        // count is 5
         for i in 0 ..< snake.count - 1 {
             newSnake.append(snake[i])
         }
         
+        if newHead.col == 5 && newHead.row == 9 {
+            newSnake.append(snake[snake.count - 1])
+        }
         snake = newSnake
-        
     }
     mutating func moveUp()  {
         
