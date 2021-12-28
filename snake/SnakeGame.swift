@@ -7,10 +7,12 @@
 //
 
 import Foundation
+import UIKit
 
 struct SnakeGame: CustomStringConvertible {
     
-    static let size = 17
+    static let size: Int = 17
+    var fruit: Fruit = Fruit(col: -1, row: -1)
     
     var snake: [SnakeCell] = [
         SnakeCell(col: 1, row: 2),
@@ -18,11 +20,17 @@ struct SnakeGame: CustomStringConvertible {
         SnakeCell(col: 1, row: 4),
         SnakeCell(col: 1, row: 5),
     ]
+    
+    mutating func updateFruit() {
+        let randomCol: Int = Int(arc4random()) % SnakeGame.size
+        let randomRow: Int = Int(arc4random()) % SnakeGame.size
+        
+        let nextFruit = Fruit(col: randomCol, row: randomRow)
+        fruit = nextFruit
+    }
 
     func currentFruit() -> Fruit {
-        let nextFruit = Fruit(col: 3, row: 14)
-        
-        return nextFruit
+        return fruit
     }
     
     mutating func moveLeft() {
@@ -39,7 +47,10 @@ struct SnakeGame: CustomStringConvertible {
         
         if newHead.col == fruit.col && newHead.row == fruit.row {
             newSnake.append(snake[snake.count - 1])
+            
+            updateFruit()
         }
+        
         snake = newSnake
     }
     mutating func moveUp()  {
@@ -56,6 +67,8 @@ struct SnakeGame: CustomStringConvertible {
         
         if newHead.col == fruit.col && newHead.row == fruit.row {
             newSnake.append(snake[snake.count - 1])
+            
+            updateFruit()
         }
         
         snake = newSnake
@@ -74,8 +87,9 @@ struct SnakeGame: CustomStringConvertible {
         
         if newHead.col == fruit.col && newHead.row == fruit.row {
             newSnake.append(snake[snake.count - 1])
+            
+            updateFruit()
         }
-        
         snake = newSnake
     }
     mutating func moveRight() {
@@ -92,6 +106,8 @@ struct SnakeGame: CustomStringConvertible {
         
         if newHead.col == fruit.col && newHead.row == fruit.row {
             newSnake.append(snake[snake.count - 1])
+            
+            updateFruit()
         }
         
         snake = newSnake

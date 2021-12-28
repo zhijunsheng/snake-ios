@@ -18,6 +18,8 @@ class GameViewController: UIViewController, SnakeDelegate {
         super.viewDidLoad()
         
         snakeView.delegate = self
+        
+        snakeGame.updateFruit()
     }
     
     @IBAction func moveRight(_ sender: Any) {
