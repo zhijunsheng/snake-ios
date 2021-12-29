@@ -33,70 +33,25 @@ struct SnakeGame: CustomStringConvertible {
         return fruit
     }
     
-    mutating func moveLeft() {
+    mutating func move(direction: Direction) {
         
         var newSnake: [SnakeCell] = []
         let oldHead = snake[0]
-        let newHead = SnakeCell(col: oldHead.col - 1, row: oldHead.row)
-        newSnake.append(newHead)
+        var newHead:SnakeCell = SnakeCell(col: -1, row: -1)
         
-        for i in 0 ..< snake.count - 1 {
-            newSnake.append(snake[i])
-        }
-        let fruit = currentFruit()
-        
-        if newHead.col == fruit.col && newHead.row == fruit.row {
-            newSnake.append(snake[snake.count - 1])
+        if direction == .up  {
+            newHead = SnakeCell(col: oldHead.col, row: oldHead.row - 1)
             
-            updateFruit()
-        }
-        
-        snake = newSnake
-    }
-    mutating func moveUp()  {
-        
-        var newSnake: [SnakeCell] = []
-        let oldHead = snake[0]
-        let newHead = SnakeCell(col: oldHead.col, row: oldHead.row - 1)
-        newSnake.append(newHead)
-        
-        for i in 0 ..< snake.count - 1 {
-            newSnake.append(snake[i])
-        }
-        let fruit = currentFruit()
-        
-        if newHead.col == fruit.col && newHead.row == fruit.row {
-            newSnake.append(snake[snake.count - 1])
-            
-            updateFruit()
-        }
-        
-        snake = newSnake
-    }
-    mutating func moveDown() {
+        } else if direction == .right { 
+            newHead = SnakeCell(col: oldHead.col + 1, row: oldHead.row)
 
-        var newSnake: [SnakeCell] = []
-        let oldHead = snake[0]
-        let newHead = SnakeCell(col: oldHead.col, row: oldHead.row + 1)
-        newSnake.append(newHead)
-        
-        for i in 0 ..< snake.count - 1 {
-            newSnake.append(snake[i])
-        }
-        let fruit = currentFruit()
-        
-        if newHead.col == fruit.col && newHead.row == fruit.row {
-            newSnake.append(snake[snake.count - 1])
+        } else if direction == .left {
+            newHead = SnakeCell(col: oldHead.col - 1, row: oldHead.row)
             
-            updateFruit()
+        } else if direction == .down {
+            newHead = SnakeCell(col: oldHead.col, row: oldHead.row + 1)
         }
-        snake = newSnake
-    }
-    mutating func moveRight() {
         
-        var newSnake: [SnakeCell] = []
-        let oldHead = snake[0]
-        let newHead = SnakeCell(col: oldHead.col + 1, row: oldHead.row)
         newSnake.append(newHead)
         
         for i in 0 ..< snake.count - 1 {
@@ -111,7 +66,6 @@ struct SnakeGame: CustomStringConvertible {
         }
         
         snake = newSnake
-        
     }
 
     func snakeCellAt(col: Int, row: Int) -> SnakeCell? {

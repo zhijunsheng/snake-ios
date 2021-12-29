@@ -23,22 +23,22 @@ class GameViewController: UIViewController, SnakeDelegate {
     }
     
     @IBAction func moveRight(_ sender: Any) {
-        snakeGame.moveRight()
+        snakeGame.move(direction: .right)
         snakeView.setNeedsDisplay()
     }
     
     @IBAction func moveDown(_ sender: Any) {
-        snakeGame.moveDown()
+        snakeGame.move(direction: .down)
         snakeView.setNeedsDisplay()
     }
     
     @IBAction func moveLeft(_ sender: Any) {
-        snakeGame.moveLeft()
+        snakeGame.move(direction: .left)
         snakeView.setNeedsDisplay()
     }
     
     @IBAction func moveUp(_ sender: Any) {
-        snakeGame.moveUp()
+        snakeGame.move(direction: .up)
         snakeView.setNeedsDisplay()
     }
     
