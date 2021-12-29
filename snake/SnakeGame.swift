@@ -11,7 +11,7 @@ import UIKit
 
 struct SnakeGame: CustomStringConvertible {
     
-    static let size: Int = 17
+    static let size: Int = 22
     var fruit: Fruit = Fruit(col: -1, row: -1)
     
     var snake: [SnakeCell] = [

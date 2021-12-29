@@ -23,12 +23,15 @@ class SnakeView: UIView {
     }
     
     func drawFruit() {
-        
         guard let fruit = delegate?.currentFruit() else { return }
         
-        let path = UIBezierPath(roundedRect: CGRect(x: gx + cell * CGFloat(fruit.col), y: gy + cell * CGFloat(fruit.row), width: cell, height: cell), cornerRadius: 8)
-        UIColor.red.setFill()
-        path.fill()
+        let attributes = [
+            NSAttributedString.Key.font: UIFont.systemFont(ofSize: cell - 2)
+        ]
+        
+        let apple = NSAttributedString(string: "🍎", attributes: attributes)
+        apple.draw(in: CGRect(x: gx + cell * CGFloat(fruit.col) , y:  gy + cell * CGFloat(fruit.row), width: cell , height: cell ))
+
     }
     
     
