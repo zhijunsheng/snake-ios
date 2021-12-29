@@ -12,6 +12,8 @@ class GameViewController: UIViewController, SnakeDelegate {
     
     var snakeGame = SnakeGame()
     
+    var direction: Direction = .down
+    
     @IBOutlet weak var snakeView: SnakeView!
     
     override func viewDidLoad() {
@@ -20,26 +22,27 @@ class GameViewController: UIViewController, SnakeDelegate {
         snakeView.delegate = self
         
         snakeGame.updateFruit()
+        
+        Timer.scheduledTimer(withTimeInterval: 0.3, repeats: true) { _ in
+            self.snakeGame.move(direction: self.direction)
+            self.snakeView.setNeedsDisplay()
+        }
     }
     
     @IBAction func moveRight(_ sender: Any) {
-        snakeGame.move(direction: .right)
-        snakeView.setNeedsDisplay()
+        direction = .right
     }
     
     @IBAction func moveDown(_ sender: Any) {
-        snakeGame.move(direction: .down)
-        snakeView.setNeedsDisplay()
+        direction = .down
     }
     
     @IBAction func moveLeft(_ sender: Any) {
-        snakeGame.move(direction: .left)
-        snakeView.setNeedsDisplay()
+        direction = .left
     }
     
     @IBAction func moveUp(_ sender: Any) {
-        snakeGame.move(direction: .up)
-        snakeView.setNeedsDisplay()
+        direction = .up
     }
     
     
