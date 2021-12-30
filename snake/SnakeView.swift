@@ -17,14 +17,14 @@ class SnakeView: UIView {
     override func draw(_ rect: CGRect) {
         let  pencil = UIBezierPath()
         
-        for i in 0 ..< 15 {
-            pencil.move(to: CGPoint(x: apple , y:  paper + CGFloat(i) * xcode)) 
-            pencil.addLine(to: CGPoint(x: apple + xcode * 20, y: paper + CGFloat(i) * xcode))
+        for i in 0 ..<  SnakeGame.gridSize + 1 {
+            pencil.move(to: CGPoint(x: apple , y:  paper + CGFloat(i) * xcode))
+            pencil.addLine(to: CGPoint(x: apple + xcode * CGFloat(SnakeGame.gridSize) , y: paper + CGFloat(i) * xcode))
         }
         
-        for i in 0 ..< 21 {
+        for i in 0 ..<  SnakeGame.gridSize + 1 {
             pencil.move(to: CGPoint(x:  apple + CGFloat(i) * xcode, y: paper))
-            pencil.addLine(to: CGPoint(x:  apple + CGFloat(i) * xcode, y: paper + 14 * xcode))
+            pencil.addLine(to: CGPoint(x:  apple + CGFloat(i) * xcode, y: paper +  CGFloat(SnakeGame.gridSize) * xcode))
         }
         
         pencil.stroke()
