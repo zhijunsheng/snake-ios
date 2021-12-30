@@ -12,7 +12,7 @@ import UIKit
 struct SnakeGame: CustomStringConvertible {
     
     static let size: Int = 22
-    var fruit: Fruit = Fruit(col: -1, row: -1)
+    var fruit: Fruit = Fruit(col: -1, row: -1, fruitIndex: 0)
     
     var snake: [SnakeCell] = [
         SnakeCell(col: 1, row: 2),
@@ -24,8 +24,9 @@ struct SnakeGame: CustomStringConvertible {
     mutating func updateFruit() {
         let randomCol: Int = Int(arc4random()) % SnakeGame.size
         let randomRow: Int = Int(arc4random()) % SnakeGame.size
+        let randomIndex: Int = Int(arc4random()) % 5
         
-        let nextFruit = Fruit(col: randomCol, row: randomRow)
+        let nextFruit = Fruit(col: randomCol, row: randomRow, fruitIndex: randomIndex)
         fruit = nextFruit
     }
 

@@ -15,7 +15,8 @@ class SnakeView: UIView {
     let gy: CGFloat = 20
     
     var delegate: SnakeDelegate? = nil
-
+    let fruits: [String] = ["🍓", "🍒", "🍇", "🍎", "🍉", ]
+    
     override func draw(_ rect: CGRect) {
         drawGrid()
         drawSnake()
@@ -29,7 +30,7 @@ class SnakeView: UIView {
             NSAttributedString.Key.font: UIFont.systemFont(ofSize: cell - 2)
         ]
         
-        let apple = NSAttributedString(string: "🍎", attributes: attributes)
+        let apple = NSAttributedString(string: fruits[fruit.fruitIndex], attributes: attributes)
         apple.draw(in: CGRect(x: gx + cell * CGFloat(fruit.col) , y:  gy + cell * CGFloat(fruit.row), width: cell , height: cell ))
 
     }
