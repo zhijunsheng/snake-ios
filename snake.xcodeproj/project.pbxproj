@@ -12,10 +12,10 @@
 		07FDE4132016091500A674FE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07FDE4112016091500A674FE /* Main.storyboard */; };
 		07FDE4152016091500A674FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07FDE4142016091500A674FE /* Assets.xcassets */; };
 		07FDE4182016091500A674FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07FDE4162016091500A674FE /* LaunchScreen.storyboard */; };
-		BB8151E72030A12900C408AF /* SimpleLoopTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8151E62030A12900C408AF /* SimpleLoopTests.swift */; };
-		BBBB9961201C0B06008FF835 /* PointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBBB9960201C0B06008FF835 /* PointTests.swift */; };
-		BBBB9963201C0B36008FF835 /* BoardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBBB9962201C0B36008FF835 /* BoardTests.swift */; };
 		ECD5C84027638F5100C1A8E7 /* SnakeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD5C83F27638F5100C1A8E7 /* SnakeView.swift */; };
+		ECD5C852276E176B00C1A8E7 /* SnakeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD5C851276E176B00C1A8E7 /* SnakeCell.swift */; };
+		ECD5C856276E196B00C1A8E7 /* GameEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD5C855276E196B00C1A8E7 /* GameEngine.swift */; };
+		ECD5C85E276E1CE800C1A8E7 /* GameEngineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD5C85D276E1CE800C1A8E7 /* GameEngineTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,12 +36,12 @@
 		07FDE4142016091500A674FE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		07FDE4172016091500A674FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		07FDE4192016091500A674FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BB8151E62030A12900C408AF /* SimpleLoopTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleLoopTests.swift; sourceTree = "<group>"; };
 		BBBB9956201C0ABA008FF835 /* snakeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = snakeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBBB995A201C0ABB008FF835 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BBBB9960201C0B06008FF835 /* PointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointTests.swift; sourceTree = "<group>"; };
-		BBBB9962201C0B36008FF835 /* BoardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardTests.swift; sourceTree = "<group>"; };
 		ECD5C83F27638F5100C1A8E7 /* SnakeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnakeView.swift; sourceTree = "<group>"; };
+		ECD5C851276E176B00C1A8E7 /* SnakeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnakeCell.swift; sourceTree = "<group>"; };
+		ECD5C855276E196B00C1A8E7 /* GameEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameEngine.swift; sourceTree = "<group>"; };
+		ECD5C85D276E1CE800C1A8E7 /* GameEngineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameEngineTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +90,8 @@
 				07FDE4162016091500A674FE /* LaunchScreen.storyboard */,
 				07FDE4192016091500A674FE /* Info.plist */,
 				ECD5C83F27638F5100C1A8E7 /* SnakeView.swift */,
+				ECD5C851276E176B00C1A8E7 /* SnakeCell.swift */,
+				ECD5C855276E196B00C1A8E7 /* GameEngine.swift */,
 			);
 			path = snake;
 			sourceTree = "<group>";
@@ -97,10 +99,8 @@
 		BBBB9957201C0ABA008FF835 /* snakeTests */ = {
 			isa = PBXGroup;
 			children = (
-				BBBB9960201C0B06008FF835 /* PointTests.swift */,
-				BB8151E62030A12900C408AF /* SimpleLoopTests.swift */,
-				BBBB9962201C0B36008FF835 /* BoardTests.swift */,
 				BBBB995A201C0ABB008FF835 /* Info.plist */,
+				ECD5C85D276E1CE800C1A8E7 /* GameEngineTests.swift */,
 			);
 			path = snakeTests;
 			sourceTree = "<group>";
@@ -159,6 +159,7 @@
 					};
 					BBBB9955201C0ABA008FF835 = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 1240;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 07FDE4092016091500A674FE;
 					};
@@ -208,6 +209,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECD5C856276E196B00C1A8E7 /* GameEngine.swift in Sources */,
+				ECD5C852276E176B00C1A8E7 /* SnakeCell.swift in Sources */,
 				07FDE4102016091500A674FE /* GameViewController.swift in Sources */,
 				07FDE40E2016091500A674FE /* AppDelegate.swift in Sources */,
 				ECD5C84027638F5100C1A8E7 /* SnakeView.swift in Sources */,
@@ -218,9 +221,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BBBB9963201C0B36008FF835 /* BoardTests.swift in Sources */,
-				BB8151E72030A12900C408AF /* SimpleLoopTests.swift in Sources */,
-				BBBB9961201C0B06008FF835 /* PointTests.swift in Sources */,
+				ECD5C85E276E1CE800C1A8E7 /* GameEngineTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -395,12 +396,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = J8B74FCZCC;
 				INFOPLIST_FILE = snakeTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = NICOLE.co.snakeTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/snake.app/snake";
@@ -411,6 +414,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = J8B74FCZCC;
 				INFOPLIST_FILE = snakeTests/Info.plist;
