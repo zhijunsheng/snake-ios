@@ -68,7 +68,8 @@ struct SnakeGame {
             newSnake.append(snake[snake.count - 1])
             let randomCol: Int = Int(arc4random()) % SnakeGame.gridNum
             let randomRow: Int = Int(arc4random()) % SnakeGame.gridNum
-            fruit = Fruit(col: randomCol, row: randomRow)
+            let randomFruit: Int = Int(arc4random()) % GridView.fruitOptions.count
+            fruit = Fruit(col: randomCol, row: randomRow, fruitType: randomFruit)
         }
         
         snake = newSnake

@@ -11,4 +11,5 @@ import Foundation
 struct Fruit {
     let col: Int
     let row: Int
+    let fruitType: Int
 }

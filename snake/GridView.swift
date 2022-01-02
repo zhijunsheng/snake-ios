@@ -13,6 +13,8 @@ class GridView: UIView {
     var xStart: CGFloat = 0
     var yStart: CGFloat = 0
     let ratio: CGFloat = 0.9
+    static let fruitOptions = ["🍎","🍏","🍐","🍊","🍋","🍌","🍉","🍇","🍓","🫐","🍑","🍒","🥭"]
+    // (1/11)
    
     var snakeCopy: [SnakeCell] = []
     var fruitCopy: Fruit?
@@ -29,7 +31,7 @@ class GridView: UIView {
    
    
         if let fruit = fruitCopy {
-            drawFruitCopy(col: fruit.col, row: fruit.row)
+            drawFruitCopy(col: fruit.col, row: fruit.row, fruitType: fruit.fruitType)
         }
    
     }
@@ -65,18 +67,9 @@ class GridView: UIView {
         }
     }
     
-    func drawFruitCopy(col: Int, row: Int) {
-        let redRandom: CGFloat = CGFloat(arc4random() % 1000)/1000
-        let greenRandom: CGFloat = CGFloat(arc4random() % 1000)/1000
-        let blueRandom: CGFloat = CGFloat(arc4random() % 1000)/1000
-        
-        let red: CGFloat = redRandom
-        let green: CGFloat = greenRandom
-        let blue: CGFloat = blueRandom
-        
-        let randomColor = UIColor(red: red, green: green, blue: blue, alpha: 1)
-        randomColor.setFill()
-        
-        UIBezierPath(roundedRect: CGRect(x: xStart + cell * CGFloat(col), y: yStart + cell * CGFloat(row), width: cell, height: cell), cornerRadius: cell * 0.2).fill()
+    func drawFruitCopy(col: Int, row: Int, fruitType: Int) {
+        let attributes = [NSAttributedString.Key.font: UIFont(name: "Arial", size: cell) as Any]
+        let fruit = NSAttributedString(string: GridView.fruitOptions[fruitType], attributes: attributes)
+        fruit.draw(in: CGRect(x: xStart + cell * CGFloat(col), y: yStart + cell * CGFloat(row), width: cell, height: cell))
     }
 }

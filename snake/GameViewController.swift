@@ -26,13 +26,13 @@ class GameViewController: UIViewController {
         let randomCol: Int = Int(arc4random()) % SnakeGame.gridNum
         let randomRow: Int = Int(arc4random()) % SnakeGame.gridNum
         
-        game.fruit = Fruit(col: randomCol, row: randomRow)
+        game.fruit = Fruit(col: randomCol, row: randomRow, fruitType: 0)
         
         gridView.snakeCopy = game.snake
         gridView.fruitCopy = game.fruit
         gameOver.textColor = .white
         
-        Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true) { _ in
+        Timer.scheduledTimer(withTimeInterval: 0.3, repeats: true) { _ in
             self.game.moveSnake(direction: self.direction)
             self.gridView.snakeCopy = self.game.snake
             self.gridView.fruitCopy = self.game.fruit
@@ -63,7 +63,6 @@ class GameViewController: UIViewController {
             direction = .east
         } else if gridView.snakeCopy[0].col > col && (direction == .north || direction == .south) {
             direction = .west
-        }  // a(b + c) = ab + ac
-        // a && ( b || c) = a && b || a && c
+        }
     }
 }
