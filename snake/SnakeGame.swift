@@ -21,6 +21,15 @@ struct SnakeGame: CustomStringConvertible {
         SnakeCell(col: 1, row: 5),
     ]
     
+    mutating func changeDirection(fingerCol: Int, fingerRow: Int) {
+        if fingerCol < snake[0].col {
+            move(direction: .left)
+            
+        } else {
+            move(direction: .right)
+        }
+    }
+    
     mutating func updateFruit() {
         let randomCol: Int = Int(arc4random()) % SnakeGame.size
         let randomRow: Int = Int(arc4random()) % SnakeGame.size

@@ -45,6 +45,16 @@ class GameViewController: UIViewController, SnakeDelegate {
         direction = .up
     }
     
+    @IBAction func tap(_ sender: UITapGestureRecognizer) {
+        let fingerLocation = sender.location(in: snakeView)
+        let col: Int = Int((fingerLocation.x - snakeView.gx) / snakeView.cell)
+        print(col)
+        
+        let row: Int = Int((fingerLocation.y - snakeView.gy) / snakeView.cell)
+        print(row)
+//        snakeGame.changeDirection(fingerCol: col, fingerRow: row)
+        moveByTouch(fingerCol: col, fingerRow: row)
+    }
     
     
     func snakeCellAt(col: Int, row: Int) -> SnakeCell? {
@@ -54,5 +64,35 @@ class GameViewController: UIViewController, SnakeDelegate {
     func currentFruit() -> Fruit {
         return snakeGame.currentFruit()
     }
+    
+    func moveByTouch(fingerCol: Int, fingerRow: Int) {
+        let snakeHead: SnakeCell = snakeGame.snake[0]
+        if direction == .left || direction == .right {
+
+            if fingerRow == snakeHead.row {
+                return
+            }
+            
+            if fingerRow < snakeHead.row {
+                direction = .up
+            } else {
+                direction = .down
+            }
+        } else {
+            
+            if fingerCol == snakeHead.col {
+                return
+            }
+            
+            if fingerCol < snakeHead.col {
+                direction = .left
+            } else {
+                direction = .right
+            }
+        }
+
+    }
+    
+
 }
 
