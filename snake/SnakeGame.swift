@@ -21,12 +21,33 @@ struct SnakeGame: CustomStringConvertible {
         SnakeCell(col: 1, row: 5),
     ]
     
+    var direction: Direction = .down
+    
     mutating func changeDirection(fingerCol: Int, fingerRow: Int) {
-        if fingerCol < snake[0].col {
-            move(direction: .left)
+        
+        let snakeHead: SnakeCell = snake[0]
+        if direction == .left || direction == .right {
+
+            if fingerRow == snakeHead.row {
+                return
+            }
             
+            if fingerRow < snakeHead.row {
+                direction = .up
+            } else {
+                direction = .down
+            }
         } else {
-            move(direction: .right)
+            
+            if fingerCol == snakeHead.col {
+                return
+            }
+            
+            if fingerCol < snakeHead.col {
+                direction = .left
+            } else {
+                direction = .right
+            }
         }
     }
     
