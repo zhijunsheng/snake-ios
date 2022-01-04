@@ -98,7 +98,7 @@ struct SnakeGame: CustomStringConvertible {
         
         snake = newSnake
     }
-
+    
     func snakeCellAt(col: Int, row: Int) -> SnakeCell? {
         for cell in snake {
             if cell.col == col && cell.row == row{

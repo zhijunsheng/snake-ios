@@ -14,6 +14,8 @@ class GameViewController: UIViewController, SnakeDelegate {
     
     @IBOutlet weak var snakeView: SnakeView!
     
+    @IBOutlet weak var infoLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -21,11 +23,25 @@ class GameViewController: UIViewController, SnakeDelegate {
         
         snakeGame.updateFruit()
         
+        infoLabel.text = ""
+        
         Timer.scheduledTimer(withTimeInterval: 0.2, repeats: true) { _ in
             self.snakeGame.move(direction: self.snakeGame.direction)
             self.snakeView.setNeedsDisplay()
+            
+            if self.snakeGame.snake[0].row == SnakeGame.size  {
+                self.infoLabel.text = "You Lose"
+            }
+            
         }
     }
+    
+    
+    @IBAction func restart(_ sender: Any) {
+        infoLabel.text = ""
+        
+    }
+    
     
     @IBAction func tap(_ sender: UITapGestureRecognizer) {
         let fingerLocation = sender.location(in: snakeView)
