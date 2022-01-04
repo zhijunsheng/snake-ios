@@ -13,8 +13,9 @@ class GameViewController: UIViewController, SnakeDelegate {
     var snakeGame = SnakeGame()
     
     @IBOutlet weak var snakeView: SnakeView!
-    
     @IBOutlet weak var infoLabel: UILabel!
+    
+    var gameOver: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,13 +25,22 @@ class GameViewController: UIViewController, SnakeDelegate {
         snakeGame.updateFruit()
         
         infoLabel.text = ""
+        snakeGame.restartGame()
         
-        Timer.scheduledTimer(withTimeInterval: 0.2, repeats: true) { _ in
-            self.snakeGame.move(direction: self.snakeGame.direction)
-            self.snakeView.setNeedsDisplay()
+        Timer.scheduledTimer(withTimeInterval: 0.3, repeats: true) { _ in
+            if !self.gameOver {
+                self.snakeGame.move(direction: self.snakeGame.direction)
+                self.snakeView.setNeedsDisplay()
+            }
             
-            if self.snakeGame.snake[0].row == SnakeGame.size  {
+            let head = self.snakeGame.snake[0]
+            print(head.row)
+            if head.row >= SnakeGame.size ||
+                head.col >= SnakeGame.size ||
+                head.row <= -1 ||
+                head.col <= -1 {
                 self.infoLabel.text = "You Lose"
+                self.gameOver = true
             }
             
         }
@@ -39,7 +49,8 @@ class GameViewController: UIViewController, SnakeDelegate {
     
     @IBAction func restart(_ sender: Any) {
         infoLabel.text = ""
-        
+        gameOver = false
+        snakeGame.restartGame()
     }
     
     

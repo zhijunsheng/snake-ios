@@ -14,12 +14,7 @@ struct SnakeGame: CustomStringConvertible {
     static let size: Int = 22
     var fruit: Fruit = Fruit(col: -1, row: -1, fruitIndex: 0)
     
-    var snake: [SnakeCell] = [
-        SnakeCell(col: 1, row: 2),
-        SnakeCell(col: 1, row: 3),
-        SnakeCell(col: 1, row: 4),
-        SnakeCell(col: 1, row: 5),
-    ]
+    var snake: [SnakeCell] = []
     
     var direction: Direction = .down
     
@@ -50,6 +45,17 @@ struct SnakeGame: CustomStringConvertible {
             }
         }
     }
+    
+    mutating func restartGame() {
+        snake.removeAll()
+        snake.append(SnakeCell(col: 1, row: 5))
+        snake.append(SnakeCell(col: 1, row: 4))
+        snake.append(SnakeCell(col: 1, row: 3))
+        snake.append(SnakeCell(col: 1, row: 2))
+        direction = .down
+    }
+    
+    
     
     mutating func updateFruit() {
         let randomCol: Int = Int(arc4random()) % SnakeGame.size
