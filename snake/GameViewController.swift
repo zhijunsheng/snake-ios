@@ -33,19 +33,13 @@ class GameViewController: UIViewController, SnakeDelegate {
                 self.snakeView.setNeedsDisplay()
             }
             
-            let head = self.snakeGame.snake[0]
-            print(head.row)
-            if head.row >= SnakeGame.size ||
-                head.col >= SnakeGame.size ||
-                head.row <= -1 ||
-                head.col <= -1 {
+            if self.snakeGame.isGameOver() {
                 self.infoLabel.text = "You Lose"
                 self.gameOver = true
             }
             
         }
     }
-    
     
     @IBAction func restart(_ sender: Any) {
         infoLabel.text = ""

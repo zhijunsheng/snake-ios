@@ -55,7 +55,23 @@ struct SnakeGame: CustomStringConvertible {
         direction = .down
     }
     
-    
+    func isGameOver() -> Bool {
+        let head = snake[0]
+        if head.row >= SnakeGame.size ||
+            head.col >= SnakeGame.size ||
+            head.row <= -1 ||
+            head.col <= -1 {
+            return true
+        }
+        
+        for i in 1 ..< snake.count {
+            if head.row == snake[i].row && head.col == snake[i].col {
+                return true
+            }
+        }
+        
+        return false
+    }
     
     mutating func updateFruit() {
         let randomCol: Int = Int(arc4random()) % SnakeGame.size
