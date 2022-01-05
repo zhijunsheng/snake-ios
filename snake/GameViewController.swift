@@ -27,7 +27,7 @@ class GameViewController: UIViewController, SnakeDelegate {
         infoLabel.text = ""
         snakeGame.restartGame()
         
-        Timer.scheduledTimer(withTimeInterval: 0.3, repeats: true) { _ in
+        Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { _ in
             if !self.gameOver {
                 self.snakeGame.move(direction: self.snakeGame.direction)
                 self.snakeView.setNeedsDisplay()

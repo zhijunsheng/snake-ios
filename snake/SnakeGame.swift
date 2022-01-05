@@ -10,8 +10,10 @@ import Foundation
 import UIKit
 
 struct SnakeGame: CustomStringConvertible {
+
+    static let rows: Int = 36
+    static let cols: Int = 24
     
-    static let size: Int = 22
     var fruit: Fruit = Fruit(col: -1, row: -1, fruitIndex: 0)
     
     var snake: [SnakeCell] = []
@@ -57,8 +59,8 @@ struct SnakeGame: CustomStringConvertible {
     
     func isGameOver() -> Bool {
         let head = snake[0]
-        if head.row >= SnakeGame.size ||
-            head.col >= SnakeGame.size ||
+        if head.row >= SnakeGame.rows ||
+            head.col >= SnakeGame.cols ||
             head.row <= -1 ||
             head.col <= -1 {
             return true
@@ -74,8 +76,8 @@ struct SnakeGame: CustomStringConvertible {
     }
     
     mutating func updateFruit() {
-        let randomCol: Int = Int(arc4random()) % SnakeGame.size
-        let randomRow: Int = Int(arc4random()) % SnakeGame.size
+        let randomCol: Int = Int(arc4random()) % SnakeGame.cols
+        let randomRow: Int = Int(arc4random()) % SnakeGame.rows
         let randomIndex: Int = Int(arc4random()) % 5
         
         let nextFruit = Fruit(col: randomCol, row: randomRow, fruitIndex: randomIndex)
@@ -133,19 +135,19 @@ struct SnakeGame: CustomStringConvertible {
     var description: String {
         var desc = "   "
         
-        for i in 0 ..< SnakeGame.size {
+        for i in 0 ..< SnakeGame.rows {
             desc.append("\(  i % 10  ) ")
         }
         
         desc.append("\n")
         
-        for r in 0 ..< SnakeGame.size {
+        for r in 0 ..< SnakeGame.rows {
             if r < 10 {
                 desc.append(" ")
             }
             desc.append("\(r) ")
             
-            for c in 0 ..< SnakeGame.size {
+            for c in 0 ..< SnakeGame.cols {
                 let cell = snakeCellAt(col: c, row: r)
                 
                 if cell == nil {

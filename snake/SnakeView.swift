@@ -10,9 +10,9 @@ import UIKit
 
 class SnakeView: UIView {
     
-    let cell: CGFloat = 30
-    let gx: CGFloat = 50
-    let gy: CGFloat = 20
+    let cell: CGFloat = 15
+    let gx: CGFloat = 5
+    let gy: CGFloat = 5
     
     var delegate: SnakeDelegate? = nil
     let fruits: [String] = ["🍓", "🍒", "🍇", "🍎", "🍉", ]
@@ -38,27 +38,29 @@ class SnakeView: UIView {
     
     func drawGrid() {
         let pencil = UIBezierPath()
-        for i in 0 ... SnakeGame.size {
+        for i in 0 ... SnakeGame.rows {
             
             //horizontal lines
             pencil.move(to: CGPoint(x: gx, y: gy + cell * CGFloat(i)))
-            pencil.addLine(to: CGPoint(x: gx + cell * CGFloat(SnakeGame.size), y: gy + cell * CGFloat(i)))
+            pencil.addLine(to: CGPoint(x: gx + cell * CGFloat(SnakeGame.cols), y: gy + cell * CGFloat(i)))
+        }
         
+        for i in 0 ... SnakeGame.cols {
             //vertical lines
             pencil.move(to: CGPoint(x: gx + cell * CGFloat(i), y: gy  ))
-            pencil.addLine(to: CGPoint(x: gx + cell * CGFloat(i), y: gy + cell * CGFloat(SnakeGame.size) ))
+            pencil.addLine(to: CGPoint(x: gx + cell * CGFloat(i), y: gy + cell * CGFloat(SnakeGame.rows) ))
         }
         pencil.stroke()
     }
     
     func drawSnake() {
         
-        for c in 0 ..< SnakeGame.size {
-            for r in 0 ..< SnakeGame.size {
+        for c in 0 ..< SnakeGame.cols {
+            for r in 0 ..< SnakeGame.rows {
                 let snakeCell = delegate?.snakeCellAt(col: c, row: r)
                 
                 if snakeCell != nil {
-                    let snakecell = UIBezierPath(roundedRect: CGRect(x: gx + cell * CGFloat(c), y: gy + cell * CGFloat(r), width: cell, height: cell), cornerRadius: 8)
+                    let snakecell = UIBezierPath(roundedRect: CGRect(x: gx + cell * CGFloat(c), y: gy + cell * CGFloat(r), width: cell, height: cell), cornerRadius: cell * 0.327)
                     UIColor.green.setFill()
                     snakecell.fill()
                     snakecell.stroke()
