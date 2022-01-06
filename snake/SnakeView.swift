@@ -19,20 +19,19 @@ class SnakeView: UIView {
     // 10 based
     // 100
 
-    let gridSize: Int = 0o12
     let gridX: CGFloat = 80
     let gridY: CGFloat = 60
     let cellSide: CGFloat = 60
     
     override func draw(_ rect: CGRect) {
         let line = UIBezierPath()
-        for i in 0 ..< gridSize + 1 {
+        for i in 0 ..< SnakeGame.gridSize + 1 {
             line.move(to: CGPoint(x: gridX, y: gridY + cellSide * CGFloat(i)))
-            line.addLine(to: CGPoint(x: gridX + cellSide * CGFloat(gridSize), y: gridY + cellSide * CGFloat(i)))
+            line.addLine(to: CGPoint(x: gridX + cellSide * CGFloat(SnakeGame.gridSize), y: gridY + cellSide * CGFloat(i)))
         }
-        for i in 0 ..< gridSize + 1 {
+        for i in 0 ..< SnakeGame.gridSize + 1 {
             line.move(to: CGPoint(x: gridX + cellSide * CGFloat(i), y: gridY))
-            line.addLine(to: CGPoint(x: gridX + cellSide * CGFloat(i), y: gridY + cellSide * CGFloat( gridSize)))
+            line.addLine(to: CGPoint(x: gridX + cellSide * CGFloat(i), y: gridY + cellSide * CGFloat(SnakeGame.gridSize)))
         }
         line.stroke()
     }
