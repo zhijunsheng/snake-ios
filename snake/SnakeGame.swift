@@ -9,35 +9,32 @@
 import Foundation
 
 struct  SnakeGame: CustomStringConvertible {
-    static let gridSize: Int = 6
-    /*
-     
-     0 1 2 3 4 5 6
-   0 . . . . . . .
-   0 . . . . . . .
-   0 . . . . . . .
-   0 . . . . . . .
-   0 . . . . . . .
-     
-     */
+    static let gridSize: Int = 16
     var description: String {
         var desc = ""
-        for  _ in  0 ..< SnakeGame.gridSize {
-            desc.append(" " )
+        desc.append("  ")
+        for i  in  0 ..< SnakeGame.gridSize {
+            desc.append(" ")
+            desc.append("\(i % 10)")
         }
+        
         desc.append("\n")
         for  i in  0 ..< SnakeGame.gridSize {
-            desc.append( "\(i) ")
-            for  _ in 0 ..< SnakeGame.gridSize {
-                desc.append(" ." )
+            if  i < 10 {
+                desc.append(" ")
+            }
+            desc.append("\(i)")
+            for  _ in  0 ..< SnakeGame.gridSize{
+           
+                desc.append(" .")
             }
             desc.append("\n")
-            
         }
+
         return desc
         
     }
     
-    
+    // 13 % 10 => 3, 3 % 10 = 3
 }
 
