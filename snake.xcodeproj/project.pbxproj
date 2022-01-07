@@ -15,6 +15,7 @@
 		9C9F6D052775F70900773803 /* SnakeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9F6D042775F70900773803 /* SnakeView.swift */; };
 		9CCDA50A27847721009F5CF2 /* SnakeGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CCDA50927847721009F5CF2 /* SnakeGame.swift */; };
 		9CCDA50C27847808009F5CF2 /* SnakeGameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CCDA50B27847808009F5CF2 /* SnakeGameTests.swift */; };
+		9CCDA50E27871C63009F5CF2 /* SnakeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CCDA50D27871C63009F5CF2 /* SnakeCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 		9C9F6D042775F70900773803 /* SnakeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnakeView.swift; sourceTree = "<group>"; };
 		9CCDA50927847721009F5CF2 /* SnakeGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnakeGame.swift; sourceTree = "<group>"; };
 		9CCDA50B27847808009F5CF2 /* SnakeGameTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnakeGameTests.swift; sourceTree = "<group>"; };
+		9CCDA50D27871C63009F5CF2 /* SnakeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnakeCell.swift; sourceTree = "<group>"; };
 		BBBB9956201C0ABA008FF835 /* snakeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = snakeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBBB995A201C0ABB008FF835 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -89,6 +91,7 @@
 				07FDE4162016091500A674FE /* LaunchScreen.storyboard */,
 				07FDE4192016091500A674FE /* Info.plist */,
 				9CCDA50927847721009F5CF2 /* SnakeGame.swift */,
+				9CCDA50D27871C63009F5CF2 /* SnakeCell.swift */,
 			);
 			path = snake;
 			sourceTree = "<group>";
@@ -210,6 +213,7 @@
 				07FDE40E2016091500A674FE /* AppDelegate.swift in Sources */,
 				9CCDA50A27847721009F5CF2 /* SnakeGame.swift in Sources */,
 				9C9F6D052775F70900773803 /* SnakeView.swift in Sources */,
+				9CCDA50E27871C63009F5CF2 /* SnakeCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

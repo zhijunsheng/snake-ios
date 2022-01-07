@@ -11,6 +11,20 @@ struct SnakeGame: CustomStringConvertible {
     
     static let gridSize: Int = 9
     
+    var snake: [SnakeCell] = [
+        SnakeCell(col: 5, row: 4),
+        SnakeCell(col: 6, row: 4)
+    ]
+    
+    func isOnSnake(col: Int, row: Int) -> Bool {
+        for snakeCell in snake {
+            if snakeCell.col == col && snakeCell.row == row {
+                return true
+            }
+        }
+        return false
+    }
+    
     var description: String {
         var desc: String = ""
         desc.append("\n  ")
@@ -18,19 +32,20 @@ struct SnakeGame: CustomStringConvertible {
             desc.append(" \(i % 10)")
         }
         desc.append("\n")
-        for i in 0 ..< SnakeGame.gridSize {
-            if i < 10 {
+        for r in 0 ..< SnakeGame.gridSize {
+            if r < 10 {
                 desc.append(" ")
             }
-            desc.append("\(i)")
-            for _ in 0 ..< SnakeGame.gridSize {
-                desc.append(" .")
+            desc.append("\(r)")
+            for c in 0 ..< SnakeGame.gridSize {
+                if isOnSnake(col: c, row: r) {
+                    desc.append(" S")
+                } else {
+                    desc.append(" .")
+                }
             }
             desc.append("\n")
         }
-        
         return desc
     }
-    
-    
 }
