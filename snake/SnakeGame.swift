@@ -9,12 +9,44 @@ import Foundation
 
 struct SnakeGame: CustomStringConvertible {
     
-    static let gridSize: Int = 9
+    static let gridSize: Int = 20
     
     var snake: [SnakeCell] = [
-        SnakeCell(col: 5, row: 4),
-        SnakeCell(col: 6, row: 4)
+        SnakeCell(col: 1, row: 1),
+        SnakeCell(col: 2, row: 1),
+        SnakeCell(col: 3, row: 1),
+        SnakeCell(col: 4, row: 1),
+        SnakeCell(col: 5, row: 1),
+        SnakeCell(col: 6, row: 1),
+        SnakeCell(col: 7, row: 1),
+        SnakeCell(col: 7, row: 2),
+        SnakeCell(col: 7, row: 3),
+        SnakeCell(col: 6, row: 3),
+        SnakeCell(col: 5, row: 3),
+        SnakeCell(col: 4, row: 3),
+        SnakeCell(col: 3, row: 3),
+        SnakeCell(col: 2, row: 3),
+        SnakeCell(col: 2, row: 4),
+        SnakeCell(col: 2, row: 5),
+        SnakeCell(col: 2, row: 6),
+        SnakeCell(col: 2, row: 8)
+
     ]
+    
+    mutating func moveRight() {
+        let newSnake: [SnakeCell] = [
+            SnakeCell(col: snake[0].col + 1, row: 4)
+        ]
+        snake = newSnake
+    }
+    
+    mutating func moveLeft() {
+        let newSnake: [SnakeCell] = [
+            SnakeCell(col: snake[0].col - 1, row: 4)
+        ]
+        snake = newSnake
+    }
+
     
     func isOnSnake(col: Int, row: Int) -> Bool {
         for snakeCell in snake {

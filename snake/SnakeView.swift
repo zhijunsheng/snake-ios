@@ -9,21 +9,32 @@
 import UIKit
 
 class SnakeView: UIView {
-    //         0     1     2     3     4     5     6     7     8
-    // binary  0000, 0001, 0010, 0011, 0100, 0101, 0110, 0111, 1000
-    // 1: 0001
-    // 2: 0010
-    // 4: 0100
-    // 8: 1000
     
-    // 10 based
-    // 100
-
+    var delegate: SnakeDelegate?
+    
     let gridX: CGFloat = 80
     let gridY: CGFloat = 60
-    let cellSide: CGFloat = 60
-    
+    let cellSide: CGFloat = 30
     override func draw(_ rect: CGRect) {
+        drawBoard()
+        drawSnake()
+    }
+    
+    func drawSnake() {
+        guard let delegate = delegate else { return }
+        UIColor.red.setFill()
+        for r in 0 ..< SnakeGame.gridSize {
+            for c in 0 ..< SnakeGame.gridSize {
+                if delegate.isOnSnake(col: c, row: r) {
+                    let line = UIBezierPath(roundedRect: CGRect(x: gridX + cellSide * CGFloat(c), y: gridY + cellSide * CGFloat(r), width: cellSide, height: cellSide), cornerRadius: cellSide * 0.3 )
+                    line.fill()
+                    line.stroke()
+                }
+            }
+        }
+    }
+    
+    func drawBoard() {
         let line = UIBezierPath()
         for i in 0 ..< SnakeGame.gridSize + 1 {
             line.move(to: CGPoint(x: gridX, y: gridY + cellSide * CGFloat(i)))
@@ -35,6 +46,4 @@ class SnakeView: UIView {
         }
         line.stroke()
     }
-    
-    
 }
